@@ -56,9 +56,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(213, 133);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 13);
+            this.label1.Size = new System.Drawing.Size(84, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Синхронизируй плиз";
+            this.label1.Text = "Синхронизируй";
             // 
             // Form1
             // 
