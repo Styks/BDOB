@@ -17,7 +17,7 @@ namespace BDO_Builder
             InitializeComponent();
         }
 
-        string sclass = "Select class";
+        string sclass = "None";
         Image cimg;
 
         private void GearForm_btn_Click(object sender, EventArgs e)
@@ -176,6 +176,20 @@ namespace BDO_Builder
             Cimg_pb.BackgroundImage = cimg;
             sclass = "Shai";
             Sclass_lbl.Text = sclass;
+        }
+
+        private void SkillTreeForm_btn_Click(object sender, EventArgs e)
+        {
+            SkillTreeForm stf = new SkillTreeForm();
+            stf.sclass = sclass;
+            Image cimg = Cimg_pb.BackgroundImage;
+            stf.cimg = cimg;
+            Hide();
+            if (stf.ShowDialog() == DialogResult.Cancel)
+            {
+                Show();
+                stf.Close();
+            }
         }
     }
 }
