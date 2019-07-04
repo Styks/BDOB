@@ -14,12 +14,13 @@ namespace BDO_Builder
     {
 
         public string sclass;
+        public Image cimg;
 
         public GearForm()
         {
             InitializeComponent();
         }
-
+  
         private void GearForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing) Application.Exit();
@@ -28,6 +29,8 @@ namespace BDO_Builder
         private void GearForm_Load(object sender, EventArgs e)
         {
             Sclass_lbl.Text = sclass;
+            Class_pic.BackgroundImage = cimg;
+            if (sclass == "Shai") { AW_btn.Visible = false; SAW_btn.Visible = false; }
         }
     }
 }
