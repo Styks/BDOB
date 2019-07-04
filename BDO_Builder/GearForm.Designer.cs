@@ -103,12 +103,14 @@
             this.KBR_lbl = new System.Windows.Forms.Label();
             this.Resist_lbl = new System.Windows.Forms.Label();
             this.SSFR_lbl = new System.Windows.Forms.Label();
+            this.dgvGear = new System.Windows.Forms.DataGridView();
             this.ShopGear_gb.SuspendLayout();
             this.CharacterGear_gb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Class_pic)).BeginInit();
             this.MStats_gb.SuspendLayout();
             this.Settings_gb.SuspendLayout();
             this.OStats_gb.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGear)).BeginInit();
             this.SuspendLayout();
             // 
             // Back_btn
@@ -920,12 +922,21 @@
             this.SSFR_lbl.TabIndex = 18;
             this.SSFR_lbl.Text = "Stun/Stiffness/Freezing";
             // 
+            // dgvGear
+            // 
+            this.dgvGear.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGear.Location = new System.Drawing.Point(441, 281);
+            this.dgvGear.Name = "dgvGear";
+            this.dgvGear.Size = new System.Drawing.Size(240, 150);
+            this.dgvGear.TabIndex = 19;
+            // 
             // GearForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1157, 647);
+            this.Controls.Add(this.dgvGear);
             this.Controls.Add(this.OStats_gb);
             this.Controls.Add(this.Settings_gb);
             this.Controls.Add(this.MStats_gb);
@@ -947,6 +958,7 @@
             this.Settings_gb.PerformLayout();
             this.OStats_gb.ResumeLayout(false);
             this.OStats_gb.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGear)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1027,5 +1039,6 @@
         private System.Windows.Forms.Label KBR_lbl;
         private System.Windows.Forms.Label Resist_lbl;
         private System.Windows.Forms.Label SSFR_lbl;
+        private System.Windows.Forms.DataGridView dgvGear;
     }
 }
