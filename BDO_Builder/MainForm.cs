@@ -18,6 +18,7 @@ namespace BDO_Builder
         }
 
         string sclass = "Select class";
+        Image cimg;
 
         private void GearForm_btn_Click(object sender, EventArgs e)
         {
@@ -35,7 +36,7 @@ namespace BDO_Builder
 
         private void Warrior_btn_Click(object sender, EventArgs e)
         {
-            Image cimg = Warrior_btn.BackgroundImage;
+            cimg = Warrior_btn.BackgroundImage;
             Cimg_pb.BackgroundImage = cimg;
             sclass = "Warrior";
             Sclass_lbl.Text = sclass;
@@ -43,7 +44,7 @@ namespace BDO_Builder
 
         private void Sorceress_btn_Click(object sender, EventArgs e)
         {
-            Image cimg = Sorceress_btn.BackgroundImage;
+            cimg = Sorceress_btn.BackgroundImage;
             Cimg_pb.BackgroundImage = cimg;
             sclass = "Sorceress";
             Sclass_lbl.Text = sclass;
@@ -51,7 +52,7 @@ namespace BDO_Builder
 
         private void Berserker_btn_Click(object sender, EventArgs e)
         {
-            Image cimg = Berserker_btn.BackgroundImage;
+            cimg = Berserker_btn.BackgroundImage;
             Cimg_pb.BackgroundImage = cimg;
             sclass = "Berserker";
             Sclass_lbl.Text = sclass;
@@ -59,7 +60,7 @@ namespace BDO_Builder
 
         private void Ranger_btn_Click(object sender, EventArgs e)
         {
-            Image cimg = Ranger_btn.BackgroundImage;
+            cimg = Ranger_btn.BackgroundImage;
             Cimg_pb.BackgroundImage = cimg;
             sclass = "Ranger";
             Sclass_lbl.Text = sclass;
@@ -67,7 +68,7 @@ namespace BDO_Builder
 
         private void Tamer_btn_Click(object sender, EventArgs e)
         {
-            Image cimg = Tamer_btn.BackgroundImage;
+            cimg = Tamer_btn.BackgroundImage;
             Cimg_pb.BackgroundImage = cimg;
             sclass = "Tamer";
             Sclass_lbl.Text = sclass;
@@ -75,7 +76,7 @@ namespace BDO_Builder
 
         private void Valkyrie_btn_Click(object sender, EventArgs e)
         {
-            Image cimg = Valkyrie_btn.BackgroundImage;
+            cimg = Valkyrie_btn.BackgroundImage;
             Cimg_pb.BackgroundImage = cimg;
             sclass = "Valkyrie";
             Sclass_lbl.Text = sclass;
@@ -83,7 +84,7 @@ namespace BDO_Builder
 
         private void Musa_btn_Click(object sender, EventArgs e)
         {
-            Image cimg = Musa_btn.BackgroundImage;
+            cimg = Musa_btn.BackgroundImage;
             Cimg_pb.BackgroundImage = cimg;
             sclass = "Musa";
             Sclass_lbl.Text = sclass;
@@ -91,7 +92,7 @@ namespace BDO_Builder
 
         private void Maehwa_btn_Click(object sender, EventArgs e)
         {
-            Image cimg = Maehwa_btn.BackgroundImage;
+            cimg = Maehwa_btn.BackgroundImage;
             Cimg_pb.BackgroundImage = cimg;
             sclass = "Maehwa";
             Sclass_lbl.Text = sclass;
@@ -99,7 +100,7 @@ namespace BDO_Builder
 
         private void Witch_btn_Click(object sender, EventArgs e)
         {
-            Image cimg = Witch_btn.BackgroundImage;
+            cimg = Witch_btn.BackgroundImage;
             Cimg_pb.BackgroundImage = cimg;
             sclass = "Witch";
             Sclass_lbl.Text = sclass;
@@ -107,7 +108,7 @@ namespace BDO_Builder
 
         private void Wizard_btn_Click(object sender, EventArgs e)
         {
-            Image cimg = Wizard_btn.BackgroundImage;
+            cimg = Wizard_btn.BackgroundImage;
             Cimg_pb.BackgroundImage = cimg;
             sclass = "Wizard";
             Sclass_lbl.Text = sclass;
@@ -115,7 +116,7 @@ namespace BDO_Builder
 
         private void Kunoichi_btn_Click(object sender, EventArgs e)
         {
-            Image cimg = Kunoichi_btn.BackgroundImage;
+            cimg = Kunoichi_btn.BackgroundImage;
             Cimg_pb.BackgroundImage = cimg;
             sclass = "Kunoichi";
             Sclass_lbl.Text = sclass;
@@ -123,7 +124,7 @@ namespace BDO_Builder
 
         private void Class_Ninja_btn_Click(object sender, EventArgs e)
         {
-            Image cimg = Ninja_btn.BackgroundImage;
+            cimg = Ninja_btn.BackgroundImage;
             Cimg_pb.BackgroundImage = cimg;
             sclass = "Ninja";
             Sclass_lbl.Text = sclass;
@@ -131,7 +132,7 @@ namespace BDO_Builder
 
         private void DK_btn_Click(object sender, EventArgs e)
         {
-            Image cimg = DK_btn.BackgroundImage;
+            cimg = DK_btn.BackgroundImage;
             Cimg_pb.BackgroundImage = cimg;
             sclass = "Dark Knight";
             Sclass_lbl.Text = sclass;
@@ -139,7 +140,7 @@ namespace BDO_Builder
 
         private void Striker_btn_Click(object sender, EventArgs e)
         {
-            Image cimg = Striker_btn.BackgroundImage;
+            cimg = Striker_btn.BackgroundImage;
             Cimg_pb.BackgroundImage = cimg;
             sclass = "Striker";
             Sclass_lbl.Text = sclass;
@@ -147,7 +148,7 @@ namespace BDO_Builder
 
         private void Mystic_btn_Click(object sender, EventArgs e)
         {
-            Image cimg = Mystic_btn.BackgroundImage;
+            cimg = Mystic_btn.BackgroundImage;
             Cimg_pb.BackgroundImage = cimg;
             sclass = "Mystic";
             Sclass_lbl.Text = sclass;
@@ -155,7 +156,7 @@ namespace BDO_Builder
 
         private void Lahn_btn_Click(object sender, EventArgs e)
         {
-            Image cimg = Lahn_btn.BackgroundImage;
+            cimg = Lahn_btn.BackgroundImage;
             Cimg_pb.BackgroundImage = cimg;
             sclass = "Lahn";
             Sclass_lbl.Text = sclass;
@@ -163,7 +164,7 @@ namespace BDO_Builder
 
         private void Archer_btn_Click(object sender, EventArgs e)
         {
-            Image cimg = Archer_btn.BackgroundImage;
+            cimg = Archer_btn.BackgroundImage;
             Cimg_pb.BackgroundImage = cimg;
             sclass = "Archer";
             Sclass_lbl.Text = sclass;
@@ -171,7 +172,7 @@ namespace BDO_Builder
 
         private void Shai_btn_Click(object sender, EventArgs e)
         {
-            Image cimg = Shai_btn.BackgroundImage;
+            cimg = Shai_btn.BackgroundImage;
             Cimg_pb.BackgroundImage = cimg;
             sclass = "Shai";
             Sclass_lbl.Text = sclass;
