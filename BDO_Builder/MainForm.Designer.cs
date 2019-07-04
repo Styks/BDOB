@@ -71,6 +71,8 @@
             this.Cimg_pb = new System.Windows.Forms.PictureBox();
             this.SelectClass_lbl = new System.Windows.Forms.Label();
             this.SelectedClass_lbl = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Cimg_pb)).BeginInit();
             this.SuspendLayout();
             // 
@@ -546,6 +548,25 @@
             this.SelectedClass_lbl.TabIndex = 43;
             this.SelectedClass_lbl.Text = "Selected Class";
             // 
+            // button1
+            // 
+            this.button1.Enabled = false;
+            this.button1.Location = new System.Drawing.Point(674, 221);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 44;
+            this.button1.Text = "Craft";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Enabled = false;
+            this.button2.Location = new System.Drawing.Point(673, 250);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 45;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -553,6 +574,8 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(774, 596);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.Cimg_pb);
             this.Controls.Add(this.Sclass_lbl);
             this.Controls.Add(this.SelectedClass_lbl);
@@ -648,6 +671,8 @@
         private System.Windows.Forms.PictureBox Cimg_pb;
         private System.Windows.Forms.Label SelectClass_lbl;
         private System.Windows.Forms.Label SelectedClass_lbl;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
 
