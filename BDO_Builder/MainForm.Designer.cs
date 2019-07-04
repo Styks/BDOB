@@ -68,11 +68,15 @@
             this.Lahn_lbl = new System.Windows.Forms.Label();
             this.Archer_lbl = new System.Windows.Forms.Label();
             this.Shai_lbl = new System.Windows.Forms.Label();
+            this.Cimg_pb = new System.Windows.Forms.PictureBox();
+            this.SelectClass_lbl = new System.Windows.Forms.Label();
+            this.SelectedClass_lbl = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.Cimg_pb)).BeginInit();
             this.SuspendLayout();
             // 
             // GearForm_btn
             // 
-            this.GearForm_btn.Location = new System.Drawing.Point(565, 60);
+            this.GearForm_btn.Location = new System.Drawing.Point(674, 163);
             this.GearForm_btn.Name = "GearForm_btn";
             this.GearForm_btn.Size = new System.Drawing.Size(75, 23);
             this.GearForm_btn.TabIndex = 0;
@@ -83,7 +87,7 @@
             // SkillTreeForm_btn
             // 
             this.SkillTreeForm_btn.Enabled = false;
-            this.SkillTreeForm_btn.Location = new System.Drawing.Point(657, 60);
+            this.SkillTreeForm_btn.Location = new System.Drawing.Point(674, 192);
             this.SkillTreeForm_btn.Name = "SkillTreeForm_btn";
             this.SkillTreeForm_btn.Size = new System.Drawing.Size(75, 23);
             this.SkillTreeForm_btn.TabIndex = 1;
@@ -97,7 +101,7 @@
             this.Ninja_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Ninja_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Ninja_btn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Ninja_btn.Location = new System.Drawing.Point(250, 294);
+            this.Ninja_btn.Location = new System.Drawing.Point(240, 271);
             this.Ninja_btn.Name = "Ninja_btn";
             this.Ninja_btn.Size = new System.Drawing.Size(70, 70);
             this.Ninja_btn.TabIndex = 2;
@@ -107,7 +111,7 @@
             // Ninja_lbl
             // 
             this.Ninja_lbl.AutoSize = true;
-            this.Ninja_lbl.Location = new System.Drawing.Point(269, 367);
+            this.Ninja_lbl.Location = new System.Drawing.Point(259, 344);
             this.Ninja_lbl.Name = "Ninja_lbl";
             this.Ninja_lbl.Size = new System.Drawing.Size(31, 13);
             this.Ninja_lbl.TabIndex = 3;
@@ -115,12 +119,13 @@
             // 
             // Sclass_lbl
             // 
-            this.Sclass_lbl.AutoSize = true;
-            this.Sclass_lbl.Location = new System.Drawing.Point(28, 49);
+            this.Sclass_lbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Sclass_lbl.Location = new System.Drawing.Point(675, 128);
             this.Sclass_lbl.Name = "Sclass_lbl";
-            this.Sclass_lbl.Size = new System.Drawing.Size(64, 13);
+            this.Sclass_lbl.Size = new System.Drawing.Size(70, 15);
             this.Sclass_lbl.TabIndex = 4;
-            this.Sclass_lbl.Text = "Select class";
+            this.Sclass_lbl.Text = "None";
+            this.Sclass_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Warrior_btn
             // 
@@ -129,7 +134,7 @@
             this.Warrior_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Warrior_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Warrior_btn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Warrior_btn.Location = new System.Drawing.Point(22, 78);
+            this.Warrior_btn.Location = new System.Drawing.Point(12, 55);
             this.Warrior_btn.Name = "Warrior_btn";
             this.Warrior_btn.Size = new System.Drawing.Size(70, 70);
             this.Warrior_btn.TabIndex = 5;
@@ -139,7 +144,7 @@
             // Warrior_lbl
             // 
             this.Warrior_lbl.AutoSize = true;
-            this.Warrior_lbl.Location = new System.Drawing.Point(37, 151);
+            this.Warrior_lbl.Location = new System.Drawing.Point(27, 128);
             this.Warrior_lbl.Name = "Warrior_lbl";
             this.Warrior_lbl.Size = new System.Drawing.Size(41, 13);
             this.Warrior_lbl.TabIndex = 6;
@@ -152,7 +157,7 @@
             this.Sorceress_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Sorceress_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Sorceress_btn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Sorceress_btn.Location = new System.Drawing.Point(98, 78);
+            this.Sorceress_btn.Location = new System.Drawing.Point(88, 55);
             this.Sorceress_btn.Name = "Sorceress_btn";
             this.Sorceress_btn.Size = new System.Drawing.Size(70, 70);
             this.Sorceress_btn.TabIndex = 7;
@@ -166,7 +171,7 @@
             this.Berserker_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Berserker_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Berserker_btn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Berserker_btn.Location = new System.Drawing.Point(174, 78);
+            this.Berserker_btn.Location = new System.Drawing.Point(164, 55);
             this.Berserker_btn.Name = "Berserker_btn";
             this.Berserker_btn.Size = new System.Drawing.Size(70, 70);
             this.Berserker_btn.TabIndex = 8;
@@ -180,7 +185,7 @@
             this.Ranger_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Ranger_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Ranger_btn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Ranger_btn.Location = new System.Drawing.Point(250, 78);
+            this.Ranger_btn.Location = new System.Drawing.Point(240, 55);
             this.Ranger_btn.Name = "Ranger_btn";
             this.Ranger_btn.Size = new System.Drawing.Size(70, 70);
             this.Ranger_btn.TabIndex = 9;
@@ -194,7 +199,7 @@
             this.Tamer_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Tamer_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Tamer_btn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Tamer_btn.Location = new System.Drawing.Point(22, 186);
+            this.Tamer_btn.Location = new System.Drawing.Point(12, 163);
             this.Tamer_btn.Name = "Tamer_btn";
             this.Tamer_btn.Size = new System.Drawing.Size(70, 70);
             this.Tamer_btn.TabIndex = 10;
@@ -208,7 +213,7 @@
             this.Valkyrie_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Valkyrie_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Valkyrie_btn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Valkyrie_btn.Location = new System.Drawing.Point(98, 186);
+            this.Valkyrie_btn.Location = new System.Drawing.Point(88, 163);
             this.Valkyrie_btn.Name = "Valkyrie_btn";
             this.Valkyrie_btn.Size = new System.Drawing.Size(70, 70);
             this.Valkyrie_btn.TabIndex = 11;
@@ -222,7 +227,7 @@
             this.Musa_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Musa_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Musa_btn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Musa_btn.Location = new System.Drawing.Point(174, 186);
+            this.Musa_btn.Location = new System.Drawing.Point(164, 163);
             this.Musa_btn.Name = "Musa_btn";
             this.Musa_btn.Size = new System.Drawing.Size(70, 70);
             this.Musa_btn.TabIndex = 12;
@@ -236,7 +241,7 @@
             this.Maehwa_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Maehwa_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Maehwa_btn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Maehwa_btn.Location = new System.Drawing.Point(250, 186);
+            this.Maehwa_btn.Location = new System.Drawing.Point(240, 163);
             this.Maehwa_btn.Name = "Maehwa_btn";
             this.Maehwa_btn.Size = new System.Drawing.Size(70, 70);
             this.Maehwa_btn.TabIndex = 13;
@@ -250,7 +255,7 @@
             this.Witch_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Witch_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Witch_btn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Witch_btn.Location = new System.Drawing.Point(22, 294);
+            this.Witch_btn.Location = new System.Drawing.Point(12, 271);
             this.Witch_btn.Name = "Witch_btn";
             this.Witch_btn.Size = new System.Drawing.Size(70, 70);
             this.Witch_btn.TabIndex = 14;
@@ -264,7 +269,7 @@
             this.Wizard_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Wizard_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Wizard_btn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Wizard_btn.Location = new System.Drawing.Point(98, 294);
+            this.Wizard_btn.Location = new System.Drawing.Point(88, 271);
             this.Wizard_btn.Name = "Wizard_btn";
             this.Wizard_btn.Size = new System.Drawing.Size(70, 70);
             this.Wizard_btn.TabIndex = 15;
@@ -278,7 +283,7 @@
             this.Kunoichi_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Kunoichi_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Kunoichi_btn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Kunoichi_btn.Location = new System.Drawing.Point(174, 294);
+            this.Kunoichi_btn.Location = new System.Drawing.Point(164, 271);
             this.Kunoichi_btn.Name = "Kunoichi_btn";
             this.Kunoichi_btn.Size = new System.Drawing.Size(70, 70);
             this.Kunoichi_btn.TabIndex = 16;
@@ -292,7 +297,7 @@
             this.DK_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.DK_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DK_btn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.DK_btn.Location = new System.Drawing.Point(22, 401);
+            this.DK_btn.Location = new System.Drawing.Point(12, 378);
             this.DK_btn.Name = "DK_btn";
             this.DK_btn.Size = new System.Drawing.Size(70, 70);
             this.DK_btn.TabIndex = 17;
@@ -306,7 +311,7 @@
             this.Striker_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Striker_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Striker_btn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Striker_btn.Location = new System.Drawing.Point(98, 401);
+            this.Striker_btn.Location = new System.Drawing.Point(88, 378);
             this.Striker_btn.Name = "Striker_btn";
             this.Striker_btn.Size = new System.Drawing.Size(70, 70);
             this.Striker_btn.TabIndex = 18;
@@ -320,7 +325,7 @@
             this.Mystic_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Mystic_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Mystic_btn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Mystic_btn.Location = new System.Drawing.Point(174, 401);
+            this.Mystic_btn.Location = new System.Drawing.Point(164, 378);
             this.Mystic_btn.Name = "Mystic_btn";
             this.Mystic_btn.Size = new System.Drawing.Size(70, 70);
             this.Mystic_btn.TabIndex = 19;
@@ -334,7 +339,7 @@
             this.Lahn_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Lahn_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Lahn_btn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Lahn_btn.Location = new System.Drawing.Point(250, 401);
+            this.Lahn_btn.Location = new System.Drawing.Point(240, 378);
             this.Lahn_btn.Name = "Lahn_btn";
             this.Lahn_btn.Size = new System.Drawing.Size(70, 70);
             this.Lahn_btn.TabIndex = 20;
@@ -348,7 +353,7 @@
             this.Archer_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Archer_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Archer_btn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Archer_btn.Location = new System.Drawing.Point(22, 509);
+            this.Archer_btn.Location = new System.Drawing.Point(12, 486);
             this.Archer_btn.Name = "Archer_btn";
             this.Archer_btn.Size = new System.Drawing.Size(70, 70);
             this.Archer_btn.TabIndex = 21;
@@ -362,7 +367,7 @@
             this.Shai_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Shai_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Shai_btn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Shai_btn.Location = new System.Drawing.Point(98, 509);
+            this.Shai_btn.Location = new System.Drawing.Point(88, 486);
             this.Shai_btn.Name = "Shai_btn";
             this.Shai_btn.Size = new System.Drawing.Size(70, 70);
             this.Shai_btn.TabIndex = 22;
@@ -372,7 +377,7 @@
             // Sorceress_lbl
             // 
             this.Sorceress_lbl.AutoSize = true;
-            this.Sorceress_lbl.Location = new System.Drawing.Point(106, 151);
+            this.Sorceress_lbl.Location = new System.Drawing.Point(96, 128);
             this.Sorceress_lbl.Name = "Sorceress_lbl";
             this.Sorceress_lbl.Size = new System.Drawing.Size(54, 13);
             this.Sorceress_lbl.TabIndex = 25;
@@ -381,7 +386,7 @@
             // Berserker_lbl
             // 
             this.Berserker_lbl.AutoSize = true;
-            this.Berserker_lbl.Location = new System.Drawing.Point(183, 151);
+            this.Berserker_lbl.Location = new System.Drawing.Point(173, 128);
             this.Berserker_lbl.Name = "Berserker_lbl";
             this.Berserker_lbl.Size = new System.Drawing.Size(52, 13);
             this.Berserker_lbl.TabIndex = 26;
@@ -390,7 +395,7 @@
             // Ranger_lbl
             // 
             this.Ranger_lbl.AutoSize = true;
-            this.Ranger_lbl.Location = new System.Drawing.Point(263, 151);
+            this.Ranger_lbl.Location = new System.Drawing.Point(253, 128);
             this.Ranger_lbl.Name = "Ranger_lbl";
             this.Ranger_lbl.Size = new System.Drawing.Size(42, 13);
             this.Ranger_lbl.TabIndex = 27;
@@ -399,7 +404,7 @@
             // Tamer_lbl
             // 
             this.Tamer_lbl.AutoSize = true;
-            this.Tamer_lbl.Location = new System.Drawing.Point(39, 259);
+            this.Tamer_lbl.Location = new System.Drawing.Point(29, 236);
             this.Tamer_lbl.Name = "Tamer_lbl";
             this.Tamer_lbl.Size = new System.Drawing.Size(37, 13);
             this.Tamer_lbl.TabIndex = 28;
@@ -408,7 +413,7 @@
             // Valkyrie_lbl
             // 
             this.Valkyrie_lbl.AutoSize = true;
-            this.Valkyrie_lbl.Location = new System.Drawing.Point(111, 259);
+            this.Valkyrie_lbl.Location = new System.Drawing.Point(101, 236);
             this.Valkyrie_lbl.Name = "Valkyrie_lbl";
             this.Valkyrie_lbl.Size = new System.Drawing.Size(44, 13);
             this.Valkyrie_lbl.TabIndex = 29;
@@ -417,7 +422,7 @@
             // Musa_lbl
             // 
             this.Musa_lbl.AutoSize = true;
-            this.Musa_lbl.Location = new System.Drawing.Point(191, 259);
+            this.Musa_lbl.Location = new System.Drawing.Point(181, 236);
             this.Musa_lbl.Name = "Musa_lbl";
             this.Musa_lbl.Size = new System.Drawing.Size(33, 13);
             this.Musa_lbl.TabIndex = 30;
@@ -426,7 +431,7 @@
             // Maehwa_lbl
             // 
             this.Maehwa_lbl.AutoSize = true;
-            this.Maehwa_lbl.Location = new System.Drawing.Point(260, 259);
+            this.Maehwa_lbl.Location = new System.Drawing.Point(250, 236);
             this.Maehwa_lbl.Name = "Maehwa_lbl";
             this.Maehwa_lbl.Size = new System.Drawing.Size(48, 13);
             this.Maehwa_lbl.TabIndex = 31;
@@ -435,7 +440,7 @@
             // Witch_lbl
             // 
             this.Witch_lbl.AutoSize = true;
-            this.Witch_lbl.Location = new System.Drawing.Point(38, 367);
+            this.Witch_lbl.Location = new System.Drawing.Point(28, 344);
             this.Witch_lbl.Name = "Witch_lbl";
             this.Witch_lbl.Size = new System.Drawing.Size(35, 13);
             this.Witch_lbl.TabIndex = 32;
@@ -444,7 +449,7 @@
             // Wizard_lbl
             // 
             this.Wizard_lbl.AutoSize = true;
-            this.Wizard_lbl.Location = new System.Drawing.Point(113, 367);
+            this.Wizard_lbl.Location = new System.Drawing.Point(103, 344);
             this.Wizard_lbl.Name = "Wizard_lbl";
             this.Wizard_lbl.Size = new System.Drawing.Size(40, 13);
             this.Wizard_lbl.TabIndex = 33;
@@ -453,7 +458,7 @@
             // Kunoichi_lbl
             // 
             this.Kunoichi_lbl.AutoSize = true;
-            this.Kunoichi_lbl.Location = new System.Drawing.Point(183, 367);
+            this.Kunoichi_lbl.Location = new System.Drawing.Point(173, 344);
             this.Kunoichi_lbl.Name = "Kunoichi_lbl";
             this.Kunoichi_lbl.Size = new System.Drawing.Size(48, 13);
             this.Kunoichi_lbl.TabIndex = 34;
@@ -462,7 +467,7 @@
             // DK_lbl
             // 
             this.DK_lbl.AutoSize = true;
-            this.DK_lbl.Location = new System.Drawing.Point(26, 474);
+            this.DK_lbl.Location = new System.Drawing.Point(16, 451);
             this.DK_lbl.Name = "DK_lbl";
             this.DK_lbl.Size = new System.Drawing.Size(63, 13);
             this.DK_lbl.TabIndex = 35;
@@ -471,7 +476,7 @@
             // Striker_lbl
             // 
             this.Striker_lbl.AutoSize = true;
-            this.Striker_lbl.Location = new System.Drawing.Point(114, 474);
+            this.Striker_lbl.Location = new System.Drawing.Point(104, 451);
             this.Striker_lbl.Name = "Striker_lbl";
             this.Striker_lbl.Size = new System.Drawing.Size(37, 13);
             this.Striker_lbl.TabIndex = 36;
@@ -480,7 +485,7 @@
             // Mystic_lbl
             // 
             this.Mystic_lbl.AutoSize = true;
-            this.Mystic_lbl.Location = new System.Drawing.Point(191, 474);
+            this.Mystic_lbl.Location = new System.Drawing.Point(181, 451);
             this.Mystic_lbl.Name = "Mystic_lbl";
             this.Mystic_lbl.Size = new System.Drawing.Size(37, 13);
             this.Mystic_lbl.TabIndex = 37;
@@ -489,7 +494,7 @@
             // Lahn_lbl
             // 
             this.Lahn_lbl.AutoSize = true;
-            this.Lahn_lbl.Location = new System.Drawing.Point(270, 474);
+            this.Lahn_lbl.Location = new System.Drawing.Point(260, 451);
             this.Lahn_lbl.Name = "Lahn_lbl";
             this.Lahn_lbl.Size = new System.Drawing.Size(31, 13);
             this.Lahn_lbl.TabIndex = 38;
@@ -498,7 +503,7 @@
             // Archer_lbl
             // 
             this.Archer_lbl.AutoSize = true;
-            this.Archer_lbl.Location = new System.Drawing.Point(37, 582);
+            this.Archer_lbl.Location = new System.Drawing.Point(27, 559);
             this.Archer_lbl.Name = "Archer_lbl";
             this.Archer_lbl.Size = new System.Drawing.Size(38, 13);
             this.Archer_lbl.TabIndex = 39;
@@ -507,11 +512,39 @@
             // Shai_lbl
             // 
             this.Shai_lbl.AutoSize = true;
-            this.Shai_lbl.Location = new System.Drawing.Point(119, 582);
+            this.Shai_lbl.Location = new System.Drawing.Point(109, 559);
             this.Shai_lbl.Name = "Shai_lbl";
             this.Shai_lbl.Size = new System.Drawing.Size(28, 13);
             this.Shai_lbl.TabIndex = 40;
             this.Shai_lbl.Text = "Shai";
+            // 
+            // Cimg_pb
+            // 
+            this.Cimg_pb.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Cimg_pb.BackgroundImage")));
+            this.Cimg_pb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Cimg_pb.Location = new System.Drawing.Point(675, 55);
+            this.Cimg_pb.Name = "Cimg_pb";
+            this.Cimg_pb.Size = new System.Drawing.Size(70, 70);
+            this.Cimg_pb.TabIndex = 41;
+            this.Cimg_pb.TabStop = false;
+            // 
+            // SelectClass_lbl
+            // 
+            this.SelectClass_lbl.AutoSize = true;
+            this.SelectClass_lbl.Location = new System.Drawing.Point(9, 26);
+            this.SelectClass_lbl.Name = "SelectClass_lbl";
+            this.SelectClass_lbl.Size = new System.Drawing.Size(65, 13);
+            this.SelectClass_lbl.TabIndex = 42;
+            this.SelectClass_lbl.Text = "Select Class";
+            // 
+            // SelectedClass_lbl
+            // 
+            this.SelectedClass_lbl.AutoSize = true;
+            this.SelectedClass_lbl.Location = new System.Drawing.Point(671, 26);
+            this.SelectedClass_lbl.Name = "SelectedClass_lbl";
+            this.SelectedClass_lbl.Size = new System.Drawing.Size(77, 13);
+            this.SelectedClass_lbl.TabIndex = 43;
+            this.SelectedClass_lbl.Text = "Selected Class";
             // 
             // MainForm
             // 
@@ -519,7 +552,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(774, 625);
+            this.ClientSize = new System.Drawing.Size(774, 596);
+            this.Controls.Add(this.Cimg_pb);
+            this.Controls.Add(this.Sclass_lbl);
+            this.Controls.Add(this.SelectedClass_lbl);
+            this.Controls.Add(this.SelectClass_lbl);
             this.Controls.Add(this.Shai_lbl);
             this.Controls.Add(this.Archer_lbl);
             this.Controls.Add(this.Lahn_lbl);
@@ -554,13 +591,14 @@
             this.Controls.Add(this.Sorceress_btn);
             this.Controls.Add(this.Warrior_lbl);
             this.Controls.Add(this.Warrior_btn);
-            this.Controls.Add(this.Sclass_lbl);
             this.Controls.Add(this.Ninja_lbl);
             this.Controls.Add(this.Ninja_btn);
             this.Controls.Add(this.SkillTreeForm_btn);
             this.Controls.Add(this.GearForm_btn);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
-            this.Text = "MainForm";
+            this.Text = "BDO Builder";
+            ((System.ComponentModel.ISupportInitialize)(this.Cimg_pb)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -607,6 +645,9 @@
         private System.Windows.Forms.Label Lahn_lbl;
         private System.Windows.Forms.Label Archer_lbl;
         private System.Windows.Forms.Label Shai_lbl;
+        private System.Windows.Forms.PictureBox Cimg_pb;
+        private System.Windows.Forms.Label SelectClass_lbl;
+        private System.Windows.Forms.Label SelectedClass_lbl;
     }
 }
 
