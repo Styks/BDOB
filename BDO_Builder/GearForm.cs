@@ -14,13 +14,13 @@ namespace BDO_Builder
 {
     public partial class GearForm : Form
     {
-
         public string sclass;
         public Image cimg;
         public int cdp; //DP
         public int cap; //AP
         public int caap; //AAP
         public int beltap; //Betl AP
+        public int beltdp; //Belt DP
 
         public GearForm()
         {
@@ -39,8 +39,7 @@ namespace BDO_Builder
             caap = Convert.ToInt32(cAAP_n.Text);
             Sclass_lbl.Text = sclass;
             Class_pic.BackgroundImage = cimg;
-            if (sclass == "Shai") { AW_btn.Visible = false; SAW_btn.Visible = false; }
-           // LoadBelts(); //Belt
+            if (sclass == "Shai") { AW_btn.Visible = false; SAW_btn.Visible = false; }            
         }
 
         private void LoadBelts() //Belt
@@ -115,8 +114,29 @@ namespace BDO_Builder
 
         private void Belt_cb_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //beltap = Belt_cb.SelectedIndex;
-            beltAP_n.Text = Convert.ToString(beltap);
+            SqlCommand cmd = Base_Connect.Connection.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from Belts where Id='"+Belt_cb.SelectedIndex.ToString()+"'";
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
+            {
+                beltAP_n.Text = dr["AP"].ToString();
+                beltDP_n.Text = dr["DP"].ToString();
+            }
+            cap = cap - beltap;
+            caap = caap - beltap;
+            cdp = cdp - beltdp;
+            beltap = Convert.ToInt32(beltAP_n.Text);
+            beltdp = Convert.ToInt32(beltDP_n.Text);
+            cap = cap + beltap;
+            caap = caap + beltap;
+            cdp = cdp + beltdp;
+            cAP_n.Text = Convert.ToString(cap);
+            cAAP_n.Text = Convert.ToString(caap);
+            cDP_n.Text = Convert.ToString(cdp);
         }
     }
 }
