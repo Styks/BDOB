@@ -45,10 +45,7 @@ namespace BDO_Builder
         private void LoadBelts() //Belt
         {
             var sql = @"select * from Belts";
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = ConfigurationManager.ConnectionStrings["DbConnect"].ConnectionString;
-            conn.Open();
-            var da = new SqlDataAdapter(sql, conn.ConnectionString);
+            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
             DataSet ds = new DataSet();
             da.Fill(ds);
             dgvGear.DataSource = ds.Tables[0];
