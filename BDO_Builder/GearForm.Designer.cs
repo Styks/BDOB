@@ -103,14 +103,19 @@
             this.KBR_lbl = new System.Windows.Forms.Label();
             this.Resist_lbl = new System.Windows.Forms.Label();
             this.SSFR_lbl = new System.Windows.Forms.Label();
-            this.dgvGear = new System.Windows.Forms.DataGridView();
+            this.Belt_cb = new System.Windows.Forms.ComboBox();
+            this.Item_image = new System.Windows.Forms.PictureBox();
+            this.beltAP_lbl = new System.Windows.Forms.Label();
+            this.beltDP_lbl = new System.Windows.Forms.Label();
+            this.beltAP_n = new System.Windows.Forms.Label();
+            this.beltDP_n = new System.Windows.Forms.Label();
             this.ShopGear_gb.SuspendLayout();
             this.CharacterGear_gb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Class_pic)).BeginInit();
             this.MStats_gb.SuspendLayout();
             this.Settings_gb.SuspendLayout();
             this.OStats_gb.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvGear)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Item_image)).BeginInit();
             this.SuspendLayout();
             // 
             // Back_btn
@@ -144,7 +149,7 @@
             this.ShopGear_gb.Controls.Add(this.SGloves_btn);
             this.ShopGear_gb.Controls.Add(this.SArmour_btn);
             this.ShopGear_gb.Controls.Add(this.SHelmet_btn);
-            this.ShopGear_gb.Location = new System.Drawing.Point(441, 47);
+            this.ShopGear_gb.Location = new System.Drawing.Point(422, 25);
             this.ShopGear_gb.Name = "ShopGear_gb";
             this.ShopGear_gb.Size = new System.Drawing.Size(296, 135);
             this.ShopGear_gb.TabIndex = 2;
@@ -265,7 +270,7 @@
             this.CharacterGear_gb.Controls.Add(this.Earring1_btn);
             this.CharacterGear_gb.Controls.Add(this.Armour_btn);
             this.CharacterGear_gb.Controls.Add(this.Helmet_btn);
-            this.CharacterGear_gb.Location = new System.Drawing.Point(38, 47);
+            this.CharacterGear_gb.Location = new System.Drawing.Point(19, 25);
             this.CharacterGear_gb.Name = "CharacterGear_gb";
             this.CharacterGear_gb.Size = new System.Drawing.Size(380, 363);
             this.CharacterGear_gb.TabIndex = 3;
@@ -352,6 +357,7 @@
             this.Belt_btn.Size = new System.Drawing.Size(40, 40);
             this.Belt_btn.TabIndex = 5;
             this.Belt_btn.UseVisualStyleBackColor = false;
+            this.Belt_btn.Click += new System.EventHandler(this.Belt_btn_Click);
             // 
             // Gloves_btn
             // 
@@ -473,7 +479,7 @@
             this.MStats_gb.Controls.Add(this.cAP_n);
             this.MStats_gb.Controls.Add(this.cDP_lbl);
             this.MStats_gb.Controls.Add(this.cAP_lbl);
-            this.MStats_gb.Location = new System.Drawing.Point(38, 416);
+            this.MStats_gb.Location = new System.Drawing.Point(19, 394);
             this.MStats_gb.Name = "MStats_gb";
             this.MStats_gb.Size = new System.Drawing.Size(699, 195);
             this.MStats_gb.TabIndex = 4;
@@ -705,7 +711,7 @@
             this.Settings_gb.Controls.Add(this.dpLvl_cb);
             this.Settings_gb.Controls.Add(this.Book_cb);
             this.Settings_gb.Controls.Add(this.apLvl_cb);
-            this.Settings_gb.Location = new System.Drawing.Point(441, 188);
+            this.Settings_gb.Location = new System.Drawing.Point(422, 166);
             this.Settings_gb.Name = "Settings_gb";
             this.Settings_gb.Size = new System.Drawing.Size(296, 87);
             this.Settings_gb.TabIndex = 7;
@@ -834,7 +840,7 @@
             this.OStats_gb.Controls.Add(this.MvS_n);
             this.OStats_gb.Controls.Add(this.ACS_n);
             this.OStats_gb.Controls.Add(this.MvS_lbl);
-            this.OStats_gb.Location = new System.Drawing.Point(743, 416);
+            this.OStats_gb.Location = new System.Drawing.Point(724, 394);
             this.OStats_gb.Name = "OStats_gb";
             this.OStats_gb.Size = new System.Drawing.Size(374, 195);
             this.OStats_gb.TabIndex = 18;
@@ -922,24 +928,77 @@
             this.SSFR_lbl.TabIndex = 18;
             this.SSFR_lbl.Text = "Stun/Stiffness/Freezing";
             // 
-            // dgvGear
+            // Belt_cb
             // 
-            this.dgvGear.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvGear.Location = new System.Drawing.Point(441, 260);
-            this.dgvGear.Name = "dgvGear";
-            this.dgvGear.Size = new System.Drawing.Size(240, 150);
-            this.dgvGear.TabIndex = 19;
+            this.Belt_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Belt_cb.FormattingEnabled = true;
+            this.Belt_cb.Location = new System.Drawing.Point(755, 83);
+            this.Belt_cb.Name = "Belt_cb";
+            this.Belt_cb.Size = new System.Drawing.Size(296, 21);
+            this.Belt_cb.TabIndex = 21;
+            this.Belt_cb.SelectedIndexChanged += new System.EventHandler(this.Belt_cb_SelectedIndexChanged);
+            // 
+            // Item_image
+            // 
+            this.Item_image.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Item_image.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Item_image.Location = new System.Drawing.Point(755, 33);
+            this.Item_image.Name = "Item_image";
+            this.Item_image.Size = new System.Drawing.Size(40, 40);
+            this.Item_image.TabIndex = 22;
+            this.Item_image.TabStop = false;
+            // 
+            // beltAP_lbl
+            // 
+            this.beltAP_lbl.AutoSize = true;
+            this.beltAP_lbl.Location = new System.Drawing.Point(755, 115);
+            this.beltAP_lbl.Name = "beltAP_lbl";
+            this.beltAP_lbl.Size = new System.Drawing.Size(21, 13);
+            this.beltAP_lbl.TabIndex = 23;
+            this.beltAP_lbl.Text = "AP";
+            // 
+            // beltDP_lbl
+            // 
+            this.beltDP_lbl.AutoSize = true;
+            this.beltDP_lbl.Location = new System.Drawing.Point(755, 137);
+            this.beltDP_lbl.Name = "beltDP_lbl";
+            this.beltDP_lbl.Size = new System.Drawing.Size(22, 13);
+            this.beltDP_lbl.TabIndex = 24;
+            this.beltDP_lbl.Text = "DP";
+            // 
+            // beltAP_n
+            // 
+            this.beltAP_n.AutoSize = true;
+            this.beltAP_n.Location = new System.Drawing.Point(776, 115);
+            this.beltAP_n.Name = "beltAP_n";
+            this.beltAP_n.Size = new System.Drawing.Size(13, 13);
+            this.beltAP_n.TabIndex = 25;
+            this.beltAP_n.Text = "0";
+            // 
+            // beltDP_n
+            // 
+            this.beltDP_n.AutoSize = true;
+            this.beltDP_n.Location = new System.Drawing.Point(776, 137);
+            this.beltDP_n.Name = "beltDP_n";
+            this.beltDP_n.Size = new System.Drawing.Size(13, 13);
+            this.beltDP_n.TabIndex = 26;
+            this.beltDP_n.Text = "0";
             // 
             // GearForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1199, 647);
+            this.ClientSize = new System.Drawing.Size(1199, 624);
+            this.Controls.Add(this.beltDP_n);
+            this.Controls.Add(this.beltAP_n);
+            this.Controls.Add(this.beltDP_lbl);
+            this.Controls.Add(this.beltAP_lbl);
+            this.Controls.Add(this.Item_image);
+            this.Controls.Add(this.Belt_cb);
             this.Controls.Add(this.OStats_gb);
             this.Controls.Add(this.Settings_gb);
             this.Controls.Add(this.MStats_gb);
-            this.Controls.Add(this.dgvGear);
             this.Controls.Add(this.CharacterGear_gb);
             this.Controls.Add(this.ShopGear_gb);
             this.Controls.Add(this.Back_btn);
@@ -958,8 +1017,9 @@
             this.Settings_gb.PerformLayout();
             this.OStats_gb.ResumeLayout(false);
             this.OStats_gb.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvGear)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Item_image)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1039,6 +1099,11 @@
         private System.Windows.Forms.Label KBR_lbl;
         private System.Windows.Forms.Label Resist_lbl;
         private System.Windows.Forms.Label SSFR_lbl;
-        private System.Windows.Forms.DataGridView dgvGear;
+        private System.Windows.Forms.ComboBox Belt_cb;
+        private System.Windows.Forms.PictureBox Item_image;
+        private System.Windows.Forms.Label beltAP_lbl;
+        private System.Windows.Forms.Label beltDP_lbl;
+        private System.Windows.Forms.Label beltAP_n;
+        private System.Windows.Forms.Label beltDP_n;
     }
 }

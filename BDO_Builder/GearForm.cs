@@ -20,6 +20,7 @@ namespace BDO_Builder
         public int cdp; //DP
         public int cap; //AP
         public int caap; //AAP
+        public int beltap; //Betl AP
 
         public GearForm()
         {
@@ -39,7 +40,7 @@ namespace BDO_Builder
             Sclass_lbl.Text = sclass;
             Class_pic.BackgroundImage = cimg;
             if (sclass == "Shai") { AW_btn.Visible = false; SAW_btn.Visible = false; }
-            LoadBelts(); //Belt
+           // LoadBelts(); //Belt
         }
 
         private void LoadBelts() //Belt
@@ -51,7 +52,9 @@ namespace BDO_Builder
             var da = new SqlDataAdapter(sql, conn.ConnectionString);
             DataSet ds = new DataSet();
             da.Fill(ds);
-            dgvGear.DataSource = ds.Tables[0];
+            Belt_cb.DataSource = ds.Tables[0];
+            Belt_cb.DisplayMember = "Name" ;
+            Belt_cb.ValueMember = "Id";
         }
 
         private void DpLvl_cb_CheckedChanged(object sender, EventArgs e)
@@ -106,6 +109,17 @@ namespace BDO_Builder
             cap = Convert.ToInt32(cAP_n.Text);
             caap = Convert.ToInt32(cAAP_n.Text);
             cdp = Convert.ToInt32(cDP_n.Text);
+        }
+
+        private void Belt_btn_Click(object sender, EventArgs e)
+        {
+            LoadBelts();
+        }
+
+        private void Belt_cb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //beltap = Belt_cb.SelectedIndex;
+            beltAP_n.Text = Convert.ToString(beltap);
         }
     }
 }
