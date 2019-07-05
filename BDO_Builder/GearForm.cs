@@ -21,6 +21,7 @@ namespace BDO_Builder
         public int cap;
         public int caap;
 
+
         public GearForm()
         {
             InitializeComponent();
