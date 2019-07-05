@@ -18,6 +18,7 @@ namespace BDO_Builder
         public string sclass;
         public Image cimg;
 
+
         public GearForm()
         {
             InitializeComponent();
