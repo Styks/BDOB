@@ -88,13 +88,13 @@
             // 
             // SkillTreeForm_btn
             // 
-            this.SkillTreeForm_btn.Enabled = false;
             this.SkillTreeForm_btn.Location = new System.Drawing.Point(674, 192);
             this.SkillTreeForm_btn.Name = "SkillTreeForm_btn";
             this.SkillTreeForm_btn.Size = new System.Drawing.Size(75, 23);
             this.SkillTreeForm_btn.TabIndex = 1;
             this.SkillTreeForm_btn.Text = "SkillTree";
             this.SkillTreeForm_btn.UseVisualStyleBackColor = true;
+            this.SkillTreeForm_btn.Click += new System.EventHandler(this.SkillTreeForm_btn_Click);
             // 
             // Ninja_btn
             // 
