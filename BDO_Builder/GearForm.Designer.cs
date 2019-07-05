@@ -117,7 +117,7 @@
             // 
             this.Back_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Back_btn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Back_btn.Location = new System.Drawing.Point(1070, 12);
+            this.Back_btn.Location = new System.Drawing.Point(1112, 12);
             this.Back_btn.Name = "Back_btn";
             this.Back_btn.Size = new System.Drawing.Size(75, 23);
             this.Back_btn.TabIndex = 0;
@@ -909,9 +909,9 @@
             this.Resist_lbl.AutoSize = true;
             this.Resist_lbl.Location = new System.Drawing.Point(208, 28);
             this.Resist_lbl.Name = "Resist_lbl";
-            this.Resist_lbl.Size = new System.Drawing.Size(63, 13);
+            this.Resist_lbl.Size = new System.Drawing.Size(87, 13);
             this.Resist_lbl.TabIndex = 19;
-            this.Resist_lbl.Text = "Resistance:";
+            this.Resist_lbl.Text = "Resistance: [PH]";
             // 
             // SSFR_lbl
             // 
@@ -929,7 +929,6 @@
             this.dgvGear.Name = "dgvGear";
             this.dgvGear.Size = new System.Drawing.Size(240, 150);
             this.dgvGear.TabIndex = 19;
-            this.dgvGear.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvGear_CellContentClick);
             // 
             // GearForm
             // 
