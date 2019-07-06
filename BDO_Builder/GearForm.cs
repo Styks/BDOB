@@ -152,17 +152,16 @@ namespace BDO_Builder
                     beltDP_n.Text = dr["DP"].ToString();
                 }
                 Type = "Belts";
-
                 Item_Icon_Load(Type,SelectGear_cb.SelectedIndex);
             }
-            cap =- beltap;
-            caap =- beltap;
-            cdp =- beltdp;
+            cap = cap - beltap;
+            caap = caap - beltap;
+            cdp = cdp - beltdp;
             beltap = Convert.ToInt32(beltAP_n.Text);
             beltdp = Convert.ToInt32(beltDP_n.Text);
-            cap =+ beltap;
-            caap =+ beltap;
-            cdp =+ beltdp;
+            cap = cap + beltap;
+            caap = caap + beltap;
+            cdp = cdp + beltdp;
             cAP_n.Text = Convert.ToString(cap);
             cAAP_n.Text = Convert.ToString(caap);
             cDP_n.Text = Convert.ToString(cdp);
