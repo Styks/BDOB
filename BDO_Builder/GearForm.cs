@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.IO;
 
 namespace BDO_Builder
 {
@@ -33,6 +34,24 @@ namespace BDO_Builder
             if (e.CloseReason == CloseReason.UserClosing) Application.Exit();
         }
 
+        private void Belt_Icon_Load(int id)
+        {
+            var cmd = new SqlCommand(@"select * from Belts where Id ='" + id + " ' ")
+            {
+                Connection = Base_Connect.Connection,
+                CommandType = CommandType.Text
+            };
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
+            Byte[] img;
+            img = (Byte[])ds.Tables[0].Rows[0]["Icon"];
+            MemoryStream ms = new MemoryStream(img);
+            Item_image.Image = Image.FromStream(ms);
+        }
+
         private void GearForm_Load(object sender, EventArgs e)
         {
             cdp = Convert.ToInt32(cDP_n.Text);
@@ -42,7 +61,7 @@ namespace BDO_Builder
             Class_pic.BackgroundImage = cimg;
             if (sclass == "Shai") { AW_btn.Visible = false; SAW_btn.Visible = false; }            
         }
-
+                
         private void LoadBelts() //Belt
         {
             var sql = @"select * from Belts";
@@ -52,6 +71,7 @@ namespace BDO_Builder
             SelectGear_cb.DataSource = ds.Tables[0];
             SelectGear_cb.DisplayMember = "Name" ;
             SelectGear_cb.ValueMember = "Id";
+            Belt_Icon_Load(0);
         }
 
         private void DpLvl_cb_CheckedChanged(object sender, EventArgs e)
@@ -130,6 +150,8 @@ namespace BDO_Builder
                     beltAP_n.Text = dr["AP"].ToString();
                     beltDP_n.Text = dr["DP"].ToString();
                 }
+
+                Belt_Icon_Load(SelectGear_cb.SelectedIndex);
             }
             cap = cap - beltap;
             caap = caap - beltap;

@@ -63,6 +63,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base_Connect.cs" />
+    <Compile Include="BDO_BaseDataSet.cs">
+      <DependentUpon>BDO_BaseDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BDO_BaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
