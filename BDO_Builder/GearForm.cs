@@ -16,6 +16,7 @@ namespace BDO_Builder
     {
         public string sclass;
         public Image cimg;
+        public int sgn; //Selected Gear
         public int cdp; //DP
         public int cap; //AP
         public int caap; //AAP
@@ -48,9 +49,9 @@ namespace BDO_Builder
             var da = new SqlDataAdapter(sql, Base_Connect.Connection);
             DataSet ds = new DataSet();
             da.Fill(ds);
-            Belt_cb.DataSource = ds.Tables[0];
-            Belt_cb.DisplayMember = "Name" ;
-            Belt_cb.ValueMember = "Id";
+            SelectGear_cb.DataSource = ds.Tables[0];
+            SelectGear_cb.DisplayMember = "Name" ;
+            SelectGear_cb.ValueMember = "Id";
         }
 
         private void DpLvl_cb_CheckedChanged(object sender, EventArgs e)
@@ -110,21 +111,25 @@ namespace BDO_Builder
         private void Belt_btn_Click(object sender, EventArgs e)
         {
             LoadBelts();
+            sgn = 1;
         }
 
-        private void Belt_cb_SelectedIndexChanged(object sender, EventArgs e)
+        private void SelectedGear_cb_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SqlCommand cmd = Base_Connect.Connection.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from Belts where Id='"+Belt_cb.SelectedIndex.ToString()+"'";
-            cmd.ExecuteNonQuery();
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            foreach (DataRow dr in dt.Rows)
+          SqlCommand cmd = Base_Connect.Connection.CreateCommand();
+          cmd.CommandType = CommandType.Text;
+            if (sgn == 1)
             {
-                beltAP_n.Text = dr["AP"].ToString();
-                beltDP_n.Text = dr["DP"].ToString();
+                cmd.CommandText = "select * from Belts where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    beltAP_n.Text = dr["AP"].ToString();
+                    beltDP_n.Text = dr["DP"].ToString();
+                }
             }
             cap = cap - beltap;
             caap = caap - beltap;

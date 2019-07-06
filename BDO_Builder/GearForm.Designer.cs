@@ -103,7 +103,7 @@
             this.KBR_lbl = new System.Windows.Forms.Label();
             this.Resist_lbl = new System.Windows.Forms.Label();
             this.SSFR_lbl = new System.Windows.Forms.Label();
-            this.Belt_cb = new System.Windows.Forms.ComboBox();
+            this.SelectGear_cb = new System.Windows.Forms.ComboBox();
             this.Item_image = new System.Windows.Forms.PictureBox();
             this.beltAP_lbl = new System.Windows.Forms.Label();
             this.beltDP_lbl = new System.Windows.Forms.Label();
@@ -928,15 +928,15 @@
             this.SSFR_lbl.TabIndex = 18;
             this.SSFR_lbl.Text = "Stun/Stiffness/Freezing";
             // 
-            // Belt_cb
+            // SelectGear_cb
             // 
-            this.Belt_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Belt_cb.FormattingEnabled = true;
-            this.Belt_cb.Location = new System.Drawing.Point(755, 83);
-            this.Belt_cb.Name = "Belt_cb";
-            this.Belt_cb.Size = new System.Drawing.Size(296, 21);
-            this.Belt_cb.TabIndex = 21;
-            this.Belt_cb.SelectedIndexChanged += new System.EventHandler(this.Belt_cb_SelectedIndexChanged);
+            this.SelectGear_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SelectGear_cb.FormattingEnabled = true;
+            this.SelectGear_cb.Location = new System.Drawing.Point(755, 83);
+            this.SelectGear_cb.Name = "SelectGear_cb";
+            this.SelectGear_cb.Size = new System.Drawing.Size(296, 21);
+            this.SelectGear_cb.TabIndex = 21;
+            this.SelectGear_cb.SelectedIndexChanged += new System.EventHandler(this.SelectedGear_cb_SelectedIndexChanged);
             // 
             // Item_image
             // 
@@ -995,7 +995,7 @@
             this.Controls.Add(this.beltDP_lbl);
             this.Controls.Add(this.beltAP_lbl);
             this.Controls.Add(this.Item_image);
-            this.Controls.Add(this.Belt_cb);
+            this.Controls.Add(this.SelectGear_cb);
             this.Controls.Add(this.OStats_gb);
             this.Controls.Add(this.Settings_gb);
             this.Controls.Add(this.MStats_gb);
@@ -1099,7 +1099,7 @@
         private System.Windows.Forms.Label KBR_lbl;
         private System.Windows.Forms.Label Resist_lbl;
         private System.Windows.Forms.Label SSFR_lbl;
-        private System.Windows.Forms.ComboBox Belt_cb;
+        private System.Windows.Forms.ComboBox SelectGear_cb;
         private System.Windows.Forms.PictureBox Item_image;
         private System.Windows.Forms.Label beltAP_lbl;
         private System.Windows.Forms.Label beltDP_lbl;
