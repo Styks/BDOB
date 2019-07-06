@@ -944,7 +944,7 @@
             this.Item_image.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Item_image.Location = new System.Drawing.Point(755, 33);
             this.Item_image.Name = "Item_image";
-            this.Item_image.Size = new System.Drawing.Size(40, 40);
+            this.Item_image.Size = new System.Drawing.Size(44, 44);
             this.Item_image.TabIndex = 22;
             this.Item_image.TabStop = false;
             // 

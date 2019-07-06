@@ -23,6 +23,7 @@ namespace BDO_Builder
         public int caap; //AAP
         public int beltap; //Betl AP
         public int beltdp; //Belt DP
+        public string Type; // Item type
 
         public GearForm()
         {
@@ -34,9 +35,9 @@ namespace BDO_Builder
             if (e.CloseReason == CloseReason.UserClosing) Application.Exit();
         }
 
-        private void Belt_Icon_Load(int id)
+        private void Item_Icon_Load(string type, int id)
         {
-            var cmd = new SqlCommand(@"select * from Belts where Id ='" + id + " ' ")
+            var cmd = new SqlCommand(@"select * from "+ type +" where Id ='" + id + " ' ")
             {
                 Connection = Base_Connect.Connection,
                 CommandType = CommandType.Text
@@ -71,7 +72,7 @@ namespace BDO_Builder
             SelectGear_cb.DataSource = ds.Tables[0];
             SelectGear_cb.DisplayMember = "Name" ;
             SelectGear_cb.ValueMember = "Id";
-            Belt_Icon_Load(0);
+            Item_Icon_Load("Belts",0);
         }
 
         private void DpLvl_cb_CheckedChanged(object sender, EventArgs e)
@@ -150,8 +151,9 @@ namespace BDO_Builder
                     beltAP_n.Text = dr["AP"].ToString();
                     beltDP_n.Text = dr["DP"].ToString();
                 }
+                Type = "Belts";
 
-                Belt_Icon_Load(SelectGear_cb.SelectedIndex);
+                Item_Icon_Load(Type,SelectGear_cb.SelectedIndex);
             }
             cap =- beltap;
             caap =- beltap;
