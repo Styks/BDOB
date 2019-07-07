@@ -60,9 +60,13 @@ namespace BDO_Builder
             caap = Convert.ToInt32(cAAP_n.Text);
             Sclass_lbl.Text = sclass;
             Class_pic.BackgroundImage = cimg;
-            if (sclass == "Shai") { AW_btn.Visible = false; SAW_btn.Visible = false; }            
+            if (sclass == "Shai") { AW_btn.Visible = false; SAW_btn.Visible = false; }
+            //////////
+            this.SelectGear_cb.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            this.SelectGear_cb.AutoCompleteSource = AutoCompleteSource.ListItems;
+            //////////
         }
-                
+
         private void LoadBelts() //Belt
         {
             var sql = @"select * from Belts";
@@ -70,7 +74,7 @@ namespace BDO_Builder
             DataSet ds = new DataSet();
             da.Fill(ds);
             SelectGear_cb.DataSource = ds.Tables[0];
-            SelectGear_cb.DisplayMember = "Name" ;
+            SelectGear_cb.DisplayMember = "Name";
             SelectGear_cb.ValueMember = "Id";
             Item_Icon_Load("Belts",0);
         }

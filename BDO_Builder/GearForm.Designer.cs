@@ -930,7 +930,6 @@
             // 
             // SelectGear_cb
             // 
-            this.SelectGear_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.SelectGear_cb.FormattingEnabled = true;
             this.SelectGear_cb.Location = new System.Drawing.Point(755, 83);
             this.SelectGear_cb.Name = "SelectGear_cb";
