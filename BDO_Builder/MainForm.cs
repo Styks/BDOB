@@ -17,6 +17,7 @@ namespace BDO_Builder
             InitializeComponent();
         }
 
+
         string sclass = "None";
         Image cimg;
 

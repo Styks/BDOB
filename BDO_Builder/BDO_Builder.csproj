@@ -71,6 +71,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BDO_BaseDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="CharacterState.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

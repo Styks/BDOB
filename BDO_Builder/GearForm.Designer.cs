@@ -110,6 +110,25 @@
             this.beltAP_n = new System.Windows.Forms.Label();
             this.beltDP_n = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.beltEv_n = new System.Windows.Forms.Label();
+            this.beltAcc_n = new System.Windows.Forms.Label();
+            this.Res_n = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.Belt_dr = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.KF_n = new System.Windows.Forms.Label();
+            this.G_n = new System.Windows.Forms.Label();
+            this.KB_n = new System.Windows.Forms.Label();
+            this.SSF_n = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.Weig_n = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.HP_n = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.ShopGear_gb.SuspendLayout();
             this.CharacterGear_gb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Class_pic)).BeginInit();
@@ -961,7 +980,7 @@
             // beltDP_lbl
             // 
             this.beltDP_lbl.AutoSize = true;
-            this.beltDP_lbl.Location = new System.Drawing.Point(755, 137);
+            this.beltDP_lbl.Location = new System.Drawing.Point(755, 140);
             this.beltDP_lbl.Name = "beltDP_lbl";
             this.beltDP_lbl.Size = new System.Drawing.Size(22, 13);
             this.beltDP_lbl.TabIndex = 24;
@@ -970,7 +989,7 @@
             // beltAP_n
             // 
             this.beltAP_n.AutoSize = true;
-            this.beltAP_n.Location = new System.Drawing.Point(776, 115);
+            this.beltAP_n.Location = new System.Drawing.Point(792, 115);
             this.beltAP_n.Name = "beltAP_n";
             this.beltAP_n.Size = new System.Drawing.Size(13, 13);
             this.beltAP_n.TabIndex = 25;
@@ -979,7 +998,7 @@
             // beltDP_n
             // 
             this.beltDP_n.AutoSize = true;
-            this.beltDP_n.Location = new System.Drawing.Point(776, 137);
+            this.beltDP_n.Location = new System.Drawing.Point(792, 140);
             this.beltDP_n.Name = "beltDP_n";
             this.beltDP_n.Size = new System.Drawing.Size(13, 13);
             this.beltDP_n.TabIndex = 26;
@@ -988,11 +1007,182 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(518, 338);
+            this.label1.Location = new System.Drawing.Point(821, 115);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(20, 13);
             this.label1.TabIndex = 27;
-            this.label1.Text = "label1";
+            this.label1.Text = "Ev";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(821, 140);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(26, 13);
+            this.label2.TabIndex = 28;
+            this.label2.Text = "Acc";
+            // 
+            // beltEv_n
+            // 
+            this.beltEv_n.AutoSize = true;
+            this.beltEv_n.Location = new System.Drawing.Point(857, 115);
+            this.beltEv_n.Name = "beltEv_n";
+            this.beltEv_n.Size = new System.Drawing.Size(13, 13);
+            this.beltEv_n.TabIndex = 29;
+            this.beltEv_n.Text = "0";
+            // 
+            // beltAcc_n
+            // 
+            this.beltAcc_n.AutoSize = true;
+            this.beltAcc_n.Location = new System.Drawing.Point(857, 140);
+            this.beltAcc_n.Name = "beltAcc_n";
+            this.beltAcc_n.Size = new System.Drawing.Size(13, 13);
+            this.beltAcc_n.TabIndex = 30;
+            this.beltAcc_n.Text = "0";
+            // 
+            // Res_n
+            // 
+            this.Res_n.AutoSize = true;
+            this.Res_n.Location = new System.Drawing.Point(797, 164);
+            this.Res_n.Name = "Res_n";
+            this.Res_n.Size = new System.Drawing.Size(13, 13);
+            this.Res_n.TabIndex = 32;
+            this.Res_n.Text = "0";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(755, 164);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(36, 13);
+            this.label4.TabIndex = 31;
+            this.label4.Text = "Resist";
+            // 
+            // Belt_dr
+            // 
+            this.Belt_dr.AutoSize = true;
+            this.Belt_dr.Location = new System.Drawing.Point(857, 162);
+            this.Belt_dr.Name = "Belt_dr";
+            this.Belt_dr.Size = new System.Drawing.Size(13, 13);
+            this.Belt_dr.TabIndex = 34;
+            this.Belt_dr.Text = "0";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(821, 164);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(23, 13);
+            this.label5.TabIndex = 33;
+            this.label5.Text = "DR";
+            // 
+            // KF_n
+            // 
+            this.KF_n.AutoSize = true;
+            this.KF_n.Location = new System.Drawing.Point(1010, 188);
+            this.KF_n.Name = "KF_n";
+            this.KF_n.Size = new System.Drawing.Size(13, 13);
+            this.KF_n.TabIndex = 42;
+            this.KF_n.Text = "0";
+            // 
+            // G_n
+            // 
+            this.G_n.AutoSize = true;
+            this.G_n.Location = new System.Drawing.Point(1010, 164);
+            this.G_n.Name = "G_n";
+            this.G_n.Size = new System.Drawing.Size(13, 13);
+            this.G_n.TabIndex = 41;
+            this.G_n.Text = "0";
+            // 
+            // KB_n
+            // 
+            this.KB_n.AutoSize = true;
+            this.KB_n.Location = new System.Drawing.Point(1010, 140);
+            this.KB_n.Name = "KB_n";
+            this.KB_n.Size = new System.Drawing.Size(13, 13);
+            this.KB_n.TabIndex = 40;
+            this.KB_n.Text = "0";
+            // 
+            // SSF_n
+            // 
+            this.SSF_n.AutoSize = true;
+            this.SSF_n.Location = new System.Drawing.Point(1010, 115);
+            this.SSF_n.Name = "SSF_n";
+            this.SSF_n.Size = new System.Drawing.Size(13, 13);
+            this.SSF_n.TabIndex = 39;
+            this.SSF_n.Text = "0";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(885, 188);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(104, 13);
+            this.label9.TabIndex = 38;
+            this.label9.Text = "Knockback/Floating";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(885, 164);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(44, 13);
+            this.label10.TabIndex = 37;
+            this.label10.Text = "Grapple";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(885, 140);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(100, 13);
+            this.label11.TabIndex = 36;
+            this.label11.Text = "Knockdown/Bound";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(885, 115);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(119, 13);
+            this.label12.TabIndex = 35;
+            this.label12.Text = "Stun/Stiffness/Freezing";
+            // 
+            // Weig_n
+            // 
+            this.Weig_n.AutoSize = true;
+            this.Weig_n.Location = new System.Drawing.Point(857, 189);
+            this.Weig_n.Name = "Weig_n";
+            this.Weig_n.Size = new System.Drawing.Size(13, 13);
+            this.Weig_n.TabIndex = 46;
+            this.Weig_n.Text = "0";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(816, 189);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(41, 13);
+            this.label6.TabIndex = 45;
+            this.label6.Text = "Weight";
+            // 
+            // HP_n
+            // 
+            this.HP_n.AutoSize = true;
+            this.HP_n.Location = new System.Drawing.Point(797, 189);
+            this.HP_n.Name = "HP_n";
+            this.HP_n.Size = new System.Drawing.Size(13, 13);
+            this.HP_n.TabIndex = 44;
+            this.HP_n.Text = "0";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(755, 189);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(42, 13);
+            this.label8.TabIndex = 43;
+            this.label8.Text = "MaxHP";
             // 
             // GearForm
             // 
@@ -1000,6 +1190,25 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1199, 624);
+            this.Controls.Add(this.Weig_n);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.HP_n);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.KF_n);
+            this.Controls.Add(this.G_n);
+            this.Controls.Add(this.KB_n);
+            this.Controls.Add(this.SSF_n);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.Belt_dr);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.Res_n);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.beltAcc_n);
+            this.Controls.Add(this.beltEv_n);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.beltDP_n);
             this.Controls.Add(this.beltAP_n);
@@ -1117,5 +1326,24 @@
         private System.Windows.Forms.Label beltAP_n;
         private System.Windows.Forms.Label beltDP_n;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label beltEv_n;
+        private System.Windows.Forms.Label beltAcc_n;
+        private System.Windows.Forms.Label Res_n;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label Belt_dr;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label KF_n;
+        private System.Windows.Forms.Label G_n;
+        private System.Windows.Forms.Label KB_n;
+        private System.Windows.Forms.Label SSF_n;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label Weig_n;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label HP_n;
+        private System.Windows.Forms.Label label8;
     }
 }
