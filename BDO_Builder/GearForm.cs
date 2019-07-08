@@ -17,7 +17,7 @@ namespace BDO_Builder
     {
         public string sclass;
         public Image cimg;
-        CharacterState cs = new CharacterState();
+        readonly CharacterState cs = new CharacterState();
         
 
         public GearForm()
@@ -74,6 +74,18 @@ namespace BDO_Builder
             Item_Icon_Load("Belts",0);
         }
 
+        private void LoadNeck() //Belt
+        {
+            var sql = @"select * from Neck";
+            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            SelectGear_cb.DataSource = ds.Tables[0];
+            SelectGear_cb.DisplayMember = "Name";
+            SelectGear_cb.ValueMember = "Id";
+            Item_Icon_Load("Neck", 0);
+        }
+
         private void DpLvl_cb_CheckedChanged(object sender, EventArgs e)
         {
             int lvlDP = 1;
@@ -128,6 +140,13 @@ namespace BDO_Builder
             cs.cdp = Convert.ToInt32(cDP_n.Text);
         }
 
+        private void Necklace_btn_Click(object sender, EventArgs e)
+        {
+            cs.sgn = 2;
+            LoadNeck();
+        }
+
+
         private void Belt_btn_Click(object sender, EventArgs e)
         {
             LoadBelts();
@@ -152,22 +171,61 @@ namespace BDO_Builder
                     beltEv_n.Text = dr["Evasion"].ToString();
                     beltAcc_n.Text = dr["Accuracy"].ToString();
                     Res_n.Text = dr["AllResist"].ToString();
+                    Belt_dr.Text = dr["DR"].ToString();
+                    
                 }
                 cs.Type = "Belts";
                 Item_Icon_Load(cs.Type,SelectGear_cb.SelectedIndex);
+                cs.BeltState(Convert.ToInt32(beltAP_n.Text), Convert.ToInt32(beltDP_n.Text), Convert.ToInt32(beltAcc_n.Text), Convert.ToInt32(beltEv_n.Text), Convert.ToInt32(Res_n.Text), Convert.ToInt32(Belt_dr.Text));
+                cAP_n.Text = Convert.ToString(cs.cap);
+                cAAP_n.Text = Convert.ToString(cs.caap);
+                cDP_n.Text = Convert.ToString(cs.cdp);
+                Evas_n.Text = Convert.ToString(cs.cev);
+                Acc_n.Text = Convert.ToString(cs.cacc);
+                SSFR_n.Text = Convert.ToString(cs.cRes1);
+                KBR_n.Text = Convert.ToString(cs.cRes2);
+                GrapR_n.Text = Convert.ToString(cs.cRes3);
+                KFR_n.Text = Convert.ToString(cs.cRes4);
+                DR_n.Text = Convert.ToString(cs.cDR);
             }
-            cs.BeltState(Convert.ToInt32(beltAP_n.Text), Convert.ToInt32(beltDP_n.Text), Convert.ToInt32(beltAcc_n.Text), Convert.ToInt32(beltEv_n.Text), Convert.ToInt32(Res_n.Text));
 
-            cAP_n.Text = Convert.ToString(cs.cap);
-            cAAP_n.Text = Convert.ToString(cs.caap);
-            cDP_n.Text = Convert.ToString(cs.cdp);
-            Evas_n.Text = Convert.ToString(cs.cev);
-            Acc_n.Text = Convert.ToString(cs.cacc);
-            SSFR_n.Text = Convert.ToString(cs.cRes1);
-            KBR_n.Text = Convert.ToString(cs.cRes2);
-            GrapR_n.Text = Convert.ToString(cs.cRes3);
-            KFR_n.Text = Convert.ToString(cs.cRes4);
+            if (cs.sgn == 2)
+            {
+                cmd.CommandText = "select * from Neck where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    beltAP_n.Text = dr["AP"].ToString();
+                    beltDP_n.Text = dr["DP"].ToString();
+                    beltEv_n.Text = dr["Evasion"].ToString();
+                    beltAcc_n.Text = dr["Accuracy"].ToString();
+                    Res_n.Text = dr["AllRes"].ToString();
+                    Belt_dr.Text = dr["DR"].ToString();
+                    SSF_n.Text = dr["SSFRes"].ToString();
+                    KB_n.Text = dr["KBRes"].ToString();
+                    G_n.Text = dr["GrapRes"].ToString();
+                    KF_n.Text = dr["KFRes"].ToString();
+                }
+                cs.Type = "Neck";
+                Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
+                cs.NeckState(Convert.ToInt32(beltAP_n.Text), Convert.ToInt32(beltDP_n.Text), Convert.ToInt32(beltAcc_n.Text), Convert.ToInt32(beltEv_n.Text), Convert.ToInt32(Res_n.Text), Convert.ToInt32(Belt_dr.Text), Convert.ToInt32(SSF_n.Text), Convert.ToInt32(KB_n.Text), Convert.ToInt32(G_n.Text), Convert.ToInt32(KF_n.Text));
+                cAP_n.Text = Convert.ToString(cs.cap);
+                cAAP_n.Text = Convert.ToString(cs.caap);
+                cDP_n.Text = Convert.ToString(cs.cdp);
+                Evas_n.Text = Convert.ToString(cs.cev);
+                Acc_n.Text = Convert.ToString(cs.cacc);
+                SSFR_n.Text = Convert.ToString(cs.cRes1);
+                KBR_n.Text = Convert.ToString(cs.cRes2);
+                GrapR_n.Text = Convert.ToString(cs.cRes3);
+                KFR_n.Text = Convert.ToString(cs.cRes4);
+                DR_n.Text = Convert.ToString(cs.cDR);
+            }
 
         }
+
+        
     }
 }
