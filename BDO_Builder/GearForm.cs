@@ -17,13 +17,8 @@ namespace BDO_Builder
     {
         public string sclass;
         public Image cimg;
-        public int sgn; //Selected Gear
-        public int cdp; //DP
-        public int cap; //AP
-        public int caap; //AAP
-        public int beltap; //Betl AP
-        public int beltdp; //Belt DP
-        public string Type; // Item type
+        CharacterState cs = new CharacterState();
+        
 
         public GearForm()
         {
@@ -55,9 +50,9 @@ namespace BDO_Builder
 
         private void GearForm_Load(object sender, EventArgs e)
         {
-            cdp = Convert.ToInt32(cDP_n.Text);
-            cap = Convert.ToInt32(cAP_n.Text);
-            caap = Convert.ToInt32(cAAP_n.Text);
+            cs.cdp = Convert.ToInt32(cDP_n.Text);
+            cs.cap = Convert.ToInt32(cAP_n.Text);
+            cs.caap = Convert.ToInt32(cAAP_n.Text);
             Sclass_lbl.Text = sclass;
             Class_pic.BackgroundImage = cimg;
             if (sclass == "Shai") { AW_btn.Visible = false; SAW_btn.Visible = false; }
@@ -84,13 +79,13 @@ namespace BDO_Builder
             int lvlDP = 1;
             if (dpLvl_cb.Checked == true)
             {                
-                cDP_n.Text = Convert.ToString(cdp+lvlDP);
+                cDP_n.Text = Convert.ToString(cs.cdp+lvlDP);
             }
             else
             { 
-                cDP_n.Text = Convert.ToString(cdp-lvlDP);
+                cDP_n.Text = Convert.ToString(cs.cdp-lvlDP);
             }
-            cdp = Convert.ToInt32(cDP_n.Text);
+            cs.cdp = Convert.ToInt32(cDP_n.Text);
         }
 
         private void ApLvl_cb_CheckedChanged(object sender, EventArgs e)
@@ -99,16 +94,16 @@ namespace BDO_Builder
             int lvlAAP = 1;
             if (apLvl_cb.Checked == true)
             {
-                cAP_n.Text = Convert.ToString(cap + lvlAP);
-                cAAP_n.Text = Convert.ToString(caap + lvlAAP);
+                cAP_n.Text = Convert.ToString(cs.cap + lvlAP);
+                cAAP_n.Text = Convert.ToString(cs.caap + lvlAAP);
             }
             else
             {
-                cAP_n.Text = Convert.ToString(cap - lvlAP);
-                cAAP_n.Text = Convert.ToString(caap - lvlAAP);
+                cAP_n.Text = Convert.ToString(cs.cap - lvlAP);
+                cAAP_n.Text = Convert.ToString(cs.caap - lvlAAP);
             }
-            cap = Convert.ToInt32(cAP_n.Text);
-            caap = Convert.ToInt32(cAAP_n.Text);
+            cs.cap = Convert.ToInt32(cAP_n.Text);
+            cs.caap = Convert.ToInt32(cAAP_n.Text);
         }
 
         private void Book_cb_CheckedChanged(object sender, EventArgs e)
@@ -118,32 +113,32 @@ namespace BDO_Builder
             int BookDP = 1;
             if (Book_cb.Checked == true)
             {
-                cDP_n.Text = Convert.ToString(cdp + BookDP);
-                cAAP_n.Text = Convert.ToString(caap + BookAAP);
-                cAP_n.Text = Convert.ToString(cap + BookAP);
+                cDP_n.Text = Convert.ToString(cs.cdp + BookDP);
+                cAAP_n.Text = Convert.ToString(cs.caap + BookAAP);
+                cAP_n.Text = Convert.ToString(cs.cap + BookAP);
             }
             else
             {
-                cDP_n.Text = Convert.ToString(cdp - BookDP);
-                cAAP_n.Text = Convert.ToString(caap - BookAAP);
-                cAP_n.Text = Convert.ToString(cap - BookAP);
+                cDP_n.Text = Convert.ToString(cs.cdp - BookDP);
+                cAAP_n.Text = Convert.ToString(cs.caap - BookAAP);
+                cAP_n.Text = Convert.ToString(cs.cap - BookAP);
             }
-            cap = Convert.ToInt32(cAP_n.Text);
-            caap = Convert.ToInt32(cAAP_n.Text);
-            cdp = Convert.ToInt32(cDP_n.Text);
+            cs.cap = Convert.ToInt32(cAP_n.Text);
+            cs.caap = Convert.ToInt32(cAAP_n.Text);
+            cs.cdp = Convert.ToInt32(cDP_n.Text);
         }
 
         private void Belt_btn_Click(object sender, EventArgs e)
         {
             LoadBelts();
-            sgn = 1;
+            cs.sgn = 1;
         }
 
         private void SelectedGear_cb_SelectedIndexChanged(object sender, EventArgs e)
         {
           SqlCommand cmd = Base_Connect.Connection.CreateCommand();
           cmd.CommandType = CommandType.Text;
-            if (sgn == 1)
+            if (cs.sgn == 1)
             {
                 cmd.CommandText = "select * from Belts where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
                 cmd.ExecuteNonQuery();
@@ -154,21 +149,25 @@ namespace BDO_Builder
                 {
                     beltAP_n.Text = dr["AP"].ToString();
                     beltDP_n.Text = dr["DP"].ToString();
+                    beltEv_n.Text = dr["Evasion"].ToString();
+                    beltAcc_n.Text = dr["Accuracy"].ToString();
+                    Res_n.Text = dr["AllResist"].ToString();
                 }
-                Type = "Belts";
-                Item_Icon_Load(Type,SelectGear_cb.SelectedIndex);
+                cs.Type = "Belts";
+                Item_Icon_Load(cs.Type,SelectGear_cb.SelectedIndex);
             }
-            cap = cap - beltap;
-            caap = caap - beltap;
-            cdp = cdp - beltdp;
-            beltap = Convert.ToInt32(beltAP_n.Text);
-            beltdp = Convert.ToInt32(beltDP_n.Text);
-            cap = cap + beltap;
-            caap = caap + beltap;
-            cdp = cdp + beltdp;
-            cAP_n.Text = Convert.ToString(cap);
-            cAAP_n.Text = Convert.ToString(caap);
-            cDP_n.Text = Convert.ToString(cdp);
+            cs.BeltState(Convert.ToInt32(beltAP_n.Text), Convert.ToInt32(beltDP_n.Text), Convert.ToInt32(beltAcc_n.Text), Convert.ToInt32(beltEv_n.Text), Convert.ToInt32(Res_n.Text));
+
+            cAP_n.Text = Convert.ToString(cs.cap);
+            cAAP_n.Text = Convert.ToString(cs.caap);
+            cDP_n.Text = Convert.ToString(cs.cdp);
+            Evas_n.Text = Convert.ToString(cs.cev);
+            Acc_n.Text = Convert.ToString(cs.cacc);
+            SSFR_n.Text = Convert.ToString(cs.cRes1);
+            KBR_n.Text = Convert.ToString(cs.cRes2);
+            GrapR_n.Text = Convert.ToString(cs.cRes3);
+            KFR_n.Text = Convert.ToString(cs.cRes4);
+
         }
     }
 }

@@ -109,6 +109,12 @@
             this.beltDP_lbl = new System.Windows.Forms.Label();
             this.beltAP_n = new System.Windows.Forms.Label();
             this.beltDP_n = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.beltEv_n = new System.Windows.Forms.Label();
+            this.beltAcc_n = new System.Windows.Forms.Label();
+            this.Res_n = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.ShopGear_gb.SuspendLayout();
             this.CharacterGear_gb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Class_pic)).BeginInit();
@@ -983,12 +989,72 @@
             this.beltDP_n.TabIndex = 26;
             this.beltDP_n.Text = "0";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(818, 115);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(20, 13);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "Ev";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(818, 137);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(26, 13);
+            this.label2.TabIndex = 28;
+            this.label2.Text = "Acc";
+            // 
+            // beltEv_n
+            // 
+            this.beltEv_n.AutoSize = true;
+            this.beltEv_n.Location = new System.Drawing.Point(859, 115);
+            this.beltEv_n.Name = "beltEv_n";
+            this.beltEv_n.Size = new System.Drawing.Size(13, 13);
+            this.beltEv_n.TabIndex = 29;
+            this.beltEv_n.Text = "0";
+            // 
+            // beltAcc_n
+            // 
+            this.beltAcc_n.AutoSize = true;
+            this.beltAcc_n.Location = new System.Drawing.Point(859, 137);
+            this.beltAcc_n.Name = "beltAcc_n";
+            this.beltAcc_n.Size = new System.Drawing.Size(13, 13);
+            this.beltAcc_n.TabIndex = 30;
+            this.beltAcc_n.Text = "0";
+            // 
+            // Res_n
+            // 
+            this.Res_n.AutoSize = true;
+            this.Res_n.Location = new System.Drawing.Point(796, 166);
+            this.Res_n.Name = "Res_n";
+            this.Res_n.Size = new System.Drawing.Size(13, 13);
+            this.Res_n.TabIndex = 32;
+            this.Res_n.Text = "0";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(755, 166);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(36, 13);
+            this.label4.TabIndex = 31;
+            this.label4.Text = "Resist";
+            // 
             // GearForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1199, 624);
+            this.Controls.Add(this.Res_n);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.beltAcc_n);
+            this.Controls.Add(this.beltEv_n);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.beltDP_n);
             this.Controls.Add(this.beltAP_n);
             this.Controls.Add(this.beltDP_lbl);
@@ -1104,5 +1170,11 @@
         private System.Windows.Forms.Label beltDP_lbl;
         private System.Windows.Forms.Label beltAP_n;
         private System.Windows.Forms.Label beltDP_n;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label beltEv_n;
+        private System.Windows.Forms.Label beltAcc_n;
+        private System.Windows.Forms.Label Res_n;
+        private System.Windows.Forms.Label label4;
     }
 }
