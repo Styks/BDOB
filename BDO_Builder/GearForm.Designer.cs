@@ -345,6 +345,7 @@
             this.Necklace_btn.Size = new System.Drawing.Size(40, 40);
             this.Necklace_btn.TabIndex = 6;
             this.Necklace_btn.UseVisualStyleBackColor = false;
+            this.Necklace_btn.Click += new System.EventHandler(this.Necklace_btn_Click);
             // 
             // Belt_btn
             // 

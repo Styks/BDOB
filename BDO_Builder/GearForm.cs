@@ -18,12 +18,17 @@ namespace BDO_Builder
         public string sclass;
         public Image cimg;
         public int sgn; //Selected Gear
+        public string Type; // Item type
+        //Global stats
         public int cdp; //DP
         public int cap; //AP
         public int caap; //AAP
+        //Belt stats
         public int beltap; //Betl AP
         public int beltdp; //Belt DP
-        public string Type; // Item type
+        //Neck stats
+        public int neckap; //Neck AP
+        public int neckdp; //Neck DP
 
         public GearForm()
         {
@@ -42,11 +47,9 @@ namespace BDO_Builder
                 Connection = Base_Connect.Connection,
                 CommandType = CommandType.Text
             };
-
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
             da.Fill(ds);
-
             Byte[] img;
             img = (Byte[])ds.Tables[0].Rows[0]["Icon"];
             MemoryStream ms = new MemoryStream(img);
@@ -61,7 +64,7 @@ namespace BDO_Builder
             Sclass_lbl.Text = sclass;
             Class_pic.BackgroundImage = cimg;
             if (sclass == "Shai") { AW_btn.Visible = false; SAW_btn.Visible = false; }
-            //////////
+            ////////// Edit ComboBox
             this.SelectGear_cb.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             this.SelectGear_cb.AutoCompleteSource = AutoCompleteSource.ListItems;
             //////////
@@ -77,6 +80,18 @@ namespace BDO_Builder
             SelectGear_cb.DisplayMember = "Name";
             SelectGear_cb.ValueMember = "Id";
             Item_Icon_Load("Belts",0);
+        }
+
+        private void LoadNeck() //Neck
+        {
+            var sql = @"select * from Neck";
+            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            SelectGear_cb.DataSource = ds.Tables[0];
+            SelectGear_cb.DisplayMember = "Name";
+            SelectGear_cb.ValueMember = "Id";
+            Item_Icon_Load("Neck", 0);
         }
 
         private void DpLvl_cb_CheckedChanged(object sender, EventArgs e)
@@ -139,6 +154,12 @@ namespace BDO_Builder
             sgn = 1;
         }
 
+        private void Necklace_btn_Click(object sender, EventArgs e)
+        {
+            LoadNeck();
+            sgn = 2;
+        }
+
         private void SelectedGear_cb_SelectedIndexChanged(object sender, EventArgs e)
         {
           SqlCommand cmd = Base_Connect.Connection.CreateCommand();
@@ -157,18 +178,46 @@ namespace BDO_Builder
                 }
                 Type = "Belts";
                 Item_Icon_Load(Type,SelectGear_cb.SelectedIndex);
+                ////////////////////////
+                cap = cap - beltap;
+                caap = caap - beltap;
+                cdp = cdp - beltdp;
+                beltap = Convert.ToInt32(beltAP_n.Text);
+                beltdp = Convert.ToInt32(beltDP_n.Text);
+                cap = cap + beltap;
+                caap = caap + beltap;
+                cdp = cdp + beltdp;
+                cAP_n.Text = Convert.ToString(cap);
+                cAAP_n.Text = Convert.ToString(caap);
+                cDP_n.Text = Convert.ToString(cdp);
             }
-            cap = cap - beltap;
-            caap = caap - beltap;
-            cdp = cdp - beltdp;
-            beltap = Convert.ToInt32(beltAP_n.Text);
-            beltdp = Convert.ToInt32(beltDP_n.Text);
-            cap = cap + beltap;
-            caap = caap + beltap;
-            cdp = cdp + beltdp;
-            cAP_n.Text = Convert.ToString(cap);
-            cAAP_n.Text = Convert.ToString(caap);
-            cDP_n.Text = Convert.ToString(cdp);
+            if (sgn == 2)
+            {
+                cmd.CommandText = "select * from Neck where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    beltAP_n.Text = dr["AP"].ToString();
+                    beltDP_n.Text = dr["DP"].ToString();
+                }
+                Type = "Neck";
+                Item_Icon_Load(Type, SelectGear_cb.SelectedIndex);
+                ////////////////////////
+                cap = cap - neckap;
+                caap = caap - neckap;
+                cdp = cdp - neckdp;
+                neckap = Convert.ToInt32(beltAP_n.Text);
+                neckdp = Convert.ToInt32(beltDP_n.Text);
+                cap = cap + neckap;
+                caap = caap + neckap;
+                cdp = cdp + neckdp;
+                cAP_n.Text = Convert.ToString(cap);
+                cAAP_n.Text = Convert.ToString(caap);
+                cDP_n.Text = Convert.ToString(cdp);
+            }
         }
     }
 }
