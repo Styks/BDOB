@@ -15,8 +15,10 @@ namespace BDO_Builder
 {
     public class CharacterState
     {
+        public string Type; // Item type
+        public int sgn; //Selected Gear(Item)
         
-        public int sgn; //Selected Gear
+        // Character stats
         public int cdp; //DP
         public int cap; //AP
         public int caap; //AAP
@@ -30,6 +32,7 @@ namespace BDO_Builder
         public int cMaxHP; // Max HP
         public int cWeight; // Weight
 
+        // Belt stats
         public int beltap; //Betl AP
         public int beltev; // Belt Evasion
         public int beltacc;//Belt Accuracy
@@ -39,6 +42,7 @@ namespace BDO_Builder
         public int beltHP; //Belt MaxHP
         public int beltWeight;//Belt Weight
 
+        // Neck stats
         public int neckap; //Neck AP
         public int neckev; // Neck Evasion
         public int neckacc;//Neck Accuracy
@@ -50,9 +54,6 @@ namespace BDO_Builder
         public int neckG; //Neck Resists: Grapple
         public int neckKF; //Neck Resists: Knockback/Floating
         public int neckHP; //Neck Max HP
-
-        public string Type; // Item type
-
 
         public void BeltState(int AP, int DP, int Acc, int Ev, int Res, int DR, int HP, int Wg)
         {
@@ -137,9 +138,6 @@ namespace BDO_Builder
             cRes3 += neckAllRes;
             cRes4 += neckAllRes;
             cMaxHP += neckHP;
-
         }
-
-
     }
 }

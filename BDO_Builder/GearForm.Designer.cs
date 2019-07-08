@@ -57,22 +57,22 @@
             this.Armour_btn = new System.Windows.Forms.Button();
             this.Helmet_btn = new System.Windows.Forms.Button();
             this.MStats_gb = new System.Windows.Forms.GroupBox();
-            this.Acc_n = new System.Windows.Forms.Label();
-            this.Acc_lbl = new System.Windows.Forms.Label();
+            this.cAcc_n = new System.Windows.Forms.Label();
+            this.cAcc_lbl = new System.Windows.Forms.Label();
             this.Weight_n = new System.Windows.Forms.Label();
             this.cMP_n = new System.Windows.Forms.Label();
             this.cHP_n = new System.Windows.Forms.Label();
-            this.Weight_lbl = new System.Windows.Forms.Label();
+            this.cWeight_lbl = new System.Windows.Forms.Label();
             this.cMP_lbl = new System.Windows.Forms.Label();
             this.cHP_lbl = new System.Windows.Forms.Label();
-            this.HE_n = new System.Windows.Forms.Label();
-            this.HE_lbl = new System.Windows.Forms.Label();
-            this.HDR_n = new System.Windows.Forms.Label();
-            this.HDR_lbl = new System.Windows.Forms.Label();
-            this.Evas_n = new System.Windows.Forms.Label();
-            this.Evas_lbl = new System.Windows.Forms.Label();
-            this.DR_n = new System.Windows.Forms.Label();
-            this.DR_lbl = new System.Windows.Forms.Label();
+            this.cHE_n = new System.Windows.Forms.Label();
+            this.cHE_lbl = new System.Windows.Forms.Label();
+            this.cHDR_n = new System.Windows.Forms.Label();
+            this.cHDR_lbl = new System.Windows.Forms.Label();
+            this.cEvas_n = new System.Windows.Forms.Label();
+            this.cEvas_lbl = new System.Windows.Forms.Label();
+            this.cDR_n = new System.Windows.Forms.Label();
+            this.cDR_lbl = new System.Windows.Forms.Label();
             this.cAAP_n = new System.Windows.Forms.Label();
             this.cAAP_lbl = new System.Windows.Forms.Label();
             this.cDP_n = new System.Windows.Forms.Label();
@@ -83,52 +83,53 @@
             this.apLvl_cb = new System.Windows.Forms.CheckBox();
             this.Settings_gb = new System.Windows.Forms.GroupBox();
             this.dpLvl_cb = new System.Windows.Forms.CheckBox();
-            this.ACS_lbl = new System.Windows.Forms.Label();
-            this.ACS_n = new System.Windows.Forms.Label();
-            this.MvS_lbl = new System.Windows.Forms.Label();
-            this.MvS_n = new System.Windows.Forms.Label();
-            this.CR_lbl = new System.Windows.Forms.Label();
-            this.CR_n = new System.Windows.Forms.Label();
-            this.Fish_lbl = new System.Windows.Forms.Label();
-            this.Gath_lbl = new System.Windows.Forms.Label();
-            this.Fish_n = new System.Windows.Forms.Label();
-            this.Gath_n = new System.Windows.Forms.Label();
+            this.cACS_lbl = new System.Windows.Forms.Label();
+            this.cACS_n = new System.Windows.Forms.Label();
+            this.cMvS_lbl = new System.Windows.Forms.Label();
+            this.cMvS_n = new System.Windows.Forms.Label();
+            this.cCR_lbl = new System.Windows.Forms.Label();
+            this.cCR_n = new System.Windows.Forms.Label();
+            this.cFish_lbl = new System.Windows.Forms.Label();
+            this.cGath_lbl = new System.Windows.Forms.Label();
+            this.cFish_n = new System.Windows.Forms.Label();
+            this.cGath_n = new System.Windows.Forms.Label();
             this.OStats_gb = new System.Windows.Forms.GroupBox();
-            this.KFR_n = new System.Windows.Forms.Label();
-            this.GrapR_n = new System.Windows.Forms.Label();
-            this.KBR_n = new System.Windows.Forms.Label();
-            this.SSFR_n = new System.Windows.Forms.Label();
-            this.KFR_lbl = new System.Windows.Forms.Label();
-            this.GrapR_lbl = new System.Windows.Forms.Label();
-            this.KBR_lbl = new System.Windows.Forms.Label();
+            this.cKFR_n = new System.Windows.Forms.Label();
+            this.cGrapR_n = new System.Windows.Forms.Label();
+            this.cKBR_n = new System.Windows.Forms.Label();
+            this.cSSFR_n = new System.Windows.Forms.Label();
+            this.cKFR_lbl = new System.Windows.Forms.Label();
+            this.cGrapR_lbl = new System.Windows.Forms.Label();
+            this.cKBR_lbl = new System.Windows.Forms.Label();
             this.Resist_lbl = new System.Windows.Forms.Label();
-            this.SSFR_lbl = new System.Windows.Forms.Label();
+            this.cSSFR_lbl = new System.Windows.Forms.Label();
             this.SelectGear_cb = new System.Windows.Forms.ComboBox();
             this.Item_image = new System.Windows.Forms.PictureBox();
-            this.beltAP_lbl = new System.Windows.Forms.Label();
-            this.beltDP_lbl = new System.Windows.Forms.Label();
-            this.beltAP_n = new System.Windows.Forms.Label();
-            this.beltDP_n = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.beltEv_n = new System.Windows.Forms.Label();
-            this.beltAcc_n = new System.Windows.Forms.Label();
-            this.Res_n = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.Belt_dr = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.KF_n = new System.Windows.Forms.Label();
-            this.G_n = new System.Windows.Forms.Label();
-            this.KB_n = new System.Windows.Forms.Label();
-            this.SSF_n = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.Weig_n = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.HP_n = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.iAP_lbl = new System.Windows.Forms.Label();
+            this.iDP_lbl = new System.Windows.Forms.Label();
+            this.iAP_n = new System.Windows.Forms.Label();
+            this.iDP_n = new System.Windows.Forms.Label();
+            this.iEvas_lbl = new System.Windows.Forms.Label();
+            this.iAcc_lbl = new System.Windows.Forms.Label();
+            this.iEvas_n = new System.Windows.Forms.Label();
+            this.iAcc_n = new System.Windows.Forms.Label();
+            this.iRes_n = new System.Windows.Forms.Label();
+            this.iRes_lbl = new System.Windows.Forms.Label();
+            this.iDR_n = new System.Windows.Forms.Label();
+            this.iDR_lbl = new System.Windows.Forms.Label();
+            this.iKFR_n = new System.Windows.Forms.Label();
+            this.iGrapR_n = new System.Windows.Forms.Label();
+            this.iKBR_n = new System.Windows.Forms.Label();
+            this.iSSFR_n = new System.Windows.Forms.Label();
+            this.iKFR_lbl = new System.Windows.Forms.Label();
+            this.iGrapR_lbl = new System.Windows.Forms.Label();
+            this.iKBR_lbl = new System.Windows.Forms.Label();
+            this.iSSFR_lbl = new System.Windows.Forms.Label();
+            this.iWeight_n = new System.Windows.Forms.Label();
+            this.iWeight_lbl = new System.Windows.Forms.Label();
+            this.iHP_n = new System.Windows.Forms.Label();
+            this.iHp_lbl = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.ShopGear_gb.SuspendLayout();
             this.CharacterGear_gb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Class_pic)).BeginInit();
@@ -478,22 +479,22 @@
             // 
             // MStats_gb
             // 
-            this.MStats_gb.Controls.Add(this.Acc_n);
-            this.MStats_gb.Controls.Add(this.Acc_lbl);
+            this.MStats_gb.Controls.Add(this.cAcc_n);
+            this.MStats_gb.Controls.Add(this.cAcc_lbl);
             this.MStats_gb.Controls.Add(this.Weight_n);
             this.MStats_gb.Controls.Add(this.cMP_n);
             this.MStats_gb.Controls.Add(this.cHP_n);
-            this.MStats_gb.Controls.Add(this.Weight_lbl);
+            this.MStats_gb.Controls.Add(this.cWeight_lbl);
             this.MStats_gb.Controls.Add(this.cMP_lbl);
             this.MStats_gb.Controls.Add(this.cHP_lbl);
-            this.MStats_gb.Controls.Add(this.HE_n);
-            this.MStats_gb.Controls.Add(this.HE_lbl);
-            this.MStats_gb.Controls.Add(this.HDR_n);
-            this.MStats_gb.Controls.Add(this.HDR_lbl);
-            this.MStats_gb.Controls.Add(this.Evas_n);
-            this.MStats_gb.Controls.Add(this.Evas_lbl);
-            this.MStats_gb.Controls.Add(this.DR_n);
-            this.MStats_gb.Controls.Add(this.DR_lbl);
+            this.MStats_gb.Controls.Add(this.cHE_n);
+            this.MStats_gb.Controls.Add(this.cHE_lbl);
+            this.MStats_gb.Controls.Add(this.cHDR_n);
+            this.MStats_gb.Controls.Add(this.cHDR_lbl);
+            this.MStats_gb.Controls.Add(this.cEvas_n);
+            this.MStats_gb.Controls.Add(this.cEvas_lbl);
+            this.MStats_gb.Controls.Add(this.cDR_n);
+            this.MStats_gb.Controls.Add(this.cDR_lbl);
             this.MStats_gb.Controls.Add(this.cAAP_n);
             this.MStats_gb.Controls.Add(this.cAAP_lbl);
             this.MStats_gb.Controls.Add(this.cDP_n);
@@ -507,23 +508,23 @@
             this.MStats_gb.TabStop = false;
             this.MStats_gb.Text = "MainStats";
             // 
-            // Acc_n
+            // cAcc_n
             // 
-            this.Acc_n.AutoSize = true;
-            this.Acc_n.Location = new System.Drawing.Point(205, 125);
-            this.Acc_n.Name = "Acc_n";
-            this.Acc_n.Size = new System.Drawing.Size(13, 13);
-            this.Acc_n.TabIndex = 35;
-            this.Acc_n.Text = "0";
+            this.cAcc_n.AutoSize = true;
+            this.cAcc_n.Location = new System.Drawing.Point(205, 125);
+            this.cAcc_n.Name = "cAcc_n";
+            this.cAcc_n.Size = new System.Drawing.Size(13, 13);
+            this.cAcc_n.TabIndex = 35;
+            this.cAcc_n.Text = "0";
             // 
-            // Acc_lbl
+            // cAcc_lbl
             // 
-            this.Acc_lbl.AutoSize = true;
-            this.Acc_lbl.Location = new System.Drawing.Point(100, 125);
-            this.Acc_lbl.Name = "Acc_lbl";
-            this.Acc_lbl.Size = new System.Drawing.Size(52, 13);
-            this.Acc_lbl.TabIndex = 34;
-            this.Acc_lbl.Text = "Accuracy";
+            this.cAcc_lbl.AutoSize = true;
+            this.cAcc_lbl.Location = new System.Drawing.Point(100, 125);
+            this.cAcc_lbl.Name = "cAcc_lbl";
+            this.cAcc_lbl.Size = new System.Drawing.Size(52, 13);
+            this.cAcc_lbl.TabIndex = 34;
+            this.cAcc_lbl.Text = "Accuracy";
             // 
             // Weight_n
             // 
@@ -552,14 +553,14 @@
             this.cHP_n.TabIndex = 31;
             this.cHP_n.Text = "0";
             // 
-            // Weight_lbl
+            // cWeight_lbl
             // 
-            this.Weight_lbl.AutoSize = true;
-            this.Weight_lbl.Location = new System.Drawing.Point(17, 166);
-            this.Weight_lbl.Name = "Weight_lbl";
-            this.Weight_lbl.Size = new System.Drawing.Size(41, 13);
-            this.Weight_lbl.TabIndex = 30;
-            this.Weight_lbl.Text = "Weight";
+            this.cWeight_lbl.AutoSize = true;
+            this.cWeight_lbl.Location = new System.Drawing.Point(17, 166);
+            this.cWeight_lbl.Name = "cWeight_lbl";
+            this.cWeight_lbl.Size = new System.Drawing.Size(41, 13);
+            this.cWeight_lbl.TabIndex = 30;
+            this.cWeight_lbl.Text = "Weight";
             // 
             // cMP_lbl
             // 
@@ -579,77 +580,77 @@
             this.cHP_lbl.TabIndex = 28;
             this.cHP_lbl.Text = "HP";
             // 
-            // HE_n
+            // cHE_n
             // 
-            this.HE_n.AutoSize = true;
-            this.HE_n.Location = new System.Drawing.Point(205, 101);
-            this.HE_n.Name = "HE_n";
-            this.HE_n.Size = new System.Drawing.Size(13, 13);
-            this.HE_n.TabIndex = 27;
-            this.HE_n.Text = "0";
+            this.cHE_n.AutoSize = true;
+            this.cHE_n.Location = new System.Drawing.Point(205, 101);
+            this.cHE_n.Name = "cHE_n";
+            this.cHE_n.Size = new System.Drawing.Size(13, 13);
+            this.cHE_n.TabIndex = 27;
+            this.cHE_n.Text = "0";
             // 
-            // HE_lbl
+            // cHE_lbl
             // 
-            this.HE_lbl.AutoSize = true;
-            this.HE_lbl.Location = new System.Drawing.Point(100, 101);
-            this.HE_lbl.Name = "HE_lbl";
-            this.HE_lbl.Size = new System.Drawing.Size(82, 13);
-            this.HE_lbl.TabIndex = 26;
-            this.HE_lbl.Text = "Hidden Evasion";
+            this.cHE_lbl.AutoSize = true;
+            this.cHE_lbl.Location = new System.Drawing.Point(100, 101);
+            this.cHE_lbl.Name = "cHE_lbl";
+            this.cHE_lbl.Size = new System.Drawing.Size(82, 13);
+            this.cHE_lbl.TabIndex = 26;
+            this.cHE_lbl.Text = "Hidden Evasion";
             // 
-            // HDR_n
+            // cHDR_n
             // 
-            this.HDR_n.AutoSize = true;
-            this.HDR_n.Location = new System.Drawing.Point(205, 52);
-            this.HDR_n.Name = "HDR_n";
-            this.HDR_n.Size = new System.Drawing.Size(13, 13);
-            this.HDR_n.TabIndex = 25;
-            this.HDR_n.Text = "0";
+            this.cHDR_n.AutoSize = true;
+            this.cHDR_n.Location = new System.Drawing.Point(205, 52);
+            this.cHDR_n.Name = "cHDR_n";
+            this.cHDR_n.Size = new System.Drawing.Size(13, 13);
+            this.cHDR_n.TabIndex = 25;
+            this.cHDR_n.Text = "0";
             // 
-            // HDR_lbl
+            // cHDR_lbl
             // 
-            this.HDR_lbl.AutoSize = true;
-            this.HDR_lbl.Location = new System.Drawing.Point(100, 52);
-            this.HDR_lbl.Name = "HDR_lbl";
-            this.HDR_lbl.Size = new System.Drawing.Size(60, 13);
-            this.HDR_lbl.TabIndex = 24;
-            this.HDR_lbl.Text = "Hidden DR";
+            this.cHDR_lbl.AutoSize = true;
+            this.cHDR_lbl.Location = new System.Drawing.Point(100, 52);
+            this.cHDR_lbl.Name = "cHDR_lbl";
+            this.cHDR_lbl.Size = new System.Drawing.Size(60, 13);
+            this.cHDR_lbl.TabIndex = 24;
+            this.cHDR_lbl.Text = "Hidden DR";
             // 
-            // Evas_n
+            // cEvas_n
             // 
-            this.Evas_n.AutoSize = true;
-            this.Evas_n.Location = new System.Drawing.Point(205, 77);
-            this.Evas_n.Name = "Evas_n";
-            this.Evas_n.Size = new System.Drawing.Size(13, 13);
-            this.Evas_n.TabIndex = 23;
-            this.Evas_n.Text = "0";
+            this.cEvas_n.AutoSize = true;
+            this.cEvas_n.Location = new System.Drawing.Point(205, 77);
+            this.cEvas_n.Name = "cEvas_n";
+            this.cEvas_n.Size = new System.Drawing.Size(13, 13);
+            this.cEvas_n.TabIndex = 23;
+            this.cEvas_n.Text = "0";
             // 
-            // Evas_lbl
+            // cEvas_lbl
             // 
-            this.Evas_lbl.AutoSize = true;
-            this.Evas_lbl.Location = new System.Drawing.Point(100, 77);
-            this.Evas_lbl.Name = "Evas_lbl";
-            this.Evas_lbl.Size = new System.Drawing.Size(45, 13);
-            this.Evas_lbl.TabIndex = 22;
-            this.Evas_lbl.Text = "Evasion";
+            this.cEvas_lbl.AutoSize = true;
+            this.cEvas_lbl.Location = new System.Drawing.Point(100, 77);
+            this.cEvas_lbl.Name = "cEvas_lbl";
+            this.cEvas_lbl.Size = new System.Drawing.Size(45, 13);
+            this.cEvas_lbl.TabIndex = 22;
+            this.cEvas_lbl.Text = "Evasion";
             // 
-            // DR_n
+            // cDR_n
             // 
-            this.DR_n.AutoSize = true;
-            this.DR_n.Location = new System.Drawing.Point(205, 28);
-            this.DR_n.Name = "DR_n";
-            this.DR_n.Size = new System.Drawing.Size(13, 13);
-            this.DR_n.TabIndex = 21;
-            this.DR_n.Text = "0";
+            this.cDR_n.AutoSize = true;
+            this.cDR_n.Location = new System.Drawing.Point(205, 28);
+            this.cDR_n.Name = "cDR_n";
+            this.cDR_n.Size = new System.Drawing.Size(13, 13);
+            this.cDR_n.TabIndex = 21;
+            this.cDR_n.Text = "0";
             // 
-            // DR_lbl
+            // cDR_lbl
             // 
-            this.DR_lbl.AutoSize = true;
-            this.DR_lbl.Location = new System.Drawing.Point(100, 28);
-            this.DR_lbl.Name = "DR_lbl";
-            this.DR_lbl.Size = new System.Drawing.Size(99, 13);
-            this.DR_lbl.TabIndex = 20;
-            this.DR_lbl.Text = "Damage Reduction";
+            this.cDR_lbl.AutoSize = true;
+            this.cDR_lbl.Location = new System.Drawing.Point(100, 28);
+            this.cDR_lbl.Name = "cDR_lbl";
+            this.cDR_lbl.Size = new System.Drawing.Size(99, 13);
+            this.cDR_lbl.TabIndex = 20;
+            this.cDR_lbl.Text = "Damage Reduction";
             // 
             // cAAP_n
             // 
@@ -750,117 +751,117 @@
             this.dpLvl_cb.UseVisualStyleBackColor = true;
             this.dpLvl_cb.CheckedChanged += new System.EventHandler(this.DpLvl_cb_CheckedChanged);
             // 
-            // ACS_lbl
+            // cACS_lbl
             // 
-            this.ACS_lbl.AutoSize = true;
-            this.ACS_lbl.Location = new System.Drawing.Point(12, 28);
-            this.ACS_lbl.Name = "ACS_lbl";
-            this.ACS_lbl.Size = new System.Drawing.Size(98, 13);
-            this.ACS_lbl.TabIndex = 8;
-            this.ACS_lbl.Text = "Attack/Cast Speed";
+            this.cACS_lbl.AutoSize = true;
+            this.cACS_lbl.Location = new System.Drawing.Point(12, 28);
+            this.cACS_lbl.Name = "cACS_lbl";
+            this.cACS_lbl.Size = new System.Drawing.Size(98, 13);
+            this.cACS_lbl.TabIndex = 8;
+            this.cACS_lbl.Text = "Attack/Cast Speed";
             // 
-            // ACS_n
+            // cACS_n
             // 
-            this.ACS_n.AutoSize = true;
-            this.ACS_n.Location = new System.Drawing.Point(116, 28);
-            this.ACS_n.Name = "ACS_n";
-            this.ACS_n.Size = new System.Drawing.Size(13, 13);
-            this.ACS_n.TabIndex = 9;
-            this.ACS_n.Text = "0";
+            this.cACS_n.AutoSize = true;
+            this.cACS_n.Location = new System.Drawing.Point(116, 28);
+            this.cACS_n.Name = "cACS_n";
+            this.cACS_n.Size = new System.Drawing.Size(13, 13);
+            this.cACS_n.TabIndex = 9;
+            this.cACS_n.Text = "0";
             // 
-            // MvS_lbl
+            // cMvS_lbl
             // 
-            this.MvS_lbl.AutoSize = true;
-            this.MvS_lbl.Location = new System.Drawing.Point(12, 52);
-            this.MvS_lbl.Name = "MvS_lbl";
-            this.MvS_lbl.Size = new System.Drawing.Size(91, 13);
-            this.MvS_lbl.TabIndex = 10;
-            this.MvS_lbl.Text = "Movement Speed";
+            this.cMvS_lbl.AutoSize = true;
+            this.cMvS_lbl.Location = new System.Drawing.Point(12, 52);
+            this.cMvS_lbl.Name = "cMvS_lbl";
+            this.cMvS_lbl.Size = new System.Drawing.Size(91, 13);
+            this.cMvS_lbl.TabIndex = 10;
+            this.cMvS_lbl.Text = "Movement Speed";
             // 
-            // MvS_n
+            // cMvS_n
             // 
-            this.MvS_n.AutoSize = true;
-            this.MvS_n.Location = new System.Drawing.Point(116, 52);
-            this.MvS_n.Name = "MvS_n";
-            this.MvS_n.Size = new System.Drawing.Size(13, 13);
-            this.MvS_n.TabIndex = 11;
-            this.MvS_n.Text = "0";
+            this.cMvS_n.AutoSize = true;
+            this.cMvS_n.Location = new System.Drawing.Point(116, 52);
+            this.cMvS_n.Name = "cMvS_n";
+            this.cMvS_n.Size = new System.Drawing.Size(13, 13);
+            this.cMvS_n.TabIndex = 11;
+            this.cMvS_n.Text = "0";
             // 
-            // CR_lbl
+            // cCR_lbl
             // 
-            this.CR_lbl.AutoSize = true;
-            this.CR_lbl.Location = new System.Drawing.Point(12, 77);
-            this.CR_lbl.Name = "CR_lbl";
-            this.CR_lbl.Size = new System.Drawing.Size(64, 13);
-            this.CR_lbl.TabIndex = 12;
-            this.CR_lbl.Text = "Critical Rate";
+            this.cCR_lbl.AutoSize = true;
+            this.cCR_lbl.Location = new System.Drawing.Point(12, 77);
+            this.cCR_lbl.Name = "cCR_lbl";
+            this.cCR_lbl.Size = new System.Drawing.Size(64, 13);
+            this.cCR_lbl.TabIndex = 12;
+            this.cCR_lbl.Text = "Critical Rate";
             // 
-            // CR_n
+            // cCR_n
             // 
-            this.CR_n.AutoSize = true;
-            this.CR_n.Location = new System.Drawing.Point(116, 77);
-            this.CR_n.Name = "CR_n";
-            this.CR_n.Size = new System.Drawing.Size(13, 13);
-            this.CR_n.TabIndex = 13;
-            this.CR_n.Text = "0";
+            this.cCR_n.AutoSize = true;
+            this.cCR_n.Location = new System.Drawing.Point(116, 77);
+            this.cCR_n.Name = "cCR_n";
+            this.cCR_n.Size = new System.Drawing.Size(13, 13);
+            this.cCR_n.TabIndex = 13;
+            this.cCR_n.Text = "0";
             // 
-            // Fish_lbl
+            // cFish_lbl
             // 
-            this.Fish_lbl.AutoSize = true;
-            this.Fish_lbl.Location = new System.Drawing.Point(12, 101);
-            this.Fish_lbl.Name = "Fish_lbl";
-            this.Fish_lbl.Size = new System.Drawing.Size(40, 13);
-            this.Fish_lbl.TabIndex = 14;
-            this.Fish_lbl.Text = "Fishing";
+            this.cFish_lbl.AutoSize = true;
+            this.cFish_lbl.Location = new System.Drawing.Point(12, 101);
+            this.cFish_lbl.Name = "cFish_lbl";
+            this.cFish_lbl.Size = new System.Drawing.Size(40, 13);
+            this.cFish_lbl.TabIndex = 14;
+            this.cFish_lbl.Text = "Fishing";
             // 
-            // Gath_lbl
+            // cGath_lbl
             // 
-            this.Gath_lbl.AutoSize = true;
-            this.Gath_lbl.Location = new System.Drawing.Point(12, 125);
-            this.Gath_lbl.Name = "Gath_lbl";
-            this.Gath_lbl.Size = new System.Drawing.Size(53, 13);
-            this.Gath_lbl.TabIndex = 15;
-            this.Gath_lbl.Text = "Gathering";
+            this.cGath_lbl.AutoSize = true;
+            this.cGath_lbl.Location = new System.Drawing.Point(12, 125);
+            this.cGath_lbl.Name = "cGath_lbl";
+            this.cGath_lbl.Size = new System.Drawing.Size(53, 13);
+            this.cGath_lbl.TabIndex = 15;
+            this.cGath_lbl.Text = "Gathering";
             // 
-            // Fish_n
+            // cFish_n
             // 
-            this.Fish_n.AutoSize = true;
-            this.Fish_n.Location = new System.Drawing.Point(116, 101);
-            this.Fish_n.Name = "Fish_n";
-            this.Fish_n.Size = new System.Drawing.Size(13, 13);
-            this.Fish_n.TabIndex = 16;
-            this.Fish_n.Text = "0";
+            this.cFish_n.AutoSize = true;
+            this.cFish_n.Location = new System.Drawing.Point(116, 101);
+            this.cFish_n.Name = "cFish_n";
+            this.cFish_n.Size = new System.Drawing.Size(13, 13);
+            this.cFish_n.TabIndex = 16;
+            this.cFish_n.Text = "0";
             // 
-            // Gath_n
+            // cGath_n
             // 
-            this.Gath_n.AutoSize = true;
-            this.Gath_n.Location = new System.Drawing.Point(116, 125);
-            this.Gath_n.Name = "Gath_n";
-            this.Gath_n.Size = new System.Drawing.Size(13, 13);
-            this.Gath_n.TabIndex = 17;
-            this.Gath_n.Text = "0";
+            this.cGath_n.AutoSize = true;
+            this.cGath_n.Location = new System.Drawing.Point(116, 125);
+            this.cGath_n.Name = "cGath_n";
+            this.cGath_n.Size = new System.Drawing.Size(13, 13);
+            this.cGath_n.TabIndex = 17;
+            this.cGath_n.Text = "0";
             // 
             // OStats_gb
             // 
-            this.OStats_gb.Controls.Add(this.KFR_n);
-            this.OStats_gb.Controls.Add(this.GrapR_n);
-            this.OStats_gb.Controls.Add(this.KBR_n);
-            this.OStats_gb.Controls.Add(this.SSFR_n);
-            this.OStats_gb.Controls.Add(this.KFR_lbl);
-            this.OStats_gb.Controls.Add(this.GrapR_lbl);
-            this.OStats_gb.Controls.Add(this.KBR_lbl);
+            this.OStats_gb.Controls.Add(this.cKFR_n);
+            this.OStats_gb.Controls.Add(this.cGrapR_n);
+            this.OStats_gb.Controls.Add(this.cKBR_n);
+            this.OStats_gb.Controls.Add(this.cSSFR_n);
+            this.OStats_gb.Controls.Add(this.cKFR_lbl);
+            this.OStats_gb.Controls.Add(this.cGrapR_lbl);
+            this.OStats_gb.Controls.Add(this.cKBR_lbl);
             this.OStats_gb.Controls.Add(this.Resist_lbl);
-            this.OStats_gb.Controls.Add(this.SSFR_lbl);
-            this.OStats_gb.Controls.Add(this.Gath_lbl);
-            this.OStats_gb.Controls.Add(this.Gath_n);
-            this.OStats_gb.Controls.Add(this.Fish_n);
-            this.OStats_gb.Controls.Add(this.Fish_lbl);
-            this.OStats_gb.Controls.Add(this.CR_n);
-            this.OStats_gb.Controls.Add(this.CR_lbl);
-            this.OStats_gb.Controls.Add(this.ACS_lbl);
-            this.OStats_gb.Controls.Add(this.MvS_n);
-            this.OStats_gb.Controls.Add(this.ACS_n);
-            this.OStats_gb.Controls.Add(this.MvS_lbl);
+            this.OStats_gb.Controls.Add(this.cSSFR_lbl);
+            this.OStats_gb.Controls.Add(this.cGath_lbl);
+            this.OStats_gb.Controls.Add(this.cGath_n);
+            this.OStats_gb.Controls.Add(this.cFish_n);
+            this.OStats_gb.Controls.Add(this.cFish_lbl);
+            this.OStats_gb.Controls.Add(this.cCR_n);
+            this.OStats_gb.Controls.Add(this.cCR_lbl);
+            this.OStats_gb.Controls.Add(this.cACS_lbl);
+            this.OStats_gb.Controls.Add(this.cMvS_n);
+            this.OStats_gb.Controls.Add(this.cACS_n);
+            this.OStats_gb.Controls.Add(this.cMvS_lbl);
             this.OStats_gb.Location = new System.Drawing.Point(724, 394);
             this.OStats_gb.Name = "OStats_gb";
             this.OStats_gb.Size = new System.Drawing.Size(374, 195);
@@ -868,68 +869,68 @@
             this.OStats_gb.TabStop = false;
             this.OStats_gb.Text = "OtherStats";
             // 
-            // KFR_n
+            // cKFR_n
             // 
-            this.KFR_n.AutoSize = true;
-            this.KFR_n.Location = new System.Drawing.Point(333, 125);
-            this.KFR_n.Name = "KFR_n";
-            this.KFR_n.Size = new System.Drawing.Size(27, 13);
-            this.KFR_n.TabIndex = 26;
-            this.KFR_n.Text = "20%";
+            this.cKFR_n.AutoSize = true;
+            this.cKFR_n.Location = new System.Drawing.Point(333, 125);
+            this.cKFR_n.Name = "cKFR_n";
+            this.cKFR_n.Size = new System.Drawing.Size(27, 13);
+            this.cKFR_n.TabIndex = 26;
+            this.cKFR_n.Text = "20%";
             // 
-            // GrapR_n
+            // cGrapR_n
             // 
-            this.GrapR_n.AutoSize = true;
-            this.GrapR_n.Location = new System.Drawing.Point(333, 101);
-            this.GrapR_n.Name = "GrapR_n";
-            this.GrapR_n.Size = new System.Drawing.Size(27, 13);
-            this.GrapR_n.TabIndex = 25;
-            this.GrapR_n.Text = "20%";
+            this.cGrapR_n.AutoSize = true;
+            this.cGrapR_n.Location = new System.Drawing.Point(333, 101);
+            this.cGrapR_n.Name = "cGrapR_n";
+            this.cGrapR_n.Size = new System.Drawing.Size(27, 13);
+            this.cGrapR_n.TabIndex = 25;
+            this.cGrapR_n.Text = "20%";
             // 
-            // KBR_n
+            // cKBR_n
             // 
-            this.KBR_n.AutoSize = true;
-            this.KBR_n.Location = new System.Drawing.Point(333, 77);
-            this.KBR_n.Name = "KBR_n";
-            this.KBR_n.Size = new System.Drawing.Size(27, 13);
-            this.KBR_n.TabIndex = 24;
-            this.KBR_n.Text = "20%";
+            this.cKBR_n.AutoSize = true;
+            this.cKBR_n.Location = new System.Drawing.Point(333, 77);
+            this.cKBR_n.Name = "cKBR_n";
+            this.cKBR_n.Size = new System.Drawing.Size(27, 13);
+            this.cKBR_n.TabIndex = 24;
+            this.cKBR_n.Text = "20%";
             // 
-            // SSFR_n
+            // cSSFR_n
             // 
-            this.SSFR_n.AutoSize = true;
-            this.SSFR_n.Location = new System.Drawing.Point(333, 52);
-            this.SSFR_n.Name = "SSFR_n";
-            this.SSFR_n.Size = new System.Drawing.Size(27, 13);
-            this.SSFR_n.TabIndex = 23;
-            this.SSFR_n.Text = "20%";
+            this.cSSFR_n.AutoSize = true;
+            this.cSSFR_n.Location = new System.Drawing.Point(333, 52);
+            this.cSSFR_n.Name = "cSSFR_n";
+            this.cSSFR_n.Size = new System.Drawing.Size(27, 13);
+            this.cSSFR_n.TabIndex = 23;
+            this.cSSFR_n.Text = "20%";
             // 
-            // KFR_lbl
+            // cKFR_lbl
             // 
-            this.KFR_lbl.AutoSize = true;
-            this.KFR_lbl.Location = new System.Drawing.Point(208, 125);
-            this.KFR_lbl.Name = "KFR_lbl";
-            this.KFR_lbl.Size = new System.Drawing.Size(104, 13);
-            this.KFR_lbl.TabIndex = 22;
-            this.KFR_lbl.Text = "Knockback/Floating";
+            this.cKFR_lbl.AutoSize = true;
+            this.cKFR_lbl.Location = new System.Drawing.Point(208, 125);
+            this.cKFR_lbl.Name = "cKFR_lbl";
+            this.cKFR_lbl.Size = new System.Drawing.Size(104, 13);
+            this.cKFR_lbl.TabIndex = 22;
+            this.cKFR_lbl.Text = "Knockback/Floating";
             // 
-            // GrapR_lbl
+            // cGrapR_lbl
             // 
-            this.GrapR_lbl.AutoSize = true;
-            this.GrapR_lbl.Location = new System.Drawing.Point(208, 101);
-            this.GrapR_lbl.Name = "GrapR_lbl";
-            this.GrapR_lbl.Size = new System.Drawing.Size(44, 13);
-            this.GrapR_lbl.TabIndex = 21;
-            this.GrapR_lbl.Text = "Grapple";
+            this.cGrapR_lbl.AutoSize = true;
+            this.cGrapR_lbl.Location = new System.Drawing.Point(208, 101);
+            this.cGrapR_lbl.Name = "cGrapR_lbl";
+            this.cGrapR_lbl.Size = new System.Drawing.Size(44, 13);
+            this.cGrapR_lbl.TabIndex = 21;
+            this.cGrapR_lbl.Text = "Grapple";
             // 
-            // KBR_lbl
+            // cKBR_lbl
             // 
-            this.KBR_lbl.AutoSize = true;
-            this.KBR_lbl.Location = new System.Drawing.Point(208, 77);
-            this.KBR_lbl.Name = "KBR_lbl";
-            this.KBR_lbl.Size = new System.Drawing.Size(100, 13);
-            this.KBR_lbl.TabIndex = 20;
-            this.KBR_lbl.Text = "Knockdown/Bound";
+            this.cKBR_lbl.AutoSize = true;
+            this.cKBR_lbl.Location = new System.Drawing.Point(208, 77);
+            this.cKBR_lbl.Name = "cKBR_lbl";
+            this.cKBR_lbl.Size = new System.Drawing.Size(100, 13);
+            this.cKBR_lbl.TabIndex = 20;
+            this.cKBR_lbl.Text = "Knockdown/Bound";
             // 
             // Resist_lbl
             // 
@@ -940,14 +941,14 @@
             this.Resist_lbl.TabIndex = 19;
             this.Resist_lbl.Text = "Resistance: [PH]";
             // 
-            // SSFR_lbl
+            // cSSFR_lbl
             // 
-            this.SSFR_lbl.AutoSize = true;
-            this.SSFR_lbl.Location = new System.Drawing.Point(208, 52);
-            this.SSFR_lbl.Name = "SSFR_lbl";
-            this.SSFR_lbl.Size = new System.Drawing.Size(119, 13);
-            this.SSFR_lbl.TabIndex = 18;
-            this.SSFR_lbl.Text = "Stun/Stiffness/Freezing";
+            this.cSSFR_lbl.AutoSize = true;
+            this.cSSFR_lbl.Location = new System.Drawing.Point(208, 52);
+            this.cSSFR_lbl.Name = "cSSFR_lbl";
+            this.cSSFR_lbl.Size = new System.Drawing.Size(119, 13);
+            this.cSSFR_lbl.TabIndex = 18;
+            this.cSSFR_lbl.Text = "Stun/Stiffness/Freezing";
             // 
             // SelectGear_cb
             // 
@@ -968,221 +969,228 @@
             this.Item_image.TabIndex = 22;
             this.Item_image.TabStop = false;
             // 
-            // beltAP_lbl
+            // iAP_lbl
             // 
-            this.beltAP_lbl.AutoSize = true;
-            this.beltAP_lbl.Location = new System.Drawing.Point(755, 115);
-            this.beltAP_lbl.Name = "beltAP_lbl";
-            this.beltAP_lbl.Size = new System.Drawing.Size(21, 13);
-            this.beltAP_lbl.TabIndex = 23;
-            this.beltAP_lbl.Text = "AP";
+            this.iAP_lbl.AutoSize = true;
+            this.iAP_lbl.Location = new System.Drawing.Point(755, 115);
+            this.iAP_lbl.Name = "iAP_lbl";
+            this.iAP_lbl.Size = new System.Drawing.Size(21, 13);
+            this.iAP_lbl.TabIndex = 23;
+            this.iAP_lbl.Text = "AP";
             // 
-            // beltDP_lbl
+            // iDP_lbl
             // 
-            this.beltDP_lbl.AutoSize = true;
-            this.beltDP_lbl.Location = new System.Drawing.Point(755, 140);
-            this.beltDP_lbl.Name = "beltDP_lbl";
-            this.beltDP_lbl.Size = new System.Drawing.Size(22, 13);
-            this.beltDP_lbl.TabIndex = 24;
-            this.beltDP_lbl.Text = "DP";
+            this.iDP_lbl.AutoSize = true;
+            this.iDP_lbl.Location = new System.Drawing.Point(755, 140);
+            this.iDP_lbl.Name = "iDP_lbl";
+            this.iDP_lbl.Size = new System.Drawing.Size(22, 13);
+            this.iDP_lbl.TabIndex = 24;
+            this.iDP_lbl.Text = "DP";
             // 
-            // beltAP_n
+            // iAP_n
             // 
-            this.beltAP_n.AutoSize = true;
-            this.beltAP_n.Location = new System.Drawing.Point(792, 115);
-            this.beltAP_n.Name = "beltAP_n";
-            this.beltAP_n.Size = new System.Drawing.Size(13, 13);
-            this.beltAP_n.TabIndex = 25;
-            this.beltAP_n.Text = "0";
+            this.iAP_n.AutoSize = true;
+            this.iAP_n.Location = new System.Drawing.Point(792, 115);
+            this.iAP_n.Name = "iAP_n";
+            this.iAP_n.Size = new System.Drawing.Size(13, 13);
+            this.iAP_n.TabIndex = 25;
+            this.iAP_n.Text = "0";
             // 
-            // beltDP_n
+            // iDP_n
             // 
-            this.beltDP_n.AutoSize = true;
-            this.beltDP_n.Location = new System.Drawing.Point(792, 140);
-            this.beltDP_n.Name = "beltDP_n";
-            this.beltDP_n.Size = new System.Drawing.Size(13, 13);
-            this.beltDP_n.TabIndex = 26;
-            this.beltDP_n.Text = "0";
+            this.iDP_n.AutoSize = true;
+            this.iDP_n.Location = new System.Drawing.Point(792, 140);
+            this.iDP_n.Name = "iDP_n";
+            this.iDP_n.Size = new System.Drawing.Size(13, 13);
+            this.iDP_n.TabIndex = 26;
+            this.iDP_n.Text = "0";
             // 
-            // label1
+            // iEvas_lbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(821, 115);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(20, 13);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "Ev";
+            this.iEvas_lbl.AutoSize = true;
+            this.iEvas_lbl.Location = new System.Drawing.Point(821, 115);
+            this.iEvas_lbl.Name = "iEvas_lbl";
+            this.iEvas_lbl.Size = new System.Drawing.Size(20, 13);
+            this.iEvas_lbl.TabIndex = 27;
+            this.iEvas_lbl.Text = "Ev";
             // 
-            // label2
+            // iAcc_lbl
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(821, 140);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(26, 13);
-            this.label2.TabIndex = 28;
-            this.label2.Text = "Acc";
+            this.iAcc_lbl.AutoSize = true;
+            this.iAcc_lbl.Location = new System.Drawing.Point(818, 140);
+            this.iAcc_lbl.Name = "iAcc_lbl";
+            this.iAcc_lbl.Size = new System.Drawing.Size(26, 13);
+            this.iAcc_lbl.TabIndex = 28;
+            this.iAcc_lbl.Text = "Acc";
             // 
-            // beltEv_n
+            // iEvas_n
             // 
-            this.beltEv_n.AutoSize = true;
-            this.beltEv_n.Location = new System.Drawing.Point(857, 115);
-            this.beltEv_n.Name = "beltEv_n";
-            this.beltEv_n.Size = new System.Drawing.Size(13, 13);
-            this.beltEv_n.TabIndex = 29;
-            this.beltEv_n.Text = "0";
+            this.iEvas_n.AutoSize = true;
+            this.iEvas_n.Location = new System.Drawing.Point(857, 115);
+            this.iEvas_n.Name = "iEvas_n";
+            this.iEvas_n.Size = new System.Drawing.Size(13, 13);
+            this.iEvas_n.TabIndex = 29;
+            this.iEvas_n.Text = "0";
             // 
-            // beltAcc_n
+            // iAcc_n
             // 
-            this.beltAcc_n.AutoSize = true;
-            this.beltAcc_n.Location = new System.Drawing.Point(857, 140);
-            this.beltAcc_n.Name = "beltAcc_n";
-            this.beltAcc_n.Size = new System.Drawing.Size(13, 13);
-            this.beltAcc_n.TabIndex = 30;
-            this.beltAcc_n.Text = "0";
+            this.iAcc_n.AutoSize = true;
+            this.iAcc_n.Location = new System.Drawing.Point(857, 140);
+            this.iAcc_n.Name = "iAcc_n";
+            this.iAcc_n.Size = new System.Drawing.Size(13, 13);
+            this.iAcc_n.TabIndex = 30;
+            this.iAcc_n.Text = "0";
             // 
-            // Res_n
+            // iRes_n
             // 
-            this.Res_n.AutoSize = true;
-            this.Res_n.Location = new System.Drawing.Point(797, 164);
-            this.Res_n.Name = "Res_n";
-            this.Res_n.Size = new System.Drawing.Size(13, 13);
-            this.Res_n.TabIndex = 32;
-            this.Res_n.Text = "0";
+            this.iRes_n.AutoSize = true;
+            this.iRes_n.Location = new System.Drawing.Point(1010, 210);
+            this.iRes_n.Name = "iRes_n";
+            this.iRes_n.Size = new System.Drawing.Size(13, 13);
+            this.iRes_n.TabIndex = 32;
+            this.iRes_n.Text = "0";
             // 
-            // label4
+            // iRes_lbl
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(755, 164);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(36, 13);
-            this.label4.TabIndex = 31;
-            this.label4.Text = "Resist";
+            this.iRes_lbl.AutoSize = true;
+            this.iRes_lbl.Location = new System.Drawing.Point(885, 210);
+            this.iRes_lbl.Name = "iRes_lbl";
+            this.iRes_lbl.Size = new System.Drawing.Size(47, 13);
+            this.iRes_lbl.TabIndex = 31;
+            this.iRes_lbl.Text = "AllResist";
             // 
-            // Belt_dr
+            // iDR_n
             // 
-            this.Belt_dr.AutoSize = true;
-            this.Belt_dr.Location = new System.Drawing.Point(857, 162);
-            this.Belt_dr.Name = "Belt_dr";
-            this.Belt_dr.Size = new System.Drawing.Size(13, 13);
-            this.Belt_dr.TabIndex = 34;
-            this.Belt_dr.Text = "0";
+            this.iDR_n.AutoSize = true;
+            this.iDR_n.Location = new System.Drawing.Point(857, 162);
+            this.iDR_n.Name = "iDR_n";
+            this.iDR_n.Size = new System.Drawing.Size(13, 13);
+            this.iDR_n.TabIndex = 34;
+            this.iDR_n.Text = "0";
             // 
-            // label5
+            // iDR_lbl
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(821, 164);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(23, 13);
-            this.label5.TabIndex = 33;
-            this.label5.Text = "DR";
+            this.iDR_lbl.AutoSize = true;
+            this.iDR_lbl.Location = new System.Drawing.Point(818, 162);
+            this.iDR_lbl.Name = "iDR_lbl";
+            this.iDR_lbl.Size = new System.Drawing.Size(23, 13);
+            this.iDR_lbl.TabIndex = 33;
+            this.iDR_lbl.Text = "DR";
             // 
-            // KF_n
+            // iKFR_n
             // 
-            this.KF_n.AutoSize = true;
-            this.KF_n.Location = new System.Drawing.Point(1010, 188);
-            this.KF_n.Name = "KF_n";
-            this.KF_n.Size = new System.Drawing.Size(13, 13);
-            this.KF_n.TabIndex = 42;
-            this.KF_n.Text = "0";
+            this.iKFR_n.AutoSize = true;
+            this.iKFR_n.Location = new System.Drawing.Point(1010, 188);
+            this.iKFR_n.Name = "iKFR_n";
+            this.iKFR_n.Size = new System.Drawing.Size(13, 13);
+            this.iKFR_n.TabIndex = 42;
+            this.iKFR_n.Text = "0";
             // 
-            // G_n
+            // iGrapR_n
             // 
-            this.G_n.AutoSize = true;
-            this.G_n.Location = new System.Drawing.Point(1010, 164);
-            this.G_n.Name = "G_n";
-            this.G_n.Size = new System.Drawing.Size(13, 13);
-            this.G_n.TabIndex = 41;
-            this.G_n.Text = "0";
+            this.iGrapR_n.AutoSize = true;
+            this.iGrapR_n.Location = new System.Drawing.Point(1010, 164);
+            this.iGrapR_n.Name = "iGrapR_n";
+            this.iGrapR_n.Size = new System.Drawing.Size(13, 13);
+            this.iGrapR_n.TabIndex = 41;
+            this.iGrapR_n.Text = "0";
             // 
-            // KB_n
+            // iKBR_n
             // 
-            this.KB_n.AutoSize = true;
-            this.KB_n.Location = new System.Drawing.Point(1010, 140);
-            this.KB_n.Name = "KB_n";
-            this.KB_n.Size = new System.Drawing.Size(13, 13);
-            this.KB_n.TabIndex = 40;
-            this.KB_n.Text = "0";
+            this.iKBR_n.AutoSize = true;
+            this.iKBR_n.Location = new System.Drawing.Point(1010, 140);
+            this.iKBR_n.Name = "iKBR_n";
+            this.iKBR_n.Size = new System.Drawing.Size(13, 13);
+            this.iKBR_n.TabIndex = 40;
+            this.iKBR_n.Text = "0";
             // 
-            // SSF_n
+            // iSSFR_n
             // 
-            this.SSF_n.AutoSize = true;
-            this.SSF_n.Location = new System.Drawing.Point(1010, 115);
-            this.SSF_n.Name = "SSF_n";
-            this.SSF_n.Size = new System.Drawing.Size(13, 13);
-            this.SSF_n.TabIndex = 39;
-            this.SSF_n.Text = "0";
+            this.iSSFR_n.AutoSize = true;
+            this.iSSFR_n.Location = new System.Drawing.Point(1010, 115);
+            this.iSSFR_n.Name = "iSSFR_n";
+            this.iSSFR_n.Size = new System.Drawing.Size(13, 13);
+            this.iSSFR_n.TabIndex = 39;
+            this.iSSFR_n.Text = "0";
             // 
-            // label9
+            // iKFR_lbl
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(885, 188);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(104, 13);
-            this.label9.TabIndex = 38;
-            this.label9.Text = "Knockback/Floating";
+            this.iKFR_lbl.AutoSize = true;
+            this.iKFR_lbl.Location = new System.Drawing.Point(885, 188);
+            this.iKFR_lbl.Name = "iKFR_lbl";
+            this.iKFR_lbl.Size = new System.Drawing.Size(104, 13);
+            this.iKFR_lbl.TabIndex = 38;
+            this.iKFR_lbl.Text = "Knockback/Floating";
             // 
-            // label10
+            // iGrapR_lbl
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(885, 164);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(44, 13);
-            this.label10.TabIndex = 37;
-            this.label10.Text = "Grapple";
+            this.iGrapR_lbl.AutoSize = true;
+            this.iGrapR_lbl.Location = new System.Drawing.Point(885, 164);
+            this.iGrapR_lbl.Name = "iGrapR_lbl";
+            this.iGrapR_lbl.Size = new System.Drawing.Size(44, 13);
+            this.iGrapR_lbl.TabIndex = 37;
+            this.iGrapR_lbl.Text = "Grapple";
             // 
-            // label11
+            // iKBR_lbl
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(885, 140);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(100, 13);
-            this.label11.TabIndex = 36;
-            this.label11.Text = "Knockdown/Bound";
+            this.iKBR_lbl.AutoSize = true;
+            this.iKBR_lbl.Location = new System.Drawing.Point(885, 140);
+            this.iKBR_lbl.Name = "iKBR_lbl";
+            this.iKBR_lbl.Size = new System.Drawing.Size(100, 13);
+            this.iKBR_lbl.TabIndex = 36;
+            this.iKBR_lbl.Text = "Knockdown/Bound";
             // 
-            // label12
+            // iSSFR_lbl
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(885, 115);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(119, 13);
-            this.label12.TabIndex = 35;
-            this.label12.Text = "Stun/Stiffness/Freezing";
+            this.iSSFR_lbl.AutoSize = true;
+            this.iSSFR_lbl.Location = new System.Drawing.Point(885, 115);
+            this.iSSFR_lbl.Name = "iSSFR_lbl";
+            this.iSSFR_lbl.Size = new System.Drawing.Size(119, 13);
+            this.iSSFR_lbl.TabIndex = 35;
+            this.iSSFR_lbl.Text = "Stun/Stiffness/Freezing";
             // 
-            // Weig_n
+            // iWeight_n
             // 
-            this.Weig_n.AutoSize = true;
-            this.Weig_n.Location = new System.Drawing.Point(857, 189);
-            this.Weig_n.Name = "Weig_n";
-            this.Weig_n.Size = new System.Drawing.Size(13, 13);
-            this.Weig_n.TabIndex = 46;
-            this.Weig_n.Text = "0";
+            this.iWeight_n.AutoSize = true;
+            this.iWeight_n.Location = new System.Drawing.Point(859, 188);
+            this.iWeight_n.Name = "iWeight_n";
+            this.iWeight_n.Size = new System.Drawing.Size(13, 13);
+            this.iWeight_n.TabIndex = 46;
+            this.iWeight_n.Text = "0";
             // 
-            // label6
+            // iWeight_lbl
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(816, 189);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(41, 13);
-            this.label6.TabIndex = 45;
-            this.label6.Text = "Weight";
+            this.iWeight_lbl.AutoSize = true;
+            this.iWeight_lbl.Location = new System.Drawing.Point(818, 188);
+            this.iWeight_lbl.Name = "iWeight_lbl";
+            this.iWeight_lbl.Size = new System.Drawing.Size(41, 13);
+            this.iWeight_lbl.TabIndex = 45;
+            this.iWeight_lbl.Text = "Weight";
             // 
-            // HP_n
+            // iHP_n
             // 
-            this.HP_n.AutoSize = true;
-            this.HP_n.Location = new System.Drawing.Point(797, 189);
-            this.HP_n.Name = "HP_n";
-            this.HP_n.Size = new System.Drawing.Size(13, 13);
-            this.HP_n.TabIndex = 44;
-            this.HP_n.Text = "0";
+            this.iHP_n.AutoSize = true;
+            this.iHP_n.Location = new System.Drawing.Point(797, 162);
+            this.iHP_n.Name = "iHP_n";
+            this.iHP_n.Size = new System.Drawing.Size(13, 13);
+            this.iHP_n.TabIndex = 44;
+            this.iHP_n.Text = "0";
             // 
-            // label8
+            // iHp_lbl
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(755, 189);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(42, 13);
-            this.label8.TabIndex = 43;
-            this.label8.Text = "MaxHP";
+            this.iHp_lbl.AutoSize = true;
+            this.iHp_lbl.Location = new System.Drawing.Point(755, 162);
+            this.iHp_lbl.Name = "iHp_lbl";
+            this.iHp_lbl.Size = new System.Drawing.Size(42, 13);
+            this.iHp_lbl.TabIndex = 43;
+            this.iHp_lbl.Text = "MaxHP";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(562, 328);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 47;
             // 
             // GearForm
             // 
@@ -1190,30 +1198,31 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1199, 624);
-            this.Controls.Add(this.Weig_n);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.HP_n);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.KF_n);
-            this.Controls.Add(this.G_n);
-            this.Controls.Add(this.KB_n);
-            this.Controls.Add(this.SSF_n);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.Belt_dr);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.Res_n);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.beltAcc_n);
-            this.Controls.Add(this.beltEv_n);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.beltDP_n);
-            this.Controls.Add(this.beltAP_n);
-            this.Controls.Add(this.beltDP_lbl);
-            this.Controls.Add(this.beltAP_lbl);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.iWeight_n);
+            this.Controls.Add(this.iWeight_lbl);
+            this.Controls.Add(this.iHP_n);
+            this.Controls.Add(this.iHp_lbl);
+            this.Controls.Add(this.iKFR_n);
+            this.Controls.Add(this.iGrapR_n);
+            this.Controls.Add(this.iKBR_n);
+            this.Controls.Add(this.iSSFR_n);
+            this.Controls.Add(this.iKFR_lbl);
+            this.Controls.Add(this.iGrapR_lbl);
+            this.Controls.Add(this.iKBR_lbl);
+            this.Controls.Add(this.iSSFR_lbl);
+            this.Controls.Add(this.iDR_n);
+            this.Controls.Add(this.iDR_lbl);
+            this.Controls.Add(this.iRes_n);
+            this.Controls.Add(this.iRes_lbl);
+            this.Controls.Add(this.iAcc_n);
+            this.Controls.Add(this.iEvas_n);
+            this.Controls.Add(this.iAcc_lbl);
+            this.Controls.Add(this.iEvas_lbl);
+            this.Controls.Add(this.iDP_n);
+            this.Controls.Add(this.iAP_n);
+            this.Controls.Add(this.iDP_lbl);
+            this.Controls.Add(this.iAP_lbl);
             this.Controls.Add(this.Item_image);
             this.Controls.Add(this.SelectGear_cb);
             this.Controls.Add(this.OStats_gb);
@@ -1280,70 +1289,71 @@
         private System.Windows.Forms.CheckBox apLvl_cb;
         private System.Windows.Forms.GroupBox Settings_gb;
         private System.Windows.Forms.CheckBox dpLvl_cb;
-        private System.Windows.Forms.Label ACS_n;
-        private System.Windows.Forms.Label ACS_lbl;
-        private System.Windows.Forms.Label CR_n;
-        private System.Windows.Forms.Label CR_lbl;
-        private System.Windows.Forms.Label MvS_n;
-        private System.Windows.Forms.Label MvS_lbl;
-        private System.Windows.Forms.Label Gath_n;
-        private System.Windows.Forms.Label Fish_n;
-        private System.Windows.Forms.Label Gath_lbl;
-        private System.Windows.Forms.Label Fish_lbl;
-        private System.Windows.Forms.Label HE_n;
-        private System.Windows.Forms.Label HE_lbl;
-        private System.Windows.Forms.Label HDR_n;
-        private System.Windows.Forms.Label HDR_lbl;
-        private System.Windows.Forms.Label Evas_n;
-        private System.Windows.Forms.Label Evas_lbl;
-        private System.Windows.Forms.Label DR_n;
-        private System.Windows.Forms.Label DR_lbl;
+        private System.Windows.Forms.Label cACS_n;
+        private System.Windows.Forms.Label cACS_lbl;
+        private System.Windows.Forms.Label cCR_n;
+        private System.Windows.Forms.Label cCR_lbl;
+        private System.Windows.Forms.Label cMvS_n;
+        private System.Windows.Forms.Label cMvS_lbl;
+        private System.Windows.Forms.Label cGath_n;
+        private System.Windows.Forms.Label cFish_n;
+        private System.Windows.Forms.Label cGath_lbl;
+        private System.Windows.Forms.Label cFish_lbl;
+        private System.Windows.Forms.Label cHE_n;
+        private System.Windows.Forms.Label cHE_lbl;
+        private System.Windows.Forms.Label cHDR_n;
+        private System.Windows.Forms.Label cHDR_lbl;
+        private System.Windows.Forms.Label cEvas_n;
+        private System.Windows.Forms.Label cEvas_lbl;
+        private System.Windows.Forms.Label cDR_n;
+        private System.Windows.Forms.Label cDR_lbl;
         private System.Windows.Forms.Label cAAP_n;
         private System.Windows.Forms.Label cAAP_lbl;
         private System.Windows.Forms.Button AS_btn;
         private System.Windows.Forms.Label Weight_n;
         private System.Windows.Forms.Label cMP_n;
         private System.Windows.Forms.Label cHP_n;
-        private System.Windows.Forms.Label Weight_lbl;
+        private System.Windows.Forms.Label cWeight_lbl;
         private System.Windows.Forms.Label cMP_lbl;
         private System.Windows.Forms.Label cHP_lbl;
-        private System.Windows.Forms.Label Acc_n;
-        private System.Windows.Forms.Label Acc_lbl;
+        private System.Windows.Forms.Label cAcc_n;
+        private System.Windows.Forms.Label cAcc_lbl;
         private System.Windows.Forms.GroupBox OStats_gb;
-        private System.Windows.Forms.Label KFR_n;
-        private System.Windows.Forms.Label GrapR_n;
-        private System.Windows.Forms.Label KBR_n;
-        private System.Windows.Forms.Label SSFR_n;
-        private System.Windows.Forms.Label KFR_lbl;
-        private System.Windows.Forms.Label GrapR_lbl;
-        private System.Windows.Forms.Label KBR_lbl;
+        private System.Windows.Forms.Label cKFR_n;
+        private System.Windows.Forms.Label cGrapR_n;
+        private System.Windows.Forms.Label cKBR_n;
+        private System.Windows.Forms.Label cSSFR_n;
+        private System.Windows.Forms.Label cKFR_lbl;
+        private System.Windows.Forms.Label cGrapR_lbl;
+        private System.Windows.Forms.Label cKBR_lbl;
         private System.Windows.Forms.Label Resist_lbl;
-        private System.Windows.Forms.Label SSFR_lbl;
+        private System.Windows.Forms.Label cSSFR_lbl;
         private System.Windows.Forms.ComboBox SelectGear_cb;
         private System.Windows.Forms.PictureBox Item_image;
-        private System.Windows.Forms.Label beltAP_lbl;
-        private System.Windows.Forms.Label beltDP_lbl;
-        private System.Windows.Forms.Label beltAP_n;
-        private System.Windows.Forms.Label beltDP_n;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label beltEv_n;
-        private System.Windows.Forms.Label beltAcc_n;
-        private System.Windows.Forms.Label Res_n;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label Belt_dr;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label KF_n;
-        private System.Windows.Forms.Label G_n;
-        private System.Windows.Forms.Label KB_n;
-        private System.Windows.Forms.Label SSF_n;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label Weig_n;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label HP_n;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label iAP_lbl;
+        private System.Windows.Forms.Label iDP_lbl;
+        private System.Windows.Forms.Label iAP_n;
+        private System.Windows.Forms.Label iDP_n;
+        private System.Windows.Forms.Label iEvas_lbl;
+        private System.Windows.Forms.Label iAcc_lbl;
+        private System.Windows.Forms.Label iEvas_n;
+        private System.Windows.Forms.Label iAcc_n;
+        private System.Windows.Forms.Label iRes_n;
+        private System.Windows.Forms.Label iRes_lbl;
+        private System.Windows.Forms.Label iDR_n;
+        private System.Windows.Forms.Label iDR_lbl;
+        private System.Windows.Forms.Label iKFR_n;
+        private System.Windows.Forms.Label iGrapR_n;
+        private System.Windows.Forms.Label iKBR_n;
+        private System.Windows.Forms.Label iSSFR_n;
+        private System.Windows.Forms.Label iKFR_lbl;
+        private System.Windows.Forms.Label iGrapR_lbl;
+        private System.Windows.Forms.Label iKBR_lbl;
+        private System.Windows.Forms.Label iSSFR_lbl;
+        private System.Windows.Forms.Label iWeight_n;
+        private System.Windows.Forms.Label iWeight_lbl;
+        private System.Windows.Forms.Label iHP_n;
+        private System.Windows.Forms.Label iHp_lbl;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
