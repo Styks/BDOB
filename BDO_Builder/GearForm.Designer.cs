@@ -125,6 +125,10 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.Weig_n = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.HP_n = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.ShopGear_gb.SuspendLayout();
             this.CharacterGear_gb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Class_pic)).BeginInit();
@@ -1144,12 +1148,52 @@
             this.label12.TabIndex = 35;
             this.label12.Text = "Stun/Stiffness/Freezing";
             // 
+            // Weig_n
+            // 
+            this.Weig_n.AutoSize = true;
+            this.Weig_n.Location = new System.Drawing.Point(857, 189);
+            this.Weig_n.Name = "Weig_n";
+            this.Weig_n.Size = new System.Drawing.Size(13, 13);
+            this.Weig_n.TabIndex = 46;
+            this.Weig_n.Text = "0";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(816, 189);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(41, 13);
+            this.label6.TabIndex = 45;
+            this.label6.Text = "Weight";
+            // 
+            // HP_n
+            // 
+            this.HP_n.AutoSize = true;
+            this.HP_n.Location = new System.Drawing.Point(797, 189);
+            this.HP_n.Name = "HP_n";
+            this.HP_n.Size = new System.Drawing.Size(13, 13);
+            this.HP_n.TabIndex = 44;
+            this.HP_n.Text = "0";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(755, 189);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(42, 13);
+            this.label8.TabIndex = 43;
+            this.label8.Text = "MaxHP";
+            // 
             // GearForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1199, 624);
+            this.Controls.Add(this.Weig_n);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.HP_n);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.KF_n);
             this.Controls.Add(this.G_n);
             this.Controls.Add(this.KB_n);
@@ -1297,5 +1341,9 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label Weig_n;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label HP_n;
+        private System.Windows.Forms.Label label8;
     }
 }

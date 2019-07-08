@@ -172,11 +172,13 @@ namespace BDO_Builder
                     beltAcc_n.Text = dr["Accuracy"].ToString();
                     Res_n.Text = dr["AllResist"].ToString();
                     Belt_dr.Text = dr["DR"].ToString();
-                    
+                    HP_n.Text = dr["MaxHP"].ToString();
+                    Weig_n.Text = dr["Weight"].ToString();
+
                 }
                 cs.Type = "Belts";
                 Item_Icon_Load(cs.Type,SelectGear_cb.SelectedIndex);
-                cs.BeltState(Convert.ToInt32(beltAP_n.Text), Convert.ToInt32(beltDP_n.Text), Convert.ToInt32(beltAcc_n.Text), Convert.ToInt32(beltEv_n.Text), Convert.ToInt32(Res_n.Text), Convert.ToInt32(Belt_dr.Text));
+                cs.BeltState(Convert.ToInt32(beltAP_n.Text), Convert.ToInt32(beltDP_n.Text), Convert.ToInt32(beltAcc_n.Text), Convert.ToInt32(beltEv_n.Text), Convert.ToInt32(Res_n.Text), Convert.ToInt32(Belt_dr.Text),Convert.ToInt32(HP_n.Text), Convert.ToInt32(Weig_n.Text));
                 cAP_n.Text = Convert.ToString(cs.cap);
                 cAAP_n.Text = Convert.ToString(cs.caap);
                 cDP_n.Text = Convert.ToString(cs.cdp);
@@ -187,6 +189,8 @@ namespace BDO_Builder
                 GrapR_n.Text = Convert.ToString(cs.cRes3);
                 KFR_n.Text = Convert.ToString(cs.cRes4);
                 DR_n.Text = Convert.ToString(cs.cDR);
+                Weight_n.Text = Convert.ToString(cs.cWeight);
+                cHP_n.Text = Convert.ToString(cs.cMaxHP);
             }
 
             if (cs.sgn == 2)
@@ -208,10 +212,11 @@ namespace BDO_Builder
                     KB_n.Text = dr["KBRes"].ToString();
                     G_n.Text = dr["GrapRes"].ToString();
                     KF_n.Text = dr["KFRes"].ToString();
+                    HP_n.Text = dr["MaxHP"].ToString();
                 }
                 cs.Type = "Neck";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                cs.NeckState(Convert.ToInt32(beltAP_n.Text), Convert.ToInt32(beltDP_n.Text), Convert.ToInt32(beltAcc_n.Text), Convert.ToInt32(beltEv_n.Text), Convert.ToInt32(Res_n.Text), Convert.ToInt32(Belt_dr.Text), Convert.ToInt32(SSF_n.Text), Convert.ToInt32(KB_n.Text), Convert.ToInt32(G_n.Text), Convert.ToInt32(KF_n.Text));
+                cs.NeckState(Convert.ToInt32(beltAP_n.Text), Convert.ToInt32(beltDP_n.Text), Convert.ToInt32(beltAcc_n.Text), Convert.ToInt32(beltEv_n.Text), Convert.ToInt32(Res_n.Text), Convert.ToInt32(Belt_dr.Text), Convert.ToInt32(SSF_n.Text), Convert.ToInt32(KB_n.Text), Convert.ToInt32(G_n.Text), Convert.ToInt32(KF_n.Text), Convert.ToInt32(HP_n.Text));
                 cAP_n.Text = Convert.ToString(cs.cap);
                 cAAP_n.Text = Convert.ToString(cs.caap);
                 cDP_n.Text = Convert.ToString(cs.cdp);
@@ -222,6 +227,7 @@ namespace BDO_Builder
                 GrapR_n.Text = Convert.ToString(cs.cRes3);
                 KFR_n.Text = Convert.ToString(cs.cRes4);
                 DR_n.Text = Convert.ToString(cs.cDR);
+                cHP_n.Text = Convert.ToString(cs.cMaxHP);
             }
 
         }
