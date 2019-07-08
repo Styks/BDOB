@@ -109,6 +109,7 @@
             this.beltDP_lbl = new System.Windows.Forms.Label();
             this.beltAP_n = new System.Windows.Forms.Label();
             this.beltDP_n = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.ShopGear_gb.SuspendLayout();
             this.CharacterGear_gb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Class_pic)).BeginInit();
@@ -984,12 +985,22 @@
             this.beltDP_n.TabIndex = 26;
             this.beltDP_n.Text = "0";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(518, 338);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "label1";
+            // 
             // GearForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1199, 624);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.beltDP_n);
             this.Controls.Add(this.beltAP_n);
             this.Controls.Add(this.beltDP_lbl);
@@ -1105,5 +1116,6 @@
         private System.Windows.Forms.Label beltDP_lbl;
         private System.Windows.Forms.Label beltAP_n;
         private System.Windows.Forms.Label beltDP_n;
+        private System.Windows.Forms.Label label1;
     }
 }

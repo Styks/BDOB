@@ -30,6 +30,8 @@ namespace BDO_Builder
         public int neckap; //Neck AP
         public int neckdp; //Neck DP
 
+        public int test;
+
         public GearForm()
         {
             InitializeComponent();
@@ -68,6 +70,7 @@ namespace BDO_Builder
             this.SelectGear_cb.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             this.SelectGear_cb.AutoCompleteSource = AutoCompleteSource.ListItems;
             //////////
+            test = 10;
         }
 
         private void LoadBelts() //Belt
@@ -78,8 +81,10 @@ namespace BDO_Builder
             da.Fill(ds);
             SelectGear_cb.DataSource = ds.Tables[0];
             SelectGear_cb.DisplayMember = "Name";
-            SelectGear_cb.ValueMember = "Id";
+            SelectGear_cb.ValueMember = "Id";          
             Item_Icon_Load("Belts",0);
+
+            SelectGear_cb.SelectedIndex = test; ////
         }
 
         private void LoadNeck() //Neck
@@ -150,21 +155,22 @@ namespace BDO_Builder
 
         private void Belt_btn_Click(object sender, EventArgs e)
         {
-            LoadBelts();
             sgn = 1;
+            LoadBelts();
+            label1.Text = test.ToString();
         }
 
         private void Necklace_btn_Click(object sender, EventArgs e)
         {
-            LoadNeck();
             sgn = 2;
+            LoadNeck();
         }
 
         private void SelectedGear_cb_SelectedIndexChanged(object sender, EventArgs e)
         {
           SqlCommand cmd = Base_Connect.Connection.CreateCommand();
           cmd.CommandType = CommandType.Text;
-            if (sgn == 1)
+            if (sgn == 1)               
             {
                 cmd.CommandText = "select * from Belts where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
                 cmd.ExecuteNonQuery();
@@ -175,9 +181,11 @@ namespace BDO_Builder
                 {
                     beltAP_n.Text = dr["AP"].ToString();
                     beltDP_n.Text = dr["DP"].ToString();
-                }
+                }                
                 Type = "Belts";
                 Item_Icon_Load(Type,SelectGear_cb.SelectedIndex);
+
+                test = SelectGear_cb.SelectedIndex; ////
                 ////////////////////////
                 cap = cap - beltap;
                 caap = caap - beltap;
@@ -190,6 +198,8 @@ namespace BDO_Builder
                 cAP_n.Text = Convert.ToString(cap);
                 cAAP_n.Text = Convert.ToString(caap);
                 cDP_n.Text = Convert.ToString(cdp);
+                ////
+                label1.Text = test.ToString();
             }
             if (sgn == 2)
             {
