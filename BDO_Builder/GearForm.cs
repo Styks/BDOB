@@ -61,17 +61,23 @@ namespace BDO_Builder
 
         private void LoadBelts() //Belt
         {
+            SelectGear_cb.SelectedIndexChanged -= SelectedGear_cb_SelectedIndexChanged;
             var sql = @"select * from Belts";
             var da = new SqlDataAdapter(sql, Base_Connect.Connection);
             DataSet ds = new DataSet();
             da.Fill(ds);
             SelectGear_cb.DataSource = ds.Tables[0];
             SelectGear_cb.DisplayMember = "Name";
-            SelectGear_cb.ValueMember = "Id";           
+            SelectGear_cb.ValueMember = "Id";
+            Item_Icon_Load("Belts", cs.beltId);
+            SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectedIndex = cs.beltId;
+            
         }
 
         private void LoadNeck() //Neck
         {
+            SelectGear_cb.SelectedIndexChanged -= SelectedGear_cb_SelectedIndexChanged;
             var sql = @"select * from Neck";
             var da = new SqlDataAdapter(sql, Base_Connect.Connection);
             DataSet ds = new DataSet();
@@ -79,6 +85,9 @@ namespace BDO_Builder
             SelectGear_cb.DataSource = ds.Tables[0];
             SelectGear_cb.DisplayMember = "Name";
             SelectGear_cb.ValueMember = "Id";
+            Item_Icon_Load("Neck", cs.neckId);
+            SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectedIndex = cs.neckId;
         }
 
         private void DpLvl_cb_CheckedChanged(object sender, EventArgs e)
@@ -168,6 +177,7 @@ namespace BDO_Builder
                     iHP_n.Text = dr["MaxHP"].ToString();
                     iWeight_n.Text = dr["Weight"].ToString();
                 }
+                
                 cs.Type = "Belts";
                 Item_Icon_Load(cs.Type,SelectGear_cb.SelectedIndex);
                 cs.BeltState(Convert.ToInt32(iAP_n.Text), Convert.ToInt32(iDP_n.Text), Convert.ToInt32(iAcc_n.Text), Convert.ToInt32(iEvas_n.Text), Convert.ToInt32(iRes_n.Text), Convert.ToInt32(iDR_n.Text),Convert.ToInt32(iHP_n.Text), Convert.ToInt32(iWeight_n.Text));
@@ -183,6 +193,9 @@ namespace BDO_Builder
                 cDR_n.Text = Convert.ToString(cs.cDR);
                 Weight_n.Text = Convert.ToString(cs.cWeight);
                 cHP_n.Text = Convert.ToString(cs.cMaxHP);
+                cs.beltId = SelectGear_cb.SelectedIndex;
+                textBox1.Text = cs.beltId.ToString();
+
             }
             if (cs.sgn == 2)
             {
@@ -205,6 +218,7 @@ namespace BDO_Builder
                     iKFR_n.Text = dr["KFRes"].ToString();
                     iHP_n.Text = dr["MaxHP"].ToString();
                 }
+                
                 cs.Type = "Neck";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
                 cs.NeckState(Convert.ToInt32(iAP_n.Text), Convert.ToInt32(iDP_n.Text), Convert.ToInt32(iAcc_n.Text), Convert.ToInt32(iEvas_n.Text), Convert.ToInt32(iRes_n.Text), Convert.ToInt32(iDR_n.Text), Convert.ToInt32(iSSFR_n.Text), Convert.ToInt32(iKBR_n.Text), Convert.ToInt32(iGrapR_n.Text), Convert.ToInt32(iKFR_n.Text), Convert.ToInt32(iHP_n.Text));
@@ -219,7 +233,14 @@ namespace BDO_Builder
                 cKFR_n.Text = Convert.ToString(cs.cRes4);
                 cDR_n.Text = Convert.ToString(cs.cDR);
                 cHP_n.Text = Convert.ToString(cs.cMaxHP);
+                cs.neckId = SelectGear_cb.SelectedIndex;
+                textBox1.Text = cs.neckId.ToString();
             }
-        }     
+        }
+
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            cs.beltId = SelectGear_cb.SelectedIndex;
+        }
     }
 }

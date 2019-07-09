@@ -41,6 +41,7 @@ namespace BDO_Builder
         public int beltDR; //Belt DR
         public int beltHP; //Belt MaxHP
         public int beltWeight;//Belt Weight
+        public int beltId = 0; // Current belt Id
 
         // Neck stats
         public int neckap; //Neck AP
@@ -54,6 +55,7 @@ namespace BDO_Builder
         public int neckG; //Neck Resists: Grapple
         public int neckKF; //Neck Resists: Knockback/Floating
         public int neckHP; //Neck Max HP
+        public int neckId = 0; //Current neck Id
 
         public void BeltState(int AP, int DP, int Acc, int Ev, int Res, int DR, int HP, int Wg)
         {
