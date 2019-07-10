@@ -23,8 +23,10 @@ namespace BDO_Builder
 
         private void GearForm_btn_Click(object sender, EventArgs e)
         {
-            GearForm gf = new GearForm();
-            gf.sclass = sclass;
+            GearForm gf = new GearForm
+            {
+                sclass = sclass
+            };
             Image cimg = Cimg_pb.BackgroundImage;
             gf.cimg = cimg;
             Hide();
@@ -181,8 +183,10 @@ namespace BDO_Builder
 
         private void SkillTreeForm_btn_Click(object sender, EventArgs e)
         {
-            SkillTreeForm stf = new SkillTreeForm();
-            stf.sclass = sclass;
+            SkillTreeForm stf = new SkillTreeForm
+            {
+                sclass = sclass
+            };
             Image cimg = Cimg_pb.BackgroundImage;
             stf.cimg = cimg;
             Hide();

@@ -130,6 +130,8 @@
             this.iHP_n = new System.Windows.Forms.Label();
             this.iHp_lbl = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Ench_lbl = new System.Windows.Forms.Label();
+            this.ItemEnch_cb = new System.Windows.Forms.ComboBox();
             this.ShopGear_gb.SuspendLayout();
             this.CharacterGear_gb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Class_pic)).BeginInit();
@@ -1192,12 +1194,32 @@
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 47;
             // 
+            // Ench_lbl
+            // 
+            this.Ench_lbl.AutoSize = true;
+            this.Ench_lbl.Location = new System.Drawing.Point(808, 33);
+            this.Ench_lbl.Name = "Ench_lbl";
+            this.Ench_lbl.Size = new System.Drawing.Size(101, 13);
+            this.Ench_lbl.TabIndex = 48;
+            this.Ench_lbl.Text = "Уровень усиления";
+            // 
+            // ItemEnch_cb
+            // 
+            this.ItemEnch_cb.FormattingEnabled = true;
+            this.ItemEnch_cb.Location = new System.Drawing.Point(911, 30);
+            this.ItemEnch_cb.Name = "ItemEnch_cb";
+            this.ItemEnch_cb.Size = new System.Drawing.Size(65, 21);
+            this.ItemEnch_cb.TabIndex = 49;
+            this.ItemEnch_cb.SelectedIndexChanged += new System.EventHandler(this.ItemEnch_cb_SelectedIndexChanged);
+            // 
             // GearForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1199, 624);
+            this.Controls.Add(this.ItemEnch_cb);
+            this.Controls.Add(this.Ench_lbl);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.iWeight_n);
             this.Controls.Add(this.iWeight_lbl);
@@ -1355,5 +1377,7 @@
         private System.Windows.Forms.Label iHP_n;
         private System.Windows.Forms.Label iHp_lbl;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label Ench_lbl;
+        private System.Windows.Forms.ComboBox ItemEnch_cb;
     }
 }
