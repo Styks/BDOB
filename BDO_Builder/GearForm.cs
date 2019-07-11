@@ -17,6 +17,7 @@ namespace BDO_Builder
     {
         public string sclass;
         public Image cimg;
+        public int TempEnchLvl;
         readonly CharacterState cs = new CharacterState();
 
         public GearForm()
@@ -72,7 +73,8 @@ namespace BDO_Builder
             Item_Icon_Load("Belts", cs.beltId);
             SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
             SelectGear_cb.SelectedIndex = cs.beltId;
-            
+            LoadItemEnch_cb();
+
         }
 
         private void LoadNeck() //Neck
@@ -88,6 +90,7 @@ namespace BDO_Builder
             Item_Icon_Load("Neck", cs.neckId);
             SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
             SelectGear_cb.SelectedIndex = cs.neckId;
+            LoadItemEnch_cb();
         }
 
         private void DpLvl_cb_CheckedChanged(object sender, EventArgs e)
@@ -147,16 +150,13 @@ namespace BDO_Builder
         private void Belt_btn_Click(object sender, EventArgs e)
         {
             cs.sgn = 1;
-            LoadItemEnch_cb();
-            LoadBelts();
-
+           LoadBelts();
+            
         }
         private void Necklace_btn_Click(object sender, EventArgs e)
         {
             cs.sgn = 2;
-            LoadItemEnch_cb();
             LoadNeck();
-            
         }
 
         private void SelectedGear_cb_SelectedIndexChanged(object sender, EventArgs e)
@@ -172,20 +172,38 @@ namespace BDO_Builder
                 da.Fill(dt);
                 foreach (DataRow dr in dt.Rows)
                 {
-                    iAP_n.Text = dr["AP"].ToString();
-                    iDP_n.Text = dr["DP"].ToString();
-                    iEvas_n.Text = dr["Evasion"].ToString();
-                    iAcc_n.Text = dr["Accuracy"].ToString();
-                    iRes_n.Text = dr["AllResist"].ToString();
-                    iDR_n.Text = dr["DR"].ToString();
-                    iHP_n.Text = dr["MaxHP"].ToString();
-                    iWeight_n.Text = dr["Weight"].ToString();
+                    cs.beltDefap = Convert.ToInt32(dr["AP"]);
+                    cs.beltDefdp = Convert.ToInt32(dr["DP"]);
+                    cs.beltDefev = Convert.ToInt32(dr["Evasion"]);
+                    cs.beltDefacc = Convert.ToInt32(dr["Accuracy"]);
+                    cs.beltDefResis = Convert.ToInt32(dr["AllResist"]);
+                    cs.beltDefDR = Convert.ToInt32(dr["DR"]);
+                    cs.beltDefHP = Convert.ToInt32(dr["MaxHP"]);
+                    cs.beltDefWeight = Convert.ToInt32(dr["Weight"]);
                     cs.beltEnch = Convert.ToBoolean(dr["Ench"]);
                 }
+                
                 LoadItemEnch_cb();
+                
                 cs.Type = "Belts";
                 Item_Icon_Load(cs.Type,SelectGear_cb.SelectedIndex);
-                cs.BeltState(Convert.ToInt32(iAP_n.Text), Convert.ToInt32(iDP_n.Text), Convert.ToInt32(iAcc_n.Text), Convert.ToInt32(iEvas_n.Text), Convert.ToInt32(iRes_n.Text), Convert.ToInt32(iDR_n.Text),Convert.ToInt32(iHP_n.Text), Convert.ToInt32(iWeight_n.Text),ItemEnch_cb.SelectedIndex+1);
+                Belt_btn.BackgroundImage = Item_image.Image;
+                cs.BeltState();
+
+
+                if (cs.beltEnch == true) { TempEnchLvl = ItemEnch_cb.SelectedIndex; ItemEnch_cb.SelectedIndex = 0; cs.beltEnchLvl = TempEnchLvl;}
+                else if (cs.beltEnch == false) { cs.beltEnchLvl = 0; }
+
+                iAP_n.Text = cs.beltap.ToString();
+                iDP_n.Text = cs.beltdp.ToString();
+                iEvas_n.Text = cs.beltev.ToString();
+                iAcc_n.Text = cs.beltacc.ToString();
+                iRes_n.Text = cs.beltResis.ToString();
+                iDR_n.Text = cs.beltDR.ToString();
+                iHP_n.Text = cs.beltHP.ToString();
+                iWeight_n.Text = cs.beltWeight.ToString();
+
+
                 cAP_n.Text = Convert.ToString(cs.cap);
                 cAAP_n.Text = Convert.ToString(cs.caap);
                 cDP_n.Text = Convert.ToString(cs.cdp);
@@ -211,23 +229,42 @@ namespace BDO_Builder
                 da.Fill(dt);
                 foreach (DataRow dr in dt.Rows)
                 {
-                    iAP_n.Text = dr["AP"].ToString();
-                    iDP_n.Text = dr["DP"].ToString();
-                    iEvas_n.Text = dr["Evasion"].ToString();
-                    iAcc_n.Text = dr["Accuracy"].ToString();
-                    iRes_n.Text = dr["AllRes"].ToString();
-                    iDR_n.Text = dr["DR"].ToString();
-                    iSSFR_n.Text = dr["SSFRes"].ToString();
-                    iKBR_n.Text = dr["KBRes"].ToString();
-                    iGrapR_n.Text = dr["GrapRes"].ToString();
-                    iKFR_n.Text = dr["KFRes"].ToString();
-                    iHP_n.Text = dr["MaxHP"].ToString();
+                    cs.neckDefap = Convert.ToInt32(dr["AP"]);
+                    cs.neckDefdp = Convert.ToInt32(dr["DP"]);
+                    cs.neckDefev = Convert.ToInt32(dr["Evasion"]);
+                    cs.neckDefacc = Convert.ToInt32(dr["Accuracy"]);
+                    cs.neckDefAllRes = Convert.ToInt32(dr["AllRes"]);
+                    cs.neckDefDR = Convert.ToInt32(dr["DR"]);
+                    cs.neckDefSSF = Convert.ToInt32(dr["SSFRes"]);
+                    cs.neckDefKB = Convert.ToInt32(dr["KBRes"]);
+                    cs.neckDefG = Convert.ToInt32(dr["GrapRes"]);
+                    cs.neckDefKF = Convert.ToInt32(dr["KFRes"]);
+                    cs.neckDefHP = Convert.ToInt32(dr["MaxHP"]);
                     cs.neckEnch = Convert.ToBoolean(dr["Ench"]);
                 }
                 LoadItemEnch_cb();
+                
                 cs.Type = "Neck";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
-                cs.NeckState(Convert.ToInt32(iAP_n.Text), Convert.ToInt32(iDP_n.Text), Convert.ToInt32(iAcc_n.Text), Convert.ToInt32(iEvas_n.Text), Convert.ToInt32(iRes_n.Text), Convert.ToInt32(iDR_n.Text), Convert.ToInt32(iSSFR_n.Text), Convert.ToInt32(iKBR_n.Text), Convert.ToInt32(iGrapR_n.Text), Convert.ToInt32(iKFR_n.Text), Convert.ToInt32(iHP_n.Text), ItemEnch_cb.SelectedIndex + 1);
+                Necklace_btn.BackgroundImage = Item_image.Image;
+                cs.NeckState();
+
+                if (cs.neckEnch == true) { TempEnchLvl = ItemEnch_cb.SelectedIndex; ItemEnch_cb.SelectedIndex = 0; cs.neckEnchLvl = TempEnchLvl;}
+                else if(cs.neckEnch == false) { cs.neckEnchLvl = 0;}
+
+                iAP_n.Text = cs.neckap.ToString();
+                iDP_n.Text = cs.neckdp.ToString();
+                iEvas_n.Text = cs.neckev.ToString();
+                iAcc_n.Text = cs.neckacc.ToString();
+                iRes_n.Text = cs.neckAllRes.ToString();
+                iDR_n.Text = cs.neckDR.ToString();
+                iSSFR_n.Text = cs.neckSSF.ToString();
+                iKBR_n.Text = cs.neckKB.ToString();
+                iGrapR_n.Text = cs.neckG.ToString();
+                iKFR_n.Text = cs.neckKF.ToString();
+                iHP_n.Text = cs.neckHP.ToString();
+
+                
                 cAP_n.Text = Convert.ToString(cs.cap);
                 cAAP_n.Text = Convert.ToString(cs.caap);
                 cDP_n.Text = Convert.ToString(cs.cdp);
@@ -241,13 +278,10 @@ namespace BDO_Builder
                 cHP_n.Text = Convert.ToString(cs.cMaxHP);
                 cs.neckId = SelectGear_cb.SelectedIndex;
                 textBox1.Text = cs.neckId.ToString();
+                
             }
         }
 
-        private void BtnAdd_Click(object sender, EventArgs e)
-        {
-            cs.beltId = SelectGear_cb.SelectedIndex;
-        }
 
         private void LoadItemEnch_cb()
         {
@@ -258,8 +292,8 @@ namespace BDO_Builder
                 string[] Ench = {"0","1", "2", "3", "4", "5" };
                 ItemEnch_cb.DataSource = Ench;
                 ItemEnch_cb.SelectedIndexChanged += ItemEnch_cb_SelectedIndexChanged;
-                if (cs.sgn == 1) ItemEnch_cb.SelectedIndex = cs.beltEnchLvl - 1;
-                else if (cs.sgn == 2) ItemEnch_cb.SelectedIndex = cs.neckEnchLvl - 1;
+                if (cs.sgn == 1) ItemEnch_cb.SelectedIndex = cs.beltEnchLvl;
+                else if (cs.sgn == 2) ItemEnch_cb.SelectedIndex = cs.neckEnchLvl;
 
             }
             else { ItemEnch_cb.Visible = false; Ench_lbl.Visible = false; }
@@ -270,7 +304,17 @@ namespace BDO_Builder
 
             if (cs.sgn == 1)
             {
-                cs.BeltState(Convert.ToInt32(iAP_n.Text), Convert.ToInt32(iDP_n.Text), Convert.ToInt32(iAcc_n.Text), Convert.ToInt32(iEvas_n.Text), Convert.ToInt32(iRes_n.Text), Convert.ToInt32(iDR_n.Text), Convert.ToInt32(iHP_n.Text), Convert.ToInt32(iWeight_n.Text),ItemEnch_cb.SelectedIndex+1);
+                cs.beltEnchLvl = ItemEnch_cb.SelectedIndex;
+                cs.BeltState();
+
+                iAP_n.Text = cs.beltap.ToString();
+                iDP_n.Text = cs.beltdp.ToString();
+                iEvas_n.Text = cs.beltev.ToString();
+                iAcc_n.Text = cs.beltacc.ToString();
+                iRes_n.Text = cs.beltResis.ToString();
+                iDR_n.Text = cs.beltDR.ToString();
+                iHP_n.Text = cs.beltHP.ToString();
+                iWeight_n.Text = cs.beltWeight.ToString();
 
                 cAP_n.Text = Convert.ToString(cs.cap);
                 cAAP_n.Text = Convert.ToString(cs.caap);
@@ -289,7 +333,21 @@ namespace BDO_Builder
 
             else if (cs.sgn == 2)
             {
-                cs.NeckState(Convert.ToInt32(iAP_n.Text), Convert.ToInt32(iDP_n.Text), Convert.ToInt32(iAcc_n.Text), Convert.ToInt32(iEvas_n.Text), Convert.ToInt32(iRes_n.Text), Convert.ToInt32(iDR_n.Text), Convert.ToInt32(iSSFR_n.Text), Convert.ToInt32(iKBR_n.Text), Convert.ToInt32(iGrapR_n.Text), Convert.ToInt32(iKFR_n.Text), Convert.ToInt32(iHP_n.Text), ItemEnch_cb.SelectedIndex + 1);
+                cs.neckEnchLvl = ItemEnch_cb.SelectedIndex;
+                cs.NeckState();
+
+                iAP_n.Text = cs.neckap.ToString();
+                iDP_n.Text = cs.neckdp.ToString();
+                iEvas_n.Text = cs.neckev.ToString();
+                iAcc_n.Text = cs.neckacc.ToString();
+                iRes_n.Text = cs.neckAllRes.ToString();
+                iDR_n.Text = cs.neckDR.ToString();
+                iSSFR_n.Text = cs.neckSSF.ToString();
+                iKBR_n.Text = cs.neckKB.ToString();
+                iGrapR_n.Text = cs.neckG.ToString();
+                iKFR_n.Text = cs.neckKF.ToString();
+                iHP_n.Text = cs.neckHP.ToString();
+
                 cAP_n.Text = Convert.ToString(cs.cap);
                 cAAP_n.Text = Convert.ToString(cs.caap);
                 cDP_n.Text = Convert.ToString(cs.cdp);

@@ -44,8 +44,16 @@ namespace BDO_Builder
         public int beltHP; //Belt MaxHP
         public int beltWeight;//Belt Weight
         public int beltId = 0; // Current belt Id
-        public int beltEnchLvl = 1; // Belt's enchant level
-        public bool beltEnch;
+        public int beltEnchLvl = 0; // Belt's enchant level
+        public bool beltEnch; 
+        public int beltDefap; //Betl default AP
+        public int beltDefev; // Belt default Evasion
+        public int beltDefacc;//Belt default Accuracy
+        public int beltDefdp; //Belt default DP
+        public int beltDefResis; // Belt default Resists
+        public int beltDefDR; //Belt default DR
+        public int beltDefHP; //Belt default MaxHP
+        public int beltDefWeight;//Belt default Weight
 
         // Neck stats
         public int neckap; //Neck AP
@@ -60,13 +68,24 @@ namespace BDO_Builder
         public int neckKF; //Neck Resists: Knockback/Floating
         public int neckHP; //Neck Max HP
         public int neckId = 0; //Current neck Id
-        public int neckEnchLvl = 1; // Neck's enchant level
+        public int neckEnchLvl = 0; // Neck's enchant level
         public bool neckEnch;
+        public int neckDefap; //Neck AP
+        public int neckDefev; // Neck Evasion
+        public int neckDefacc;//Neck Accuracy
+        public int neckDefdp; //Neck DP
+        public int neckDefAllRes; //Neck Resists
+        public int neckDefDR; //Neck DR
+        public int neckDefSSF; //Neck Resists: Stun/Stiffness/Freezing
+        public int neckDefKB; //Neck Resists: Knockdown/Bound
+        public int neckDefG; //Neck Resists: Grapple
+        public int neckDefKF; //Neck Resists: Knockback/Floating
+        public int neckDefHP; //Neck Max HP
 
         readonly SqlCommand cmd = Base_Connect.Connection.CreateCommand();
         
 
-        public void BeltState(int AP, int DP, int Acc, int Ev, int Res, int DR, int HP, int Wg,int Ench)
+        public void BeltState()
         {
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "select * from Belts where Id='" + beltId.ToString() + "'";
@@ -78,42 +97,42 @@ namespace BDO_Builder
 
             if (beltEnch == true & beltEnchLvl >= 1)
             {
-                cap -= beltap + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["APsh"]);
-                caap -= beltap + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["APsh"]);
-                cdp -= beltdp + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["DPsh"]);
-                cev -= beltev + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["Evsh"]);
-                cacc -= beltacc + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["Accsh"]);
-                cRes1 -= beltResis + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["Ressh"]);
-                cRes2 -= beltResis + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["Ressh"]);
-                cRes3 -= beltResis + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["Ressh"]);
-                cRes4 -= beltResis + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["Ressh"]);
-                cDR -= beltDR + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["DRsh"]);
-                cMaxHP -= beltHP + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["HPsh"]);
-                cWeight -= beltWeight + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["Wgsh"]);
+                cap -= beltap;
+                caap -= beltap;
+                cdp -= beltdp;
+                cev -= beltev;
+                cacc -= beltacc;
+                cRes1 -= beltResis;
+                cRes2 -= beltResis;
+                cRes3 -= beltResis;
+                cRes4 -= beltResis;
+                cDR -= beltDR;
+                cMaxHP -= beltHP;
+                cWeight -= beltWeight;
 
 
-                beltap = AP;
-                beltdp = DP;
-                beltacc = Acc;
-                beltev = Ev;
-                beltResis = Res;
-                beltDR = DR;
-                beltHP = HP;
-                beltWeight = Wg;
-                beltEnchLvl = Ench;
 
-                cap += beltap + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["APsh"]);
-                caap += beltap + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["APsh"]);
-                cdp += beltdp + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["DPsh"]);
-                cev += beltev + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["Evsh"]);
-                cacc += beltacc + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["Accsh"]);
-                cRes1 += beltResis + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["Ressh"]);
-                cRes2 += beltResis + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["Ressh"]);
-                cRes3 += beltResis + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["Ressh"]);
-                cRes4 += beltResis + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["Ressh"]);
-                cDR += beltDR + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["DRsh"]);
-                cMaxHP += beltHP + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["HPsh"]);
-                cWeight += beltWeight + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["Wgsh"]);
+                beltap = beltDefap + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["APsh"]);
+                beltdp = beltDefdp + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["DPsh"]);
+                beltacc = beltDefacc + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["Accsh"]);
+                beltev = beltDefev + beltEnchLvl* Convert.ToInt32(dt.Rows[0]["Evsh"]);
+                beltResis = beltDefResis + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["Ressh"]);
+                beltDR = beltDefDR + beltEnchLvl* Convert.ToInt32(dt.Rows[0]["DRsh"]);
+                beltHP = beltDefHP + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["HPsh"]);
+                beltWeight = beltDefWeight + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["Wgsh"]);
+
+                cap += beltap ;
+                caap += beltap ;
+                cdp += beltdp;
+                cev += beltev;
+                cacc += beltacc;
+                cRes1 += beltResis;
+                cRes2 += beltResis;
+                cRes3 += beltResis;
+                cRes4 += beltResis ;
+                cDR += beltDR;
+                cMaxHP += beltHP;
+                cWeight += beltWeight;
             }
 
             else
@@ -132,15 +151,14 @@ namespace BDO_Builder
                 cWeight -= beltWeight;
 
 
-                beltap = AP;
-                beltdp = DP;
-                beltacc = Acc;
-                beltev = Ev;
-                beltResis = Res;
-                beltDR = DR;
-                beltHP = HP;
-                beltWeight = Wg;
-                beltEnchLvl = Ench;
+                beltap = beltDefap;
+                beltdp = beltDefdp;
+                beltacc = beltDefacc;
+                beltev = beltDefev;
+                beltResis = beltDefResis;
+                beltDR = beltDefDR;
+                beltHP = beltDefHP;
+                beltWeight = beltDefWeight;
 
                 cap += beltap;
                 caap += beltap;
@@ -157,7 +175,7 @@ namespace BDO_Builder
             }
         }
 
-        public void NeckState(int AP, int DP, int Acc, int Ev, int AllRes, int DR, int SSF, int KB, int Grap, int KF, int HP, int Ench)
+        public void NeckState()
         {
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "select * from Neck where Id='" + neckId.ToString() + "'";
@@ -167,49 +185,50 @@ namespace BDO_Builder
             da.Fill(dt);
             if (neckEnch == true & neckEnchLvl >= 1)
             {
-                cap -= neckap + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["APSh"]);
-                caap -= neckap + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["APSh"]);
-                cdp -= neckdp + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["DPSh"]);
-                cev -= neckev + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["EvSh"]);
-                cacc -= neckacc + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["AccuracySh"]);
-                cRes1 -= neckSSF + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["SSFSh"]);
-                cRes2 -= neckKB + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["KBSh"]);
-                cRes3 -= neckG + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["GrapSh"]);
-                cRes4 -= neckKF + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["KFSh"]);
-                cDR -= neckDR + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["DRSh"]);
-                cRes1 -= neckAllRes + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["AllResSh"]);
-                cRes2 -= neckAllRes + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["AllResSh"]);
-                cRes3 -= neckAllRes + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["AllResSh"]);
-                cRes4 -= neckAllRes + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["AllResSh"]);
+                cap -= neckap;
+                caap -= neckap;
+                cdp -= neckdp;
+                cev -= neckev ;
+                cacc -= neckacc;
+                cRes1 -= neckSSF ;
+                cRes2 -= neckKB ;
+                cRes3 -= neckG ;
+                cRes4 -= neckKF ;
+                cDR -= neckDR ;
+                cMaxHP -= neckHP;
+                cRes1 -= neckAllRes ;
+                cRes2 -= neckAllRes ;
+                cRes3 -= neckAllRes ;
+                cRes4 -= neckAllRes ;
 
 
-                neckap = AP;
-                neckdp = DP;
-                neckacc = Acc;
-                neckev = Ev;
-                neckAllRes = AllRes;
-                neckDR = DR;
-                neckSSF = SSF;
-                neckKB = KB;
-                neckG = Grap;
-                neckKF = KF;
-                neckHP = HP;
-                neckEnchLvl = Ench;
+                neckap = neckDefap + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["APSh"]);
+                neckdp = neckDefdp + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["DPSh"]);
+                neckacc = neckDefacc + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["AccuracySh"]);
+                neckev = neckDefev + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["EvSh"]);
+                neckAllRes = neckDefAllRes + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["AllResSh"]);
+                neckDR = neckDefDR + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["DRSh"]);
+                neckSSF = neckDefSSF + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["SSFSh"]);
+                neckKB = neckDefKB + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["KBSh"]);
+                neckG = neckDefG + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["GrapSh"]);
+                neckKF = neckDefKF + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["KFSh"]);
+                neckHP = neckDefHP;
 
-                cap += neckap + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["APSh"]);
-                caap += neckap + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["APSh"]);
-                cdp += neckdp + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["DPSh"]);
-                cev += neckev + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["EvSh"]);
-                cacc += neckacc + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["AccuracySh"]);
-                cRes1 += neckSSF + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["SSFSh"]);
-                cRes2 += neckKB + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["KBSh"]);
-                cRes3 += neckG + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["GrapSh"]);
-                cRes4 += neckKF + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["KFSh"]);
-                cDR += neckDR + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["DRSh"]);
-                cRes1 += neckAllRes + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["AllResSh"]);
-                cRes2 += neckAllRes + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["AllResSh"]);
-                cRes3 += neckAllRes + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["AllResSh"]);
-                cRes4 += neckAllRes + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["AllResSh"]);
+                cap += neckap;
+                caap += neckap;
+                cdp += neckdp;
+                cev += neckev;
+                cacc += neckacc;
+                cRes1 += neckSSF;
+                cRes2 += neckKB;
+                cRes3 += neckG;
+                cRes4 += neckKF;
+                cDR += neckDR;
+                cRes1 += neckAllRes;
+                cRes2 += neckAllRes;
+                cRes3 += neckAllRes;
+                cRes4 += neckAllRes;
+                cMaxHP += neckHP;
             }
 
             else
@@ -230,18 +249,17 @@ namespace BDO_Builder
                 cRes4 -= neckAllRes;
                 cMaxHP -= neckHP;
 
-                neckap = AP;
-                neckdp = DP;
-                neckacc = Acc;
-                neckev = Ev;
-                neckAllRes = AllRes;
-                neckDR = DR;
-                neckSSF = SSF;
-                neckKB = KB;
-                neckG = Grap;
-                neckKF = KF;
-                neckHP = HP;
-                neckEnchLvl = Ench;
+                neckap = neckDefap;
+                neckdp = neckDefdp;
+                neckacc = neckDefacc;
+                neckev = neckDefev;
+                neckAllRes = neckDefAllRes;
+                neckDR = neckDefDR;
+                neckSSF = neckDefSSF;
+                neckKB = neckDefKB;
+                neckG = neckDefG;
+                neckKF = neckDefKF;
+                neckHP = neckDefHP;
 
                 cap += neckap;
                 caap += neckap;
