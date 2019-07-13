@@ -293,7 +293,7 @@ namespace BDO_Builder
 
         private void SelectedGear_cb_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+          TempEnchLvl = ItemEnch_cb.SelectedIndex;
           ItemStatClear();
           SqlCommand cmd = Base_Connect.Connection.CreateCommand();
           cmd.CommandType = CommandType.Text;
@@ -316,16 +316,14 @@ namespace BDO_Builder
                     cs.beltDefWeight = Convert.ToInt32(dr["Weight"]);
                     cs.beltEnch = Convert.ToBoolean(dr["Ench"]);
                 }
-                
                 LoadItemEnch_cb();
-                
                 cs.Type = "Belts";
                 Item_Icon_Load(cs.Type,SelectGear_cb.SelectedIndex);
                 Belt_btn.BackgroundImage = Item_image.Image;
                 cs.BeltState();
 
 
-                if (cs.beltEnch == true) { TempEnchLvl = ItemEnch_cb.SelectedIndex; ItemEnch_cb.SelectedIndex = 0; cs.beltEnchLvl = TempEnchLvl;}
+                if (cs.beltEnch == true) {ItemEnch_cb.SelectedIndex = 0; cs.beltEnchLvl = TempEnchLvl;}
                 else if (cs.beltEnch == false) { cs.beltEnchLvl = 0; }
 
                 iAP_n.Text = cs.beltap.ToString();
