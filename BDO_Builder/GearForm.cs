@@ -60,6 +60,43 @@ namespace BDO_Builder
             //////////
         }
 
+        private void FillCharacterState()
+        {
+            cAP_n.Text = Convert.ToString(cs.cap);
+            cAAP_n.Text = Convert.ToString(cs.caap);
+            cDP_n.Text = Convert.ToString(cs.cdp);
+            cEvas_n.Text = Convert.ToString(cs.cev);
+            cAcc_n.Text = Convert.ToString(cs.cacc);
+            cSSFR_n.Text = Convert.ToString(cs.cRes1);
+            cKBR_n.Text = Convert.ToString(cs.cRes2);
+            cGrapR_n.Text = Convert.ToString(cs.cRes3);
+            cKFR_n.Text = Convert.ToString(cs.cRes4);
+            cDR_n.Text = Convert.ToString(cs.cDR);
+            cHP_n.Text = Convert.ToString(cs.cMaxHP);
+            cMP_n.Text = Convert.ToString(cs.cMaxMP);
+            cStamina_n.Text = Convert.ToString(cs.cMaxST);
+            Weight_n.Text = Convert.ToString(cs.cWeight);
+
+        }
+
+        private void ItemStatClear()
+        {
+            iAP_n.Text = "0";
+            iDP_n.Text = "0";
+            iEvas_n.Text = "0";
+            iAcc_n.Text = "0";
+            iRes_n.Text = "0";
+            iDR_n.Text = "0";
+            iHP_n.Text = "0";
+            iWeight_n.Text = "0";
+            iMP_n.Text = "0";
+            iST_n.Text = "0";
+            iSSFR_n.Text = "0";
+            iKBR_n.Text = "0";
+            iGrapR_n.Text = "0";
+            iKFR_n.Text = "0";
+        }
+
         private void LoadBelts() //Belt
         {
             SelectGear_cb.SelectedIndexChanged -= SelectedGear_cb_SelectedIndexChanged;
@@ -90,6 +127,70 @@ namespace BDO_Builder
             Item_Icon_Load("Neck", cs.neckId);
             SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
             SelectGear_cb.SelectedIndex = cs.neckId;
+            LoadItemEnch_cb();
+        }
+
+        private void Load1Ring() //First ring
+        {
+            SelectGear_cb.SelectedIndexChanged -= SelectedGear_cb_SelectedIndexChanged;
+            var sql = @"select * from Rings";
+            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            SelectGear_cb.DataSource = ds.Tables[0];
+            SelectGear_cb.DisplayMember = "Name";
+            SelectGear_cb.ValueMember = "Id";
+            Item_Icon_Load("Rings", cs.ring1Id);
+            SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectedIndex = cs.ring1Id;
+            LoadItemEnch_cb();
+        }
+
+        private void Load2Ring() //Second ring
+        {
+            SelectGear_cb.SelectedIndexChanged -= SelectedGear_cb_SelectedIndexChanged;
+            var sql = @"select * from Rings";
+            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            SelectGear_cb.DataSource = ds.Tables[0];
+            SelectGear_cb.DisplayMember = "Name";
+            SelectGear_cb.ValueMember = "Id";
+            Item_Icon_Load("Rings", cs.ring2Id);
+            SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectedIndex = cs.ring2Id;
+            LoadItemEnch_cb();
+        }
+
+        private void Load1Earring() //First earring
+        {
+            SelectGear_cb.SelectedIndexChanged -= SelectedGear_cb_SelectedIndexChanged;
+            var sql = @"select * from Earrings";
+            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            SelectGear_cb.DataSource = ds.Tables[0];
+            SelectGear_cb.DisplayMember = "Name";
+            SelectGear_cb.ValueMember = "Id";
+            Item_Icon_Load("Earrings", cs.ear1Id);
+            SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectedIndex = cs.ear1Id;
+            LoadItemEnch_cb();
+        }
+
+        private void Load2Earring() //Second earring
+        {
+            SelectGear_cb.SelectedIndexChanged -= SelectedGear_cb_SelectedIndexChanged;
+            var sql = @"select * from Earrings";
+            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            SelectGear_cb.DataSource = ds.Tables[0];
+            SelectGear_cb.DisplayMember = "Name";
+            SelectGear_cb.ValueMember = "Id";
+            Item_Icon_Load("Earrings", cs.ear2Id);
+            SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectedIndex = cs.ear2Id;
             LoadItemEnch_cb();
         }
 
@@ -149,18 +250,51 @@ namespace BDO_Builder
 
         private void Belt_btn_Click(object sender, EventArgs e)
         {
-            cs.sgn = 1;
+           ItemStatClear();
+           cs.sgn = 1;
            LoadBelts();
             
         }
         private void Necklace_btn_Click(object sender, EventArgs e)
         {
+            ItemStatClear();
             cs.sgn = 2;
             LoadNeck();
         }
 
+        private void Ring1_btn_Click(object sender, EventArgs e)
+        {
+            ItemStatClear();
+            cs.sgn = 3;
+            Load1Ring();
+        }
+
+        private void Ring2_btn_Click(object sender, EventArgs e)
+        {
+            ItemStatClear();
+            cs.sgn = 4;
+            Load2Ring();
+        }
+
+        private void Earring1_btn_Click(object sender, EventArgs e)
+        {
+            ItemStatClear();
+            cs.sgn = 5;
+            Load1Earring();
+        }
+
+        private void Earring2_btn_Click(object sender, EventArgs e)
+        {
+            ItemStatClear();
+            cs.sgn = 6;
+            Load2Earring();
+        }
+
+
         private void SelectedGear_cb_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+          ItemStatClear();
           SqlCommand cmd = Base_Connect.Connection.CreateCommand();
           cmd.CommandType = CommandType.Text;
             if (cs.sgn == 1)
@@ -204,18 +338,7 @@ namespace BDO_Builder
                 iWeight_n.Text = cs.beltWeight.ToString();
 
 
-                cAP_n.Text = Convert.ToString(cs.cap);
-                cAAP_n.Text = Convert.ToString(cs.caap);
-                cDP_n.Text = Convert.ToString(cs.cdp);
-                cEvas_n.Text = Convert.ToString(cs.cev);
-                cAcc_n.Text = Convert.ToString(cs.cacc);
-                cSSFR_n.Text = Convert.ToString(cs.cRes1);
-                cKBR_n.Text = Convert.ToString(cs.cRes2);
-                cGrapR_n.Text = Convert.ToString(cs.cRes3);
-                cKFR_n.Text = Convert.ToString(cs.cRes4);
-                cDR_n.Text = Convert.ToString(cs.cDR);
-                Weight_n.Text = Convert.ToString(cs.cWeight);
-                cHP_n.Text = Convert.ToString(cs.cMaxHP);
+                FillCharacterState();
                 cs.beltId = SelectGear_cb.SelectedIndex;
                 textBox1.Text = cs.beltId.ToString();
 
@@ -243,14 +366,14 @@ namespace BDO_Builder
                     cs.neckEnch = Convert.ToBoolean(dr["Ench"]);
                 }
                 LoadItemEnch_cb();
-                
+
                 cs.Type = "Neck";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
                 Necklace_btn.BackgroundImage = Item_image.Image;
                 cs.NeckState();
 
-                if (cs.neckEnch == true) { TempEnchLvl = ItemEnch_cb.SelectedIndex; ItemEnch_cb.SelectedIndex = 0; cs.neckEnchLvl = TempEnchLvl;}
-                else if(cs.neckEnch == false) { cs.neckEnchLvl = 0;}
+                if (cs.neckEnch == true) { TempEnchLvl = ItemEnch_cb.SelectedIndex; ItemEnch_cb.SelectedIndex = 0; cs.neckEnchLvl = TempEnchLvl; }
+                else if (cs.neckEnch == false) { cs.neckEnchLvl = 0; }
 
                 iAP_n.Text = cs.neckap.ToString();
                 iDP_n.Text = cs.neckdp.ToString();
@@ -264,28 +387,205 @@ namespace BDO_Builder
                 iKFR_n.Text = cs.neckKF.ToString();
                 iHP_n.Text = cs.neckHP.ToString();
 
-                
-                cAP_n.Text = Convert.ToString(cs.cap);
-                cAAP_n.Text = Convert.ToString(cs.caap);
-                cDP_n.Text = Convert.ToString(cs.cdp);
-                cEvas_n.Text = Convert.ToString(cs.cev);
-                cAcc_n.Text = Convert.ToString(cs.cacc);
-                cSSFR_n.Text = Convert.ToString(cs.cRes1);
-                cKBR_n.Text = Convert.ToString(cs.cRes2);
-                cGrapR_n.Text = Convert.ToString(cs.cRes3);
-                cKFR_n.Text = Convert.ToString(cs.cRes4);
-                cDR_n.Text = Convert.ToString(cs.cDR);
-                cHP_n.Text = Convert.ToString(cs.cMaxHP);
+
+                FillCharacterState();
                 cs.neckId = SelectGear_cb.SelectedIndex;
                 textBox1.Text = cs.neckId.ToString();
+            }
+
+            if (cs.sgn == 3 )
+            {
+                cmd.CommandText = "select * from Rings where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    cs.ring1Defap = Convert.ToInt32(dr["AP"]);
+                    cs.ring1Defdp = Convert.ToInt32(dr["DP"]);
+                    cs.ring1Defev = Convert.ToInt32(dr["Evasion"]);
+                    cs.ring1Defacc = Convert.ToInt32(dr["Accuracy"]);
+                    cs.ring1DefDR = Convert.ToInt32(dr["DR"]);
+                    cs.ring1DefHP = Convert.ToInt32(dr["MaxHP"]);
+                    cs.ring1DefHP = Convert.ToInt32(dr["MaxMP"]);
+                    cs.ring1DefHP = Convert.ToInt32(dr["MaxST"]);
+                    cs.ring1Ench = Convert.ToBoolean(dr["Ench"]);
+                }
+
+                LoadItemEnch_cb();
+
+                cs.Type = "Rings";
+                Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
+                Ring1_btn.BackgroundImage = Item_image.Image;
+                cs.Ring1State();
+
+                if (cs.ring1Ench == true) { TempEnchLvl = ItemEnch_cb.SelectedIndex; ItemEnch_cb.SelectedIndex = 0; cs.ring1EnchLvl = TempEnchLvl; }
+                else if (cs.ring1Ench == false) { cs.ring1EnchLvl = 0; }
                 
+
+                iAP_n.Text = cs.ring1ap.ToString();
+                iDP_n.Text = cs.ring1dp.ToString();
+                iEvas_n.Text = cs.ring1ev.ToString();
+                iAcc_n.Text = cs.ring1acc.ToString();
+                iDR_n.Text = cs.ring1DR.ToString();
+                iHP_n.Text = cs.ring1HP.ToString();
+                iMP_n.Text = cs.ring1MP.ToString();
+                iST_n.Text = cs.ring1ST.ToString();
+
+
+                FillCharacterState();
+                cs.ring1Id = SelectGear_cb.SelectedIndex;
+                textBox1.Text = cs.ring1Id.ToString();
+            }
+
+            if (cs.sgn == 4)
+            {
+                cmd.CommandText = "select * from Rings where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    cs.ring2Defap = Convert.ToInt32(dr["AP"]);
+                    cs.ring2Defdp = Convert.ToInt32(dr["DP"]);
+                    cs.ring2Defev = Convert.ToInt32(dr["Evasion"]);
+                    cs.ring2Defacc = Convert.ToInt32(dr["Accuracy"]);
+                    cs.ring2DefDR = Convert.ToInt32(dr["DR"]);
+                    cs.ring2DefHP = Convert.ToInt32(dr["MaxHP"]);
+                    cs.ring2DefHP = Convert.ToInt32(dr["MaxMP"]);
+                    cs.ring2DefHP = Convert.ToInt32(dr["MaxST"]);
+                    cs.ring2Ench = Convert.ToBoolean(dr["Ench"]);
+                }
+
+                LoadItemEnch_cb();
+
+                cs.Type = "Rings";
+                Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
+                Ring2_btn.BackgroundImage = Item_image.Image;
+                cs.Ring1State();
+
+                if (cs.ring2Ench == true) { TempEnchLvl = ItemEnch_cb.SelectedIndex; ItemEnch_cb.SelectedIndex = 0; cs.ring2EnchLvl = TempEnchLvl; }
+                else if (cs.ring2Ench == false) { cs.ring2EnchLvl = 0; }
+
+
+                iAP_n.Text = cs.ring2ap.ToString();
+                iDP_n.Text = cs.ring2dp.ToString();
+                iEvas_n.Text = cs.ring2ev.ToString();
+                iAcc_n.Text = cs.ring2acc.ToString();
+                iDR_n.Text = cs.ring2DR.ToString();
+                iHP_n.Text = cs.ring2HP.ToString();
+                iMP_n.Text = cs.ring2MP.ToString();
+                iST_n.Text = cs.ring2ST.ToString();
+
+
+                FillCharacterState();
+
+                cs.ring2Id = SelectGear_cb.SelectedIndex;
+                textBox1.Text = cs.ring2Id.ToString();
+            }
+
+
+            if (cs.sgn == 5)
+            {
+                cmd.CommandText = "select * from Earrings where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    cs.ear1Defap = Convert.ToInt32(dr["AP"]);
+                    cs.ear1Defdp = Convert.ToInt32(dr["DP"]);
+                    cs.ear1Defev = Convert.ToInt32(dr["Evasion"]);
+                    cs.ear1Defacc = Convert.ToInt32(dr["Accuracy"]);
+                    cs.ear1DefDR = Convert.ToInt32(dr["DR"]);
+                    cs.ear1DefHP = Convert.ToInt32(dr["MaxHP"]);
+                    cs.ear1DefHP = Convert.ToInt32(dr["MaxMP"]);
+                    cs.ear1DefHP = Convert.ToInt32(dr["MaxST"]);
+                    cs.ear1Ench = Convert.ToBoolean(dr["Ench"]);
+                }
+
+                LoadItemEnch_cb();
+
+                cs.Type = "Earrings";
+                Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
+                Earring1_btn.BackgroundImage = Item_image.Image;
+                cs.Earring1State();
+
+                if (cs.ear1Ench == true) { TempEnchLvl = ItemEnch_cb.SelectedIndex; ItemEnch_cb.SelectedIndex = 0; cs.ear1EnchLvl = TempEnchLvl; }
+                else if (cs.ear1Ench == false) { cs.ear1EnchLvl = 0; }
+
+
+                iAP_n.Text = cs.ear1ap.ToString();
+                iDP_n.Text = cs.ear1dp.ToString();
+                iEvas_n.Text = cs.ear1ev.ToString();
+                iAcc_n.Text = cs.ear1acc.ToString();
+                iDR_n.Text = cs.ear1DR.ToString();
+                iHP_n.Text = cs.ear1HP.ToString();
+                iMP_n.Text = cs.ear1MP.ToString();
+                iST_n.Text = cs.ear1ST.ToString();
+
+
+                FillCharacterState();
+
+                cs.ear1Id = SelectGear_cb.SelectedIndex;
+                textBox1.Text = cs.ear1Id.ToString();
+            }
+
+            if (cs.sgn == 6)
+            {
+                cmd.CommandText = "select * from Earrings where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    cs.ear2Defap = Convert.ToInt32(dr["AP"]);
+                    cs.ear2Defdp = Convert.ToInt32(dr["DP"]);
+                    cs.ear2Defev = Convert.ToInt32(dr["Evasion"]);
+                    cs.ear2Defacc = Convert.ToInt32(dr["Accuracy"]);
+                    cs.ear2DefDR = Convert.ToInt32(dr["DR"]);
+                    cs.ear2DefHP = Convert.ToInt32(dr["MaxHP"]);
+                    cs.ear2DefHP = Convert.ToInt32(dr["MaxMP"]);
+                    cs.ear2DefHP = Convert.ToInt32(dr["MaxST"]);
+                    cs.ear2Ench = Convert.ToBoolean(dr["Ench"]);
+                }
+
+                LoadItemEnch_cb();
+
+                cs.Type = "Earrings";
+                Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
+                Earring2_btn.BackgroundImage = Item_image.Image;
+                cs.Earring2State();
+
+                if (cs.ear2Ench == true) { TempEnchLvl = ItemEnch_cb.SelectedIndex; ItemEnch_cb.SelectedIndex = 0; cs.ear2EnchLvl = TempEnchLvl; }
+                else if (cs.ear2Ench == false) { cs.ear2EnchLvl = 0; }
+
+
+                iAP_n.Text = cs.ear2ap.ToString();
+                iDP_n.Text = cs.ear2dp.ToString();
+                iEvas_n.Text = cs.ear2ev.ToString();
+                iAcc_n.Text = cs.ear2acc.ToString();
+                iDR_n.Text = cs.ear2DR.ToString();
+                iHP_n.Text = cs.ear2HP.ToString();
+                iMP_n.Text = cs.ear2MP.ToString();
+                iST_n.Text = cs.ear2ST.ToString();
+
+
+                FillCharacterState();
+                cs.ear2Id = SelectGear_cb.SelectedIndex;
+                textBox1.Text = cs.ear2Id.ToString();
             }
         }
 
 
         private void LoadItemEnch_cb()
         {
-            if (cs.sgn == 1 & cs.beltEnch == true| cs.sgn ==2 & cs.neckEnch == true)
+            if (cs.sgn == 1 & cs.beltEnch == true| cs.sgn ==2 & cs.neckEnch == true| cs.sgn == 3& cs.ring1Ench == true|
+                cs.sgn == 4 & cs.ring2Ench == true | cs.sgn == 5 & cs.ear1Ench == true| cs.sgn == 6 & cs.ear2Ench == true)
             {
                 ItemEnch_cb.SelectedIndexChanged -= ItemEnch_cb_SelectedIndexChanged;
                 ItemEnch_cb.Visible = true; Ench_lbl.Visible = true;
@@ -294,13 +594,17 @@ namespace BDO_Builder
                 ItemEnch_cb.SelectedIndexChanged += ItemEnch_cb_SelectedIndexChanged;
                 if (cs.sgn == 1) ItemEnch_cb.SelectedIndex = cs.beltEnchLvl;
                 else if (cs.sgn == 2) ItemEnch_cb.SelectedIndex = cs.neckEnchLvl;
-
+                else if (cs.sgn == 3) ItemEnch_cb.SelectedIndex = cs.ring1EnchLvl;
+                else if (cs.sgn == 4) ItemEnch_cb.SelectedIndex = cs.ring2EnchLvl;
+                else if (cs.sgn == 5) ItemEnch_cb.SelectedIndex = cs.ear1EnchLvl;
+                else if (cs.sgn == 6) ItemEnch_cb.SelectedIndex = cs.ear2EnchLvl;
             }
             else { ItemEnch_cb.Visible = false; Ench_lbl.Visible = false; }
         }
 
         private void ItemEnch_cb_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ItemStatClear();
 
             if (cs.sgn == 1)
             {
@@ -316,19 +620,8 @@ namespace BDO_Builder
                 iHP_n.Text = cs.beltHP.ToString();
                 iWeight_n.Text = cs.beltWeight.ToString();
 
-                cAP_n.Text = Convert.ToString(cs.cap);
-                cAAP_n.Text = Convert.ToString(cs.caap);
-                cDP_n.Text = Convert.ToString(cs.cdp);
-                cEvas_n.Text = Convert.ToString(cs.cev);
-                cAcc_n.Text = Convert.ToString(cs.cacc);
-                cSSFR_n.Text = Convert.ToString(cs.cRes1);
-                cKBR_n.Text = Convert.ToString(cs.cRes2);
-                cGrapR_n.Text = Convert.ToString(cs.cRes3);
-                cKFR_n.Text = Convert.ToString(cs.cRes4);
-                cDR_n.Text = Convert.ToString(cs.cDR);
-                Weight_n.Text = Convert.ToString(cs.cWeight);
-                cHP_n.Text = Convert.ToString(cs.cMaxHP);
-                
+                FillCharacterState();
+
             }
 
             else if (cs.sgn == 2)
@@ -348,19 +641,83 @@ namespace BDO_Builder
                 iKFR_n.Text = cs.neckKF.ToString();
                 iHP_n.Text = cs.neckHP.ToString();
 
-                cAP_n.Text = Convert.ToString(cs.cap);
-                cAAP_n.Text = Convert.ToString(cs.caap);
-                cDP_n.Text = Convert.ToString(cs.cdp);
-                cEvas_n.Text = Convert.ToString(cs.cev);
-                cAcc_n.Text = Convert.ToString(cs.cacc);
-                cSSFR_n.Text = Convert.ToString(cs.cRes1);
-                cKBR_n.Text = Convert.ToString(cs.cRes2);
-                cGrapR_n.Text = Convert.ToString(cs.cRes3);
-                cKFR_n.Text = Convert.ToString(cs.cRes4);
-                cDR_n.Text = Convert.ToString(cs.cDR);
-                cHP_n.Text = Convert.ToString(cs.cMaxHP);
+                FillCharacterState();
 
             }
+
+            else if (cs.sgn == 3)
+            {
+                cs.ring1EnchLvl = ItemEnch_cb.SelectedIndex;
+                cs.Ring1State();
+
+                iAP_n.Text = cs.ring1ap.ToString();
+                iDP_n.Text = cs.ring1dp.ToString();
+                iEvas_n.Text = cs.ring1ev.ToString();
+                iAcc_n.Text = cs.ring1acc.ToString();
+                iDR_n.Text = cs.ring1DR.ToString();
+                iHP_n.Text = cs.ring1HP.ToString();
+                iMP_n.Text = cs.ring1MP.ToString();
+                iST_n.Text = cs.ring1ST.ToString();
+
+
+                FillCharacterState();
+            }
+
+            else if (cs.sgn == 4)
+            {
+                cs.ring2EnchLvl = ItemEnch_cb.SelectedIndex;
+                cs.Ring2State();
+
+                iAP_n.Text = cs.ring2ap.ToString();
+                iDP_n.Text = cs.ring2dp.ToString();
+                iEvas_n.Text = cs.ring2ev.ToString();
+                iAcc_n.Text = cs.ring2acc.ToString();
+                iDR_n.Text = cs.ring2DR.ToString();
+                iHP_n.Text = cs.ring2HP.ToString();
+                iMP_n.Text = cs.ring2MP.ToString();
+                iST_n.Text = cs.ring2ST.ToString();
+
+
+                FillCharacterState();
+            }
+
+            else if (cs.sgn == 5)
+            {
+                cs.ear1EnchLvl = ItemEnch_cb.SelectedIndex;
+                cs.Earring1State();
+
+                iAP_n.Text = cs.ear1ap.ToString();
+                iDP_n.Text = cs.ear1dp.ToString();
+                iEvas_n.Text = cs.ear1ev.ToString();
+                iAcc_n.Text = cs.ear1acc.ToString();
+                iDR_n.Text = cs.ear1DR.ToString();
+                iHP_n.Text = cs.ear1HP.ToString();
+                iMP_n.Text = cs.ear1MP.ToString();
+                iST_n.Text = cs.ear1ST.ToString();
+
+
+                FillCharacterState();
+            }
+
+            else if (cs.sgn == 6)
+            {
+                cs.ear2EnchLvl = ItemEnch_cb.SelectedIndex;
+                cs.Earring2State();
+
+                iAP_n.Text = cs.ear2ap.ToString();
+                iDP_n.Text = cs.ear2dp.ToString();
+                iEvas_n.Text = cs.ear2ev.ToString();
+                iAcc_n.Text = cs.ear2acc.ToString();
+                iDR_n.Text = cs.ear2DR.ToString();
+                iHP_n.Text = cs.ear2HP.ToString();
+                iMP_n.Text = cs.ear2MP.ToString();
+                iST_n.Text = cs.ear2ST.ToString();
+
+
+                FillCharacterState();
+            }
         }
+
+        
     }
 }

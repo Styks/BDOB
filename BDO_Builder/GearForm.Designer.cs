@@ -132,6 +132,12 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.Ench_lbl = new System.Windows.Forms.Label();
             this.ItemEnch_cb = new System.Windows.Forms.ComboBox();
+            this.iST_n = new System.Windows.Forms.Label();
+            this.iStamina_lbl = new System.Windows.Forms.Label();
+            this.cStamina_n = new System.Windows.Forms.Label();
+            this.cStamina_lbl = new System.Windows.Forms.Label();
+            this.iMP_n = new System.Windows.Forms.Label();
+            this.iMP_lbl = new System.Windows.Forms.Label();
             this.ShopGear_gb.SuspendLayout();
             this.CharacterGear_gb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Class_pic)).BeginInit();
@@ -418,6 +424,7 @@
             this.Ring2_btn.Size = new System.Drawing.Size(40, 40);
             this.Ring2_btn.TabIndex = 4;
             this.Ring2_btn.UseVisualStyleBackColor = false;
+            this.Ring2_btn.Click += new System.EventHandler(this.Ring2_btn_Click);
             // 
             // Ring1_btn
             // 
@@ -430,6 +437,7 @@
             this.Ring1_btn.Size = new System.Drawing.Size(40, 40);
             this.Ring1_btn.TabIndex = 4;
             this.Ring1_btn.UseVisualStyleBackColor = false;
+            this.Ring1_btn.Click += new System.EventHandler(this.Ring1_btn_Click);
             // 
             // Earring2_btn
             // 
@@ -442,6 +450,7 @@
             this.Earring2_btn.Size = new System.Drawing.Size(40, 40);
             this.Earring2_btn.TabIndex = 4;
             this.Earring2_btn.UseVisualStyleBackColor = false;
+            this.Earring2_btn.Click += new System.EventHandler(this.Earring2_btn_Click);
             // 
             // Earring1_btn
             // 
@@ -454,6 +463,7 @@
             this.Earring1_btn.Size = new System.Drawing.Size(40, 40);
             this.Earring1_btn.TabIndex = 4;
             this.Earring1_btn.UseVisualStyleBackColor = false;
+            this.Earring1_btn.Click += new System.EventHandler(this.Earring1_btn_Click);
             // 
             // Armour_btn
             // 
@@ -481,6 +491,8 @@
             // 
             // MStats_gb
             // 
+            this.MStats_gb.Controls.Add(this.cStamina_n);
+            this.MStats_gb.Controls.Add(this.cStamina_lbl);
             this.MStats_gb.Controls.Add(this.cAcc_n);
             this.MStats_gb.Controls.Add(this.cAcc_lbl);
             this.MStats_gb.Controls.Add(this.Weight_n);
@@ -531,7 +543,7 @@
             // Weight_n
             // 
             this.Weight_n.AutoSize = true;
-            this.Weight_n.Location = new System.Drawing.Point(65, 166);
+            this.Weight_n.Location = new System.Drawing.Point(66, 147);
             this.Weight_n.Name = "Weight_n";
             this.Weight_n.Size = new System.Drawing.Size(13, 13);
             this.Weight_n.TabIndex = 33;
@@ -558,7 +570,7 @@
             // cWeight_lbl
             // 
             this.cWeight_lbl.AutoSize = true;
-            this.cWeight_lbl.Location = new System.Drawing.Point(17, 166);
+            this.cWeight_lbl.Location = new System.Drawing.Point(18, 147);
             this.cWeight_lbl.Name = "cWeight_lbl";
             this.cWeight_lbl.Size = new System.Drawing.Size(41, 13);
             this.cWeight_lbl.TabIndex = 30;
@@ -992,7 +1004,7 @@
             // iAP_n
             // 
             this.iAP_n.AutoSize = true;
-            this.iAP_n.Location = new System.Drawing.Point(792, 115);
+            this.iAP_n.Location = new System.Drawing.Point(797, 115);
             this.iAP_n.Name = "iAP_n";
             this.iAP_n.Size = new System.Drawing.Size(13, 13);
             this.iAP_n.TabIndex = 25;
@@ -1001,7 +1013,7 @@
             // iDP_n
             // 
             this.iDP_n.AutoSize = true;
-            this.iDP_n.Location = new System.Drawing.Point(792, 140);
+            this.iDP_n.Location = new System.Drawing.Point(797, 140);
             this.iDP_n.Name = "iDP_n";
             this.iDP_n.Size = new System.Drawing.Size(13, 13);
             this.iDP_n.TabIndex = 26;
@@ -1212,12 +1224,70 @@
             this.ItemEnch_cb.TabIndex = 49;
             this.ItemEnch_cb.SelectedIndexChanged += new System.EventHandler(this.ItemEnch_cb_SelectedIndexChanged);
             // 
+            // iST_n
+            // 
+            this.iST_n.AutoSize = true;
+            this.iST_n.Location = new System.Drawing.Point(796, 188);
+            this.iST_n.Name = "iST_n";
+            this.iST_n.Size = new System.Drawing.Size(13, 13);
+            this.iST_n.TabIndex = 51;
+            this.iST_n.Text = "0";
+            // 
+            // iStamina_lbl
+            // 
+            this.iStamina_lbl.AutoSize = true;
+            this.iStamina_lbl.Location = new System.Drawing.Point(755, 188);
+            this.iStamina_lbl.Name = "iStamina_lbl";
+            this.iStamina_lbl.Size = new System.Drawing.Size(45, 13);
+            this.iStamina_lbl.TabIndex = 50;
+            this.iStamina_lbl.Text = "Stamina";
+            // 
+            // cStamina_n
+            // 
+            this.cStamina_n.AutoSize = true;
+            this.cStamina_n.Location = new System.Drawing.Point(151, 147);
+            this.cStamina_n.Name = "cStamina_n";
+            this.cStamina_n.Size = new System.Drawing.Size(13, 13);
+            this.cStamina_n.TabIndex = 37;
+            this.cStamina_n.Text = "0";
+            // 
+            // cStamina_lbl
+            // 
+            this.cStamina_lbl.AutoSize = true;
+            this.cStamina_lbl.Location = new System.Drawing.Point(101, 147);
+            this.cStamina_lbl.Name = "cStamina_lbl";
+            this.cStamina_lbl.Size = new System.Drawing.Size(45, 13);
+            this.cStamina_lbl.TabIndex = 36;
+            this.cStamina_lbl.Text = "Stamina";
+            // 
+            // iMP_n
+            // 
+            this.iMP_n.AutoSize = true;
+            this.iMP_n.Location = new System.Drawing.Point(797, 210);
+            this.iMP_n.Name = "iMP_n";
+            this.iMP_n.Size = new System.Drawing.Size(13, 13);
+            this.iMP_n.TabIndex = 53;
+            this.iMP_n.Text = "0";
+            // 
+            // iMP_lbl
+            // 
+            this.iMP_lbl.AutoSize = true;
+            this.iMP_lbl.Location = new System.Drawing.Point(755, 210);
+            this.iMP_lbl.Name = "iMP_lbl";
+            this.iMP_lbl.Size = new System.Drawing.Size(43, 13);
+            this.iMP_lbl.TabIndex = 52;
+            this.iMP_lbl.Text = "MaxMP";
+            // 
             // GearForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1199, 624);
+            this.Controls.Add(this.iMP_n);
+            this.Controls.Add(this.iMP_lbl);
+            this.Controls.Add(this.iST_n);
+            this.Controls.Add(this.iStamina_lbl);
             this.Controls.Add(this.ItemEnch_cb);
             this.Controls.Add(this.Ench_lbl);
             this.Controls.Add(this.textBox1);
@@ -1379,5 +1449,11 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label Ench_lbl;
         private System.Windows.Forms.ComboBox ItemEnch_cb;
+        private System.Windows.Forms.Label cStamina_n;
+        private System.Windows.Forms.Label cStamina_lbl;
+        private System.Windows.Forms.Label iST_n;
+        private System.Windows.Forms.Label iStamina_lbl;
+        private System.Windows.Forms.Label iMP_n;
+        private System.Windows.Forms.Label iMP_lbl;
     }
 }
