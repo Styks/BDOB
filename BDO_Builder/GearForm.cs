@@ -18,6 +18,12 @@ namespace BDO_Builder
         public string sclass;
         public Image cimg;
         public int TempEnchLvl;
+        public int sgiB;
+        public int sgiN;
+        public int sgiR1;
+        public int sgiR2;
+        public int sgiE1;
+        public int sgiE2;     
         readonly CharacterState cs = new CharacterState();
 
         public GearForm()
@@ -290,7 +296,6 @@ namespace BDO_Builder
            ItemStatClear();
            cs.sgn = 1;
            LoadBelts();
-            
         }
         private void Necklace_btn_Click(object sender, EventArgs e)
         {
@@ -324,7 +329,7 @@ namespace BDO_Builder
         {
             ItemStatClear();
             cs.sgn = 6;
-            Load2Earring();
+            Load2Earring();           
         }
 
 
@@ -348,8 +353,8 @@ namespace BDO_Builder
           ItemStatClear();
           SqlCommand cmd = Base_Connect.Connection.CreateCommand();
           cmd.CommandType = CommandType.Text;
-            if (cs.sgn == 1)
-            {
+            if (cs.sgn == 1) //Belt
+            {              
                 cmd.CommandText = "select * from Belts where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
                 cmd.ExecuteNonQuery();
                 DataTable dt = new DataTable();
@@ -367,15 +372,14 @@ namespace BDO_Builder
                     cs.beltDefWeight = Convert.ToInt32(dr["Weight"]);
                     cs.beltEnch = Convert.ToBoolean(dr["Ench"]);
                 }
-                LoadItemEnch_cb();
+                LoadItemEnch_cb();                
                 cs.Type = "Belts";
                 Item_Icon_Load(cs.Type,SelectGear_cb.SelectedIndex);
                 Belt_btn.BackgroundImage = Item_image.Image;
                 cs.BeltState();
-
-
-                if (cs.beltEnch == true) {ItemEnch_cb.SelectedIndex = 0; cs.beltEnchLvl = TempEnchLvl;}
-                else if (cs.beltEnch == false) { cs.beltEnchLvl = 0; }
+                if (cs.beltEnch == true && SelectGear_cb.SelectedIndex == sgiB) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.beltEnchLvl = TempEnchLvl; }
+                if (cs.beltEnch == true && SelectGear_cb.SelectedIndex != sgiB ) { ItemEnch_cb.SelectedIndex = 0; cs.beltEnchLvl = 0; TempEnchLvl = 0; }
+                else if (cs.beltEnch == false) { cs.beltEnchLvl = 0; ItemEnch_cb.SelectedIndex = 0; }
 
                 iAP_n.Text = cs.beltap.ToString();
                 iDP_n.Text = cs.beltdp.ToString();
@@ -390,10 +394,11 @@ namespace BDO_Builder
                 FillCharacterState();
                 cs.beltId = SelectGear_cb.SelectedIndex;
                 textBox1.Text = cs.beltId.ToString();
-
+                sgiB = SelectGear_cb.SelectedIndex;
             }
-            if (cs.sgn == 2)
+            if (cs.sgn == 2) //Neck
             {
+                
                 cmd.CommandText = "select * from Neck where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
                 cmd.ExecuteNonQuery();
                 DataTable dt = new DataTable();
@@ -415,13 +420,13 @@ namespace BDO_Builder
                     cs.neckEnch = Convert.ToBoolean(dr["Ench"]);
                 }
                 LoadItemEnch_cb();
-
                 cs.Type = "Neck";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
                 Necklace_btn.BackgroundImage = Item_image.Image;
                 cs.NeckState();
 
-                if (cs.neckEnch == true) { TempEnchLvl = ItemEnch_cb.SelectedIndex; ItemEnch_cb.SelectedIndex = 0; cs.neckEnchLvl = TempEnchLvl; }
+                if (cs.neckEnch == true && SelectGear_cb.SelectedIndex == sgiN) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.neckEnchLvl = TempEnchLvl; }
+                if (cs.neckEnch == true && SelectGear_cb.SelectedIndex != sgiN) { ItemEnch_cb.SelectedIndex = 0; cs.neckEnchLvl = 0; TempEnchLvl = 0; }
                 else if (cs.neckEnch == false) { cs.neckEnchLvl = 0; }
 
                 iAP_n.Text = cs.neckap.ToString();
@@ -440,9 +445,10 @@ namespace BDO_Builder
                 FillCharacterState();
                 cs.neckId = SelectGear_cb.SelectedIndex;
                 textBox1.Text = cs.neckId.ToString();
+                sgiN = SelectGear_cb.SelectedIndex;
             }
 
-            if (cs.sgn == 3 )
+            if (cs.sgn == 3 ) //Ring 1
             {
                 cmd.CommandText = "select * from Rings where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
                 cmd.ExecuteNonQuery();
@@ -469,7 +475,8 @@ namespace BDO_Builder
                 Ring1_btn.BackgroundImage = Item_image.Image;
                 cs.Ring1State();
 
-                if (cs.ring1Ench == true) { TempEnchLvl = ItemEnch_cb.SelectedIndex; ItemEnch_cb.SelectedIndex = 0; cs.ring1EnchLvl = TempEnchLvl; }
+                if (cs.ring1Ench == true && SelectGear_cb.SelectedIndex == sgiR1) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.ring1EnchLvl = TempEnchLvl; }
+                if (cs.ring1Ench == true && SelectGear_cb.SelectedIndex != sgiR1) { ItemEnch_cb.SelectedIndex = 0; cs.ring1EnchLvl = 0; TempEnchLvl = 0; }
                 else if (cs.ring1Ench == false) { cs.ring1EnchLvl = 0; }
                 
 
@@ -486,9 +493,10 @@ namespace BDO_Builder
                 FillCharacterState();
                 cs.ring1Id = SelectGear_cb.SelectedIndex;
                 textBox1.Text = cs.ring1Id.ToString();
+                sgiR1 = SelectGear_cb.SelectedIndex;
             }
 
-            if (cs.sgn == 4)
+            if (cs.sgn == 4) //Ring 2
             {
                 cmd.CommandText = "select * from Rings where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
                 cmd.ExecuteNonQuery();
@@ -513,9 +521,10 @@ namespace BDO_Builder
                 cs.Type = "Rings";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
                 Ring2_btn.BackgroundImage = Item_image.Image;
-                cs.Ring1State();
+                cs.Ring2State();
 
-                if (cs.ring2Ench == true) { TempEnchLvl = ItemEnch_cb.SelectedIndex; ItemEnch_cb.SelectedIndex = 0; cs.ring2EnchLvl = TempEnchLvl; }
+                if (cs.ring2Ench == true && SelectGear_cb.SelectedIndex == sgiR2) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.ring2EnchLvl = TempEnchLvl; }
+                if (cs.ring2Ench == true && SelectGear_cb.SelectedIndex != sgiR2) { ItemEnch_cb.SelectedIndex = 0; cs.ring2EnchLvl = 0; TempEnchLvl = 0; }
                 else if (cs.ring2Ench == false) { cs.ring2EnchLvl = 0; }
 
 
@@ -533,10 +542,11 @@ namespace BDO_Builder
 
                 cs.ring2Id = SelectGear_cb.SelectedIndex;
                 textBox1.Text = cs.ring2Id.ToString();
+                sgiR2 = SelectGear_cb.SelectedIndex;
             }
 
 
-            if (cs.sgn == 5)
+            if (cs.sgn == 5) //Ear1
             {
                 cmd.CommandText = "select * from Earrings where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
                 cmd.ExecuteNonQuery();
@@ -563,7 +573,8 @@ namespace BDO_Builder
                 Earring1_btn.BackgroundImage = Item_image.Image;
                 cs.Earring1State();
 
-                if (cs.ear1Ench == true) { TempEnchLvl = ItemEnch_cb.SelectedIndex; ItemEnch_cb.SelectedIndex = 0; cs.ear1EnchLvl = TempEnchLvl; }
+                if (cs.ear1Ench == true && SelectGear_cb.SelectedIndex == sgiE1) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.ear1EnchLvl = TempEnchLvl; }
+                if (cs.ear1Ench == true && SelectGear_cb.SelectedIndex != sgiE1) { ItemEnch_cb.SelectedIndex = 0; cs.ear1EnchLvl = 0; TempEnchLvl = 0; }
                 else if (cs.ear1Ench == false) { cs.ear1EnchLvl = 0; }
 
 
@@ -581,9 +592,10 @@ namespace BDO_Builder
 
                 cs.ear1Id = SelectGear_cb.SelectedIndex;
                 textBox1.Text = cs.ear1Id.ToString();
+                sgiE1 = SelectGear_cb.SelectedIndex;
             }
 
-            if (cs.sgn == 6)
+            if (cs.sgn == 6) //Ear2
             {
                 cmd.CommandText = "select * from Earrings where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
                 cmd.ExecuteNonQuery();
@@ -610,7 +622,8 @@ namespace BDO_Builder
                 Earring2_btn.BackgroundImage = Item_image.Image;
                 cs.Earring2State();
 
-                if (cs.ear2Ench == true) { TempEnchLvl = ItemEnch_cb.SelectedIndex; ItemEnch_cb.SelectedIndex = 0; cs.ear2EnchLvl = TempEnchLvl; }
+                if (cs.ear2Ench == true && SelectGear_cb.SelectedIndex == sgiE2) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.ear2EnchLvl = TempEnchLvl; }
+                if (cs.ear2Ench == true && SelectGear_cb.SelectedIndex != sgiE2) { ItemEnch_cb.SelectedIndex = 0; cs.ear2EnchLvl = 0; TempEnchLvl = 0; }
                 else if (cs.ear2Ench == false) { cs.ear2EnchLvl = 0; }
 
 
@@ -627,6 +640,7 @@ namespace BDO_Builder
                 FillCharacterState();
                 cs.ear2Id = SelectGear_cb.SelectedIndex;
                 textBox1.Text = cs.ear2Id.ToString();
+                sgiE2 = SelectGear_cb.SelectedIndex;
             }
 
             if (cs.sgn == 7)
