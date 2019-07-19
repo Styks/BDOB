@@ -76,7 +76,8 @@ namespace BDO_Builder
             cMP_n.Text = Convert.ToString(cs.cMaxMP);
             cStamina_n.Text = Convert.ToString(cs.cMaxST);
             Weight_n.Text = Convert.ToString(cs.cWeight);
-
+            cHDR_n.Text = Convert.ToString(cs.chdr);
+            cHE_n.Text = Convert.ToString(cs.chev);
         }
 
         private void ItemStatClear()
@@ -95,6 +96,8 @@ namespace BDO_Builder
             iKBR_n.Text = "0";
             iGrapR_n.Text = "0";
             iKFR_n.Text = "0";
+            iHEV_n.Text = "0";
+            iHDR_n.Text = "0";
         }
 
         private void LoadBelts() //Belt
@@ -194,6 +197,40 @@ namespace BDO_Builder
             LoadItemEnch_cb();
         }
 
+        private void LoadArmor() //Armor
+        {
+            SelectGear_cb.SelectedIndexChanged -= SelectedGear_cb_SelectedIndexChanged;
+            var sql = @"select * from Armors";
+            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            SelectGear_cb.DataSource = ds.Tables[0];
+            SelectGear_cb.DisplayMember = "Name";
+            SelectGear_cb.ValueMember = "Id";
+            Item_Icon_Load("Armors", cs.armId);
+            SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectedIndex = cs.armId;
+            LoadItemEnch_cb();
+        }
+
+        private void LoadHelmet() // Helmet
+        {
+            SelectGear_cb.SelectedIndexChanged -= SelectedGear_cb_SelectedIndexChanged;
+            var sql = @"select * from Helmets";
+            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            SelectGear_cb.DataSource = ds.Tables[0];
+            SelectGear_cb.DisplayMember = "Name";
+            SelectGear_cb.ValueMember = "Id";
+            Item_Icon_Load("Helmets", cs.helId);
+            SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectedIndex = cs.helId;
+            LoadItemEnch_cb();
+        }
+            
+
+
         private void DpLvl_cb_CheckedChanged(object sender, EventArgs e)
         {
             int lvlDP = 1;
@@ -291,9 +328,23 @@ namespace BDO_Builder
         }
 
 
+        private void Armour_btn_Click(object sender, EventArgs e)
+        {
+            ItemStatClear();
+            cs.sgn = 7;
+            LoadArmor();
+            
+        }
+
+        private void Helmet_btn_Click(object sender, EventArgs e)
+        {
+            ItemStatClear();
+            cs.sgn = 8;
+            LoadHelmet();
+        }
+
         private void SelectedGear_cb_SelectedIndexChanged(object sender, EventArgs e)
         {
-          TempEnchLvl = ItemEnch_cb.SelectedIndex;
           ItemStatClear();
           SqlCommand cmd = Base_Connect.Connection.CreateCommand();
           cmd.CommandType = CommandType.Text;
@@ -577,6 +628,97 @@ namespace BDO_Builder
                 cs.ear2Id = SelectGear_cb.SelectedIndex;
                 textBox1.Text = cs.ear2Id.ToString();
             }
+
+            if (cs.sgn == 7)
+            {
+                cmd.CommandText = "select * from Armors where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    cs.armDefdp = Convert.ToInt32(dr["DP"]);
+                    cs.armDefev = Convert.ToInt32(dr["Evasion"]);
+                    cs.armDefhev = Convert.ToInt32(dr["HEvasion"]);
+                    cs.armDefdr = Convert.ToInt32(dr["DR"]);
+                    cs.armDefhdr = Convert.ToInt32(dr["HDR"]);
+                    cs.armDefHP = Convert.ToInt32(dr["MaxHP"]);
+                    cs.armDefMP = Convert.ToInt32(dr["MaxMP"]);
+                    cs.armEnch = Convert.ToBoolean(dr["Ench"]);
+                    cs.armIsBoss = Convert.ToBoolean(dr["IsBossItem"]);
+                }
+
+               LoadItemEnch_cb();
+
+                cs.Type = "Armors";
+                Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
+                Armour_btn.BackgroundImage = Item_image.Image;
+                cs.ArmorState();
+
+                if (cs.armEnch == true) { TempEnchLvl = ItemEnch_cb.SelectedIndex; ItemEnch_cb.SelectedIndex = 0; cs.armEnchLvl = TempEnchLvl; }
+                else if (cs.armEnch == false) { cs.armEnchLvl = 0; }
+
+
+                iDP_n.Text = cs.armdp.ToString();
+                iEvas_n.Text = cs.armev.ToString();
+                iHEV_n.Text = cs.armev.ToString();
+                iDR_n.Text = cs.armdr.ToString();
+                iHDR_n.Text = cs.armdr.ToString();
+                iHP_n.Text = cs.armHP.ToString();
+                iMP_n.Text = cs.armMP.ToString();
+
+
+                FillCharacterState();
+                cs.armId = SelectGear_cb.SelectedIndex;
+                textBox1.Text = cs.armId.ToString();
+            }
+
+
+            if (cs.sgn == 8)
+            {
+                cmd.CommandText = "select * from Helmets where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    cs.helDefdp = Convert.ToInt32(dr["DP"]);
+                    cs.helDefev = Convert.ToInt32(dr["Evasion"]);
+                    cs.helDefhev = Convert.ToInt32(dr["HEvasion"]);
+                    cs.helDefdr = Convert.ToInt32(dr["DR"]);
+                    cs.helDefhdr = Convert.ToInt32(dr["HDR"]);
+                    cs.helDefHP = Convert.ToInt32(dr["MaxHP"]);
+                    cs.helDefRes = Convert.ToInt32(dr["AllRes"]);
+                    cs.helEnch = Convert.ToBoolean(dr["Ench"]);
+                    cs.helIsBoss = Convert.ToBoolean(dr["IsBossItem"]);
+                }
+
+                LoadItemEnch_cb();
+                cs.helId = SelectGear_cb.SelectedIndex;
+
+                cs.Type = "Helmets";
+                Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
+                Helmet_btn.BackgroundImage = Item_image.Image;
+                cs.HelmetState();
+
+                if (cs.helEnch == true) { TempEnchLvl = ItemEnch_cb.SelectedIndex; ItemEnch_cb.SelectedIndex = 0; cs.helEnchLvl = TempEnchLvl; }
+                else if (cs.helEnch == false) { cs.helEnchLvl = 0; }
+
+
+                iDP_n.Text = cs.heldp.ToString();
+                iEvas_n.Text = cs.helev.ToString();
+                iHEV_n.Text = cs.helev.ToString();
+                iDR_n.Text = cs.heldr.ToString();
+                iHDR_n.Text = cs.heldr.ToString();
+                iHP_n.Text = cs.helHP.ToString();
+                iRes_n.Text = cs.helRes.ToString();
+
+
+                FillCharacterState();
+                textBox1.Text = cs.helId.ToString();
+            }
         }
 
 
@@ -587,8 +729,8 @@ namespace BDO_Builder
             {
                 ItemEnch_cb.SelectedIndexChanged -= ItemEnch_cb_SelectedIndexChanged;
                 ItemEnch_cb.Visible = true; Ench_lbl.Visible = true;
-                string[] Ench = {"0","1", "2", "3", "4", "5" };
-                ItemEnch_cb.DataSource = Ench;
+                string[] EnchAccessories = {"0","1", "2", "3", "4", "5" };
+                ItemEnch_cb.DataSource = EnchAccessories;
                 ItemEnch_cb.SelectedIndexChanged += ItemEnch_cb_SelectedIndexChanged;
                 if (cs.sgn == 1) ItemEnch_cb.SelectedIndex = cs.beltEnchLvl;
                 else if (cs.sgn == 2) ItemEnch_cb.SelectedIndex = cs.neckEnchLvl;
@@ -597,8 +739,22 @@ namespace BDO_Builder
                 else if (cs.sgn == 5) ItemEnch_cb.SelectedIndex = cs.ear1EnchLvl;
                 else if (cs.sgn == 6) ItemEnch_cb.SelectedIndex = cs.ear2EnchLvl;
             }
+
+            else if (cs.sgn == 7 & cs.armEnch == true| cs.sgn == 8 & cs.helEnch == true)
+            {
+                ItemEnch_cb.SelectedIndexChanged -= ItemEnch_cb_SelectedIndexChanged;
+                ItemEnch_cb.Visible = true; Ench_lbl.Visible = true;
+                string[] EnchArmor = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "I", "II", "III", "IV", "V" };
+                ItemEnch_cb.DataSource = EnchArmor;
+                ItemEnch_cb.SelectedIndexChanged += ItemEnch_cb_SelectedIndexChanged;
+                if (cs.sgn == 7) ItemEnch_cb.SelectedIndex = cs.armEnchLvl;
+                if (cs.sgn == 8) ItemEnch_cb.SelectedIndex = cs.helEnchLvl;
+
+            }
+
             else { ItemEnch_cb.Visible = false; Ench_lbl.Visible = false; }
         }
+
 
         private void ItemEnch_cb_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -710,6 +866,40 @@ namespace BDO_Builder
                 iHP_n.Text = cs.ear2HP.ToString();
                 iMP_n.Text = cs.ear2MP.ToString();
                 iST_n.Text = cs.ear2ST.ToString();
+
+
+                FillCharacterState();
+            }
+
+            else if (cs.sgn == 7)
+            {
+                cs.armEnchLvl = ItemEnch_cb.SelectedIndex;
+                cs.ArmorState();
+
+                iDP_n.Text = cs.armdp.ToString();
+                iEvas_n.Text = cs.armev.ToString();
+                iHEV_n.Text = cs.armhev.ToString();
+                iDR_n.Text = cs.armdr.ToString();
+                iHDR_n.Text = cs.armhdr.ToString();
+                iHP_n.Text = cs.armHP.ToString();
+                iMP_n.Text = cs.armMP.ToString();
+
+
+                FillCharacterState();
+            }
+
+            else if (cs.sgn == 8)
+            {
+                cs.helEnchLvl = ItemEnch_cb.SelectedIndex;
+                cs.HelmetState();
+
+                iDP_n.Text = cs.heldp.ToString();
+                iEvas_n.Text = cs.helev.ToString();
+                iHEV_n.Text = cs.helhev.ToString();
+                iDR_n.Text = cs.heldr.ToString();
+                iHDR_n.Text = cs.helhdr.ToString();
+                iHP_n.Text = cs.helHP.ToString();
+                iRes_n.Text = cs.helRes.ToString();
 
 
                 FillCharacterState();

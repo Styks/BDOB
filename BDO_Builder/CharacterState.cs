@@ -34,6 +34,8 @@ namespace BDO_Builder
         public int cWeight; // Weight
         public int cMaxMP;// Max MP
         public int cMaxST;// Max stamina
+        public int chev; // Hiden evasion
+        public int chdr; // hiden damage reduction
 
 
         // Belt stats
@@ -169,6 +171,48 @@ namespace BDO_Builder
         public int ear2DefHP; //Earring default Max HP
         public int ear2DefMP; //Earring default Max MP
         public int ear2DefST; //Earring default Max stamina
+
+
+        //Armor stats
+        public int armdp;// Armor DP
+        public int armev;// Armor evasion
+        public int armhev;// Armor hiden evasion
+        public int armdr;// Armor damage reduction
+        public int armhdr;// Armor hiden damage reduction
+        public int armHP;
+        public int armMP;
+        public bool armEnch;
+        public int armId = 0; // Current armor Id
+        public int armEnchLvl = 0; // Armor's enchant level
+        public bool armIsBoss;// Armor is boss item or not
+        public int armDefdp; // Armor default DP 
+        public int armDefev;// Armor default evasion 
+        public int armDefhev;// Armor default hiden evasion 
+        public int armDefdr;// Armor default damage reduction 
+        public int armDefhdr;// Armor default hiden damage reduction 
+        public int armDefHP;
+        public int armDefMP;
+
+        //Helmet stats
+        public int heldp;// Helmet DP
+        public int helev;// Helmet evasion
+        public int helhev;// Helmet hiden evasion
+        public int heldr;// Helmet damage reduction
+        public int helhdr;// Helmet hiden damage reduction
+        public int helHP;
+        public int helRes;
+        public bool helEnch;
+        public int helId = 0; // Current Helmet Id
+        public int helEnchLvl = 0; // Helmet's enchant level
+        public bool helIsBoss;// Helmet is boss item or not
+        public int helDefdp; // Helmet default DP 
+        public int helDefev;// Helmet default evasion 
+        public int helDefhev;// Helmet default hiden evasion 
+        public int helDefdr;// Helmet default damage reduction 
+        public int helDefhdr;// Helmet default hiden damage reduction 
+        public int helDefHP;
+        public int helDefRes;
+
 
 
         readonly SqlCommand cmd = Base_Connect.Connection.CreateCommand();
@@ -674,6 +718,860 @@ namespace BDO_Builder
                 cMaxHP += ear2HP;
                 cMaxMP += ear2MP;
                 cMaxST += ear2ST;
+            }
+        }
+
+
+        public void ArmorState()
+        {
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from Armors where Id='" + armId.ToString() + "'";
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+
+
+            if (armEnch == true & armIsBoss == true)
+            {
+                if(armEnchLvl >= 1 & armEnchLvl <= 5)
+                {
+
+                    cdp -= armdp;
+                    cev -= armev;
+                    chev -= armhev;
+                    cDR -= armdr;
+                    chdr -= armhdr;
+                    cMaxHP -= armHP;
+                    cMaxMP -= armMP;
+
+                    armdp = armDefdp + armEnchLvl * 3;
+                    armev = armDefev + armEnchLvl * 1;
+                    armhev = armDefhev + armEnchLvl * 3;
+                    armdr = armDefdr + armEnchLvl * 2;
+                    armhdr = armDefhdr + armEnchLvl * 0;
+
+
+                    cdp += armdp;
+                    cev += armev;
+                    chev += armhev;
+                    cDR += armdr;
+                    chdr += armhdr;
+                    cMaxHP += armHP;
+                    cMaxMP += armMP;
+                }
+
+                if (armEnchLvl >= 6 & armEnchLvl <= 15)
+                {
+
+                    cdp -= armdp;
+                    cev -= armev;
+                    chev -= armhev;
+                    cDR -= armdr;
+                    chdr -= armhdr;
+                    cMaxHP -= armHP;
+                    cMaxMP -= armMP;
+
+                    armdp = armDefdp + 15 + (armEnchLvl - 5) * 4;
+                    armev = armDefev + 5 + (armEnchLvl - 5) * 2;
+                    armhev = armDefhev + 15 + (armEnchLvl - 5) * 6;
+                    armdr = armDefdr + armEnchLvl * 2;
+                    armhdr = armDefhdr;
+
+
+                    cdp += armdp;
+                    cev += armev;
+                    chev += armhev;
+                    cDR += armdr;
+                    chdr += armhdr;
+                    cMaxHP += armHP;
+                    cMaxMP += armMP;
+                }
+
+                if (armEnchLvl >= 16 & armEnchLvl <= 17)
+                {
+
+                    cdp -= armdp;
+                    cev -= armev;
+                    chev -= armhev;
+                    cDR -= armdr;
+                    chdr -= armhdr;
+                    cMaxHP -= armHP;
+                    cMaxMP -= armMP;
+
+                    armdp = armDefdp + 55 +(armEnchLvl-15) * 5;
+                    armev = armDefev + 25+ (armEnchLvl - 15) * 2;
+                    armhev = armDefhev + 75+ (armEnchLvl - 15) * 6;
+                    armdr = armDefdr + 30 +(armEnchLvl - 15) * 3;
+                    armhdr = armDefhdr + (armEnchLvl - 15) * 1;
+
+
+                    cdp += armdp;
+                    cev += armev;
+                    chev += armhev;
+                    cDR += armdr;
+                    chdr += armhdr;
+                    cMaxHP += armHP;
+                    cMaxMP += armMP;
+                }
+
+                if (armEnchLvl == 18)
+                {
+
+                    cdp -= armdp;
+                    cev -= armev;
+                    chev -= armhev;
+                    cDR -= armdr;
+                    chdr -= armhdr;
+                    cMaxHP -= armHP;
+                    cMaxMP -= armMP;
+
+                    armdp = 79;
+                    armev = 36;
+                    armhev = 108;
+                    armdr = 43;
+                    armhdr = 14;
+
+
+                    cdp += armdp;
+                    cev += armev;
+                    chev += armhev;
+                    cDR += armdr;
+                    chdr += armhdr;
+                    cMaxHP += armHP;
+                    cMaxMP += armMP;
+                }
+
+                if (armEnchLvl == 19)
+                {
+
+                    cdp -= armdp;
+                    cev -= armev;
+                    chev -= armhev;
+                    cDR -= armdr;
+                    chdr -= armhdr;
+                    cMaxHP -= armHP;
+                    cMaxMP -= armMP;
+
+                    armdp = 84;
+                    armev = 38;
+                    armhev = 114;
+                    armdr = 46;
+                    armhdr = 18;
+
+
+                    cdp += armdp;
+                    cev += armev;
+                    chev += armhev;
+                    cDR += armdr;
+                    chdr += armhdr;
+                    cMaxHP += armHP;
+                    cMaxMP += armMP;
+                }
+
+                if (armEnchLvl == 20)
+                {
+
+                    cdp -= armdp;
+                    cev -= armev;
+                    chev -= armhev;
+                    cDR -= armdr;
+                    chdr -= armhdr;
+                    cMaxHP -= armHP;
+                    cMaxMP -= armMP;
+
+                    armdp = 89;
+                    armev = 40;
+                    armhev = 120;
+                    armdr = 49;
+                    armhdr = 24;
+
+
+                    cdp += armdp;
+                    cev += armev;
+                    chev += armhev;
+                    cDR += armdr;
+                    chdr += armhdr;
+                    cMaxHP += armHP;
+                    cMaxMP += armMP;
+                }
+            }
+
+            if(armEnch == true & armIsBoss == false)
+            {
+                if (armEnchLvl == 1)
+                {
+
+                    cdp -= armdp;
+                    cev -= armev;
+                    chev -= armhev;
+                    cDR -= armdr;
+                    chdr -= armhdr;
+                    cMaxHP -= armHP;
+                    cMaxMP -= armMP;
+
+                    armdp = armDefdp +  4;
+                    armev = armDefev + 1;
+                    armhev = armDefhev + 3;
+                    armdr = armDefdr + 3;
+                    armhdr = armDefhdr;
+
+
+                    cdp += armdp;
+                    cev += armev;
+                    chev += armhev;
+                    cDR += armdr;
+                    chdr += armhdr;
+                    cMaxHP += armHP;
+                    cMaxMP += armMP;
+                }
+
+                if (armEnchLvl >= 2 & armEnchLvl <= 3)
+                {
+
+                    cdp -= armdp;
+                    cev -= armev;
+                    chev -= armhev;
+                    cDR -= armdr;
+                    chdr -= armhdr;
+                    cMaxHP -= armHP;
+                    cMaxMP -= armMP;
+
+                    armdp = armDefdp + 4 + (armEnchLvl-1) * 3;
+                    armev = armDefev +armEnchLvl * 1;
+                    armhev = armDefhev + armEnchLvl * 3;
+                    armdr = armDefdr +3 +(armEnchLvl-1) * 2;
+                    armhdr = armDefhdr;
+
+
+                    cdp += armdp;
+                    cev += armev;
+                    chev += armhev;
+                    cDR += armdr;
+                    chdr += armhdr;
+                    cMaxHP += armHP;
+                    cMaxMP += armMP;
+                }
+
+                if (armEnchLvl >= 4 & armEnchLvl <= 5)
+                {
+
+                    cdp -= armdp;
+                    cev -= armev;
+                    chev -= armhev;
+                    cDR -= armdr;
+                    chdr -= armhdr;
+                    cMaxHP -= armHP;
+                    cMaxMP -= armMP;
+
+                    armdp = armDefdp + 10 + (armEnchLvl - 3) * 3;
+                    armev = armDefev + armEnchLvl * 1;
+                    armhev = armDefhev + armEnchLvl * 3;
+                    armdr = armDefdr + 7 + (armEnchLvl - 3) * 2;
+                    armhdr = armDefhdr;
+
+
+                    cdp += armdp;
+                    cev += armev;
+                    chev += armhev;
+                    cDR += armdr;
+                    chdr += armhdr;
+                    cMaxHP += armHP;
+                    cMaxMP += armMP;
+                }
+
+                if (armEnchLvl >= 6 & armEnchLvl <= 15)
+                {
+
+                    cdp -= armdp;
+                    cev -= armev;
+                    chev -= armhev;
+                    cDR -= armdr;
+                    chdr -= armhdr;
+                    cMaxHP -= armHP;
+                    cMaxMP -= armMP;
+
+                    armdp = armDefdp + 14 + (armEnchLvl - 5) * 3;
+                    armev = armDefev + armEnchLvl * 1;
+                    armhev = armDefhev + armEnchLvl * 3;
+                    armdr = armDefdr + 9 + (armEnchLvl - 5) * 2;
+                    armhdr = armDefhdr;
+
+
+                    cdp += armdp;
+                    cev += armev;
+                    chev += armhev;
+                    cDR += armdr;
+                    chdr += armhdr;
+                    cMaxHP += armHP;
+                    cMaxMP += armMP;
+                }
+
+                if (armEnchLvl == 16)
+                {
+
+                    cdp -= armdp;
+                    cev -= armev;
+                    chev -= armhev;
+                    cDR -= armdr;
+                    chdr -= armhdr;
+                    cMaxHP -= armHP;
+                    cMaxMP -= armMP;
+
+                    armdp = armDefdp + 49;
+                    armev = armDefev + 17;
+                    armhev = armDefhev + 55;
+                    armdr = armDefdr + 32;
+                    armhdr = armDefhdr + 1;
+
+
+                    cdp += armdp;
+                    cev += armev;
+                    chev += armhev;
+                    cDR += armdr;
+                    chdr += armhdr;
+                    cMaxHP += armHP;
+                    cMaxMP += armMP;
+                }
+
+                if (armEnchLvl == 17)
+                {
+
+                    cdp -= armdp;
+                    cev -= armev;
+                    chev -= armhev;
+                    cDR -= armdr;
+                    chdr -= armhdr;
+                    cMaxHP -= armHP;
+                    cMaxMP -= armMP;
+
+                    armdp = armDefdp + 54;
+                    armev = armDefev + 19;
+                    armhev = armDefhev + 51;
+                    armdr = armDefdr + 35;
+                    armhdr = armDefhdr + 2;
+
+
+                    cdp += armdp;
+                    cev += armev;
+                    chev += armhev;
+                    cDR += armdr;
+                    chdr += armhdr;
+                    cMaxHP += armHP;
+                    cMaxMP += armMP;
+                }
+
+                if (armEnchLvl == 18)
+                {
+
+                    cdp -= armdp;
+                    cev -= armev;
+                    chev -= armhev;
+                    cDR -= armdr;
+                    chdr -= armhdr;
+                    cMaxHP -= armHP;
+                    cMaxMP -= armMP;
+
+                    armdp = armDefdp + 62;
+                    armev = armDefev + 21;
+                    armhev = armDefhev + 67;
+                    armdr = armDefdr + 41;
+                    armhdr = armDefhdr + 3;
+
+
+                    cdp += armdp;
+                    cev += armev;
+                    chev += armhev;
+                    cDR += armdr;
+                    chdr += armhdr;
+                    cMaxHP += armHP;
+                    cMaxMP += armMP;
+                }
+
+                if (armEnchLvl >= 19 & armEnchLvl <= 20)
+                {
+
+                    cdp -= armdp;
+                    cev -= armev;
+                    chev -= armhev;
+                    cDR -= armdr;
+                    chdr -= armhdr;
+                    cMaxHP -= armHP;
+                    cMaxMP -= armMP;
+
+                    armdp = armDefdp + 62 + (armEnchLvl-18)  * 5;
+                    armev = armDefev + 21 + (armEnchLvl - 18) * 2;
+                    armhev = armDefhev + 67+ (armEnchLvl - 18) * 6;
+                    armdr = armDefdr + 41+ (armEnchLvl - 18) * 3;
+                    armhdr = armDefhdr + 3+ (armEnchLvl - 18) * 1;
+
+
+                    cdp += armdp;
+                    cev += armev;
+                    chev += armhev;
+                    cDR += armdr;
+                    chdr += armhdr;
+                    cMaxHP += armHP;
+                    cMaxMP += armMP;
+                }
+            }
+
+            if (armEnch == false | armEnch == true & armEnchLvl == 0)
+            {
+
+                cdp -= armdp;
+                cev -= armev;
+                chev -= armhev;
+                cDR -= armdr;
+                chdr -= armhdr;
+                cMaxHP -= armHP;
+                cMaxMP -= armMP;
+
+
+                armdp = armDefdp;
+                armev = armDefev;
+                armhev = armDefhev;
+                armdr = armDefdr;
+                armhdr = armDefhdr;
+                armHP = armDefHP;
+                armMP = armDefHP;
+
+
+                cdp += armdp;
+                cev += armev;
+                chev += armhev;
+                cDR += armdr;
+                chdr += armhdr;
+                cMaxHP += armHP;
+                cMaxMP += armMP;
+            }
+        }
+
+        public void HelmetState()
+        {
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from Helmets where Id='" + helId.ToString() + "'";
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+
+
+            if (helEnch == true & helIsBoss == true)
+            {
+                if (helEnchLvl >= 1 & helEnchLvl <= 15)
+                {
+
+                    cdp -= heldp;
+                    cev -= helev;
+                    chev -= helhev;
+                    cDR -= heldr;
+                    chdr -= helhdr;
+                    cMaxHP -= helHP;
+                    cRes1 -= helRes;
+                    cRes2 -= helRes;
+                    cRes3 -= helRes;
+                    cRes4 -= helRes;
+
+                    heldp = helDefdp + helEnchLvl * 3;
+                    helev = helDefev + helEnchLvl * 1;
+                    helhev = helDefhev + helEnchLvl * 2;
+                    heldr = helDefdr + helEnchLvl * 2;
+                    helhdr = helDefhdr + helEnchLvl * 0;
+                    helRes = helDefRes;
+
+
+                    cdp += heldp;
+                    cev += helev;
+                    chev += helhev;
+                    cDR += heldr;
+                    chdr += helhdr;
+                    cMaxHP += helHP;
+                    cRes1 += helRes;
+                    cRes2 += helRes;
+                    cRes3 += helRes;
+                    cRes4 += helRes;
+                }
+
+                if (helEnchLvl == 16)
+                {
+
+                    cdp -= heldp;
+                    cev -= helev;
+                    chev -= helhev;
+                    cDR -= heldr;
+                    chdr -= helhdr;
+                    cMaxHP -= helHP;
+                    cRes1 -= helRes;
+                    cRes2 -= helRes;
+                    cRes3 -= helRes;
+                    cRes4 -= helRes;
+
+                    heldp = helDefdp + 50;
+                    helev = helDefev + 17;
+                    helhev = helDefhev + 38;
+                    heldr = helDefdr + 33;
+                    helhdr = helDefhdr + 1;
+                    helRes = helDefRes;
+
+
+                    cdp += heldp;
+                    cev += helev;
+                    chev += helhev;
+                    cDR += heldr;
+                    chdr += helhdr;
+                    cMaxHP += helHP;
+                    cRes1 += helRes;
+                    cRes2 += helRes;
+                    cRes3 += helRes;
+                    cRes4 += helRes;
+                }
+
+                if (helEnchLvl == 17)
+                {
+
+                    cdp -= heldp;
+                    cev -= helev;
+                    chev -= helhev;
+                    cDR -= heldr;
+                    chdr -= helhdr;
+                    cMaxHP -= helHP;
+                    cRes1 -= helRes;
+                    cRes2 -= helRes;
+                    cRes3 -= helRes;
+                    cRes4 -= helRes;
+
+                    heldp = helDefdp + 55;
+                    helev = helDefev + 19;
+                    helhev = helDefhev + 42;
+                    heldr = helDefdr + 36;
+                    if (helId == 0) helhdr = helDefhdr + 2;
+                    else helhdr = helDefhdr + 1;
+                    helRes = helDefRes;
+
+
+                    cdp += heldp;
+                    cev += helev;
+                    chev += helhev;
+                    cDR += heldr;
+                    chdr += helhdr;
+                    cMaxHP += helHP;
+                    cRes1 += helRes;
+                    cRes2 += helRes;
+                    cRes3 += helRes;
+                    cRes4 += helRes;
+                }
+
+                if (helEnchLvl == 18)
+                {
+
+                    cdp -= heldp;
+                    cev -= helev;
+                    chev -= helhev;
+                    cDR -= heldr;
+                    chdr -= helhdr;
+                    cMaxHP -= helHP;
+                    cRes1 -= helRes;
+                    cRes2 -= helRes;
+                    cRes3 -= helRes;
+                    cRes4 -= helRes;
+
+                    heldp = helDefdp + 63;
+                    helev = helDefev + 21;
+                    helhev = helDefhev + 46;
+                    heldr = helDefdr + 42;
+                    if (helId == 0) helhdr = helDefhdr + 4;
+                    else helhdr = helDefhdr + 6;
+                    helRes = helDefRes;
+
+
+                    cdp += heldp;
+                    cev += helev;
+                    chev += helhev;
+                    cDR += heldr;
+                    chdr += helhdr;
+                    cMaxHP += helHP;
+                    cRes1 += helRes;
+                    cRes2 += helRes;
+                    cRes3 += helRes;
+                    cRes4 += helRes;
+                }
+
+                if (helEnchLvl == 19)
+                {
+
+                    cdp -= heldp;
+                    cev -= helev;
+                    chev -= helhev;
+                    cDR -= heldr;
+                    chdr -= helhdr;
+                    cMaxHP -= helHP;
+                    cRes1 -= helRes;
+                    cRes2 -= helRes;
+                    cRes3 -= helRes;
+                    cRes4 -= helRes;
+
+                    heldp = helDefdp + 68;
+                    helev = helDefev + 23;
+                    helhev = helDefhev + 50;
+                    heldr = helDefdr + 45;
+                    if (helId == 0) helhdr = helDefhdr + 8;
+                    else helhdr = helDefhdr + 11;
+                    helRes = helDefRes;
+
+
+                    cdp += heldp;
+                    cev += helev;
+                    chev += helhev;
+                    cDR += heldr;
+                    chdr += helhdr;
+                    cMaxHP += helHP;
+                    cRes1 += helRes;
+                    cRes2 += helRes;
+                    cRes3 += helRes;
+                    cRes4 += helRes;
+                }
+
+                if (helEnchLvl == 20)
+                {
+
+                    cdp -= heldp;
+                    cev -= helev;
+                    chev -= helhev;
+                    cDR -= heldr;
+                    chdr -= helhdr;
+                    cMaxHP -= helHP;
+                    cRes1 -= helRes;
+                    cRes2 -= helRes;
+                    cRes3 -= helRes;
+                    cRes4 -= helRes;
+
+                    heldp = helDefdp + 73;
+                    helev = helDefev + 25;
+                    helhev = helDefhev + 54;
+                    heldr = helDefdr + 48;
+                    if (helId == 0) helhdr = helDefhdr + 14;
+                    else helhdr = helDefhdr + 17;
+                    helRes = helDefRes;
+
+
+                    cdp += heldp;
+                    cev += helev;
+                    chev += helhev;
+                    cDR += heldr;
+                    chdr += helhdr;
+                    cMaxHP += helHP;
+                    cRes1 += helRes;
+                    cRes2 += helRes;
+                    cRes3 += helRes;
+                    cRes4 += helRes;
+                }
+
+            }
+
+            if (helEnch == true & helIsBoss == false)
+            {
+                if (helEnchLvl >= 1 & helEnchLvl <=2)
+                {
+
+                    cdp -= heldp;
+                    cev -= helev;
+                    chev -= helhev;
+                    cDR -= heldr;
+                    chdr -= helhdr;
+                    cMaxHP -= helHP;
+
+                    heldp = helDefdp + helEnchLvl * 3;
+                    helev = helDefev + helEnchLvl * 1;
+                    helhev = helDefhev + helEnchLvl * 3;
+                    heldr = helDefdr + helEnchLvl * 2;
+                    helhdr = helDefhdr;
+
+
+                    cdp += heldp;
+                    cev += helev;
+                    chev += helhev;
+                    cDR += heldr;
+                    chdr += helhdr;
+                    cMaxHP += helHP;
+                }
+
+                if (helEnchLvl >= 3 & helEnchLvl <= 5)
+                {
+
+                    cdp -= heldp;
+                    cev -= helev;
+                    chev -= helhev;
+                    cDR -= heldr;
+                    chdr -= helhdr;
+                    cMaxHP -= helHP;
+
+                    heldp = helDefdp + 6 + (helEnchLvl - 2) * 3;
+                    helev = helDefev + helEnchLvl * 1;
+                    helhev = helDefhev + helEnchLvl * 3;
+                    heldr = helDefdr + 4 + (helEnchLvl - 2) * 2;
+                    helhdr = helDefhdr;
+
+
+                    cdp += heldp;
+                    cev += helev;
+                    chev += helhev;
+                    cDR += heldr;
+                    chdr += helhdr;
+                    cMaxHP += helHP;
+                }
+
+                if (helEnchLvl >= 6 & helEnchLvl <= 15)
+                {
+
+                    cdp -= heldp;
+                    cev -= helev;
+                    chev -= helhev;
+                    cDR -= heldr;
+                    chdr -= helhdr;
+                    cMaxHP -= helHP;
+
+                    heldp = helDefdp + 12 + (helEnchLvl - 5) * 3;
+                    helev = helDefev + helEnchLvl * 1;
+                    helhev = helDefhev + helEnchLvl * 3;
+                    heldr = helDefdr + 7 + (helEnchLvl - 5) * 2;
+                    helhdr = helDefhdr;
+
+
+                    cdp += heldp;
+                    cev += helev;
+                    chev += helhev;
+                    cDR += heldr;
+                    chdr += helhdr;
+                    cMaxHP += helHP;
+                }
+
+                if (helEnchLvl == 16)
+                {
+
+                    cdp -= heldp;
+                    cev -= helev;
+                    chev -= helhev;
+                    cDR -= heldr;
+                    chdr -= helhdr;
+                    cMaxHP -= helHP;
+
+                    heldp = helDefdp + 47 ;
+                    helev = helDefev + 17;
+                    helhev = helDefhev + 55;
+                    heldr = helDefdr + 30;
+                    helhdr = helDefhdr + 1;
+
+
+                    cdp += heldp;
+                    cev += helev;
+                    chev += helhev;
+                    cDR += heldr;
+                    chdr += helhdr;
+                    cMaxHP += helHP;
+                }
+
+                if (helEnchLvl == 17)
+                {
+
+                    cdp -= heldp;
+                    cev -= helev;
+                    chev -= helhev;
+                    cDR -= heldr;
+                    chdr -= helhdr;
+                    cMaxHP -= helHP;
+
+                    heldp = helDefdp + 52;
+                    helev = helDefev + 19;
+                    helhev = helDefhev + 61;
+                    heldr = helDefdr + 33;
+                    helhdr = helDefhdr + 2;
+
+
+                    cdp += heldp;
+                    cev += helev;
+                    chev += helhev;
+                    cDR += heldr;
+                    chdr += helhdr;
+                    cMaxHP += helHP;
+                }
+
+                if (helEnchLvl == 18)
+                {
+
+                    cdp -= heldp;
+                    cev -= helev;
+                    chev -= helhev;
+                    cDR -= heldr;
+                    chdr -= helhdr;
+                    cMaxHP -= helHP;
+
+                    heldp = helDefdp + 60;
+                    helev = helDefev + 21;
+                    helhev = helDefhev + 67;
+                    heldr = helDefdr + 39;
+                    helhdr = helDefhdr + 3;
+
+
+                    cdp += heldp;
+                    cev += helev;
+                    chev += helhev;
+                    cDR += heldr;
+                    chdr += helhdr;
+                    cMaxHP += helHP;
+                }
+
+                if (helEnchLvl >= 19 & helEnchLvl <= 20)
+                {
+
+                    cdp -= heldp;
+                    cev -= helev;
+                    chev -= helhev;
+                    cDR -= heldr;
+                    chdr -= helhdr;
+                    cMaxHP -= helHP;
+
+                    heldp = helDefdp + 60 + (helEnchLvl - 18) * 5;
+                    helev = helDefev + 21 + (helEnchLvl - 18) * 2;
+                    helhev = helDefhev + 67 + (helEnchLvl - 18) * 6;
+                    heldr = helDefdr + 39 + (helEnchLvl - 18) * 3;
+                    helhdr = helDefhdr + 3 + (helEnchLvl - 18) * 1;
+
+
+                    cdp += heldp;
+                    cev += helev;
+                    chev += helhev;
+                    cDR += heldr;
+                    chdr += helhdr;
+                    cMaxHP += helHP;
+                }
+            }
+
+            if (helEnch == false | helEnch == true & helEnchLvl == 0)
+            {
+
+                cdp -= heldp;
+                cev -= helev;
+                chev -= helhev;
+                cDR -= heldr;
+                chdr -= helhdr;
+                cMaxHP -= helHP;
+
+
+                heldp = helDefdp;
+                helev = helDefev;
+                helhev = helDefhev;
+                heldr = helDefdr;
+                helhdr = helDefhdr;
+                helHP = helDefHP;
+
+
+                cdp += heldp;
+                cev += helev;
+                chev += helhev;
+                cDR += heldr;
+                chdr += helhdr;
+                cMaxHP += helHP;
             }
         }
 

@@ -57,6 +57,8 @@
             this.Armour_btn = new System.Windows.Forms.Button();
             this.Helmet_btn = new System.Windows.Forms.Button();
             this.MStats_gb = new System.Windows.Forms.GroupBox();
+            this.cStamina_n = new System.Windows.Forms.Label();
+            this.cStamina_lbl = new System.Windows.Forms.Label();
             this.cAcc_n = new System.Windows.Forms.Label();
             this.cAcc_lbl = new System.Windows.Forms.Label();
             this.Weight_n = new System.Windows.Forms.Label();
@@ -134,10 +136,12 @@
             this.ItemEnch_cb = new System.Windows.Forms.ComboBox();
             this.iST_n = new System.Windows.Forms.Label();
             this.iStamina_lbl = new System.Windows.Forms.Label();
-            this.cStamina_n = new System.Windows.Forms.Label();
-            this.cStamina_lbl = new System.Windows.Forms.Label();
             this.iMP_n = new System.Windows.Forms.Label();
             this.iMP_lbl = new System.Windows.Forms.Label();
+            this.iHEV_n = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.iHDR_n = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.ShopGear_gb.SuspendLayout();
             this.CharacterGear_gb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Class_pic)).BeginInit();
@@ -476,6 +480,7 @@
             this.Armour_btn.Size = new System.Drawing.Size(40, 40);
             this.Armour_btn.TabIndex = 4;
             this.Armour_btn.UseVisualStyleBackColor = false;
+            this.Armour_btn.Click += new System.EventHandler(this.Armour_btn_Click);
             // 
             // Helmet_btn
             // 
@@ -488,6 +493,7 @@
             this.Helmet_btn.Size = new System.Drawing.Size(40, 40);
             this.Helmet_btn.TabIndex = 4;
             this.Helmet_btn.UseVisualStyleBackColor = false;
+            this.Helmet_btn.Click += new System.EventHandler(this.Helmet_btn_Click);
             // 
             // MStats_gb
             // 
@@ -521,6 +527,24 @@
             this.MStats_gb.TabIndex = 4;
             this.MStats_gb.TabStop = false;
             this.MStats_gb.Text = "MainStats";
+            // 
+            // cStamina_n
+            // 
+            this.cStamina_n.AutoSize = true;
+            this.cStamina_n.Location = new System.Drawing.Point(151, 147);
+            this.cStamina_n.Name = "cStamina_n";
+            this.cStamina_n.Size = new System.Drawing.Size(13, 13);
+            this.cStamina_n.TabIndex = 37;
+            this.cStamina_n.Text = "0";
+            // 
+            // cStamina_lbl
+            // 
+            this.cStamina_lbl.AutoSize = true;
+            this.cStamina_lbl.Location = new System.Drawing.Point(101, 147);
+            this.cStamina_lbl.Name = "cStamina_lbl";
+            this.cStamina_lbl.Size = new System.Drawing.Size(45, 13);
+            this.cStamina_lbl.TabIndex = 36;
+            this.cStamina_lbl.Text = "Stamina";
             // 
             // cAcc_n
             // 
@@ -1242,24 +1266,6 @@
             this.iStamina_lbl.TabIndex = 50;
             this.iStamina_lbl.Text = "Stamina";
             // 
-            // cStamina_n
-            // 
-            this.cStamina_n.AutoSize = true;
-            this.cStamina_n.Location = new System.Drawing.Point(151, 147);
-            this.cStamina_n.Name = "cStamina_n";
-            this.cStamina_n.Size = new System.Drawing.Size(13, 13);
-            this.cStamina_n.TabIndex = 37;
-            this.cStamina_n.Text = "0";
-            // 
-            // cStamina_lbl
-            // 
-            this.cStamina_lbl.AutoSize = true;
-            this.cStamina_lbl.Location = new System.Drawing.Point(101, 147);
-            this.cStamina_lbl.Name = "cStamina_lbl";
-            this.cStamina_lbl.Size = new System.Drawing.Size(45, 13);
-            this.cStamina_lbl.TabIndex = 36;
-            this.cStamina_lbl.Text = "Stamina";
-            // 
             // iMP_n
             // 
             this.iMP_n.AutoSize = true;
@@ -1278,12 +1284,52 @@
             this.iMP_lbl.TabIndex = 52;
             this.iMP_lbl.Text = "MaxMP";
             // 
+            // iHEV_n
+            // 
+            this.iHEV_n.AutoSize = true;
+            this.iHEV_n.Location = new System.Drawing.Point(860, 210);
+            this.iHEV_n.Name = "iHEV_n";
+            this.iHEV_n.Size = new System.Drawing.Size(13, 13);
+            this.iHEV_n.TabIndex = 55;
+            this.iHEV_n.Text = "0";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(809, 210);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(50, 13);
+            this.label2.TabIndex = 54;
+            this.label2.Text = "Hiden ev";
+            // 
+            // iHDR_n
+            // 
+            this.iHDR_n.AutoSize = true;
+            this.iHDR_n.Location = new System.Drawing.Point(797, 229);
+            this.iHDR_n.Name = "iHDR_n";
+            this.iHDR_n.Size = new System.Drawing.Size(13, 13);
+            this.iHDR_n.TabIndex = 57;
+            this.iHDR_n.Text = "0";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(755, 229);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(47, 13);
+            this.label4.TabIndex = 56;
+            this.label4.Text = "Hiden dr";
+            // 
             // GearForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1199, 624);
+            this.Controls.Add(this.iHDR_n);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.iHEV_n);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.iMP_n);
             this.Controls.Add(this.iMP_lbl);
             this.Controls.Add(this.iST_n);
@@ -1455,5 +1501,9 @@
         private System.Windows.Forms.Label iStamina_lbl;
         private System.Windows.Forms.Label iMP_n;
         private System.Windows.Forms.Label iMP_lbl;
+        private System.Windows.Forms.Label iHEV_n;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label iHDR_n;
+        private System.Windows.Forms.Label label4;
     }
 }
