@@ -37,6 +37,12 @@ namespace BDO_Builder
         public int chev; // Hiden evasion
         public int chdr; // hiden damage reduction
 
+        //SetBonus Check
+        public int sb; //Set Bonus
+        public int asb; //Armour
+        public int hsb; //Helm
+        public int bsb; //Boots
+        public int gsb; //Gloves
 
         // Belt stats
         public int beltap; //Betl AP
@@ -1586,7 +1592,21 @@ namespace BDO_Builder
             }
         }
 
+        public void SetBonusCheck()
+        {
+            sb = sb - asb;
+            sb = sb - hsb;
 
+            if (armIsBoss == true) { asb = 1; }
+            if (armIsBoss == false && asb > 0) { asb = asb - 1; }
+
+            if (helIsBoss == true) { hsb = 1; }
+            if (helIsBoss == false && hsb > 0) { hsb = hsb - 1; }
+
+
+            sb = sb + asb;
+            sb = sb + hsb;
+        }
 
 
     }

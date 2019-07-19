@@ -139,9 +139,19 @@
             this.iMP_n = new System.Windows.Forms.Label();
             this.iMP_lbl = new System.Windows.Forms.Label();
             this.iHEV_n = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.iHEvas_lbl = new System.Windows.Forms.Label();
             this.iHDR_n = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.iHDR_lbl = new System.Windows.Forms.Label();
+            this.sbc_lbl = new System.Windows.Forms.Label();
+            this.Test_index_lbl = new System.Windows.Forms.Label();
+            this.Test_BossSet = new System.Windows.Forms.Label();
+            this.InfTest_cb = new System.Windows.Forms.GroupBox();
+            this.sbc1_lbl = new System.Windows.Forms.Label();
+            this.sbc2_lbl = new System.Windows.Forms.Label();
+            this.sbc3_lbl = new System.Windows.Forms.Label();
+            this.Test_BossSetBonus = new System.Windows.Forms.Label();
+            this.sbc4_lbl = new System.Windows.Forms.Label();
+            this.sbc5_lbl = new System.Windows.Forms.Label();
             this.ShopGear_gb.SuspendLayout();
             this.CharacterGear_gb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Class_pic)).BeginInit();
@@ -149,13 +159,14 @@
             this.Settings_gb.SuspendLayout();
             this.OStats_gb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Item_image)).BeginInit();
+            this.InfTest_cb.SuspendLayout();
             this.SuspendLayout();
             // 
             // Back_btn
             // 
             this.Back_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Back_btn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Back_btn.Location = new System.Drawing.Point(1112, 12);
+            this.Back_btn.Location = new System.Drawing.Point(1496, 12);
             this.Back_btn.Name = "Back_btn";
             this.Back_btn.Size = new System.Drawing.Size(75, 23);
             this.Back_btn.TabIndex = 0;
@@ -1225,7 +1236,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(562, 328);
+            this.textBox1.Location = new System.Drawing.Point(36, 63);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 47;
@@ -1293,14 +1304,14 @@
             this.iHEV_n.TabIndex = 55;
             this.iHEV_n.Text = "0";
             // 
-            // label2
+            // iHEvas_lbl
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(809, 210);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 13);
-            this.label2.TabIndex = 54;
-            this.label2.Text = "Hiden ev";
+            this.iHEvas_lbl.AutoSize = true;
+            this.iHEvas_lbl.Location = new System.Drawing.Point(809, 210);
+            this.iHEvas_lbl.Name = "iHEvas_lbl";
+            this.iHEvas_lbl.Size = new System.Drawing.Size(50, 13);
+            this.iHEvas_lbl.TabIndex = 54;
+            this.iHEvas_lbl.Text = "Hiden ev";
             // 
             // iHDR_n
             // 
@@ -1311,32 +1322,132 @@
             this.iHDR_n.TabIndex = 57;
             this.iHDR_n.Text = "0";
             // 
-            // label4
+            // iHDR_lbl
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(755, 229);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 13);
-            this.label4.TabIndex = 56;
-            this.label4.Text = "Hiden dr";
+            this.iHDR_lbl.AutoSize = true;
+            this.iHDR_lbl.Location = new System.Drawing.Point(755, 229);
+            this.iHDR_lbl.Name = "iHDR_lbl";
+            this.iHDR_lbl.Size = new System.Drawing.Size(47, 13);
+            this.iHDR_lbl.TabIndex = 56;
+            this.iHDR_lbl.Text = "Hiden dr";
+            // 
+            // sbc_lbl
+            // 
+            this.sbc_lbl.AutoSize = true;
+            this.sbc_lbl.Location = new System.Drawing.Point(273, 65);
+            this.sbc_lbl.Name = "sbc_lbl";
+            this.sbc_lbl.Size = new System.Drawing.Size(13, 13);
+            this.sbc_lbl.TabIndex = 58;
+            this.sbc_lbl.Text = "0";
+            // 
+            // Test_index_lbl
+            // 
+            this.Test_index_lbl.AutoSize = true;
+            this.Test_index_lbl.Location = new System.Drawing.Point(33, 47);
+            this.Test_index_lbl.Name = "Test_index_lbl";
+            this.Test_index_lbl.Size = new System.Drawing.Size(56, 13);
+            this.Test_index_lbl.TabIndex = 59;
+            this.Test_index_lbl.Text = "Item Index";
+            // 
+            // Test_BossSet
+            // 
+            this.Test_BossSet.AutoSize = true;
+            this.Test_BossSet.Location = new System.Drawing.Point(273, 47);
+            this.Test_BossSet.Name = "Test_BossSet";
+            this.Test_BossSet.Size = new System.Drawing.Size(86, 13);
+            this.Test_BossSet.TabIndex = 60;
+            this.Test_BossSet.Text = "BossSet Counter";
+            // 
+            // InfTest_cb
+            // 
+            this.InfTest_cb.Controls.Add(this.sbc5_lbl);
+            this.InfTest_cb.Controls.Add(this.sbc4_lbl);
+            this.InfTest_cb.Controls.Add(this.Test_BossSetBonus);
+            this.InfTest_cb.Controls.Add(this.sbc3_lbl);
+            this.InfTest_cb.Controls.Add(this.sbc2_lbl);
+            this.InfTest_cb.Controls.Add(this.sbc1_lbl);
+            this.InfTest_cb.Controls.Add(this.textBox1);
+            this.InfTest_cb.Controls.Add(this.Test_index_lbl);
+            this.InfTest_cb.Controls.Add(this.Test_BossSet);
+            this.InfTest_cb.Controls.Add(this.sbc_lbl);
+            this.InfTest_cb.Location = new System.Drawing.Point(1113, 83);
+            this.InfTest_cb.Name = "InfTest_cb";
+            this.InfTest_cb.Size = new System.Drawing.Size(411, 265);
+            this.InfTest_cb.TabIndex = 62;
+            this.InfTest_cb.TabStop = false;
+            this.InfTest_cb.Text = "Info for test";
+            // 
+            // sbc1_lbl
+            // 
+            this.sbc1_lbl.AutoSize = true;
+            this.sbc1_lbl.Location = new System.Drawing.Point(273, 118);
+            this.sbc1_lbl.Name = "sbc1_lbl";
+            this.sbc1_lbl.Size = new System.Drawing.Size(13, 13);
+            this.sbc1_lbl.TabIndex = 63;
+            this.sbc1_lbl.Text = "0";
+            // 
+            // sbc2_lbl
+            // 
+            this.sbc2_lbl.AutoSize = true;
+            this.sbc2_lbl.Location = new System.Drawing.Point(317, 118);
+            this.sbc2_lbl.Name = "sbc2_lbl";
+            this.sbc2_lbl.Size = new System.Drawing.Size(13, 13);
+            this.sbc2_lbl.TabIndex = 64;
+            this.sbc2_lbl.Text = "0";
+            // 
+            // sbc3_lbl
+            // 
+            this.sbc3_lbl.AutoSize = true;
+            this.sbc3_lbl.Location = new System.Drawing.Point(273, 138);
+            this.sbc3_lbl.Name = "sbc3_lbl";
+            this.sbc3_lbl.Size = new System.Drawing.Size(13, 13);
+            this.sbc3_lbl.TabIndex = 65;
+            this.sbc3_lbl.Text = "0";
+            // 
+            // Test_BossSetBonus
+            // 
+            this.Test_BossSetBonus.AutoSize = true;
+            this.Test_BossSetBonus.Location = new System.Drawing.Point(273, 93);
+            this.Test_BossSetBonus.Name = "Test_BossSetBonus";
+            this.Test_BossSetBonus.Size = new System.Drawing.Size(90, 13);
+            this.Test_BossSetBonus.TabIndex = 66;
+            this.Test_BossSetBonus.Text = "BossSet Bonuses";
+            // 
+            // sbc4_lbl
+            // 
+            this.sbc4_lbl.AutoSize = true;
+            this.sbc4_lbl.Location = new System.Drawing.Point(273, 157);
+            this.sbc4_lbl.Name = "sbc4_lbl";
+            this.sbc4_lbl.Size = new System.Drawing.Size(13, 13);
+            this.sbc4_lbl.TabIndex = 63;
+            this.sbc4_lbl.Text = "0";
+            // 
+            // sbc5_lbl
+            // 
+            this.sbc5_lbl.AutoSize = true;
+            this.sbc5_lbl.Location = new System.Drawing.Point(292, 157);
+            this.sbc5_lbl.Name = "sbc5_lbl";
+            this.sbc5_lbl.Size = new System.Drawing.Size(13, 13);
+            this.sbc5_lbl.TabIndex = 63;
+            this.sbc5_lbl.Text = "0";
             // 
             // GearForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1199, 624);
+            this.ClientSize = new System.Drawing.Size(1583, 624);
+            this.Controls.Add(this.InfTest_cb);
             this.Controls.Add(this.iHDR_n);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.iHDR_lbl);
             this.Controls.Add(this.iHEV_n);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.iHEvas_lbl);
             this.Controls.Add(this.iMP_n);
             this.Controls.Add(this.iMP_lbl);
             this.Controls.Add(this.iST_n);
             this.Controls.Add(this.iStamina_lbl);
             this.Controls.Add(this.ItemEnch_cb);
             this.Controls.Add(this.Ench_lbl);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.iWeight_n);
             this.Controls.Add(this.iWeight_lbl);
             this.Controls.Add(this.iHP_n);
@@ -1385,6 +1496,8 @@
             this.OStats_gb.ResumeLayout(false);
             this.OStats_gb.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Item_image)).EndInit();
+            this.InfTest_cb.ResumeLayout(false);
+            this.InfTest_cb.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1502,8 +1615,18 @@
         private System.Windows.Forms.Label iMP_n;
         private System.Windows.Forms.Label iMP_lbl;
         private System.Windows.Forms.Label iHEV_n;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label iHEvas_lbl;
         private System.Windows.Forms.Label iHDR_n;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label iHDR_lbl;
+        private System.Windows.Forms.Label sbc_lbl;
+        private System.Windows.Forms.Label Test_index_lbl;
+        private System.Windows.Forms.Label Test_BossSet;
+        private System.Windows.Forms.GroupBox InfTest_cb;
+        private System.Windows.Forms.Label Test_BossSetBonus;
+        private System.Windows.Forms.Label sbc3_lbl;
+        private System.Windows.Forms.Label sbc2_lbl;
+        private System.Windows.Forms.Label sbc1_lbl;
+        private System.Windows.Forms.Label sbc5_lbl;
+        private System.Windows.Forms.Label sbc4_lbl;
     }
 }
