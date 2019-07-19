@@ -23,7 +23,9 @@ namespace BDO_Builder
         public int sgiR1;
         public int sgiR2;
         public int sgiE1;
-        public int sgiE2;     
+        public int sgiE2;
+        public int sgiH;
+        public int sgiA;
         readonly CharacterState cs = new CharacterState();
 
         public GearForm()
@@ -670,7 +672,8 @@ namespace BDO_Builder
                 Armour_btn.BackgroundImage = Item_image.Image;
                 cs.ArmorState();
 
-                if (cs.armEnch == true) { TempEnchLvl = ItemEnch_cb.SelectedIndex; ItemEnch_cb.SelectedIndex = 0; cs.armEnchLvl = TempEnchLvl; }
+                if (cs.armEnch == true && SelectGear_cb.SelectedIndex == sgiA) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.armEnchLvl = TempEnchLvl; }
+                if (cs.armEnch == true && SelectGear_cb.SelectedIndex != sgiA) { ItemEnch_cb.SelectedIndex = 0; cs.armEnchLvl = 0; TempEnchLvl = 0; }
                 else if (cs.armEnch == false) { cs.armEnchLvl = 0; }
 
 
@@ -686,6 +689,7 @@ namespace BDO_Builder
                 FillCharacterState();
                 cs.armId = SelectGear_cb.SelectedIndex;
                 textBox1.Text = cs.armId.ToString();
+                sgiA = SelectGear_cb.SelectedIndex;
             }
 
 
@@ -717,21 +721,26 @@ namespace BDO_Builder
                 Helmet_btn.BackgroundImage = Item_image.Image;
                 cs.HelmetState();
 
-                if (cs.helEnch == true) { TempEnchLvl = ItemEnch_cb.SelectedIndex; ItemEnch_cb.SelectedIndex = 0; cs.helEnchLvl = TempEnchLvl; }
+                if (cs.helEnch == true && SelectGear_cb.SelectedIndex == sgiH) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.helEnchLvl = TempEnchLvl; }
+                if (cs.helEnch == true && SelectGear_cb.SelectedIndex != sgiH) { ItemEnch_cb.SelectedIndex = 0; cs.helEnchLvl = 0; TempEnchLvl = 0; }
                 else if (cs.helEnch == false) { cs.helEnchLvl = 0; }
 
 
                 iDP_n.Text = cs.heldp.ToString();
                 iEvas_n.Text = cs.helev.ToString();
-                iHEV_n.Text = cs.helev.ToString();
+                iHEV_n.Text = cs.helhev.ToString();
                 iDR_n.Text = cs.heldr.ToString();
-                iHDR_n.Text = cs.heldr.ToString();
+                iHDR_n.Text = cs.helhdr.ToString();
                 iHP_n.Text = cs.helHP.ToString();
                 iRes_n.Text = cs.helRes.ToString();
 
-
+                
                 FillCharacterState();
+
+
                 textBox1.Text = cs.helId.ToString();
+                sgiH = SelectGear_cb.SelectedIndex;
+
             }
         }
 

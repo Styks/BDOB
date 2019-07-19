@@ -1556,6 +1556,11 @@ namespace BDO_Builder
                 cDR -= heldr;
                 chdr -= helhdr;
                 cMaxHP -= helHP;
+                cRes1 -= helRes;
+                cRes2 -= helRes;
+                cRes3 -= helRes;
+                cRes4 -= helRes;
+
 
 
                 heldp = helDefdp;
@@ -1564,6 +1569,7 @@ namespace BDO_Builder
                 heldr = helDefdr;
                 helhdr = helDefhdr;
                 helHP = helDefHP;
+                helRes = helDefRes;
 
 
                 cdp += heldp;
@@ -1572,8 +1578,16 @@ namespace BDO_Builder
                 cDR += heldr;
                 chdr += helhdr;
                 cMaxHP += helHP;
+                cRes1 += helRes;
+                cRes2 += helRes;
+                cRes3 += helRes;
+                cRes4 += helRes;
+
             }
         }
+
+
+
 
     }
 }
