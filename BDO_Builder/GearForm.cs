@@ -101,6 +101,7 @@ namespace BDO_Builder
             iHDR_n.Text = "0";
         }
 
+        //Item load procedurs
         private void LoadBelts() //Belt
         {
             SelectGear_cb.SelectedIndexChanged -= SelectedGear_cb_SelectedIndexChanged;
@@ -229,9 +230,40 @@ namespace BDO_Builder
             SelectGear_cb.SelectedIndex = cs.helId;
             LoadItemEnch_cb();
         }
-            
 
+        private void LoadGloves() // Gloves
+        {
+            SelectGear_cb.SelectedIndexChanged -= SelectedGear_cb_SelectedIndexChanged;
+            var sql = @"select * from Gloves";
+            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            SelectGear_cb.DataSource = ds.Tables[0];
+            SelectGear_cb.DisplayMember = "Name";
+            SelectGear_cb.ValueMember = "Id";
+            Item_Icon_Load("Gloves", cs.glovId);
+            SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectedIndex = cs.glovId;
+            LoadItemEnch_cb();
+        }
 
+        private void LoadShoes() // Shoes
+        {
+            SelectGear_cb.SelectedIndexChanged -= SelectedGear_cb_SelectedIndexChanged;
+            var sql = @"select * from Shoes";
+            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            SelectGear_cb.DataSource = ds.Tables[0];
+            SelectGear_cb.DisplayMember = "Name";
+            SelectGear_cb.ValueMember = "Id";
+            Item_Icon_Load("Shoes", cs.shId);
+            SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectedIndex = cs.shId;
+            LoadItemEnch_cb();
+        }
+
+        //Books
         private void DpLvl_cb_CheckedChanged(object sender, EventArgs e)
         {
             int lvlDP = 1;
@@ -286,12 +318,14 @@ namespace BDO_Builder
             cs.cdp = Convert.ToInt32(cDP_n.Text);
         }
 
+        //Item buttons
         private void Belt_btn_Click(object sender, EventArgs e)
         {
            ItemStatClear();
            cs.sgn = 1;
            LoadBelts();
         }
+
         private void Necklace_btn_Click(object sender, EventArgs e)
         {
             ItemStatClear();
@@ -327,7 +361,6 @@ namespace BDO_Builder
             Load2Earring();           
         }
 
-
         private void Armour_btn_Click(object sender, EventArgs e)
         {
             ItemStatClear();
@@ -343,6 +376,21 @@ namespace BDO_Builder
             LoadHelmet();
         }
 
+        private void Gloves_btn_Click(object sender, EventArgs e)
+        {
+            ItemStatClear();
+            cs.sgn = 9;
+            LoadGloves();
+        }
+
+        private void Boots_btn_Click(object sender, EventArgs e)
+        {
+            ItemStatClear();
+            cs.sgn = 10;
+            LoadShoes();
+        }
+
+        
         private void SelectedGear_cb_SelectedIndexChanged(object sender, EventArgs e)
         {
           ItemStatClear();
@@ -389,7 +437,7 @@ namespace BDO_Builder
                 FillCharacterState();
                 cs.beltId = SelectGear_cb.SelectedIndex;
                 textBox1.Text = cs.beltId.ToString();
-            }
+            } //Belt
             if (cs.sgn == 2) //Neck
             {
                 
@@ -439,8 +487,8 @@ namespace BDO_Builder
                 FillCharacterState();
                 cs.neckId = SelectGear_cb.SelectedIndex;
                 textBox1.Text = cs.neckId.ToString();
-            }
-
+            } //Necklace
+             
             if (cs.sgn == 3 ) //Ring 1
             {
                 cmd.CommandText = "select * from Rings where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
@@ -486,7 +534,7 @@ namespace BDO_Builder
                 FillCharacterState();
                 cs.ring1Id = SelectGear_cb.SelectedIndex;
                 textBox1.Text = cs.ring1Id.ToString();
-            }
+            } //Ring1
 
             if (cs.sgn == 4) //Ring 2
             {
@@ -534,7 +582,7 @@ namespace BDO_Builder
 
                 cs.ring2Id = SelectGear_cb.SelectedIndex;
                 textBox1.Text = cs.ring2Id.ToString();
-            }
+            }//Ring 2
 
 
             if (cs.sgn == 5) //Ear1
@@ -583,7 +631,7 @@ namespace BDO_Builder
 
                 cs.ear1Id = SelectGear_cb.SelectedIndex;
                 textBox1.Text = cs.ear1Id.ToString();
-            }
+            } //Earring 1
 
             if (cs.sgn == 6) //Ear2
             {
@@ -630,7 +678,7 @@ namespace BDO_Builder
                 FillCharacterState();
                 cs.ear2Id = SelectGear_cb.SelectedIndex;
                 textBox1.Text = cs.ear2Id.ToString();
-            }
+            } //Earring 2
 
             if (cs.sgn == 7)
             {
@@ -676,7 +724,7 @@ namespace BDO_Builder
                 FillCharacterState();
                 cs.armId = SelectGear_cb.SelectedIndex;
                 textBox1.Text = cs.armId.ToString();
-            }
+            } //Armor
 
 
             if (cs.sgn == 8)
@@ -700,7 +748,6 @@ namespace BDO_Builder
                 }
 
                 LoadItemEnch_cb();
-                cs.helId = SelectGear_cb.SelectedIndex;
 
                 cs.Type = "Helmets";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
@@ -725,7 +772,98 @@ namespace BDO_Builder
 
                 cs.helId = SelectGear_cb.SelectedIndex;
                 textBox1.Text = cs.helId.ToString();
-            }
+            } //Helmet
+
+            if (cs.sgn == 9)
+            {
+                cmd.CommandText = "select * from Gloves where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    cs.glovDefdp = Convert.ToInt32(dr["DP"]);
+                    cs.glovDefacc = Convert.ToInt32(dr["Accuracy"]);
+                    cs.glovDefev = Convert.ToInt32(dr["Evasion"]);
+                    cs.glovDefhev = Convert.ToInt32(dr["HEvasion"]);
+                    cs.glovDefdr = Convert.ToInt32(dr["DR"]);
+                    cs.glovDefhdr = Convert.ToInt32(dr["HDR"]);
+                    cs.glovEnch = Convert.ToBoolean(dr["Ench"]);
+                    cs.glovIsBoss = Convert.ToBoolean(dr["IsBossItem"]);
+                }
+
+                LoadItemEnch_cb();
+
+                cs.Type = "Gloves";
+                Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
+                Gloves_btn.BackgroundImage = Item_image.Image;
+                cs.GlovesState();
+
+                if (cs.glovEnch == true && SelectGear_cb.SelectedIndex == cs.glovId) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.glovEnchLvl = TempEnchLvl; }
+                if (cs.glovEnch == true && SelectGear_cb.SelectedIndex != cs.glovId) { ItemEnch_cb.SelectedIndex = 0; cs.glovEnchLvl = 0; TempEnchLvl = 0; }
+                else if (cs.glovEnch == false) { cs.glovEnchLvl = 0; }
+
+
+                iDP_n.Text = cs.glovdp.ToString();
+                iEvas_n.Text = cs.glovev.ToString();
+                iHEV_n.Text = cs.glovhev.ToString();
+                iDR_n.Text = cs.glovdr.ToString();
+                iHDR_n.Text = cs.glovhdr.ToString();
+                iAcc_n.Text = cs.glovacc.ToString();
+
+
+
+                FillCharacterState();
+
+                cs.glovId = SelectGear_cb.SelectedIndex;
+                textBox1.Text = cs.glovId.ToString();
+            } //Gloves
+
+            if (cs.sgn == 10)
+            {
+                cmd.CommandText = "select * from Shoes where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    cs.shDefdp = Convert.ToInt32(dr["DP"]);
+                    cs.shDefev = Convert.ToInt32(dr["Evasion"]);
+                    cs.shDefhev = Convert.ToInt32(dr["HEvasion"]);
+                    cs.shDefdr = Convert.ToInt32(dr["DR"]);
+                    cs.shDefhdr = Convert.ToInt32(dr["HDR"]);
+                    cs.shEnch = Convert.ToBoolean(dr["Ench"]);
+                    cs.shIsBoss = Convert.ToBoolean(dr["IsBossItem"]);
+                }
+
+                LoadItemEnch_cb();
+
+                cs.Type = "Shoes";
+                Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
+                Boots_btn.BackgroundImage = Item_image.Image;
+                cs.ShoesState();
+
+                if (cs.shEnch == true && SelectGear_cb.SelectedIndex == cs.shId) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.shEnchLvl = TempEnchLvl; }
+                if (cs.shEnch == true && SelectGear_cb.SelectedIndex != cs.shId) { ItemEnch_cb.SelectedIndex = 0; cs.shEnchLvl = 0; TempEnchLvl = 0; }
+                else if (cs.shEnch == false) { cs.shEnchLvl = 0; }
+
+
+                iDP_n.Text = cs.shdp.ToString();
+                iEvas_n.Text = cs.shev.ToString();
+                iHEV_n.Text = cs.shhev.ToString();
+                iDR_n.Text = cs.shdr.ToString();
+                iHDR_n.Text = cs.shhdr.ToString();
+
+
+
+                FillCharacterState();
+
+                cs.shId = SelectGear_cb.SelectedIndex;
+                textBox1.Text = cs.shId.ToString();
+            } //Shoes
+
             //SetBonus
             cs.SetBonusCheck();
             sbc_lbl.Text = cs.sb.ToString();
@@ -735,15 +873,14 @@ namespace BDO_Builder
             if (cs.sb == 4) { sbc4_lbl.Text = 1.ToString(); sbc5_lbl.Text = 1.ToString(); }
         }
 
-
         private void LoadItemEnch_cb()
         {
-            if (cs.sgn == 1 & cs.beltEnch == true| cs.sgn ==2 & cs.neckEnch == true| cs.sgn == 3& cs.ring1Ench == true|
-                cs.sgn == 4 & cs.ring2Ench == true | cs.sgn == 5 & cs.ear1Ench == true| cs.sgn == 6 & cs.ear2Ench == true)
+            if (cs.sgn == 1 & cs.beltEnch == true | cs.sgn == 2 & cs.neckEnch == true | cs.sgn == 3 & cs.ring1Ench == true |
+                cs.sgn == 4 & cs.ring2Ench == true | cs.sgn == 5 & cs.ear1Ench == true | cs.sgn == 6 & cs.ear2Ench == true)
             {
                 ItemEnch_cb.SelectedIndexChanged -= ItemEnch_cb_SelectedIndexChanged;
                 ItemEnch_cb.Visible = true; Ench_lbl.Visible = true;
-                string[] EnchAccessories = {"0","1", "2", "3", "4", "5" };
+                string[] EnchAccessories = { "0", "1", "2", "3", "4", "5" };
                 ItemEnch_cb.DataSource = EnchAccessories;
                 ItemEnch_cb.SelectedIndexChanged += ItemEnch_cb_SelectedIndexChanged;
                 if (cs.sgn == 1) ItemEnch_cb.SelectedIndex = cs.beltEnchLvl;
@@ -752,9 +889,9 @@ namespace BDO_Builder
                 else if (cs.sgn == 4) ItemEnch_cb.SelectedIndex = cs.ring2EnchLvl;
                 else if (cs.sgn == 5) ItemEnch_cb.SelectedIndex = cs.ear1EnchLvl;
                 else if (cs.sgn == 6) ItemEnch_cb.SelectedIndex = cs.ear2EnchLvl;
-            }
+            } //For accesories
 
-            else if (cs.sgn == 7 & cs.armEnch == true| cs.sgn == 8 & cs.helEnch == true)
+            else if (cs.sgn == 7 & cs.armEnch == true | cs.sgn == 8 & cs.helEnch == true | cs.sgn == 9 & cs.glovEnch == true | cs.sgn ==10 & cs.shEnch ==true)
             {
                 ItemEnch_cb.SelectedIndexChanged -= ItemEnch_cb_SelectedIndexChanged;
                 ItemEnch_cb.Visible = true; Ench_lbl.Visible = true;
@@ -763,12 +900,14 @@ namespace BDO_Builder
                 ItemEnch_cb.SelectedIndexChanged += ItemEnch_cb_SelectedIndexChanged;
                 if (cs.sgn == 7) ItemEnch_cb.SelectedIndex = cs.armEnchLvl;
                 if (cs.sgn == 8) ItemEnch_cb.SelectedIndex = cs.helEnchLvl;
+                if (cs.sgn == 9) ItemEnch_cb.SelectedIndex = cs.glovEnchLvl;
+                if (cs.sgn == 10) ItemEnch_cb.SelectedIndex = cs.shEnchLvl;
 
-            }
+
+            } //For armor
 
             else { ItemEnch_cb.Visible = false; Ench_lbl.Visible = false; }
         }
-
 
         private void ItemEnch_cb_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -790,7 +929,7 @@ namespace BDO_Builder
 
                 FillCharacterState();
 
-            }
+            } //Belt
 
             else if (cs.sgn == 2)
             {
@@ -811,7 +950,7 @@ namespace BDO_Builder
 
                 FillCharacterState();
 
-            }
+            } //Neck
 
             else if (cs.sgn == 3)
             {
@@ -829,7 +968,7 @@ namespace BDO_Builder
 
 
                 FillCharacterState();
-            }
+            } // Ring1
 
             else if (cs.sgn == 4)
             {
@@ -847,7 +986,7 @@ namespace BDO_Builder
 
 
                 FillCharacterState();
-            }
+            } //Ring2
 
             else if (cs.sgn == 5)
             {
@@ -865,7 +1004,7 @@ namespace BDO_Builder
 
 
                 FillCharacterState();
-            }
+            } //Earring 1
 
             else if (cs.sgn == 6)
             {
@@ -883,7 +1022,7 @@ namespace BDO_Builder
 
 
                 FillCharacterState();
-            }
+            } //Earring 2
 
             else if (cs.sgn == 7)
             {
@@ -900,7 +1039,7 @@ namespace BDO_Builder
 
 
                 FillCharacterState();
-            }
+            } // Armor
 
             else if (cs.sgn == 8)
             {
@@ -917,7 +1056,41 @@ namespace BDO_Builder
 
 
                 FillCharacterState();
-            }
+            } // Helmet
+
+            else if (cs.sgn == 9)
+            {
+                cs.glovEnchLvl = ItemEnch_cb.SelectedIndex;
+                cs.GlovesState();
+
+                iDP_n.Text = cs.glovdp.ToString();
+                iAcc_n.Text = cs.glovacc.ToString();
+                iEvas_n.Text = cs.glovev.ToString();
+                iHEV_n.Text = cs.glovhev.ToString();
+                iDR_n.Text = cs.glovdr.ToString();
+                iHDR_n.Text = cs.glovhdr.ToString();
+
+
+
+                FillCharacterState();
+            } //Gloves
+
+            else if (cs.sgn == 10)
+            {
+                cs.shEnchLvl = ItemEnch_cb.SelectedIndex;
+                cs.ShoesState();
+
+                iDP_n.Text = cs.shdp.ToString();
+                iEvas_n.Text = cs.shev.ToString();
+                iHEV_n.Text = cs.shhev.ToString();
+                iDR_n.Text = cs.shdr.ToString();
+                iHDR_n.Text = cs.shhdr.ToString();
+
+
+
+                FillCharacterState();
+            } //Shoes
+
         }
 
         
