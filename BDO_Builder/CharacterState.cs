@@ -219,6 +219,39 @@ namespace BDO_Builder
         public int helDefHP;
         public int helDefRes;
 
+        //Gloves stats
+        public int glovdp;// Gloves DP
+        public int glovacc;// Gloves acc
+        public int glovev;// Gloves evasion
+        public int glovhev;// Gloves hiden evasion
+        public int glovdr;// Gloves damage reduction
+        public int glovhdr;// Gloves hiden damage reduction
+        public bool glovEnch;
+        public int glovId = 0; // Current Gloves Id
+        public int glovEnchLvl = 0; // Gloves's enchant level
+        public bool glovIsBoss;// Gloves is boss item or not
+        public int glovDefdp; // Gloves default DP
+        public int glovDefacc;// Gloves acc
+        public int glovDefev;// Gloves default evasion 
+        public int glovDefhev;// Gloves default hiden evasion 
+        public int glovDefdr;// Gloves default damage reduction 
+        public int glovDefhdr;// Gloves default hiden damage reduction 
+
+        //Shoes stats
+        public int shdp;// Shoes DP
+        public int shev;// Shoes evasion
+        public int shhev;// Shoes hiden evasion
+        public int shdr;// Shoes damage reduction
+        public int shhdr;// Shoes hiden damage reduction
+        public bool shEnch;
+        public int shId = 0; // Current Shoes Id
+        public int shEnchLvl = 0; // Shoes's enchant level
+        public bool shIsBoss;// Shoes is boss item or not
+        public int shDefdp; // Shoes default DP
+        public int shDefev;// Shoes default evasion 
+        public int shDefhev;// Shoes default hiden evasion 
+        public int shDefdr;// Shoes default damage reduction 
+        public int shDefhdr;// Shoes default hiden damage reduction
 
 
         readonly SqlCommand cmd = Base_Connect.Connection.CreateCommand();
@@ -495,7 +528,6 @@ namespace BDO_Builder
             }
         }
 
-
         public void Ring2State()
         {
             cmd.CommandType = CommandType.Text;
@@ -726,7 +758,6 @@ namespace BDO_Builder
                 cMaxST += ear2ST;
             }
         }
-
 
         public void ArmorState()
         {
@@ -1592,6 +1623,732 @@ namespace BDO_Builder
             }
         }
 
+        public void GlovesState()
+        {
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from Gloves where Id='" + glovId.ToString() + "'";
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+
+
+            if (glovEnch == true & glovIsBoss == true)
+            {
+                if (glovEnchLvl >= 1 & glovEnchLvl <= 5)
+                {
+
+                    cdp -= glovdp;
+                    cacc -= glovacc;
+                    cev -= glovev;
+                    chev -= glovhev;
+                    cDR -= glovdr;
+                    chdr -= glovhdr;
+
+                    glovdp = glovDefdp + glovEnchLvl * 2;
+                    if (glovId == 0) glovacc = glovDefacc + glovEnchLvl * 2;
+                    else glovacc = glovDefacc;
+                    glovev = glovDefev + glovEnchLvl * 1;
+                    glovhev = glovDefhev + glovEnchLvl * 3;
+                    glovdr = glovDefdr + glovEnchLvl * 1;
+                    glovhdr = glovDefhdr;
+
+                    cdp += glovdp;
+                    cacc += glovacc;
+                    cev += glovev;
+                    chev += glovhev;
+                    cDR += glovdr;
+                    chdr += glovhdr;
+                }
+
+                if (glovEnchLvl >= 6 & glovEnchLvl <= 15)
+                {
+
+                    cdp -= glovdp;
+                    cacc -= glovacc;
+                    cev -= glovev;
+                    chev -= glovhev;
+                    cDR -= glovdr;
+                    chdr -= glovhdr;
+
+                    glovdp = glovDefdp + glovEnchLvl * 2;
+                    if (glovId == 0) glovacc = glovDefacc + glovEnchLvl * 2;
+                    else glovacc = glovDefacc + (glovEnchLvl-5) * 1;
+                    glovev = glovDefev + glovEnchLvl * 1;
+                    glovhev = glovDefhev + glovEnchLvl * 3;
+                    glovdr = glovDefdr + glovEnchLvl * 1;
+                    glovhdr = glovDefhdr;
+
+                    cdp += glovdp;
+                    cacc += glovacc;
+                    cev += glovev;
+                    chev += glovhev;
+                    cDR += glovdr;
+                    chdr += glovhdr;
+                }
+
+                if (glovEnchLvl == 16 )
+                {
+
+                    cdp -= glovdp;
+                    cacc -= glovacc;
+                    cev -= glovev;
+                    chev -= glovhev;
+                    cDR -= glovdr;
+                    chdr -= glovhdr;
+
+                    glovdp = glovDefdp + 35;
+
+                    if (glovId == 0) glovacc = glovDefacc + glovEnchLvl * 2;
+                    else glovacc = glovDefacc + (glovEnchLvl - 5) * 1;
+
+                    if (glovId == 0) glovev = glovDefev +17;
+                    else  glovev = glovDefev + 18;
+
+                    if (glovId == 0) glovhev = 54;
+                    else glovhev = 61;
+
+                    if (glovId == 0) glovdr = 19;
+                    else glovdr = 18;
+
+                    glovhdr = glovDefhdr + 1;
+
+                    cdp += glovdp;
+                    cacc += glovacc;
+                    cev += glovev;
+                    chev += glovhev;
+                    cDR += glovdr;
+                    chdr += glovhdr;
+                }
+
+                if (glovEnchLvl == 17)
+                {
+
+                    cdp -= glovdp;
+                    cacc -= glovacc;
+                    cev -= glovev;
+                    chev -= glovhev;
+                    cDR -= glovdr;
+                    chdr -= glovhdr;
+
+                    glovdp = glovDefdp + 40;
+
+                    if (glovId == 0) glovacc = glovDefacc + glovEnchLvl * 2;
+                    else glovacc = glovDefacc + (glovEnchLvl - 5) * 1;
+
+                    if (glovId == 0) glovev = 20;
+                    else glovev = glovDefev + 22;
+
+                    if (glovId == 0) glovhev = 60;
+                    else glovhev = 70;
+
+                    if (glovId == 0) glovdr = 22;
+                    else glovdr = 20;
+
+                    if (glovId == 0) glovhdr = 7;
+                    else glovhdr = 8;
+
+                    cdp += glovdp;
+                    cacc += glovacc;
+                    cev += glovev;
+                    chev += glovhev;
+                    cDR += glovdr;
+                    chdr += glovhdr;
+                }
+
+                if (glovEnchLvl == 18)
+                {
+
+                    cdp -= glovdp;
+                    cacc -= glovacc;
+                    cev -= glovev;
+                    chev -= glovhev;
+                    cDR -= glovdr;
+                    chdr -= glovhdr;
+
+                    glovdp = glovDefdp + 48;
+
+                    if (glovId == 0) glovacc = glovDefacc + glovEnchLvl * 2;
+                    else glovacc = glovDefacc + (glovEnchLvl - 5) * 1;
+
+                    if (glovId == 0) glovev = 22;
+                    else glovev = glovDefev +25;
+
+                    if (glovId == 0) glovhev = 66;
+                    else glovhev = 79;
+
+                    if (glovId == 0) glovdr = 28;
+                    else glovdr = 25;
+
+                    if (glovId == 0) glovhdr = 9;
+                    else glovhdr = 11;
+
+                    cdp += glovdp;
+                    cacc += glovacc;
+                    cev += glovev;
+                    chev += glovhev;
+                    cDR += glovdr;
+                    chdr += glovhdr;
+                }
+
+                if (glovEnchLvl == 19)
+                {
+
+                    cdp -= glovdp;
+                    cacc -= glovacc;
+                    cev -= glovev;
+                    chev -= glovhev;
+                    cDR -= glovdr;
+                    chdr -= glovhdr;
+
+                    if (glovId == 0) glovdp = 55;
+                    else glovdp = 56;
+
+                    if (glovId == 0) glovacc = glovDefacc + glovEnchLvl * 2;
+                    else glovacc = glovDefacc + (glovEnchLvl - 5) * 1;
+
+                    if (glovId == 0) glovev = 24;
+                    else glovev = glovDefev + 29;
+
+                    if (glovId == 0) glovhev = 72;
+                    else glovhev = 91;
+
+                    if (glovId == 0) glovdr = 31;
+                    else glovdr = 27;
+
+                    if (glovId == 0) glovhdr = 13;
+                    else glovhdr = 14;
+
+                    cdp += glovdp;
+                    cacc += glovacc;
+                    cev += glovev;
+                    chev += glovhev;
+                    cDR += glovdr;
+                    chdr += glovhdr;
+                }
+
+                if (glovEnchLvl == 20)
+                {
+
+                    cdp -= glovdp;
+                    cacc -= glovacc;
+                    cev -= glovev;
+                    chev -= glovhev;
+                    cDR -= glovdr;
+                    chdr -= glovhdr;
+
+                    if (glovId == 0) glovdp = 60;
+                    else glovdp = 62;
+
+                    if (glovId == 0) glovacc = glovDefacc + glovEnchLvl * 2;
+                    else glovacc = glovDefacc + (glovEnchLvl - 5) * 1;
+
+                    if (glovId == 0) glovev = 26;
+                    else glovev = glovDefev + 33;
+
+                    if (glovId == 0) glovhev = 78;
+                    else glovhev = 103;
+
+                    if (glovId == 0) glovdr = 34;
+                    else glovdr = 29;
+
+                    if (glovId == 0) glovhdr = 19;
+                    else glovhdr = 17;
+
+                    cdp += glovdp;
+                    cacc += glovacc;
+                    cev += glovev;
+                    chev += glovhev;
+                    cDR += glovdr;
+                    chdr += glovhdr;
+                }
+
+            }
+
+            if (glovEnch == true & glovIsBoss == false)
+            {
+                if (glovEnchLvl >= 1 & glovEnchLvl <= 15)
+                {
+
+                    cdp -= glovdp;
+                    cev -= glovev;
+                    chev -= glovhev;
+                    cDR -= glovdr;
+                    chdr -= glovhdr;
+
+                    glovdp = glovDefdp + glovEnchLvl * 2;
+                    glovev = glovDefev + glovEnchLvl * 1;
+                    glovhev = glovDefhev + glovEnchLvl * 3;
+                    glovdr = glovDefdr + glovEnchLvl * 1;
+                    glovhdr = glovDefhdr;
+
+
+                    cdp += glovdp;
+                    cev += glovev;
+                    chev += glovhev;
+                    cDR += glovdr;
+                    chdr += glovhdr;
+                }
+
+                if (glovEnchLvl == 16)
+                {
+
+                    cdp -= glovdp;
+                    cev -= glovev;
+                    chev -= glovhev;
+                    cDR -= glovdr;
+                    chdr -= glovhdr;
+
+                    glovdp = glovDefdp + (glovEnchLvl -1) * 2 + 5;
+                    glovev = glovDefev + (glovEnchLvl-1) * 1 + 2;
+                    glovhev = glovDefhev + (glovEnchLvl-1) * 3 + 10;
+                    glovdr = glovDefdr + (glovEnchLvl - 1) * 1 + 3;
+                    glovhdr = glovDefhdr + 1;
+
+
+                    cdp += glovdp;
+                    cev += glovev;
+                    chev += glovhev;
+                    cDR += glovdr;
+                    chdr += glovhdr;
+                }
+
+                if (glovEnchLvl ==17)
+                {
+
+                    cdp -= glovdp;
+                    cev -= glovev;
+                    chev -= glovhev;
+                    cDR -= glovdr;
+                    chdr -= glovhdr;
+
+                    glovdp = glovDefdp + 40;
+                    glovev = glovDefev + 19;
+                    glovhev = glovDefhev + 61;
+                    glovdr = glovDefdr + 19;
+                    glovhdr = glovDefhdr+2;
+
+
+                    cdp += glovdp;
+                    cev += glovev;
+                    chev += glovhev;
+                    cDR += glovdr;
+                    chdr += glovhdr;
+                }
+
+                if (glovEnchLvl == 18)
+                {
+
+                    cdp -= glovdp;
+                    cev -= glovev;
+                    chev -= glovhev;
+                    cDR -= glovdr;
+                    chdr -= glovhdr;
+
+                    glovdp = glovDefdp + 48;
+                    glovev = glovDefev + 21;
+                    glovhev = glovDefhev + 67;
+                    glovdr = glovDefdr + 27;
+                    glovhdr = glovDefhdr + 3;
+
+
+                    cdp += glovdp;
+                    cev += glovev;
+                    chev += glovhev;
+                    cDR += glovdr;
+                    chdr += glovhdr;
+                }
+
+                if (glovEnchLvl >= 19 & glovEnchLvl <= 20)
+                {
+
+                    cdp -= glovdp;
+                    cev -= glovev;
+                    chev -= glovhev;
+                    cDR -= glovdr;
+                    chdr -= glovhdr;
+
+                    glovdp = glovDefdp + 48 + (glovEnchLvl-18) * 5;
+                    glovev = glovDefev + 21 + (glovEnchLvl - 18) * 2;
+                    glovhev = glovDefhev + 67 + (glovEnchLvl - 18)*6;
+                    glovdr = glovDefdr + 27 + (glovEnchLvl - 18) * 3;
+                    glovhdr = glovDefhdr + 3 + (glovEnchLvl - 18)*1;
+
+
+                    cdp += glovdp;
+                    cev += glovev;
+                    chev += glovhev;
+                    cDR += glovdr;
+                    chdr += glovhdr;
+                }
+
+                
+            }
+
+            if (glovEnch == false | glovEnch == true & glovEnchLvl == 0)
+            {
+
+                cdp -= glovdp;
+                cacc -= glovacc;
+                cev -= glovev;
+                chev -= glovhev;
+                cDR -= glovdr;
+                chdr -= glovhdr;
+
+
+
+
+                glovdp = glovDefdp;
+                glovacc = glovDefacc;
+                glovev = glovDefev;
+                glovhev = glovDefhev;
+                glovdr = glovDefdr;
+                glovhdr = glovDefhdr;
+
+
+                cdp += glovdp;
+                cacc += glovacc;
+                cev += glovev;
+                chev += glovhev;
+                cDR += glovdr;
+                chdr += glovhdr;
+
+
+            }
+        }
+
+        public void ShoesState()
+        {
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from Shoes where Id='" + shId.ToString() + "'";
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+
+
+            if (shEnch == true & shIsBoss == true)
+            {
+
+                if (shEnchLvl >= 1 & shEnchLvl <= 15)
+                {
+
+                    cdp -= shdp;
+                    cev -= shev;
+                    chev -= shhev;
+                    cDR -= shdr;
+                    chdr -= shhdr;
+
+                    shdp = shDefdp + shEnchLvl * 3;
+                    shev = shDefev + shEnchLvl * 2;
+                    if (shId == 0) shhev = shDefhev + shEnchLvl * 4;
+                    else shhev = shDefev + shEnchLvl * 2;
+
+                    shdr = shDefdr + shEnchLvl * 1;
+
+                    if (shId == 0) shhdr = shDefhdr;
+                    else if (shId == 1 & shEnchLvl <= 5) shhdr = shDefhdr + shEnchLvl * 1;
+                    else shhdr = shDefhdr + 5 + (shEnchLvl - 5) * 2;
+
+                    cdp += shdp;
+                    cev += shev;
+                    chev += shhev;
+                    cDR += shdr;
+                    chdr += shhdr;
+                }
+
+                if (shEnchLvl == 16)
+                {
+
+                    cdp -= shdp;
+                    cev -= shev;
+                    chev -= shhev;
+                    cDR -= shdr;
+                    chdr -= shhdr;
+
+                    shdp = shDefdp + 50;
+
+
+                    shev = shDefev + shEnchLvl * 2;
+
+                    if (shId == 0) shhev = shDefhev + 68;
+                    else shhev = shDefhev + 34;
+
+                    shdr = shDefdr + 18;
+
+                    if (shId == 0) shhdr = 1;
+                    else shhdr = shDefhdr + 28;
+
+                    cdp += shdp;
+                    cev += shev;
+                    chev += shhev;
+                    cDR += shdr;
+                    chdr += shhdr;
+                }
+
+                if (shEnchLvl == 17)
+                {
+                    cdp -= shdp;
+                    cev -= shev;
+                    chev -= shhev;
+                    cDR -= shdr;
+                    chdr -= shhdr;
+
+                    shdp = shDefdp + 55;
+
+                    shev = shDefev + shEnchLvl * 2;
+
+                    if (shId == 0) shhev = shDefhev + 72;
+                    else shhev = shDefhev + 36;
+
+                    shdr = shDefdr + 21;
+
+                    if (shId == 0) shhdr = 2;
+                    else shhdr = shDefhdr + 31;
+
+                    cdp += shdp;
+                    cev += shev;
+                    chev += shhev;
+                    cDR += shdr;
+                    chdr += shhdr;
+                }
+
+                if (shEnchLvl == 18)
+                {
+
+                    cdp -= shdp;
+                    cev -= shev;
+                    chev -= shhev;
+                    cDR -= shdr;
+                    chdr -= shhdr;
+
+                    shdp = shDefdp + 63;
+
+                    shev = shDefev + shEnchLvl * 2;
+
+                    if (shId == 0) shhev = shDefhev + 76;
+                    else shhev = shDefhev + 38;
+
+                    shdr = shDefdr + 27;
+
+
+                    if (shId == 0) shhdr = 4;
+                    else shhdr = shDefhdr + 34;
+
+                    cdp += shdp;
+                    cev += shev;
+                    chev += shhev;
+                    cDR += shdr;
+                    chdr += shhdr;
+                }
+
+                if (shEnchLvl == 19)
+                {
+
+                    cdp -= shdp;
+                    cev -= shev;
+                    chev -= shhev;
+                    cDR -= shdr;
+                    chdr -= shhdr;
+
+                    shdp = shDefdp + 68;
+
+                    shev = shDefev + shEnchLvl * 2;
+
+                    if (shId == 0) shhev = shDefhev + 80;
+                    else shhev = shDefhev + 40;
+
+                    shdr = shDefdr + 30;
+
+                    if (shId == 0) shhdr = 8;
+                    else shhdr = shDefhdr + 37;
+
+                    cdp += shdp;
+                    cev += shev;
+                    chev += shhev;
+                    cDR += shdr;
+                    chdr += shhdr;
+                }
+
+                if (shEnchLvl == 20)
+                {
+
+                    cdp -= shdp;
+                    cev -= shev;
+                    chev -= shhev;
+                    cDR -= shdr;
+                    chdr -= shhdr;
+
+                    shdp = shDefdp + 73;
+
+                    shev = shDefev + shEnchLvl * 2;
+
+                    if (shId == 0) shhev = shDefhev + 84;
+                    else shhev = shDefhev + 42;
+
+                    shdr = shDefdr + 33;
+
+                    if (shId == 0) shhdr = 14;
+                    else shhdr = shDefhdr + 40;
+
+                    cdp += shdp;
+                    cev += shev;
+                    chev += shhev;
+                    cDR += shdr;
+                    chdr += shhdr;
+                }
+
+            }
+
+            if (shEnch == true & shIsBoss == false)
+            {
+                if (shEnchLvl >= 1 & shEnchLvl <= 15)
+                {
+
+                    cdp -= shdp;
+                    cev -= shev;
+                    chev -= shhev;
+                    cDR -= shdr;
+                    chdr -= shhdr;
+
+                    shdp = shDefdp + shEnchLvl * 2;
+                    shev = shDefev + shEnchLvl * 1;
+                    shhev = shDefhev + shEnchLvl * 3;
+                    shdr = shDefdr + shEnchLvl * 1;
+                    shhdr = shDefhdr;
+
+
+                    cdp += shdp;
+                    cev += shev;
+                    chev += shhev;
+                    cDR += shdr;
+                    chdr += shhdr;
+                }
+
+                if (shEnchLvl == 16)
+                {
+
+                    cdp -= shdp;
+                    cev -= shev;
+                    chev -= shhev;
+                    cDR -= shdr;
+                    chdr -= shhdr;
+
+                    shdp = shDefdp + (shEnchLvl - 1) * 2 + 5;
+                    shev = shDefev + (shEnchLvl - 1) * 1 + 2;
+                    shhev = shDefhev + (shEnchLvl - 1) * 3 + 10;
+                    shdr = shDefdr + (shEnchLvl - 1) * 1 + 3;
+                    shhdr = shDefhdr + 1;
+
+
+                    cdp += shdp;
+                    cev += shev;
+                    chev += shhev;
+                    cDR += shdr;
+                    chdr += shhdr;
+                }
+
+                if (shEnchLvl == 17)
+                {
+
+                    cdp -= shdp;
+                    cev -= shev;
+                    chev -= shhev;
+                    cDR -= shdr;
+                    chdr -= shhdr;
+
+                    shdp = shDefdp + 40;
+                    shev = shDefev + 19;
+                    shhev = shDefhev + 61;
+                    shdr = shDefdr + 19;
+                    shhdr = shDefhdr + 2;
+
+
+                    cdp += shdp;
+                    cev += shev;
+                    chev += shhev;
+                    cDR += shdr;
+                    chdr += shhdr;
+                }
+
+                if (shEnchLvl == 18)
+                {
+
+                    cdp -= shdp;
+                    cev -= shev;
+                    chev -= shhev;
+                    cDR -= shdr;
+                    chdr -= shhdr;
+
+                    shdp = shDefdp + 48;
+                    shev = shDefev + 21;
+                    shhev = shDefhev + 67;
+                    shdr = shDefdr + 27;
+                    shhdr = shDefhdr + 3;
+
+
+                    cdp += shdp;
+                    cev += shev;
+                    chev += shhev;
+                    cDR += shdr;
+                    chdr += shhdr;
+                }
+
+                if (shEnchLvl >= 19 & shEnchLvl <= 20)
+                {
+
+                    cdp -= shdp;
+                    cev -= shev;
+                    chev -= shhev;
+                    cDR -= shdr;
+                    chdr -= shhdr;
+
+                    shdp = shDefdp + 48 + (shEnchLvl - 18) * 5;
+                    shev = shDefev + 21 + (shEnchLvl - 18) * 2;
+                    shhev = shDefhev + 67 + (shEnchLvl - 18) * 6;
+                    shdr = shDefdr + 27 + (shEnchLvl - 18) * 3;
+                    shhdr = shDefhdr + 3 + (shEnchLvl - 18) * 1;
+
+
+                    cdp += shdp;
+                    cev += shev;
+                    chev += shhev;
+                    cDR += shdr;
+                    chdr += shhdr;
+                }
+
+
+            }
+
+            if (shEnch == false | shEnch == true & shEnchLvl == 0)
+            {
+
+                cdp -= shdp;
+                cev -= shev;
+                chev -= shhev;
+                cDR -= shdr;
+                chdr -= shhdr;
+
+
+
+
+                shdp = shDefdp;
+                shev = shDefev;
+                shhev = shDefhev;
+                shdr = shDefdr;
+                shhdr = shDefhdr;
+
+
+                cdp += shdp;
+                cev += shev;
+                chev += shhev;
+                cDR += shdr;
+                chdr += shhdr;
+
+
+            }
+        }
+
         public void SetBonusCheck()
         {
             sb = sb - asb;
@@ -1608,6 +2365,6 @@ namespace BDO_Builder
             sb = sb + hsb;
         }
 
-
+        
     }
 }

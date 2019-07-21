@@ -146,12 +146,12 @@
             this.Test_index_lbl = new System.Windows.Forms.Label();
             this.Test_BossSet = new System.Windows.Forms.Label();
             this.InfTest_cb = new System.Windows.Forms.GroupBox();
-            this.sbc1_lbl = new System.Windows.Forms.Label();
-            this.sbc2_lbl = new System.Windows.Forms.Label();
-            this.sbc3_lbl = new System.Windows.Forms.Label();
-            this.Test_BossSetBonus = new System.Windows.Forms.Label();
-            this.sbc4_lbl = new System.Windows.Forms.Label();
             this.sbc5_lbl = new System.Windows.Forms.Label();
+            this.sbc4_lbl = new System.Windows.Forms.Label();
+            this.Test_BossSetBonus = new System.Windows.Forms.Label();
+            this.sbc3_lbl = new System.Windows.Forms.Label();
+            this.sbc2_lbl = new System.Windows.Forms.Label();
+            this.sbc1_lbl = new System.Windows.Forms.Label();
             this.ShopGear_gb.SuspendLayout();
             this.CharacterGear_gb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Class_pic)).BeginInit();
@@ -166,7 +166,7 @@
             // 
             this.Back_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Back_btn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Back_btn.Location = new System.Drawing.Point(1496, 12);
+            this.Back_btn.Location = new System.Drawing.Point(1349, 12);
             this.Back_btn.Name = "Back_btn";
             this.Back_btn.Size = new System.Drawing.Size(75, 23);
             this.Back_btn.TabIndex = 0;
@@ -415,6 +415,7 @@
             this.Gloves_btn.Size = new System.Drawing.Size(40, 40);
             this.Gloves_btn.TabIndex = 4;
             this.Gloves_btn.UseVisualStyleBackColor = false;
+            this.Gloves_btn.Click += new System.EventHandler(this.Gloves_btn_Click);
             // 
             // Boots_btn
             // 
@@ -427,6 +428,7 @@
             this.Boots_btn.Size = new System.Drawing.Size(40, 40);
             this.Boots_btn.TabIndex = 4;
             this.Boots_btn.UseVisualStyleBackColor = false;
+            this.Boots_btn.Click += new System.EventHandler(this.Boots_btn_Click);
             // 
             // Ring2_btn
             // 
@@ -1377,41 +1379,14 @@
             this.InfTest_cb.TabStop = false;
             this.InfTest_cb.Text = "Info for test";
             // 
-            // sbc1_lbl
+            // sbc5_lbl
             // 
-            this.sbc1_lbl.AutoSize = true;
-            this.sbc1_lbl.Location = new System.Drawing.Point(273, 118);
-            this.sbc1_lbl.Name = "sbc1_lbl";
-            this.sbc1_lbl.Size = new System.Drawing.Size(13, 13);
-            this.sbc1_lbl.TabIndex = 63;
-            this.sbc1_lbl.Text = "0";
-            // 
-            // sbc2_lbl
-            // 
-            this.sbc2_lbl.AutoSize = true;
-            this.sbc2_lbl.Location = new System.Drawing.Point(317, 118);
-            this.sbc2_lbl.Name = "sbc2_lbl";
-            this.sbc2_lbl.Size = new System.Drawing.Size(13, 13);
-            this.sbc2_lbl.TabIndex = 64;
-            this.sbc2_lbl.Text = "0";
-            // 
-            // sbc3_lbl
-            // 
-            this.sbc3_lbl.AutoSize = true;
-            this.sbc3_lbl.Location = new System.Drawing.Point(273, 138);
-            this.sbc3_lbl.Name = "sbc3_lbl";
-            this.sbc3_lbl.Size = new System.Drawing.Size(13, 13);
-            this.sbc3_lbl.TabIndex = 65;
-            this.sbc3_lbl.Text = "0";
-            // 
-            // Test_BossSetBonus
-            // 
-            this.Test_BossSetBonus.AutoSize = true;
-            this.Test_BossSetBonus.Location = new System.Drawing.Point(273, 93);
-            this.Test_BossSetBonus.Name = "Test_BossSetBonus";
-            this.Test_BossSetBonus.Size = new System.Drawing.Size(90, 13);
-            this.Test_BossSetBonus.TabIndex = 66;
-            this.Test_BossSetBonus.Text = "BossSet Bonuses";
+            this.sbc5_lbl.AutoSize = true;
+            this.sbc5_lbl.Location = new System.Drawing.Point(292, 157);
+            this.sbc5_lbl.Name = "sbc5_lbl";
+            this.sbc5_lbl.Size = new System.Drawing.Size(13, 13);
+            this.sbc5_lbl.TabIndex = 63;
+            this.sbc5_lbl.Text = "0";
             // 
             // sbc4_lbl
             // 
@@ -1422,21 +1397,48 @@
             this.sbc4_lbl.TabIndex = 63;
             this.sbc4_lbl.Text = "0";
             // 
-            // sbc5_lbl
+            // Test_BossSetBonus
             // 
-            this.sbc5_lbl.AutoSize = true;
-            this.sbc5_lbl.Location = new System.Drawing.Point(292, 157);
-            this.sbc5_lbl.Name = "sbc5_lbl";
-            this.sbc5_lbl.Size = new System.Drawing.Size(13, 13);
-            this.sbc5_lbl.TabIndex = 63;
-            this.sbc5_lbl.Text = "0";
+            this.Test_BossSetBonus.AutoSize = true;
+            this.Test_BossSetBonus.Location = new System.Drawing.Point(273, 93);
+            this.Test_BossSetBonus.Name = "Test_BossSetBonus";
+            this.Test_BossSetBonus.Size = new System.Drawing.Size(90, 13);
+            this.Test_BossSetBonus.TabIndex = 66;
+            this.Test_BossSetBonus.Text = "BossSet Bonuses";
+            // 
+            // sbc3_lbl
+            // 
+            this.sbc3_lbl.AutoSize = true;
+            this.sbc3_lbl.Location = new System.Drawing.Point(273, 138);
+            this.sbc3_lbl.Name = "sbc3_lbl";
+            this.sbc3_lbl.Size = new System.Drawing.Size(13, 13);
+            this.sbc3_lbl.TabIndex = 65;
+            this.sbc3_lbl.Text = "0";
+            // 
+            // sbc2_lbl
+            // 
+            this.sbc2_lbl.AutoSize = true;
+            this.sbc2_lbl.Location = new System.Drawing.Point(317, 118);
+            this.sbc2_lbl.Name = "sbc2_lbl";
+            this.sbc2_lbl.Size = new System.Drawing.Size(13, 13);
+            this.sbc2_lbl.TabIndex = 64;
+            this.sbc2_lbl.Text = "0";
+            // 
+            // sbc1_lbl
+            // 
+            this.sbc1_lbl.AutoSize = true;
+            this.sbc1_lbl.Location = new System.Drawing.Point(273, 118);
+            this.sbc1_lbl.Name = "sbc1_lbl";
+            this.sbc1_lbl.Size = new System.Drawing.Size(13, 13);
+            this.sbc1_lbl.TabIndex = 63;
+            this.sbc1_lbl.Text = "0";
             // 
             // GearForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1583, 624);
+            this.ClientSize = new System.Drawing.Size(1436, 624);
             this.Controls.Add(this.InfTest_cb);
             this.Controls.Add(this.iHDR_n);
             this.Controls.Add(this.iHDR_lbl);
