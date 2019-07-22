@@ -947,10 +947,18 @@ namespace BDO_Builder
                     cMaxHP -= armHP;
                     cMaxMP -= armMP;
 
-                    armdp = armDefdp +  4;
+                    //DP
+                    if (armId == 10) armdp = armDefdp + 3;
+                    else armdp = armDefdp +  4;
+                    //EV
                     armev = armDefev + 1;
-                    armhev = armDefhev + 3;
-                    armdr = armDefdr + 3;
+                    //HEV
+                    if (armId == 9 | armId == 11) armhev = armDefhev + 7;
+                    else armhev = armDefhev + 3;
+                    //DR
+                    if (armId == 10) armdr = armDefdr + armEnchLvl * 2;
+                    else armdr = armDefdr + 3;
+                    //HDR
                     armhdr = armDefhdr;
 
 
@@ -974,10 +982,22 @@ namespace BDO_Builder
                     cMaxHP -= armHP;
                     cMaxMP -= armMP;
 
-                    armdp = armDefdp + 4 + (armEnchLvl-1) * 3;
+                    //DP
+                    if (armId == 10) armdp = armDefdp + armEnchLvl * 3;
+                    else armdp = armDefdp + 4 + (armEnchLvl-1) * 3;
+                    //EV
                     armev = armDefev +armEnchLvl * 1;
-                    armhev = armDefhev + armEnchLvl * 3;
-                    armdr = armDefdr +3 +(armEnchLvl-1) * 2;
+                    //HEV
+                    if(armId == 9 | armId == 11)
+                    {
+                        if(armEnchLvl == 2) armhev = armDefhev + 9;
+                        else if (armEnchLvl == 3) armhev = armDefhev + 12;
+                    } //Agerian, Taritas
+                    else armhev = armDefhev + armEnchLvl * 3;
+                    //DR
+                    if (armId == 10) armdr = armDefdr + armEnchLvl * 2;
+                    else armdr = armDefdr +3 +(armEnchLvl-1) * 2;
+                    //HDR
                     armhdr = armDefhdr;
 
 
@@ -1001,10 +1021,22 @@ namespace BDO_Builder
                     cMaxHP -= armHP;
                     cMaxMP -= armMP;
 
+                    //DP
+                    if (armId == 10) armdp = armDefdp + armEnchLvl * 3;
                     armdp = armDefdp + 10 + (armEnchLvl - 3) * 3;
+                    //EV
                     armev = armDefev + armEnchLvl * 1;
-                    armhev = armDefhev + armEnchLvl * 3;
-                    armdr = armDefdr + 7 + (armEnchLvl - 3) * 2;
+                    //HEV
+                    if(armId == 9 | armId == 11)
+                    {
+                        if(armEnchLvl == 4) armhev = armDefhev + 14;
+                        else if (armEnchLvl == 5) armhev = armDefhev + 17;
+                    } //Agerian, Taritas
+                    else armhev = armDefhev + armEnchLvl * 3;
+                    //DR
+                    if (armId == 10) armdr = armDefdr + armEnchLvl * 2;
+                    else armdr = armDefdr + 7 + (armEnchLvl - 3) * 2;
+                    //HDR
                     armhdr = armDefhdr;
 
 
@@ -1028,12 +1060,38 @@ namespace BDO_Builder
                     cMaxHP -= armHP;
                     cMaxMP -= armMP;
 
-                    armdp = armDefdp + 14 + (armEnchLvl - 5) * 3;
-                    armev = armDefev + armEnchLvl * 1;
-                    armhev = armDefhev + armEnchLvl * 3;
-                    armdr = armDefdr + 9 + (armEnchLvl - 5) * 2;
-                    armhdr = armDefhdr;
+                    //DP
+                    if (armId == 10) armdp = armDefdp + 15 + (armEnchLvl - 5) * 4;
+                    else armdp = armDefdp + 14 + (armEnchLvl - 5) * 3;
 
+                    //EV
+                    if (armId == 10) armev = armDefev + 5 + (armEnchLvl - 5) * 2;
+                    else armev = armDefev + armEnchLvl * 1;
+
+                    //HEV
+                    if(armId == 10) 
+                    {
+                        if (armEnchLvl <= 10) armhev = armDefhev + 15 + (armEnchLvl - 5) * 6;
+                        else if (armEnchLvl == 11) armhev = armDefhev + 80;
+                        else if (armEnchLvl >= 12) armhev = armDefhev + 80 + (armEnchLvl - 11) * 6;
+                    } //Akum
+                    else if(armId == 9| armId == 11)
+                    {
+                        if(armEnchLvl ==6) armhev = armDefhev + 21;
+                        else if (armEnchLvl == 7) armhev = armDefhev + 23;
+                        else if (armEnchLvl == 8) armhev = armDefhev + 27;
+                        else if (armEnchLvl == 9) armhev = armDefhev + 30;
+                        else if (armEnchLvl >= 10) armhev = armDefhev + 30 + (armEnchLvl - 9) * 3;
+                    } //Agerian, Taritas
+                    else armhev = armDefhev + armEnchLvl * 3;
+
+                    //DR
+                    if (armId == 10) armdr = armDefdr + armEnchLvl * 2;
+                    else armdr = armDefdr + 9 + (armEnchLvl - 5) * 2;
+
+                    //HDR
+                    if (armId == 10 & armEnchLvl >= 11) armhdr = armDefhdr + armEnchLvl * 1;
+                    else armhdr = armDefhdr;
 
                     cdp += armdp;
                     cev += armev;
@@ -1055,11 +1113,23 @@ namespace BDO_Builder
                     cMaxHP -= armHP;
                     cMaxMP -= armMP;
 
-                    armdp = armDefdp + 49;
-                    armev = armDefev + 17;
-                    armhev = armDefhev + 55;
-                    armdr = armDefdr + 32;
-                    armhdr = armDefhdr + 1;
+                    //DR
+                    if (armId == 10) armdp = armDefdp + 15 + (armEnchLvl - 5) * 4;
+                    else armdp = armDefdp + 49;
+                    //Ev
+                    if (armId == 10) armev = armDefev + 5 + (armEnchLvl - 5) * 2;
+                    else armev = armDefev + 17;
+
+                    //Hev
+                    if (armId == 10) armhev = armDefhev + 109;
+                    else if (armId == 9 | armId == 11) armhev = armDefhev + 54;
+                    else armhev = armDefhev + 55;
+                    //DR
+                    if (armId == 10) armdr = armDefdr + armEnchLvl * 2;
+                    else armdr = armDefdr + 32;
+                    //HDR
+                    if (armId == 10) armhdr = armDefhdr + (armEnchLvl - 10) * 1;
+                    else armhdr = armDefhdr + 1;
 
 
                     cdp += armdp;
@@ -1081,12 +1151,23 @@ namespace BDO_Builder
                     chdr -= armhdr;
                     cMaxHP -= armHP;
                     cMaxMP -= armMP;
-
-                    armdp = armDefdp + 54;
-                    armev = armDefev + 19;
-                    armhev = armDefhev + 51;
-                    armdr = armDefdr + 35;
-                    armhdr = armDefhdr + 2;
+                    
+                    //DP
+                    if (armId == 10) armdp = armDefdp + 15 + (armEnchLvl - 5) * 4;
+                    else armdp = armDefdp + 54;
+                    //EV
+                    if (armId == 10) armev = armDefev + 5 + (armEnchLvl - 5) * 2;
+                    else armev = armDefev + 19;
+                    //HEV
+                    if (armId == 10) armhev = armDefhev + 109 + (armEnchLvl - 16) * 6;
+                    else if (armId == 9 | armId == 11) armhev = armDefhev + 60;
+                    else armhev = armDefhev + 51;
+                    //DR
+                    if (armId == 10) armdr = armDefdr + armEnchLvl * 2;
+                    else armdr = armDefdr + 35;
+                    //HDR
+                    if (armId == 10) armhdr = armDefhdr + (armEnchLvl - 10) * 1;
+                    else armhdr = armDefhdr + 2;
 
 
                     cdp += armdp;
@@ -1109,11 +1190,23 @@ namespace BDO_Builder
                     cMaxHP -= armHP;
                     cMaxMP -= armMP;
 
-                    armdp = armDefdp + 62;
-                    armev = armDefev + 21;
-                    armhev = armDefhev + 67;
-                    armdr = armDefdr + 41;
-                    armhdr = armDefhdr + 3;
+                    //DP
+                    if (armId == 10) armdp = armDefdp + 70;
+                    else armdp = armDefdp + 62;
+                    //EV
+                    if (armId == 10) armev = armDefev + 5 + (armEnchLvl - 5) * 2;
+                    else armev = armDefev + 21;
+                    //HEV
+                    if (armId == 10) armhev = armDefhev + 109 + (armEnchLvl - 16) * 6;
+                    else if (armId == 9 | armId == 11) armhev = armDefhev + 66;
+                    else armhev = armDefhev + 67;
+                    //DR
+                    if (armId == 10) armdr = armDefdr + (armEnchLvl-1) * 2 + 5;
+                    else  if (armId == 9| armId == 11)armdr = armDefdr + 38;
+                    else armdr = armDefdr + 41;
+                    //HDR
+                    if (armId == 10) armhdr = armDefhdr + 9;
+                    else armhdr = armDefhdr + 3;
 
 
                     cdp += armdp;
@@ -1135,12 +1228,24 @@ namespace BDO_Builder
                     chdr -= armhdr;
                     cMaxHP -= armHP;
                     cMaxMP -= armMP;
-
-                    armdp = armDefdp + 62 + (armEnchLvl-18)  * 5;
-                    armev = armDefev + 21 + (armEnchLvl - 18) * 2;
-                    armhev = armDefhev + 67+ (armEnchLvl - 18) * 6;
-                    armdr = armDefdr + 41+ (armEnchLvl - 18) * 3;
-                    armhdr = armDefhdr + 3+ (armEnchLvl - 18) * 1;
+                    
+                    //DP
+                    if (armId == 10) armdp = armDefdp + 70 + (armEnchLvl-18) * 4;
+                    else armdp = armDefdp + 62 + (armEnchLvl-18)  * 5;
+                    //EV
+                    if (armId == 10) armev = armDefev + 5 + (armEnchLvl - 5) * 2;
+                    else armev = armDefev + 21 + (armEnchLvl - 18) * 2;
+                    //HEV
+                    if (armId == 10) armhev = armDefhev + 109 + (armEnchLvl - 16) * 6;
+                    else if (armId == 9 | armId == 11) armhev = armDefhev + 66 + (armEnchLvl -18) * 6;
+                    else armhev = armDefhev + 67+ (armEnchLvl - 18) * 6;
+                    //DR
+                    if (armId == 10) armdr = armDefdr + 39 + (armEnchLvl-18) * 2;
+                    else if (armId == 9 | armId == 11) armdr = armDefdr + 38 + (armEnchLvl - 18) * 3;
+                    else armdr = armDefdr + 41+ (armEnchLvl - 18) * 3;
+                    //HDR
+                    if (armId == 10) armhdr = armDefhdr + 9+(armEnchLvl - 18) * 2;
+                    else armhdr = armDefhdr + 3+ (armEnchLvl - 18) * 1;
 
 
                     cdp += armdp;
