@@ -698,9 +698,12 @@ namespace BDO_Builder
                     cs.armDefMP = Convert.ToInt32(dr["MaxMP"]);
                     cs.armEnch = Convert.ToBoolean(dr["Ench"]);
                     cs.armIsBoss = Convert.ToBoolean(dr["IsBossItem"]);
+                    cs.armSSFRes = Convert.ToInt32(dr["SSFRes"]);
+                    cs.armWeight = Convert.ToInt32(dr["WeightLimit"]);
+                    cs.armAcc = Convert.ToInt32(dr["Accuracy"]);
                 }
 
-               LoadItemEnch_cb();
+                LoadItemEnch_cb();
 
                 cs.Type = "Armors";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
@@ -719,6 +722,9 @@ namespace BDO_Builder
                 iHDR_n.Text = cs.armdr.ToString();
                 iHP_n.Text = cs.armHP.ToString();
                 iMP_n.Text = cs.armMP.ToString();
+                iSSFR_n.Text = cs.armSSFRes.ToString();
+                iWeight_n.Text = cs.armWeight.ToString();
+                iAcc_n.Text = cs.armAcc.ToString();
 
 
                 FillCharacterState();
