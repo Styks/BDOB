@@ -196,5 +196,20 @@ namespace BDO_Builder
                 stf.Close();
             }
         }
+
+        private void BuffTimerForm_btn_Click(object sender, EventArgs e)
+        {
+            TimerForm tf = new TimerForm
+            {
+
+            };
+
+            Hide();
+            if (tf.ShowDialog() == DialogResult.Cancel)
+            {
+                Show();
+                tf.Close();
+            }
+        }
     }
 }

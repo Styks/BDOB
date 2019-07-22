@@ -20,29 +20,47 @@ namespace BDO_Builder
         //public bool iEnch; //Item can or can't be enchanted
         
         // Character stats
-        public int cdp; //DP
-        public int cap; //AP
-        public int caap; //AAP
+        public int cdp; // DP
+        public int cap; // AP
+        public int caap; // AAP
         public int cev;// Evasion
         public int cacc;//Accuracy
         public int cRes1 = 20;// Resists: Stun/Stiffness/Freezing
         public int cRes2 = 20;// Resists: Knockdown/Bound
         public int cRes3 = 20;// Resists: Grapple
         public int cRes4 = 20;// Resists: Knockback/Floating
-        public int cDR; //Damage Reduction
+        public int cDR; // Damage Reduction
         public int cMaxHP; // Max HP
         public int cWeight; // Weight
         public int cMaxMP;// Max MP
         public int cMaxST;// Max stamina
         public int chev; // Hiden evasion
         public int chdr; // hiden damage reduction
+        //NEW
+        public int cacs; // Attack/Cast speed
+        public int cmvs; // Movement speed 
+        public int ccr; // Critical Rate
 
-        //SetBonus Check
-        public int sb; //Set Bonus
-        public int asb; //Armour
-        public int hsb; //Helm
-        public int bsb; //Boots
-        public int gsb; //Gloves
+        //BossSetBonus Check (SetBonus = 1)
+        public int b_sb; //Set Bonus
+        public int b_asb; //Armour
+        public int b_hsb; //Helm
+        public int b_bsb; //Boots
+        public int b_gsb; //Gloves
+
+        //LemoriaSetBonus Check (SetBonus = 2)
+        public int l_sb;
+        public int l_asb;
+        public int l_hsb;
+        public int l_bsb;
+        public int l_gsb;
+
+        //AkumSetBonus Check (SetBonus = 3)
+        public int a_sb;
+        public int a_asb;
+        public int a_hsb;
+        public int a_bsb;
+        public int a_gsb;
 
         // Belt stats
         public int beltap; //Betl AP
@@ -2490,20 +2508,29 @@ namespace BDO_Builder
             }
         }
 
-        public void SetBonusCheck()
+        public void BossSetBonusCheck()
         {
-            sb = sb - asb;
-            sb = sb - hsb;
+            b_sb = b_sb - b_asb;
+            b_sb = b_sb - b_hsb;
+            b_sb = b_sb - b_bsb;
+            b_sb = b_sb - b_gsb;
 
-            if (armIsBoss == true) { asb = 1; }
-            if (armIsBoss == false && asb > 0) { asb = asb - 1; }
+            if (armIsBoss == true) { b_asb = 1; }
+            if (armIsBoss == false && b_asb > 0) { b_asb = b_asb - 1; }
 
-            if (helIsBoss == true) { hsb = 1; }
-            if (helIsBoss == false && hsb > 0) { hsb = hsb - 1; }
+            if (helIsBoss == true) { b_hsb = 1; }
+            if (helIsBoss == false && b_hsb > 0) { b_hsb = b_hsb - 1; }
 
+            if (shIsBoss == true) { b_bsb = 1; }
+            if (shIsBoss == false && b_bsb > 0) { b_bsb = b_bsb - 1; }
 
-            sb = sb + asb;
-            sb = sb + hsb;
+            if (glovIsBoss == true) { b_gsb = 1; }
+            if (glovIsBoss == false && b_gsb > 0) { b_gsb = b_gsb - 1; }
+
+            b_sb = b_sb + b_asb;
+            b_sb = b_sb + b_hsb;
+            b_sb = b_sb + b_bsb;
+            b_sb = b_sb + b_gsb;
         }
 
         

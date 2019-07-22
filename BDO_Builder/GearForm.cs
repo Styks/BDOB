@@ -19,6 +19,10 @@ namespace BDO_Builder
         public Image cimg;
         public int TempEnchLvl;
 
+        public int b_b3;
+        public int b_b4;
+
+
         readonly CharacterState cs = new CharacterState();
 
         public GearForm()
@@ -79,6 +83,10 @@ namespace BDO_Builder
             Weight_n.Text = Convert.ToString(cs.cWeight);
             cHDR_n.Text = Convert.ToString(cs.chdr);
             cHE_n.Text = Convert.ToString(cs.chev);
+            //NEW
+            cACS_n.Text = Convert.ToString(cs.cacs);
+            cMvS_n.Text = Convert.ToString(cs.cmvs);
+            cCR_n.Text = Convert.ToString(cs.ccr);
         }
 
         private void ItemStatClear()
@@ -871,12 +879,18 @@ namespace BDO_Builder
             } //Shoes
 
             //SetBonus
-            cs.SetBonusCheck();
-            sbc_lbl.Text = cs.sb.ToString();
-            if (cs.sb <= 1) { sbc1_lbl.Text = 0.ToString(); sbc2_lbl.Text = 0.ToString(); sbc3_lbl.Text = 0.ToString(); sbc4_lbl.Text = 0.ToString(); sbc5_lbl.Text = 0.ToString(); }
-            if (cs.sb == 2) { sbc1_lbl.Text = 200.ToString(); sbc2_lbl.Text = 100.ToString(); }
-            if (cs.sb == 3) { sbc3_lbl.Text = 200.ToString(); }
-            if (cs.sb == 4) { sbc4_lbl.Text = 1.ToString(); sbc5_lbl.Text = 1.ToString(); }
+            cs.BossSetBonusCheck();
+            sbc_lbl.Text = cs.b_sb.ToString();
+            if (cs.b_sb <= 1) { sbc1_lbl.Text = 0.ToString(); sbc2_lbl.Text = 0.ToString(); sbc3_lbl.Text = 0.ToString(); sbc4_lbl.Text = 0.ToString(); sbc5_lbl.Text = 0.ToString(); }
+            if (cs.b_sb == 2) { sbc1_lbl.Text = 200.ToString(); sbc2_lbl.Text = 100.ToString(); sbc3_lbl.Text = 0.ToString(); sbc4_lbl.Text = 0.ToString(); sbc5_lbl.Text = 0.ToString(); }
+            if (cs.b_sb == 3) { sbc3_lbl.Text = 200.ToString(); sbc4_lbl.Text = 0.ToString(); sbc5_lbl.Text = 0.ToString(); }
+            if (cs.b_sb == 4) { sbc4_lbl.Text = 1.ToString(); sbc5_lbl.Text = 1.ToString(); }
+
+            //TEST__//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            if (cs.b_sb <= 2) { cs.cMaxST = cs.cMaxST - b_b3; b_b3 = 0; FillCharacterState(); }
+            if (cs.b_sb == 3 && b_b3 == 0) { b_b3 = 200; cs.cMaxST = cs.cMaxST + b_b3; FillCharacterState(); }
+            if (cs.b_sb == 3) { cs.cacs = cs.cacs - b_b4; b_b4 = 0; FillCharacterState(); }
+            if (cs.b_sb == 4 && b_b4 == 0) { b_b4 = 1; cs.cacs = cs.cacs + b_b4; FillCharacterState(); }
         }
 
         private void LoadItemEnch_cb()
