@@ -157,9 +157,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Icon.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\BDOB_Icon.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -170,6 +167,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>BDO_Base.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\Sound_1.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

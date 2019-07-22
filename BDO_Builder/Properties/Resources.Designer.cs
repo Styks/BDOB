@@ -69,5 +69,14 @@ namespace BDO_Builder.Properties {
                 return ((System.Drawing.Icon)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.IO.UnmanagedMemoryStream, аналогичного System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Sound_1 {
+            get {
+                return ResourceManager.GetStream("Sound_1", resourceCulture);
+            }
+        }
     }
 }
