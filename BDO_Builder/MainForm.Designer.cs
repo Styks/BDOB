@@ -71,8 +71,8 @@
             this.Cimg_pb = new System.Windows.Forms.PictureBox();
             this.SelectClass_lbl = new System.Windows.Forms.Label();
             this.SelectedClass_lbl = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.CraftForm_btn = new System.Windows.Forms.Button();
+            this.BuffTimerForm_btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Cimg_pb)).BeginInit();
             this.SuspendLayout();
             // 
@@ -548,24 +548,25 @@
             this.SelectedClass_lbl.TabIndex = 43;
             this.SelectedClass_lbl.Text = "Selected Class";
             // 
-            // button1
+            // CraftForm_btn
             // 
-            this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(674, 221);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 44;
-            this.button1.Text = "Craft";
-            this.button1.UseVisualStyleBackColor = true;
+            this.CraftForm_btn.Enabled = false;
+            this.CraftForm_btn.Location = new System.Drawing.Point(674, 221);
+            this.CraftForm_btn.Name = "CraftForm_btn";
+            this.CraftForm_btn.Size = new System.Drawing.Size(75, 23);
+            this.CraftForm_btn.TabIndex = 44;
+            this.CraftForm_btn.Text = "Craft";
+            this.CraftForm_btn.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // BuffTimerForm_btn
             // 
-            this.button2.Enabled = false;
-            this.button2.Location = new System.Drawing.Point(673, 250);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 45;
-            this.button2.UseVisualStyleBackColor = true;
+            this.BuffTimerForm_btn.Location = new System.Drawing.Point(673, 250);
+            this.BuffTimerForm_btn.Name = "BuffTimerForm_btn";
+            this.BuffTimerForm_btn.Size = new System.Drawing.Size(75, 23);
+            this.BuffTimerForm_btn.TabIndex = 45;
+            this.BuffTimerForm_btn.Text = "Buff Timer";
+            this.BuffTimerForm_btn.UseVisualStyleBackColor = true;
+            this.BuffTimerForm_btn.Click += new System.EventHandler(this.BuffTimerForm_btn_Click);
             // 
             // MainForm
             // 
@@ -574,8 +575,8 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(774, 596);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BuffTimerForm_btn);
+            this.Controls.Add(this.CraftForm_btn);
             this.Controls.Add(this.Cimg_pb);
             this.Controls.Add(this.Sclass_lbl);
             this.Controls.Add(this.SelectedClass_lbl);
@@ -671,8 +672,8 @@
         private System.Windows.Forms.PictureBox Cimg_pb;
         private System.Windows.Forms.Label SelectClass_lbl;
         private System.Windows.Forms.Label SelectedClass_lbl;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button CraftForm_btn;
+        private System.Windows.Forms.Button BuffTimerForm_btn;
     }
 }
 
