@@ -231,7 +231,7 @@ namespace BDO_Builder
             BackColor = Color.White;
             TransparencyKey = Color.Empty;
             Back_btn.Visible = true;
-            Info_btn.Visible = false;
+            Info_btn.Visible = true;
             //Food_Start.Visible = true;
             Food_Pause.Visible = true;
             Food_panel.Visible = true;
