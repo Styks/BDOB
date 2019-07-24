@@ -142,16 +142,14 @@
             this.iHEvas_lbl = new System.Windows.Forms.Label();
             this.iHDR_n = new System.Windows.Forms.Label();
             this.iHDR_lbl = new System.Windows.Forms.Label();
-            this.sbc_lbl = new System.Windows.Forms.Label();
+            this.bsb_lbl = new System.Windows.Forms.Label();
             this.Test_index_lbl = new System.Windows.Forms.Label();
             this.Test_BossSet = new System.Windows.Forms.Label();
             this.InfTest_cb = new System.Windows.Forms.GroupBox();
-            this.sbc5_lbl = new System.Windows.Forms.Label();
-            this.sbc4_lbl = new System.Windows.Forms.Label();
-            this.Test_BossSetBonus = new System.Windows.Forms.Label();
-            this.sbc3_lbl = new System.Windows.Forms.Label();
-            this.sbc2_lbl = new System.Windows.Forms.Label();
-            this.sbc1_lbl = new System.Windows.Forms.Label();
+            this.asb_lbl = new System.Windows.Forms.Label();
+            this.lsb_lbl = new System.Windows.Forms.Label();
+            this.cHAP_lbl = new System.Windows.Forms.Label();
+            this.cHAP_n = new System.Windows.Forms.Label();
             this.ShopGear_gb.SuspendLayout();
             this.CharacterGear_gb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Class_pic)).BeginInit();
@@ -166,7 +164,7 @@
             // 
             this.Back_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Back_btn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Back_btn.Location = new System.Drawing.Point(1349, 12);
+            this.Back_btn.Location = new System.Drawing.Point(1342, 12);
             this.Back_btn.Name = "Back_btn";
             this.Back_btn.Size = new System.Drawing.Size(75, 23);
             this.Back_btn.TabIndex = 0;
@@ -510,6 +508,8 @@
             // 
             // MStats_gb
             // 
+            this.MStats_gb.Controls.Add(this.cHAP_n);
+            this.MStats_gb.Controls.Add(this.cHAP_lbl);
             this.MStats_gb.Controls.Add(this.cStamina_n);
             this.MStats_gb.Controls.Add(this.cStamina_lbl);
             this.MStats_gb.Controls.Add(this.cAcc_n);
@@ -580,7 +580,7 @@
             // Weight_n
             // 
             this.Weight_n.AutoSize = true;
-            this.Weight_n.Location = new System.Drawing.Point(66, 147);
+            this.Weight_n.Location = new System.Drawing.Point(65, 167);
             this.Weight_n.Name = "Weight_n";
             this.Weight_n.Size = new System.Drawing.Size(13, 13);
             this.Weight_n.TabIndex = 33;
@@ -589,7 +589,7 @@
             // cMP_n
             // 
             this.cMP_n.AutoSize = true;
-            this.cMP_n.Location = new System.Drawing.Point(45, 125);
+            this.cMP_n.Location = new System.Drawing.Point(45, 149);
             this.cMP_n.Name = "cMP_n";
             this.cMP_n.Size = new System.Drawing.Size(13, 13);
             this.cMP_n.TabIndex = 32;
@@ -598,7 +598,7 @@
             // cHP_n
             // 
             this.cHP_n.AutoSize = true;
-            this.cHP_n.Location = new System.Drawing.Point(45, 101);
+            this.cHP_n.Location = new System.Drawing.Point(45, 125);
             this.cHP_n.Name = "cHP_n";
             this.cHP_n.Size = new System.Drawing.Size(13, 13);
             this.cHP_n.TabIndex = 31;
@@ -607,7 +607,7 @@
             // cWeight_lbl
             // 
             this.cWeight_lbl.AutoSize = true;
-            this.cWeight_lbl.Location = new System.Drawing.Point(18, 147);
+            this.cWeight_lbl.Location = new System.Drawing.Point(17, 167);
             this.cWeight_lbl.Name = "cWeight_lbl";
             this.cWeight_lbl.Size = new System.Drawing.Size(41, 13);
             this.cWeight_lbl.TabIndex = 30;
@@ -616,7 +616,7 @@
             // cMP_lbl
             // 
             this.cMP_lbl.AutoSize = true;
-            this.cMP_lbl.Location = new System.Drawing.Point(18, 125);
+            this.cMP_lbl.Location = new System.Drawing.Point(18, 149);
             this.cMP_lbl.Name = "cMP_lbl";
             this.cMP_lbl.Size = new System.Drawing.Size(23, 13);
             this.cMP_lbl.TabIndex = 29;
@@ -625,7 +625,7 @@
             // cHP_lbl
             // 
             this.cHP_lbl.AutoSize = true;
-            this.cHP_lbl.Location = new System.Drawing.Point(17, 101);
+            this.cHP_lbl.Location = new System.Drawing.Point(17, 125);
             this.cHP_lbl.Name = "cHP_lbl";
             this.cHP_lbl.Size = new System.Drawing.Size(22, 13);
             this.cHP_lbl.TabIndex = 28;
@@ -724,7 +724,7 @@
             // cDP_n
             // 
             this.cDP_n.AutoSize = true;
-            this.cDP_n.Location = new System.Drawing.Point(45, 77);
+            this.cDP_n.Location = new System.Drawing.Point(45, 101);
             this.cDP_n.Name = "cDP_n";
             this.cDP_n.Size = new System.Drawing.Size(13, 13);
             this.cDP_n.TabIndex = 7;
@@ -742,7 +742,7 @@
             // cDP_lbl
             // 
             this.cDP_lbl.AutoSize = true;
-            this.cDP_lbl.Location = new System.Drawing.Point(17, 77);
+            this.cDP_lbl.Location = new System.Drawing.Point(17, 101);
             this.cDP_lbl.Name = "cDP_lbl";
             this.cDP_lbl.Size = new System.Drawing.Size(22, 13);
             this.cDP_lbl.TabIndex = 5;
@@ -1333,14 +1333,14 @@
             this.iHDR_lbl.TabIndex = 56;
             this.iHDR_lbl.Text = "Hiden dr";
             // 
-            // sbc_lbl
+            // bsb_lbl
             // 
-            this.sbc_lbl.AutoSize = true;
-            this.sbc_lbl.Location = new System.Drawing.Point(273, 65);
-            this.sbc_lbl.Name = "sbc_lbl";
-            this.sbc_lbl.Size = new System.Drawing.Size(13, 13);
-            this.sbc_lbl.TabIndex = 58;
-            this.sbc_lbl.Text = "0";
+            this.bsb_lbl.AutoSize = true;
+            this.bsb_lbl.Location = new System.Drawing.Point(273, 65);
+            this.bsb_lbl.Name = "bsb_lbl";
+            this.bsb_lbl.Size = new System.Drawing.Size(13, 13);
+            this.bsb_lbl.TabIndex = 58;
+            this.bsb_lbl.Text = "0";
             // 
             // Test_index_lbl
             // 
@@ -1356,22 +1356,18 @@
             this.Test_BossSet.AutoSize = true;
             this.Test_BossSet.Location = new System.Drawing.Point(273, 47);
             this.Test_BossSet.Name = "Test_BossSet";
-            this.Test_BossSet.Size = new System.Drawing.Size(86, 13);
+            this.Test_BossSet.Size = new System.Drawing.Size(63, 13);
             this.Test_BossSet.TabIndex = 60;
-            this.Test_BossSet.Text = "BossSet Counter";
+            this.Test_BossSet.Text = "Set Counter";
             // 
             // InfTest_cb
             // 
-            this.InfTest_cb.Controls.Add(this.sbc5_lbl);
-            this.InfTest_cb.Controls.Add(this.sbc4_lbl);
-            this.InfTest_cb.Controls.Add(this.Test_BossSetBonus);
-            this.InfTest_cb.Controls.Add(this.sbc3_lbl);
-            this.InfTest_cb.Controls.Add(this.sbc2_lbl);
-            this.InfTest_cb.Controls.Add(this.sbc1_lbl);
+            this.InfTest_cb.Controls.Add(this.asb_lbl);
+            this.InfTest_cb.Controls.Add(this.lsb_lbl);
             this.InfTest_cb.Controls.Add(this.textBox1);
             this.InfTest_cb.Controls.Add(this.Test_index_lbl);
             this.InfTest_cb.Controls.Add(this.Test_BossSet);
-            this.InfTest_cb.Controls.Add(this.sbc_lbl);
+            this.InfTest_cb.Controls.Add(this.bsb_lbl);
             this.InfTest_cb.Location = new System.Drawing.Point(1113, 83);
             this.InfTest_cb.Name = "InfTest_cb";
             this.InfTest_cb.Size = new System.Drawing.Size(411, 265);
@@ -1379,66 +1375,48 @@
             this.InfTest_cb.TabStop = false;
             this.InfTest_cb.Text = "Info for test";
             // 
-            // sbc5_lbl
+            // asb_lbl
             // 
-            this.sbc5_lbl.AutoSize = true;
-            this.sbc5_lbl.Location = new System.Drawing.Point(292, 157);
-            this.sbc5_lbl.Name = "sbc5_lbl";
-            this.sbc5_lbl.Size = new System.Drawing.Size(13, 13);
-            this.sbc5_lbl.TabIndex = 63;
-            this.sbc5_lbl.Text = "0";
+            this.asb_lbl.AutoSize = true;
+            this.asb_lbl.Location = new System.Drawing.Point(273, 102);
+            this.asb_lbl.Name = "asb_lbl";
+            this.asb_lbl.Size = new System.Drawing.Size(13, 13);
+            this.asb_lbl.TabIndex = 64;
+            this.asb_lbl.Text = "0";
             // 
-            // sbc4_lbl
+            // lsb_lbl
             // 
-            this.sbc4_lbl.AutoSize = true;
-            this.sbc4_lbl.Location = new System.Drawing.Point(273, 157);
-            this.sbc4_lbl.Name = "sbc4_lbl";
-            this.sbc4_lbl.Size = new System.Drawing.Size(13, 13);
-            this.sbc4_lbl.TabIndex = 63;
-            this.sbc4_lbl.Text = "0";
+            this.lsb_lbl.AutoSize = true;
+            this.lsb_lbl.Location = new System.Drawing.Point(273, 83);
+            this.lsb_lbl.Name = "lsb_lbl";
+            this.lsb_lbl.Size = new System.Drawing.Size(13, 13);
+            this.lsb_lbl.TabIndex = 63;
+            this.lsb_lbl.Text = "0";
             // 
-            // Test_BossSetBonus
+            // cHAP_lbl
             // 
-            this.Test_BossSetBonus.AutoSize = true;
-            this.Test_BossSetBonus.Location = new System.Drawing.Point(273, 93);
-            this.Test_BossSetBonus.Name = "Test_BossSetBonus";
-            this.Test_BossSetBonus.Size = new System.Drawing.Size(90, 13);
-            this.Test_BossSetBonus.TabIndex = 66;
-            this.Test_BossSetBonus.Text = "BossSet Bonuses";
+            this.cHAP_lbl.AutoSize = true;
+            this.cHAP_lbl.Location = new System.Drawing.Point(17, 77);
+            this.cHAP_lbl.Name = "cHAP_lbl";
+            this.cHAP_lbl.Size = new System.Drawing.Size(58, 13);
+            this.cHAP_lbl.TabIndex = 38;
+            this.cHAP_lbl.Text = "Hidden AP";
             // 
-            // sbc3_lbl
+            // cHAP_n
             // 
-            this.sbc3_lbl.AutoSize = true;
-            this.sbc3_lbl.Location = new System.Drawing.Point(273, 138);
-            this.sbc3_lbl.Name = "sbc3_lbl";
-            this.sbc3_lbl.Size = new System.Drawing.Size(13, 13);
-            this.sbc3_lbl.TabIndex = 65;
-            this.sbc3_lbl.Text = "0";
-            // 
-            // sbc2_lbl
-            // 
-            this.sbc2_lbl.AutoSize = true;
-            this.sbc2_lbl.Location = new System.Drawing.Point(317, 118);
-            this.sbc2_lbl.Name = "sbc2_lbl";
-            this.sbc2_lbl.Size = new System.Drawing.Size(13, 13);
-            this.sbc2_lbl.TabIndex = 64;
-            this.sbc2_lbl.Text = "0";
-            // 
-            // sbc1_lbl
-            // 
-            this.sbc1_lbl.AutoSize = true;
-            this.sbc1_lbl.Location = new System.Drawing.Point(273, 118);
-            this.sbc1_lbl.Name = "sbc1_lbl";
-            this.sbc1_lbl.Size = new System.Drawing.Size(13, 13);
-            this.sbc1_lbl.TabIndex = 63;
-            this.sbc1_lbl.Text = "0";
+            this.cHAP_n.AutoSize = true;
+            this.cHAP_n.Location = new System.Drawing.Point(81, 77);
+            this.cHAP_n.Name = "cHAP_n";
+            this.cHAP_n.Size = new System.Drawing.Size(13, 13);
+            this.cHAP_n.TabIndex = 39;
+            this.cHAP_n.Text = "0";
             // 
             // GearForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1436, 624);
+            this.ClientSize = new System.Drawing.Size(1429, 624);
             this.Controls.Add(this.InfTest_cb);
             this.Controls.Add(this.iHDR_n);
             this.Controls.Add(this.iHDR_lbl);
@@ -1620,15 +1598,13 @@
         private System.Windows.Forms.Label iHEvas_lbl;
         private System.Windows.Forms.Label iHDR_n;
         private System.Windows.Forms.Label iHDR_lbl;
-        private System.Windows.Forms.Label sbc_lbl;
+        private System.Windows.Forms.Label bsb_lbl;
         private System.Windows.Forms.Label Test_index_lbl;
         private System.Windows.Forms.Label Test_BossSet;
         private System.Windows.Forms.GroupBox InfTest_cb;
-        private System.Windows.Forms.Label Test_BossSetBonus;
-        private System.Windows.Forms.Label sbc3_lbl;
-        private System.Windows.Forms.Label sbc2_lbl;
-        private System.Windows.Forms.Label sbc1_lbl;
-        private System.Windows.Forms.Label sbc5_lbl;
-        private System.Windows.Forms.Label sbc4_lbl;
+        private System.Windows.Forms.Label asb_lbl;
+        private System.Windows.Forms.Label lsb_lbl;
+        private System.Windows.Forms.Label cHAP_n;
+        private System.Windows.Forms.Label cHAP_lbl;
     }
 }

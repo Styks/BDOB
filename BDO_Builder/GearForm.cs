@@ -18,10 +18,18 @@ namespace BDO_Builder
         public string sclass;
         public Image cimg;
         public int TempEnchLvl;
-
+        
+        //Boss
         public int b_b3;
         public int b_b4;
-
+        //Lemoria
+        public int l_b2;
+        public int l_b4;
+        //Akum
+        public int a_b2;
+        public int a_b3a;
+        public int a_b3b;
+        public int a_b4;
 
         readonly CharacterState cs = new CharacterState();
 
@@ -87,6 +95,7 @@ namespace BDO_Builder
             cACS_n.Text = Convert.ToString(cs.cacs);
             cMvS_n.Text = Convert.ToString(cs.cmvs);
             cCR_n.Text = Convert.ToString(cs.ccr);
+            cHAP_n.Text = Convert.ToString(cs.chap);
         }
 
         private void ItemStatClear()
@@ -709,6 +718,7 @@ namespace BDO_Builder
                     cs.armSSFRes = Convert.ToInt32(dr["SSFRes"]);
                     cs.armWeight = Convert.ToInt32(dr["WeightLimit"]);
                     cs.armAcc = Convert.ToInt32(dr["Accuracy"]);
+                    cs.armSB = Convert.ToInt32(dr["SetBonus"]);
                 }
 
                 LoadItemEnch_cb();
@@ -759,6 +769,7 @@ namespace BDO_Builder
                     cs.helDefRes = Convert.ToInt32(dr["AllRes"]);
                     cs.helEnch = Convert.ToBoolean(dr["Ench"]);
                     cs.helIsBoss = Convert.ToBoolean(dr["IsBossItem"]);
+                    cs.helSB = Convert.ToInt32(dr["SetBonus"]);
                 }
 
                 LoadItemEnch_cb();
@@ -805,6 +816,7 @@ namespace BDO_Builder
                     cs.glovDefhdr = Convert.ToInt32(dr["HDR"]);
                     cs.glovEnch = Convert.ToBoolean(dr["Ench"]);
                     cs.glovIsBoss = Convert.ToBoolean(dr["IsBossItem"]);
+                    cs.glovSB = Convert.ToInt32(dr["SetBonus"]);
                 }
 
                 LoadItemEnch_cb();
@@ -850,6 +862,7 @@ namespace BDO_Builder
                     cs.shDefhdr = Convert.ToInt32(dr["HDR"]);
                     cs.shEnch = Convert.ToBoolean(dr["Ench"]);
                     cs.shIsBoss = Convert.ToBoolean(dr["IsBossItem"]);
+                    cs.shSB = Convert.ToInt32(dr["SetBonus"]);
                 }
 
                 LoadItemEnch_cb();
@@ -880,17 +893,29 @@ namespace BDO_Builder
 
             //SetBonus
             cs.BossSetBonusCheck();
-            sbc_lbl.Text = cs.b_sb.ToString();
-            if (cs.b_sb <= 1) { sbc1_lbl.Text = 0.ToString(); sbc2_lbl.Text = 0.ToString(); sbc3_lbl.Text = 0.ToString(); sbc4_lbl.Text = 0.ToString(); sbc5_lbl.Text = 0.ToString(); }
-            if (cs.b_sb == 2) { sbc1_lbl.Text = 200.ToString(); sbc2_lbl.Text = 100.ToString(); sbc3_lbl.Text = 0.ToString(); sbc4_lbl.Text = 0.ToString(); sbc5_lbl.Text = 0.ToString(); }
-            if (cs.b_sb == 3) { sbc3_lbl.Text = 200.ToString(); sbc4_lbl.Text = 0.ToString(); sbc5_lbl.Text = 0.ToString(); }
-            if (cs.b_sb == 4) { sbc4_lbl.Text = 1.ToString(); sbc5_lbl.Text = 1.ToString(); }
+            bsb_lbl.Text = cs.b_sb.ToString();
+            lsb_lbl.Text = cs.l_sb.ToString();
+            asb_lbl.Text = cs.a_sb.ToString();
 
             //TEST__//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //BossSet
             if (cs.b_sb <= 2) { cs.cMaxST = cs.cMaxST - b_b3; b_b3 = 0; FillCharacterState(); }
             if (cs.b_sb == 3 && b_b3 == 0) { b_b3 = 200; cs.cMaxST = cs.cMaxST + b_b3; FillCharacterState(); }
             if (cs.b_sb == 3) { cs.cacs = cs.cacs - b_b4; b_b4 = 0; FillCharacterState(); }
             if (cs.b_sb == 4 && b_b4 == 0) { b_b4 = 1; cs.cacs = cs.cacs + b_b4; FillCharacterState(); }
+            //Lemoria
+            if (cs.l_sb < 2) { cs.cmvs = cs.cmvs - l_b2; cs.ccr = cs.ccr - l_b2; l_b2 = 0; FillCharacterState(); }
+            if (cs.l_sb == 2 && l_b2 == 0) { l_b2 = 1; cs.cmvs = cs.cmvs + l_b2; cs.ccr = cs.ccr + l_b2; FillCharacterState(); }
+            if (cs.l_sb == 3) { cs.cacs = cs.cacs - l_b4; l_b4 = 0; FillCharacterState(); }
+            if (cs.l_sb == 4 && l_b4 == 0) { l_b4 = 2; cs.cacs = cs.cacs + l_b4; FillCharacterState(); }
+            //Akum
+            if (cs.a_sb < 2) { cs.cev = cs.cev - a_b2; a_b2 = 0; FillCharacterState(); }
+            if (cs.a_sb == 2 && a_b2 == 0) { a_b2 = 1; cs.cev = cs.cev + a_b2; FillCharacterState(); }
+            if (cs.a_sb == 2) { cs.cDR = cs.cDR - a_b3a; cs.cMaxHP = cs.cMaxHP - a_b3b; a_b3a = 0; a_b3b = 0; FillCharacterState(); }
+            if (cs.a_sb == 3 && a_b3a == 0) { a_b3a = 5; a_b3b = 150; cs.cDR = cs.cDR + a_b3a; cs.cMaxHP = cs.cMaxHP + a_b3b; FillCharacterState(); }
+            if (cs.a_sb == 3) { cs.chap = cs.chap - a_b4; a_b4 = 0; FillCharacterState(); }
+            if (cs.a_sb == 4 && a_b4 == 0) { a_b4 = 7; cs.chap = cs.chap + a_b4; FillCharacterState(); }
+            //Hercules' Might //Grunil //Taritas //Rocaba //Agerian //Strength "" of Heve //Zereth //Talis //Luck "" of Fortuna
         }
 
         private void LoadItemEnch_cb()

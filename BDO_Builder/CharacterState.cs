@@ -40,6 +40,7 @@ namespace BDO_Builder
         public int cacs; // Attack/Cast speed
         public int cmvs; // Movement speed 
         public int ccr; // Critical Rate
+        public int chap; // Hidden AP
 
         //BossSetBonus Check (SetBonus = 1)
         public int b_sb; //Set Bonus
@@ -219,6 +220,7 @@ namespace BDO_Builder
         public int armSSFRes;
         public int armWeight;
         public int armAcc;
+        public int armSB; //set bonus
 
         //Helmet stats
         public int heldp;// Helmet DP
@@ -239,6 +241,7 @@ namespace BDO_Builder
         public int helDefhdr;// Helmet default hiden damage reduction 
         public int helDefHP;
         public int helDefRes;
+        public int helSB; // set bonus
 
         //Gloves stats
         public int glovdp;// Gloves DP
@@ -257,6 +260,7 @@ namespace BDO_Builder
         public int glovDefhev;// Gloves default hiden evasion 
         public int glovDefdr;// Gloves default damage reduction 
         public int glovDefhdr;// Gloves default hiden damage reduction 
+        public int glovSB; // set bonus
 
         //Shoes stats
         public int shdp;// Shoes DP
@@ -273,7 +277,7 @@ namespace BDO_Builder
         public int shDefhev;// Shoes default hiden evasion 
         public int shDefdr;// Shoes default damage reduction 
         public int shDefhdr;// Shoes default hiden damage reduction
-
+        public int shSB; //Set bonus
 
         readonly SqlCommand cmd = Base_Connect.Connection.CreateCommand();
         
@@ -2510,29 +2514,59 @@ namespace BDO_Builder
 
         public void BossSetBonusCheck()
         {
-            b_sb = b_sb - b_asb;
+            b_sb = b_sb - b_asb; // Boss (1)
             b_sb = b_sb - b_hsb;
             b_sb = b_sb - b_bsb;
             b_sb = b_sb - b_gsb;
+            l_sb = l_sb - l_asb; // Lemoria (2)
+            l_sb = l_sb - l_hsb;
+            l_sb = l_sb - l_bsb;
+            l_sb = l_sb - l_gsb;
+            a_sb = a_sb - a_asb; // Akum (3)
+            a_sb = a_sb - a_hsb;
+            a_sb = a_sb - a_bsb;
+            a_sb = a_sb - a_gsb;
+            // Boss
+            if (armSB == 1) { b_asb = 1; }
+            if (armSB != 1 && b_asb > 0) { b_asb = b_asb - 1; }
+            if (helSB == 1) { b_hsb = 1; }
+            if (helSB != 1 && b_hsb > 0) { b_hsb = b_hsb - 1; }
+            if (shSB == 1) { b_bsb = 1; }
+            if (shSB != 1 && b_bsb > 0) { b_bsb = b_bsb - 1; }
+            if (glovSB == 1) { b_gsb = 1; }
+            if (glovSB != 1 && b_gsb > 0) { b_gsb = b_gsb - 1; }
+            // Lemoria
+            if (armSB == 2) { l_asb = 1; }
+            if (armSB != 2 && l_asb > 0) { l_asb = l_asb - 1; }
+            if (helSB == 2) { l_hsb = 1; }
+            if (helSB != 2 && l_hsb > 0) { l_hsb = l_hsb - 1; }
+            if (shSB == 2) { l_bsb = 1; }
+            if (shSB != 2 && l_bsb > 0) { l_bsb = l_bsb - 1; }
+            if (glovSB == 2) { l_gsb = 1; }
+            if (glovSB != 2 && l_gsb > 0) { l_gsb = l_gsb - 1; }
+            // Akum
+            if (armSB == 3) { a_asb = 1; }
+            if (armSB != 3 && a_asb > 0) { a_asb = a_asb - 1; }
+            if (helSB == 3) { a_hsb = 1; }
+            if (helSB != 3 && a_hsb > 0) { a_hsb = a_hsb - 1; }
+            if (shSB == 3) { a_bsb = 1; }
+            if (shSB != 3 && a_bsb > 0) { a_bsb = a_bsb - 1; }
+            if (glovSB == 3) { a_gsb = 1; }
+            if (glovSB != 3 && a_gsb > 0) { a_gsb = a_gsb - 1; }
 
-            if (armIsBoss == true) { b_asb = 1; }
-            if (armIsBoss == false && b_asb > 0) { b_asb = b_asb - 1; }
-
-            if (helIsBoss == true) { b_hsb = 1; }
-            if (helIsBoss == false && b_hsb > 0) { b_hsb = b_hsb - 1; }
-
-            if (shIsBoss == true) { b_bsb = 1; }
-            if (shIsBoss == false && b_bsb > 0) { b_bsb = b_bsb - 1; }
-
-            if (glovIsBoss == true) { b_gsb = 1; }
-            if (glovIsBoss == false && b_gsb > 0) { b_gsb = b_gsb - 1; }
-
-            b_sb = b_sb + b_asb;
+            b_sb = b_sb + b_asb; // Boss
             b_sb = b_sb + b_hsb;
             b_sb = b_sb + b_bsb;
             b_sb = b_sb + b_gsb;
+            l_sb = l_sb + l_asb; // Lemoria
+            l_sb = l_sb + l_hsb;
+            l_sb = l_sb + l_bsb;
+            l_sb = l_sb + l_gsb;
+            a_sb = a_sb + a_asb; // Akum
+            a_sb = a_sb + a_hsb;
+            a_sb = a_sb + a_bsb;
+            a_sb = a_sb + a_gsb;
         }
 
-        
     }
 }
