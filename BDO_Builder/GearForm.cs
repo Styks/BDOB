@@ -716,7 +716,7 @@ namespace BDO_Builder
                     cs.armEnch = Convert.ToBoolean(dr["Ench"]);
                     cs.armIsBoss = Convert.ToBoolean(dr["IsBossItem"]);
                     cs.armSSFRes = Convert.ToInt32(dr["SSFRes"]);
-                    cs.armWeight = Convert.ToInt32(dr["WeightLimit"]);
+                    cs.armDefWeight = Convert.ToInt32(dr["WeightLimit"]);
                     cs.armAcc = Convert.ToInt32(dr["Accuracy"]);
                     cs.armSB = Convert.ToInt32(dr["SetBonus"]);
                 }
@@ -766,10 +766,15 @@ namespace BDO_Builder
                     cs.helDefdr = Convert.ToInt32(dr["DR"]);
                     cs.helDefhdr = Convert.ToInt32(dr["HDR"]);
                     cs.helDefHP = Convert.ToInt32(dr["MaxHP"]);
-                    cs.helDefRes = Convert.ToInt32(dr["AllRes"]);
+                    cs.helSSFDefRes = Convert.ToInt32(dr["SSFREs"]);
+                    cs.helKFDefRes = Convert.ToInt32(dr["KFRes"]);
+                    cs.helGrapleDefRes = Convert.ToInt32(dr["KBREs"]);
+                    cs.helKBDefRes = Convert.ToInt32(dr["GrapleRes"]);
+                    cs.helDefWeight = Convert.ToInt32(dr["WeightLimit"]);
                     cs.helEnch = Convert.ToBoolean(dr["Ench"]);
                     cs.helIsBoss = Convert.ToBoolean(dr["IsBossItem"]);
                     cs.helSB = Convert.ToInt32(dr["SetBonus"]);
+                    cs.helDefST = Convert.ToInt32(dr["MaxStamina"]);
                 }
 
                 LoadItemEnch_cb();
@@ -790,9 +795,13 @@ namespace BDO_Builder
                 iDR_n.Text = cs.heldr.ToString();
                 iHDR_n.Text = cs.helhdr.ToString();
                 iHP_n.Text = cs.helHP.ToString();
-                iRes_n.Text = cs.helRes.ToString();
+                iSSFR_n.Text = cs.helSSFRes.ToString();
+                iKBR_n.Text = cs.helKBRes.ToString();
+                iGrapR_n.Text = cs.helGrapleRes.ToString();
+                iKFR_n.Text = cs.helKFRes.ToString();
+                iST_n.Text = cs.helWeight.ToString();
 
-                
+
                 FillCharacterState();
 
                 cs.helId = SelectGear_cb.SelectedIndex;
@@ -1097,7 +1106,11 @@ namespace BDO_Builder
                 iDR_n.Text = cs.heldr.ToString();
                 iHDR_n.Text = cs.helhdr.ToString();
                 iHP_n.Text = cs.helHP.ToString();
-                iRes_n.Text = cs.helRes.ToString();
+                iSSFR_n.Text = cs.helSSFRes.ToString();
+                iKBR_n.Text = cs.helKBRes.ToString();
+                iGrapR_n.Text = cs.helGrapleRes.ToString();
+                iKFR_n.Text = cs.helKFRes.ToString();
+                iST_n.Text = cs.helWeight.ToString();
 
 
                 FillCharacterState();

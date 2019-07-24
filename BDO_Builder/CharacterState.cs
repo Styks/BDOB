@@ -219,6 +219,7 @@ namespace BDO_Builder
         public int armDefMP;
         public int armSSFRes;
         public int armWeight;
+        public int armDefWeight;
         public int armAcc;
         public int armSB; //set bonus
 
@@ -229,7 +230,10 @@ namespace BDO_Builder
         public int heldr;// Helmet damage reduction
         public int helhdr;// Helmet hiden damage reduction
         public int helHP;
-        public int helRes;
+        public int helSSFRes;
+        public int helKFRes;
+        public int helKBRes;
+        public int helGrapleRes;
         public bool helEnch;
         public int helId = 0; // Current Helmet Id
         public int helEnchLvl = 0; // Helmet's enchant level
@@ -240,7 +244,14 @@ namespace BDO_Builder
         public int helDefdr;// Helmet default damage reduction 
         public int helDefhdr;// Helmet default hiden damage reduction 
         public int helDefHP;
-        public int helDefRes;
+        public int helSSFDefRes;
+        public int helKFDefRes;
+        public int helKBDefRes;
+        public int helGrapleDefRes;
+        public int helWeight;
+        public int helDefWeight;
+        public int helST;
+        public int helDefST;
         public int helSB; // set bonus
 
         //Gloves stats
@@ -980,7 +991,7 @@ namespace BDO_Builder
                     //EV
                     armev = armDefev + 1;
                     //HEV
-                    if (armId == 9 | armId == 13 | armId == 16 | armId == 24 | armId == 34 | armId == 35) armhev = armDefhev + 7;
+                    if (armId == 9 | armId == 13 | armId == 16 | armId == 24 | armId == 34 | armId == 35 | armId == 15 | armId == 33) armhev = armDefhev + 7;
                     else armhev = armDefhev + 3;
                     //DR
                     if (armId == 10 | armId == 19) armdr = armDefdr + armEnchLvl * 2;
@@ -1019,7 +1030,7 @@ namespace BDO_Builder
                     //EV
                     armev = armDefev +armEnchLvl * 1;
                     //HEV
-                    if(armId == 9 | armId == 13 | armId == 16 | armId == 24 | armId == 34 | armId == 35)
+                    if(armId == 9 | armId == 13 | armId == 16 | armId == 24 | armId == 34 | armId == 35 | armId == 15 | armId == 33)
                     {
                         if(armEnchLvl == 2) armhev = armDefhev + 9;
                         else if (armEnchLvl == 3) armhev = armDefhev + 12;
@@ -1061,7 +1072,7 @@ namespace BDO_Builder
                     //EV
                     armev = armDefev + armEnchLvl * 1;
                     //HEV
-                    if(armId == 9 | armId == 13 | armId == 16 | armId == 24 | armId == 34 | armId == 35)
+                    if(armId == 9 | armId == 13 | armId == 16 | armId == 24 | armId == 34 | armId == 35 | armId == 15 | armId == 33)
                     {
                         if(armEnchLvl == 4) armhev = armDefhev + 14;
                         else if (armEnchLvl == 5) armhev = armDefhev + 17;
@@ -1112,7 +1123,7 @@ namespace BDO_Builder
                         else if (armEnchLvl == 11) armhev = armDefhev + 50;
                         else if (armEnchLvl >= 12) armhev = armDefhev + 50 + (armEnchLvl - 11) * 6;
                     } //Akum
-                    else if(armId == 9| armId == 13 | armId == 16 | armId == 24 | armId == 34 | armId == 35)
+                    else if(armId == 9| armId == 13 | armId == 16 | armId == 24 | armId == 34 | armId == 35 | armId == 15 | armId == 33)
                     {
                         if(armEnchLvl ==6) armhev = armDefhev + 21;
                         else if (armEnchLvl == 7) armhev = armDefhev + 24;
@@ -1162,7 +1173,7 @@ namespace BDO_Builder
 
                     //Hev
                     if (armId == 10 | armId == 19) armhev = armDefhev + 79; //Akum
-                    else if (armId == 9 | armId == 13 | armId == 16 | armId == 24 | armId == 34 | armId == 35) armhev = armDefhev + 55; //Agerian, Taritas, Zereth
+                    else if (armId == 9 | armId == 13 | armId == 16 | armId == 24 | armId == 34 | armId == 35 | armId == 15 | armId == 33) armhev = armDefhev + 55; //Agerian, Taritas, Zereth
                     else armhev = armDefhev + 55;
                     //DR
                     if (armId == 10 | armId == 19) armdr = armDefdr + armEnchLvl * 2;
@@ -1203,7 +1214,7 @@ namespace BDO_Builder
                     else armev = armDefev + 19;
                     //HEV
                     if (armId == 10 | armId == 19) armhev = armDefhev + 79 + (armEnchLvl - 16) * 6;
-                    else if (armId == 9 | armId == 13 | armId == 16 | armId == 24 | armId == 34 | armId == 35) armhev = armDefhev + 61;
+                    else if (armId == 9 | armId == 13 | armId == 16 | armId == 24 | armId == 34 | armId == 35 | armId == 15 | armId == 33) armhev = armDefhev + 61;
                     else armhev = armDefhev + 61;
                     //DR
                     if (armId == 10 | armId == 19) armdr = armDefdr + armEnchLvl * 2;
@@ -1244,7 +1255,7 @@ namespace BDO_Builder
                     else armev = armDefev + 21;
                     //HEV
                     if (armId == 10 | armId == 19) armhev = armDefhev + 79 + (armEnchLvl - 16) * 6;
-                    else if (armId == 9 | armId == 13 | armId == 16 | armId == 24 | armId == 34 | armId == 35) armhev = armDefhev + 67;
+                    else if (armId == 9 | armId == 13 | armId == 16 | armId == 24 | armId == 34 | armId == 35 | armId == 15 | armId == 33) armhev = armDefhev + 67;
                     else armhev = armDefhev + 67;
                     //DR
                     if (armId == 10 | armId == 19) armdr = armDefdr + (armEnchLvl-1) * 2 + 5;
@@ -1286,7 +1297,7 @@ namespace BDO_Builder
                     else armev = armDefev + 21 + (armEnchLvl - 18) * 2;
                     //HEV
                     if (armId == 10 | armId == 19) armhev = armDefhev + 79 + (armEnchLvl - 16) * 6;
-                    else if (armId == 9 | armId == 13 | armId == 16 | armId == 24 | armId == 34 | armId == 35) armhev = armDefhev + 67 + (armEnchLvl -18) * 6;
+                    else if (armId == 9 | armId == 13 | armId == 16 | armId == 24 | armId == 34 | armId == 35 | armId == 15 | armId == 33) armhev = armDefhev + 67 + (armEnchLvl -18) * 6;
                     else armhev = armDefhev + 67+ (armEnchLvl - 18) * 6;
                     //DR
                     if (armId == 10 | armId == 19) armdr = armDefdr + 39 + (armEnchLvl-18) * 2;
@@ -1331,6 +1342,8 @@ namespace BDO_Builder
                 armhdr = armDefhdr;
                 armHP = armDefHP;
                 armMP = armDefHP;
+                armWeight = armDefWeight;
+
 
 
                 cdp += armdp;
@@ -1357,7 +1370,7 @@ namespace BDO_Builder
             da.Fill(dt);
 
 
-            if (helEnch == true & helIsBoss == true)
+            if (helEnch == true & helIsBoss == true | armId == 21)
             {
                 if (helEnchLvl >= 1 & helEnchLvl <= 15)
                 {
@@ -1368,17 +1381,20 @@ namespace BDO_Builder
                     cDR -= heldr;
                     chdr -= helhdr;
                     cMaxHP -= helHP;
-                    cRes1 -= helRes;
-                    cRes2 -= helRes;
-                    cRes3 -= helRes;
-                    cRes4 -= helRes;
+                    cRes1 -= helSSFRes;
+                    cRes2 -= helKBRes;
+                    cRes3 -= helGrapleRes;
+                    cRes4 -= helKFRes;
 
                     heldp = helDefdp + helEnchLvl * 3;
                     helev = helDefev + helEnchLvl * 1;
                     helhev = helDefhev + helEnchLvl * 2;
                     heldr = helDefdr + helEnchLvl * 2;
                     helhdr = helDefhdr + helEnchLvl * 0;
-                    helRes = helDefRes;
+                    helSSFRes = helSSFDefRes;
+                    helKBRes = helKBDefRes;
+                    helGrapleRes = helGrapleDefRes;
+                    helKFRes = helKFDefRes;
 
 
                     cdp += heldp;
@@ -1387,10 +1403,10 @@ namespace BDO_Builder
                     cDR += heldr;
                     chdr += helhdr;
                     cMaxHP += helHP;
-                    cRes1 += helRes;
-                    cRes2 += helRes;
-                    cRes3 += helRes;
-                    cRes4 += helRes;
+                    cRes1 += helSSFRes;
+                    cRes2 += helKBRes;
+                    cRes3 += helGrapleRes;
+                    cRes4 += helKFRes;
                 }
 
                 if (helEnchLvl == 16)
@@ -1402,17 +1418,20 @@ namespace BDO_Builder
                     cDR -= heldr;
                     chdr -= helhdr;
                     cMaxHP -= helHP;
-                    cRes1 -= helRes;
-                    cRes2 -= helRes;
-                    cRes3 -= helRes;
-                    cRes4 -= helRes;
+                    cRes1 -= helSSFRes;
+                    cRes2 -= helKBRes;
+                    cRes3 -= helGrapleRes;
+                    cRes4 -= helKFRes;
 
                     heldp = helDefdp + 50;
                     helev = helDefev + 17;
                     helhev = helDefhev + 38;
                     heldr = helDefdr + 33;
                     helhdr = helDefhdr + 1;
-                    helRes = helDefRes;
+                    helSSFRes = helSSFDefRes;
+                    helKBRes = helKBDefRes;
+                    helGrapleRes = helGrapleDefRes;
+                    helKFRes = helKFDefRes;
 
 
                     cdp += heldp;
@@ -1421,10 +1440,10 @@ namespace BDO_Builder
                     cDR += heldr;
                     chdr += helhdr;
                     cMaxHP += helHP;
-                    cRes1 += helRes;
-                    cRes2 += helRes;
-                    cRes3 += helRes;
-                    cRes4 += helRes;
+                    cRes1 += helSSFRes;
+                    cRes2 += helKBRes;
+                    cRes3 += helGrapleRes;
+                    cRes4 += helKFRes;
                 }
 
                 if (helEnchLvl == 17)
@@ -1436,10 +1455,10 @@ namespace BDO_Builder
                     cDR -= heldr;
                     chdr -= helhdr;
                     cMaxHP -= helHP;
-                    cRes1 -= helRes;
-                    cRes2 -= helRes;
-                    cRes3 -= helRes;
-                    cRes4 -= helRes;
+                    cRes1 -= helSSFRes;
+                    cRes2 -= helKBRes;
+                    cRes3 -= helGrapleRes;
+                    cRes4 -= helKFRes;
 
                     heldp = helDefdp + 55;
                     helev = helDefev + 19;
@@ -1447,7 +1466,10 @@ namespace BDO_Builder
                     heldr = helDefdr + 36;
                     if (helId == 0) helhdr = helDefhdr + 2;
                     else helhdr = helDefhdr + 1;
-                    helRes = helDefRes;
+                    helSSFRes = helSSFDefRes;
+                    helKBRes = helKBDefRes;
+                    helGrapleRes = helGrapleDefRes;
+                    helKFRes = helKFDefRes;
 
 
                     cdp += heldp;
@@ -1456,10 +1478,10 @@ namespace BDO_Builder
                     cDR += heldr;
                     chdr += helhdr;
                     cMaxHP += helHP;
-                    cRes1 += helRes;
-                    cRes2 += helRes;
-                    cRes3 += helRes;
-                    cRes4 += helRes;
+                    cRes1 += helSSFRes;
+                    cRes2 += helKBRes;
+                    cRes3 += helGrapleRes;
+                    cRes4 += helKFRes;
                 }
 
                 if (helEnchLvl == 18)
@@ -1471,10 +1493,10 @@ namespace BDO_Builder
                     cDR -= heldr;
                     chdr -= helhdr;
                     cMaxHP -= helHP;
-                    cRes1 -= helRes;
-                    cRes2 -= helRes;
-                    cRes3 -= helRes;
-                    cRes4 -= helRes;
+                    cRes1 -= helSSFRes;
+                    cRes2 -= helKBRes;
+                    cRes3 -= helGrapleRes;
+                    cRes4 -= helKFRes;
 
                     heldp = helDefdp + 63;
                     helev = helDefev + 21;
@@ -1482,7 +1504,10 @@ namespace BDO_Builder
                     heldr = helDefdr + 42;
                     if (helId == 0) helhdr = helDefhdr + 4;
                     else helhdr = helDefhdr + 6;
-                    helRes = helDefRes;
+                    helSSFRes = helSSFDefRes;
+                    helKBRes = helKBDefRes;
+                    helGrapleRes = helGrapleDefRes;
+                    helKFRes = helKFDefRes;
 
 
                     cdp += heldp;
@@ -1491,10 +1516,10 @@ namespace BDO_Builder
                     cDR += heldr;
                     chdr += helhdr;
                     cMaxHP += helHP;
-                    cRes1 += helRes;
-                    cRes2 += helRes;
-                    cRes3 += helRes;
-                    cRes4 += helRes;
+                    cRes1 += helSSFRes;
+                    cRes2 += helKBRes;
+                    cRes3 += helGrapleRes;
+                    cRes4 += helKFRes;
                 }
 
                 if (helEnchLvl == 19)
@@ -1506,10 +1531,10 @@ namespace BDO_Builder
                     cDR -= heldr;
                     chdr -= helhdr;
                     cMaxHP -= helHP;
-                    cRes1 -= helRes;
-                    cRes2 -= helRes;
-                    cRes3 -= helRes;
-                    cRes4 -= helRes;
+                    cRes1 -= helSSFRes;
+                    cRes2 -= helKBRes;
+                    cRes3 -= helGrapleRes;
+                    cRes4 -= helKFRes;
 
                     heldp = helDefdp + 68;
                     helev = helDefev + 23;
@@ -1517,8 +1542,10 @@ namespace BDO_Builder
                     heldr = helDefdr + 45;
                     if (helId == 0) helhdr = helDefhdr + 8;
                     else helhdr = helDefhdr + 11;
-                    helRes = helDefRes;
-
+                    helSSFRes = helSSFDefRes;
+                    helKBRes = helKBDefRes;
+                    helGrapleRes = helGrapleDefRes;
+                    helKFRes = helKFDefRes;
 
                     cdp += heldp;
                     cev += helev;
@@ -1526,10 +1553,10 @@ namespace BDO_Builder
                     cDR += heldr;
                     chdr += helhdr;
                     cMaxHP += helHP;
-                    cRes1 += helRes;
-                    cRes2 += helRes;
-                    cRes3 += helRes;
-                    cRes4 += helRes;
+                    cRes1 += helSSFRes;
+                    cRes2 += helKBRes;
+                    cRes3 += helGrapleRes;
+                    cRes4 += helKFRes;
                 }
 
                 if (helEnchLvl == 20)
@@ -1541,10 +1568,10 @@ namespace BDO_Builder
                     cDR -= heldr;
                     chdr -= helhdr;
                     cMaxHP -= helHP;
-                    cRes1 -= helRes;
-                    cRes2 -= helRes;
-                    cRes3 -= helRes;
-                    cRes4 -= helRes;
+                    cRes1 -= helSSFRes;
+                    cRes2 -= helKBRes;
+                    cRes3 -= helGrapleRes;
+                    cRes4 -= helKFRes;
 
                     heldp = helDefdp + 73;
                     helev = helDefev + 25;
@@ -1552,7 +1579,10 @@ namespace BDO_Builder
                     heldr = helDefdr + 48;
                     if (helId == 0) helhdr = helDefhdr + 14;
                     else helhdr = helDefhdr + 17;
-                    helRes = helDefRes;
+                    helSSFRes = helSSFDefRes;
+                    helKBRes = helKBDefRes;
+                    helGrapleRes = helGrapleDefRes;
+                    helKFRes = helKFDefRes;
 
 
                     cdp += heldp;
@@ -1561,10 +1591,10 @@ namespace BDO_Builder
                     cDR += heldr;
                     chdr += helhdr;
                     cMaxHP += helHP;
-                    cRes1 += helRes;
-                    cRes2 += helRes;
-                    cRes3 += helRes;
-                    cRes4 += helRes;
+                    cRes1 += helSSFRes;
+                    cRes2 += helKBRes;
+                    cRes3 += helGrapleRes;
+                    cRes4 += helKFRes;
                 }
 
             }
@@ -1580,12 +1610,41 @@ namespace BDO_Builder
                     cDR -= heldr;
                     chdr -= helhdr;
                     cMaxHP -= helHP;
+                    cRes1 -= helSSFRes;
+                    cRes2 -= helKBRes;
+                    cRes3 -= helGrapleRes;
+                    cRes4 -= helKFRes;
 
-                    heldp = helDefdp + helEnchLvl * 3;
+                    if (helId == 9 | helId == 19)
+                    {
+                        if (helEnchLvl == 1) heldp = helDefdp + 2;
+                        else heldp = helDefdp + 5;
+                    }
+                    else heldp = helDefdp + helEnchLvl * 3;
+
                     helev = helDefev + helEnchLvl * 1;
-                    helhev = helDefhev + helEnchLvl * 3;
-                    heldr = helDefdr + helEnchLvl * 2;
+
+                    if(helId == 8 | helId == 13 | helId == 14  | helId == 15 | helId == 24 | helId == 31 | helId == 32 | helId == 33)
+                    {
+                        if (helEnchLvl == 1) helhev = helDefhev + 7;
+                        else helhev = helDefhev + 9;
+                    }
+                    else if(helId == 9 | helId == 19) helhev = helDefev + helEnchLvl * 2;
+                    else helhev = helDefhev + helEnchLvl * 3;
+
+                    if (helId == 9 | helId == 19)
+                    {
+                        if (helEnchLvl == 1) heldr = helDefdr + 1;
+                        else heldr = helDefdr + 3;
+                    }
+                    else heldr = helDefdr + helEnchLvl * 2;
+
                     helhdr = helDefhdr;
+
+                    helSSFRes = helSSFDefRes;
+                    helKBRes = helKBDefRes;
+                    helGrapleRes = helGrapleDefRes;
+                    helKFRes = helKFDefRes;
 
 
                     cdp += heldp;
@@ -1594,24 +1653,46 @@ namespace BDO_Builder
                     cDR += heldr;
                     chdr += helhdr;
                     cMaxHP += helHP;
+                    cRes1 += helSSFRes;
+                    cRes2 += helKBRes;
+                    cRes3 += helGrapleRes;
+                    cRes4 += helKFRes;
                 }
 
                 if (helEnchLvl >= 3 & helEnchLvl <= 5)
                 {
-
                     cdp -= heldp;
                     cev -= helev;
                     chev -= helhev;
                     cDR -= heldr;
                     chdr -= helhdr;
                     cMaxHP -= helHP;
+                    cRes1 -= helSSFRes;
+                    cRes2 -= helKBRes;
+                    cRes3 -= helGrapleRes;
+                    cRes4 -= helKFRes;
 
-                    heldp = helDefdp + 6 + (helEnchLvl - 2) * 3;
+                    if (helId == 9 | helId == 19) heldp = helDefdp + 2 + (helEnchLvl-2) *3;
+                    else heldp = helDefdp + 6 + (helEnchLvl - 2) * 3;
                     helev = helDefev + helEnchLvl * 1;
-                    helhev = helDefhev + helEnchLvl * 3;
-                    heldr = helDefdr + 4 + (helEnchLvl - 2) * 2;
-                    helhdr = helDefhdr;
 
+                    if (helId == 8 | helId == 13 | helId == 14 | helId == 15 | helId == 24 | helId == 31 | helId == 32 | helId == 33)
+                    {
+                        if (helEnchLvl == 3) helhev = helDefhev + 10;
+                        else if (helEnchLvl == 4) helhev = helDefhev + 12;
+                        else helhev = helDefhev + 15;
+                    }
+                    else if (helId == 9 | helId == 19) helhev = helDefev + helEnchLvl * 2;
+                    else helhev = helDefhev + helEnchLvl * 3;
+
+                    if (helId == 9 | helId == 19) heldr = helDefdr + 1 + (helEnchLvl-1) * 2 ;
+                    else heldr = helDefdr + 4 + (helEnchLvl - 2) * 2;
+
+                    helhdr = helDefhdr;
+                    helSSFRes = helSSFDefRes;
+                    helKBRes = helKBDefRes;
+                    helGrapleRes = helGrapleDefRes;
+                    helKFRes = helKFDefRes;
 
                     cdp += heldp;
                     cev += helev;
@@ -1619,6 +1700,10 @@ namespace BDO_Builder
                     cDR += heldr;
                     chdr += helhdr;
                     cMaxHP += helHP;
+                    cRes1 += helSSFRes;
+                    cRes2 += helKBRes;
+                    cRes3 += helGrapleRes;
+                    cRes4 += helKFRes;
                 }
 
                 if (helEnchLvl >= 6 & helEnchLvl <= 15)
@@ -1630,13 +1715,40 @@ namespace BDO_Builder
                     cDR -= heldr;
                     chdr -= helhdr;
                     cMaxHP -= helHP;
+                    cRes1 -= helSSFRes;
+                    cRes2 -= helKBRes;
+                    cRes3 -= helGrapleRes;
+                    cRes4 -= helKFRes;
 
-                    heldp = helDefdp + 12 + (helEnchLvl - 5) * 3;
+                    if (helId == 9 | helId == 19) heldp = helDefdp + 14 + (helEnchLvl - 5) * 3;
+                    else heldp = helDefdp + 12 + (helEnchLvl - 5) * 3;
+
                     helev = helDefev + helEnchLvl * 1;
-                    helhev = helDefhev + helEnchLvl * 3;
-                    heldr = helDefdr + 7 + (helEnchLvl - 5) * 2;
-                    helhdr = helDefhdr;
 
+                    if (helId == 8 | helId == 13 | helId == 14 | helId == 15 | helId == 24 | helId == 31 | helId == 32 | helId == 33)
+                    {
+                        if (helEnchLvl == 6) helhev = helDefhev + 21;
+                        else if (helEnchLvl == 7) helhev = helDefhev + 24;
+                        else if (helEnchLvl == 8) helhev = helDefhev + 28;
+                        else if (helEnchLvl == 9) helhev = helDefhev + 31;
+                        else if (helEnchLvl >= 10) helhev = helDefhev + 31 + (helEnchLvl - 9) * 3;
+                    }
+                    else if (helId == 9 | helId == 19) helhev = helDefev + helEnchLvl * 2;
+                    else helhev = helDefhev + helEnchLvl * 3;
+
+                    if (helId == 9 | helId == 19) heldr = helDefdr + 1 + (helEnchLvl - 1) * 2;
+                    else heldr = helDefdr + 7 + (helEnchLvl - 5) * 2;
+
+                    if (helId == 9 | helId == 19)
+                    {
+                        if (helEnchLvl >= 11) helhdr = helDefhdr + (helEnchLvl - 10) * 2;
+                        else helhdr = helDefhdr;
+                    }
+                    else helhdr = helDefhdr;
+                    helSSFRes = helSSFDefRes;
+                    helKBRes = helKBDefRes;
+                    helGrapleRes = helGrapleDefRes;
+                    helKFRes = helKFDefRes;
 
                     cdp += heldp;
                     cev += helev;
@@ -1644,6 +1756,10 @@ namespace BDO_Builder
                     cDR += heldr;
                     chdr += helhdr;
                     cMaxHP += helHP;
+                    cRes1 += helSSFRes;
+                    cRes2 += helKBRes;
+                    cRes3 += helGrapleRes;
+                    cRes4 += helKFRes;
                 }
 
                 if (helEnchLvl == 16)
@@ -1655,13 +1771,29 @@ namespace BDO_Builder
                     cDR -= heldr;
                     chdr -= helhdr;
                     cMaxHP -= helHP;
+                    cRes1 -= helSSFRes;
+                    cRes2 -= helKBRes;
+                    cRes3 -= helGrapleRes;
+                    cRes4 -= helKFRes;
 
-                    heldp = helDefdp + 47 ;
+                    if (helId == 9 | helId == 19) heldp = helDefdp + 48;
+                    else heldp = helDefdp + 47 ;
+
                     helev = helDefev + 17;
-                    helhev = helDefhev + 55;
-                    heldr = helDefdr + 30;
-                    helhdr = helDefhdr + 1;
 
+                    if (helId == 8 | helId == 13 | helId == 14 | helId == 15 | helId == 24 | helId == 31 | helId == 32 | helId == 33) helhev = helDefhev + 55;
+                    else if (helId == 9 | helId == 19) helhev = helDefev + 36;
+                    else helhev = helDefhev + 55;
+
+                    if (helId == 9 | helId == 19) heldr = helDefdr + 31;
+                    else heldr = helDefdr + 30;
+
+                    if (helId == 9 | helId == 19) helhdr = helDefhdr + (helEnchLvl - 10) * 2;
+                    else helhdr = helDefhdr + 1;
+                    helSSFRes = helSSFDefRes;
+                    helKBRes = helKBDefRes;
+                    helGrapleRes = helGrapleDefRes;
+                    helKFRes = helKFDefRes;
 
                     cdp += heldp;
                     cev += helev;
@@ -1669,6 +1801,10 @@ namespace BDO_Builder
                     cDR += heldr;
                     chdr += helhdr;
                     cMaxHP += helHP;
+                    cRes1 += helSSFRes;
+                    cRes2 += helKBRes;
+                    cRes3 += helGrapleRes;
+                    cRes4 += helKFRes;
                 }
 
                 if (helEnchLvl == 17)
@@ -1680,13 +1816,25 @@ namespace BDO_Builder
                     cDR -= heldr;
                     chdr -= helhdr;
                     cMaxHP -= helHP;
+                    cRes1 -= helSSFRes;
+                    cRes2 -= helKBRes;
+                    cRes3 -= helGrapleRes;
+                    cRes4 -= helKFRes;
 
-                    heldp = helDefdp + 52;
+                    if (helId == 9 | helId == 19) heldp = helDefdp + 52;
+                    else heldp = helDefdp + 52;
                     helev = helDefev + 19;
-                    helhev = helDefhev + 61;
-                    heldr = helDefdr + 33;
-                    helhdr = helDefhdr + 2;
-
+                    if (helId == 8 | helId == 13 | helId == 14 | helId == 15 | helId == 24 | helId == 31 | helId == 32 | helId == 33) helhev = helDefhev + 61;
+                    else if (helId == 9 | helId == 19) helhev = helDefev + 40;
+                    else helhev = helDefhev + 61;
+                    if (helId == 9 | helId == 19) heldr = helDefdr + 33;
+                    else heldr = helDefdr + 33;
+                    if (helId == 9 | helId == 19) helhdr = helDefhdr + (helEnchLvl - 10) * 2;
+                    else helhdr = helDefhdr + 2;
+                    helSSFRes = helSSFDefRes;
+                    helKBRes = helKBDefRes;
+                    helGrapleRes = helGrapleDefRes;
+                    helKFRes = helKFDefRes;
 
                     cdp += heldp;
                     cev += helev;
@@ -1694,6 +1842,10 @@ namespace BDO_Builder
                     cDR += heldr;
                     chdr += helhdr;
                     cMaxHP += helHP;
+                    cRes1 += helSSFRes;
+                    cRes2 += helKBRes;
+                    cRes3 += helGrapleRes;
+                    cRes4 += helKFRes;
                 }
 
                 if (helEnchLvl == 18)
@@ -1705,13 +1857,25 @@ namespace BDO_Builder
                     cDR -= heldr;
                     chdr -= helhdr;
                     cMaxHP -= helHP;
+                    cRes1 -= helSSFRes;
+                    cRes2 -= helKBRes;
+                    cRes3 -= helGrapleRes;
+                    cRes4 -= helKFRes;
 
-                    heldp = helDefdp + 60;
+                    if (helId == 9 | helId == 19) heldp = helDefdp + 59;
+                    else heldp = helDefdp + 60;
                     helev = helDefev + 21;
-                    helhev = helDefhev + 67;
-                    heldr = helDefdr + 39;
-                    helhdr = helDefhdr + 3;
-
+                    if (helId == 8 | helId == 13 | helId == 14 | helId == 15 | helId == 24 | helId == 31 | helId == 32 | helId == 33) helhev = helDefhev + 67;
+                    else if (helId == 9 | helId == 19) helhev = helDefev + 44;
+                    else helhev = helDefhev + 67;
+                    if (helId == 9 | helId == 19) heldr = helDefdr + 38;
+                    else heldr = helDefdr + 39;
+                    if (helId == 9 | helId == 19) helhdr = helDefhdr + (helEnchLvl - 10) * 2;
+                    else helhdr = helDefhdr + 3;
+                    helSSFRes = helSSFDefRes;
+                    helKBRes = helKBDefRes;
+                    helGrapleRes = helGrapleDefRes;
+                    helKFRes = helKFDefRes;
 
                     cdp += heldp;
                     cev += helev;
@@ -1719,6 +1883,10 @@ namespace BDO_Builder
                     cDR += heldr;
                     chdr += helhdr;
                     cMaxHP += helHP;
+                    cRes1 += helSSFRes;
+                    cRes2 += helKBRes;
+                    cRes3 += helGrapleRes;
+                    cRes4 += helKFRes;
                 }
 
                 if (helEnchLvl >= 19 & helEnchLvl <= 20)
@@ -1730,13 +1898,27 @@ namespace BDO_Builder
                     cDR -= heldr;
                     chdr -= helhdr;
                     cMaxHP -= helHP;
+                    cRes1 -= helSSFRes;
+                    cRes2 -= helKBRes;
+                    cRes3 -= helGrapleRes;
+                    cRes4 -= helKFRes;
 
-                    heldp = helDefdp + 60 + (helEnchLvl - 18) * 5;
+                    if (helId == 9 | helId == 19) heldp = helDefdp + 59 + (helEnchLvl - 18) * 4;
+                    else heldp = helDefdp + 60 + (helEnchLvl - 18) * 5;
                     helev = helDefev + 21 + (helEnchLvl - 18) * 2;
-                    helhev = helDefhev + 67 + (helEnchLvl - 18) * 6;
-                    heldr = helDefdr + 39 + (helEnchLvl - 18) * 3;
-                    helhdr = helDefhdr + 3 + (helEnchLvl - 18) * 1;
+                    if (helId == 8 | helId == 13 | helId == 14 | helId == 15 | helId == 24 | helId == 31 | helId == 32 | helId == 33) helhev = helDefhev + 67 + (helEnchLvl - 18) * 6;
+                    else if (helId == 9 | helId == 19) helhev = helDefev + 44 + (helEnchLvl - 18) * 4;
+                    else helhev = helDefhev + 67 + (helEnchLvl - 18) * 6;
 
+                    if (helId == 9 | helId == 19) heldr = helDefdr + 38 + (helEnchLvl - 18) * 2;
+                    else heldr = helDefdr + 39 + (helEnchLvl - 18) * 3;
+
+                    if (helId == 9 | helId == 19) helhdr = helDefhdr + (helEnchLvl - 10) * 2;
+                    else helhdr = helDefhdr + 3 + (helEnchLvl - 18) * 1;
+                    helSSFRes = helSSFDefRes;
+                    helKBRes = helKBDefRes;
+                    helGrapleRes = helGrapleDefRes;
+                    helKFRes = helKFDefRes;
 
                     cdp += heldp;
                     cev += helev;
@@ -1744,6 +1926,10 @@ namespace BDO_Builder
                     cDR += heldr;
                     chdr += helhdr;
                     cMaxHP += helHP;
+                    cRes1 += helSSFRes;
+                    cRes2 += helKBRes;
+                    cRes3 += helGrapleRes;
+                    cRes4 += helKFRes;
                 }
             }
 
@@ -1756,10 +1942,13 @@ namespace BDO_Builder
                 cDR -= heldr;
                 chdr -= helhdr;
                 cMaxHP -= helHP;
-                cRes1 -= helRes;
-                cRes2 -= helRes;
-                cRes3 -= helRes;
-                cRes4 -= helRes;
+                cRes1 -= helSSFRes;
+                cRes2 -= helKBRes;
+                cRes3 -= helGrapleRes;
+                cRes4 -= helKFRes;
+                cWeight -= helWeight;
+                cMaxST -= helST;
+
 
 
 
@@ -1769,8 +1958,12 @@ namespace BDO_Builder
                 heldr = helDefdr;
                 helhdr = helDefhdr;
                 helHP = helDefHP;
-                helRes = helDefRes;
-
+                helSSFRes = helSSFDefRes;
+                helKBRes = helKBDefRes;
+                helGrapleRes = helGrapleDefRes;
+                helKFRes = helKFDefRes;
+                helWeight = helDefWeight;
+                helST = helDefST;
 
                 cdp += heldp;
                 cev += helev;
@@ -1778,11 +1971,12 @@ namespace BDO_Builder
                 cDR += heldr;
                 chdr += helhdr;
                 cMaxHP += helHP;
-                cRes1 += helRes;
-                cRes2 += helRes;
-                cRes3 += helRes;
-                cRes4 += helRes;
-
+                cRes1 += helSSFRes;
+                cRes2 += helKBRes;
+                cRes3 += helGrapleRes;
+                cRes4 += helKFRes;
+                cWeight += helWeight;
+                cMaxST -= helST;
             }
         }
 
