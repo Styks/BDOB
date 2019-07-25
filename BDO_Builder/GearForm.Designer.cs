@@ -57,6 +57,8 @@
             this.Armour_btn = new System.Windows.Forms.Button();
             this.Helmet_btn = new System.Windows.Forms.Button();
             this.MStats_gb = new System.Windows.Forms.GroupBox();
+            this.cHAP_n = new System.Windows.Forms.Label();
+            this.cHAP_lbl = new System.Windows.Forms.Label();
             this.cStamina_n = new System.Windows.Forms.Label();
             this.cStamina_lbl = new System.Windows.Forms.Label();
             this.cAcc_n = new System.Windows.Forms.Label();
@@ -86,7 +88,7 @@
             this.Settings_gb = new System.Windows.Forms.GroupBox();
             this.dpLvl_cb = new System.Windows.Forms.CheckBox();
             this.cACS_lbl = new System.Windows.Forms.Label();
-            this.cACS_n = new System.Windows.Forms.Label();
+            this.cAtkSpeed_n = new System.Windows.Forms.Label();
             this.cMvS_lbl = new System.Windows.Forms.Label();
             this.cMvS_n = new System.Windows.Forms.Label();
             this.cCR_lbl = new System.Windows.Forms.Label();
@@ -148,8 +150,14 @@
             this.InfTest_cb = new System.Windows.Forms.GroupBox();
             this.asb_lbl = new System.Windows.Forms.Label();
             this.lsb_lbl = new System.Windows.Forms.Label();
-            this.cHAP_lbl = new System.Windows.Forms.Label();
-            this.cHAP_n = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cCastSpeed_n = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.iAtkSpeed_n = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.iCastSpeed_n = new System.Windows.Forms.Label();
+            this.iCrit_n = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.ShopGear_gb.SuspendLayout();
             this.CharacterGear_gb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Class_pic)).BeginInit();
@@ -541,6 +549,24 @@
             this.MStats_gb.TabStop = false;
             this.MStats_gb.Text = "MainStats";
             // 
+            // cHAP_n
+            // 
+            this.cHAP_n.AutoSize = true;
+            this.cHAP_n.Location = new System.Drawing.Point(81, 77);
+            this.cHAP_n.Name = "cHAP_n";
+            this.cHAP_n.Size = new System.Drawing.Size(13, 13);
+            this.cHAP_n.TabIndex = 39;
+            this.cHAP_n.Text = "0";
+            // 
+            // cHAP_lbl
+            // 
+            this.cHAP_lbl.AutoSize = true;
+            this.cHAP_lbl.Location = new System.Drawing.Point(17, 77);
+            this.cHAP_lbl.Name = "cHAP_lbl";
+            this.cHAP_lbl.Size = new System.Drawing.Size(58, 13);
+            this.cHAP_lbl.TabIndex = 38;
+            this.cHAP_lbl.Text = "Hidden AP";
+            // 
             // cStamina_n
             // 
             this.cStamina_n.AutoSize = true;
@@ -807,18 +833,18 @@
             this.cACS_lbl.AutoSize = true;
             this.cACS_lbl.Location = new System.Drawing.Point(12, 28);
             this.cACS_lbl.Name = "cACS_lbl";
-            this.cACS_lbl.Size = new System.Drawing.Size(98, 13);
+            this.cACS_lbl.Size = new System.Drawing.Size(72, 13);
             this.cACS_lbl.TabIndex = 8;
-            this.cACS_lbl.Text = "Attack/Cast Speed";
+            this.cACS_lbl.Text = "Attack Speed";
             // 
-            // cACS_n
+            // cAtkSpeed_n
             // 
-            this.cACS_n.AutoSize = true;
-            this.cACS_n.Location = new System.Drawing.Point(116, 28);
-            this.cACS_n.Name = "cACS_n";
-            this.cACS_n.Size = new System.Drawing.Size(13, 13);
-            this.cACS_n.TabIndex = 9;
-            this.cACS_n.Text = "0";
+            this.cAtkSpeed_n.AutoSize = true;
+            this.cAtkSpeed_n.Location = new System.Drawing.Point(116, 28);
+            this.cAtkSpeed_n.Name = "cAtkSpeed_n";
+            this.cAtkSpeed_n.Size = new System.Drawing.Size(13, 13);
+            this.cAtkSpeed_n.TabIndex = 9;
+            this.cAtkSpeed_n.Text = "0";
             // 
             // cMvS_lbl
             // 
@@ -894,6 +920,8 @@
             // 
             // OStats_gb
             // 
+            this.OStats_gb.Controls.Add(this.label1);
+            this.OStats_gb.Controls.Add(this.cCastSpeed_n);
             this.OStats_gb.Controls.Add(this.cKFR_n);
             this.OStats_gb.Controls.Add(this.cGrapR_n);
             this.OStats_gb.Controls.Add(this.cKBR_n);
@@ -911,7 +939,7 @@
             this.OStats_gb.Controls.Add(this.cCR_lbl);
             this.OStats_gb.Controls.Add(this.cACS_lbl);
             this.OStats_gb.Controls.Add(this.cMvS_n);
-            this.OStats_gb.Controls.Add(this.cACS_n);
+            this.OStats_gb.Controls.Add(this.cAtkSpeed_n);
             this.OStats_gb.Controls.Add(this.cMvS_lbl);
             this.OStats_gb.Location = new System.Drawing.Point(724, 394);
             this.OStats_gb.Name = "OStats_gb";
@@ -1393,23 +1421,77 @@
             this.lsb_lbl.TabIndex = 63;
             this.lsb_lbl.Text = "0";
             // 
-            // cHAP_lbl
+            // label1
             // 
-            this.cHAP_lbl.AutoSize = true;
-            this.cHAP_lbl.Location = new System.Drawing.Point(17, 77);
-            this.cHAP_lbl.Name = "cHAP_lbl";
-            this.cHAP_lbl.Size = new System.Drawing.Size(58, 13);
-            this.cHAP_lbl.TabIndex = 38;
-            this.cHAP_lbl.Text = "Hidden AP";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 147);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(62, 13);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "Cast Speed";
             // 
-            // cHAP_n
+            // cCastSpeed_n
             // 
-            this.cHAP_n.AutoSize = true;
-            this.cHAP_n.Location = new System.Drawing.Point(81, 77);
-            this.cHAP_n.Name = "cHAP_n";
-            this.cHAP_n.Size = new System.Drawing.Size(13, 13);
-            this.cHAP_n.TabIndex = 39;
-            this.cHAP_n.Text = "0";
+            this.cCastSpeed_n.AutoSize = true;
+            this.cCastSpeed_n.Location = new System.Drawing.Point(116, 147);
+            this.cCastSpeed_n.Name = "cCastSpeed_n";
+            this.cCastSpeed_n.Size = new System.Drawing.Size(13, 13);
+            this.cCastSpeed_n.TabIndex = 28;
+            this.cCastSpeed_n.Text = "0";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(755, 249);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 13);
+            this.label2.TabIndex = 29;
+            this.label2.Text = "Attack Speed";
+            // 
+            // iAtkSpeed_n
+            // 
+            this.iAtkSpeed_n.AutoSize = true;
+            this.iAtkSpeed_n.Location = new System.Drawing.Point(859, 249);
+            this.iAtkSpeed_n.Name = "iAtkSpeed_n";
+            this.iAtkSpeed_n.Size = new System.Drawing.Size(13, 13);
+            this.iAtkSpeed_n.TabIndex = 30;
+            this.iAtkSpeed_n.Text = "0";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(755, 272);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(62, 13);
+            this.label4.TabIndex = 29;
+            this.label4.Text = "Cast Speed";
+            // 
+            // iCastSpeed_n
+            // 
+            this.iCastSpeed_n.AutoSize = true;
+            this.iCastSpeed_n.Location = new System.Drawing.Point(859, 272);
+            this.iCastSpeed_n.Name = "iCastSpeed_n";
+            this.iCastSpeed_n.Size = new System.Drawing.Size(13, 13);
+            this.iCastSpeed_n.TabIndex = 30;
+            this.iCastSpeed_n.Text = "0";
+            // 
+            // iCrit_n
+            // 
+            this.iCrit_n.AutoSize = true;
+            this.iCrit_n.Location = new System.Drawing.Point(989, 249);
+            this.iCrit_n.Name = "iCrit_n";
+            this.iCrit_n.Size = new System.Drawing.Size(13, 13);
+            this.iCrit_n.TabIndex = 30;
+            this.iCrit_n.Text = "0";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(885, 249);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(64, 13);
+            this.label7.TabIndex = 29;
+            this.label7.Text = "Critical Rate";
             // 
             // GearForm
             // 
@@ -1417,6 +1499,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1429, 624);
+            this.Controls.Add(this.iCrit_n);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.iCastSpeed_n);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.iAtkSpeed_n);
             this.Controls.Add(this.InfTest_cb);
             this.Controls.Add(this.iHDR_n);
             this.Controls.Add(this.iHDR_lbl);
@@ -1520,7 +1608,7 @@
         private System.Windows.Forms.CheckBox apLvl_cb;
         private System.Windows.Forms.GroupBox Settings_gb;
         private System.Windows.Forms.CheckBox dpLvl_cb;
-        private System.Windows.Forms.Label cACS_n;
+        private System.Windows.Forms.Label cAtkSpeed_n;
         private System.Windows.Forms.Label cACS_lbl;
         private System.Windows.Forms.Label cCR_n;
         private System.Windows.Forms.Label cCR_lbl;
@@ -1606,5 +1694,13 @@
         private System.Windows.Forms.Label lsb_lbl;
         private System.Windows.Forms.Label cHAP_n;
         private System.Windows.Forms.Label cHAP_lbl;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label cCastSpeed_n;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label iAtkSpeed_n;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label iCastSpeed_n;
+        private System.Windows.Forms.Label iCrit_n;
+        private System.Windows.Forms.Label label7;
     }
 }

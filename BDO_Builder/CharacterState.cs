@@ -36,6 +36,8 @@ namespace BDO_Builder
         public int cMaxST;// Max stamina
         public int chev; // Hiden evasion
         public int chdr; // hiden damage reduction
+        public int cAtkSpeed;
+        public int cCastSpeed;
         //NEW
         public int cacs; // Attack/Cast speed
         public int cmvs; // Movement speed 
@@ -218,9 +220,11 @@ namespace BDO_Builder
         public int armDefHP;
         public int armDefMP;
         public int armSSFRes;
+        public int armDefSSFRes;
         public int armWeight;
         public int armDefWeight;
         public int armAcc;
+        public int armDefAcc;
         public int armSB; //set bonus
 
         //Helmet stats
@@ -272,6 +276,16 @@ namespace BDO_Builder
         public int glovDefdr;// Gloves default damage reduction 
         public int glovDefhdr;// Gloves default hiden damage reduction 
         public int glovSB; // set bonus
+        public int glovAtkSpeed;
+        public int glovDefAtkSpeed;
+        public int glovCastSpeed;
+        public int glovDefCastSpeed;
+        public int glovCrit;
+        public int glovDefCrit;
+        public int glovWeight;
+        public int glovDefWeight;
+        public int glovGrapleRes;
+        public int glovDefGrapleRes;
 
         //Shoes stats
         public int shdp;// Shoes DP
@@ -999,6 +1013,8 @@ namespace BDO_Builder
                     //HDR
                     armhdr = armDefhdr;
 
+                    armWeight = armDefWeight;
+
 
                     cdp += armdp;
                     cev += armev;
@@ -1041,6 +1057,7 @@ namespace BDO_Builder
                     else armdr = armDefdr +3 +(armEnchLvl-1) * 2;
                     //HDR
                     armhdr = armDefhdr;
+                    armWeight = armDefWeight;
 
 
                     cdp += armdp;
@@ -1083,6 +1100,7 @@ namespace BDO_Builder
                     else armdr = armDefdr + 7 + (armEnchLvl - 3) * 1;
                     //HDR
                     armhdr = armDefhdr;
+                    armWeight = armDefWeight;
 
 
                     cdp += armdp;
@@ -1140,6 +1158,8 @@ namespace BDO_Builder
                     //HDR
                     if (armId == 10 & armEnchLvl >= 11 | armId == 19 & armEnchLvl >= 11) armhdr = armDefhdr + (armEnchLvl-10) * 1;
                     else armhdr = armDefhdr;
+                    armWeight = armDefWeight;
+
 
                     cdp += armdp;
                     cev += armev;
@@ -1181,6 +1201,7 @@ namespace BDO_Builder
                     //HDR
                     if (armId == 10 | armId == 19) armhdr = armDefhdr + (armEnchLvl - 10) * 1;
                     else armhdr = armDefhdr + 1;
+                    armWeight = armDefWeight;
 
 
                     cdp += armdp;
@@ -1222,6 +1243,7 @@ namespace BDO_Builder
                     //HDR
                     if (armId == 10 | armId == 19) armhdr = armDefhdr + (armEnchLvl - 10) * 1;
                     else armhdr = armDefhdr + 2;
+                    armWeight = armDefWeight;
 
 
                     cdp += armdp;
@@ -1264,6 +1286,7 @@ namespace BDO_Builder
                     //HDR
                     if (armId == 10 | armId == 19) armhdr = armDefhdr + 9;
                     else armhdr = armDefhdr + 3;
+                    armWeight = armDefWeight;
 
 
                     cdp += armdp;
@@ -1306,6 +1329,7 @@ namespace BDO_Builder
                     //HDR
                     if (armId == 10 | armId == 19) armhdr = armDefhdr + 9+(armEnchLvl - 18) * 2;
                     else armhdr = armDefhdr + 3+ (armEnchLvl - 18) * 1;
+                    armWeight = armDefWeight;
 
 
                     cdp += armdp;
@@ -1343,6 +1367,7 @@ namespace BDO_Builder
                 armHP = armDefHP;
                 armMP = armDefHP;
                 armWeight = armDefWeight;
+                armAcc = armDefAcc;
 
 
 
@@ -1599,7 +1624,7 @@ namespace BDO_Builder
 
             }
 
-            if (helEnch == true & helIsBoss == false)
+            else if (helEnch == true & helIsBoss == false)
             {
                 if (helEnchLvl >= 1 & helEnchLvl <=2)
                 {
@@ -1990,7 +2015,7 @@ namespace BDO_Builder
             da.Fill(dt);
 
 
-            if (glovEnch == true & glovIsBoss == true)
+            if (glovEnch == true & glovIsBoss == true | glovId == 21 & glovEnchLvl >=1 )
             {
                 if (glovEnchLvl >= 1 & glovEnchLvl <= 5)
                 {
@@ -2003,12 +2028,14 @@ namespace BDO_Builder
                     chdr -= glovhdr;
 
                     glovdp = glovDefdp + glovEnchLvl * 2;
-                    if (glovId == 0) glovacc = glovDefacc + glovEnchLvl * 2;
+                    if (glovId == 0 ) glovacc = glovDefacc + glovEnchLvl * 2;
+                    else if (glovId == 21) glovacc = glovDefacc + glovEnchLvl * 1;
                     else glovacc = glovDefacc;
                     glovev = glovDefev + glovEnchLvl * 1;
                     glovhev = glovDefhev + glovEnchLvl * 3;
                     glovdr = glovDefdr + glovEnchLvl * 1;
-                    glovhdr = glovDefhdr;
+                    if(glovId == 21) glovhdr = glovDefhdr + 5;
+                    else glovhdr = glovDefhdr;
 
                     cdp += glovdp;
                     cacc += glovacc;
@@ -2030,11 +2057,17 @@ namespace BDO_Builder
 
                     glovdp = glovDefdp + glovEnchLvl * 2;
                     if (glovId == 0) glovacc = glovDefacc + glovEnchLvl * 2;
+                    else if (glovId == 21)
+                    {
+                        if (glovEnchLvl >= 15) glovacc = glovDefacc + 14 + (glovEnchLvl - 14) * 2;
+                        else glovacc = glovDefacc + glovEnchLvl * 1;
+                    }
                     else glovacc = glovDefacc + (glovEnchLvl-5) * 1;
                     glovev = glovDefev + glovEnchLvl * 1;
                     glovhev = glovDefhev + glovEnchLvl * 3;
                     glovdr = glovDefdr + glovEnchLvl * 1;
-                    glovhdr = glovDefhdr;
+                    if (glovId == 21) glovhdr = glovDefhdr + 5;
+                    else glovhdr = glovDefhdr;
 
                     cdp += glovdp;
                     cacc += glovacc;
@@ -2057,18 +2090,21 @@ namespace BDO_Builder
                     glovdp = glovDefdp + 35;
 
                     if (glovId == 0) glovacc = glovDefacc + glovEnchLvl * 2;
+                    else if (glovId == 21) glovacc = glovDefacc + 14 + (glovEnchLvl - 14) * 2;
                     else glovacc = glovDefacc + (glovEnchLvl - 5) * 1;
 
-                    if (glovId == 0) glovev = glovDefev +17;
+                    if (glovId == 0 | glovId == 21) glovev = glovDefev +17;
                     else  glovev = glovDefev + 18;
 
-                    if (glovId == 0) glovhev = 54;
+                    if (glovId == 0 | glovId == 21) glovhev = 54;
                     else glovhev = 61;
 
                     if (glovId == 0) glovdr = 19;
+                    else if (glovId == 21) glovdr = 18;
                     else glovdr = 18;
 
-                    glovhdr = glovDefhdr + 1;
+                    if (glovId == 21) glovhdr = glovDefhdr + 6;
+                    else glovhdr = glovDefhdr + 1;
 
                     cdp += glovdp;
                     cacc += glovacc;
@@ -2091,18 +2127,21 @@ namespace BDO_Builder
                     glovdp = glovDefdp + 40;
 
                     if (glovId == 0) glovacc = glovDefacc + glovEnchLvl * 2;
+                    else if (glovId == 21) glovacc = glovDefacc + 14 + (glovEnchLvl - 14) * 2;
                     else glovacc = glovDefacc + (glovEnchLvl - 5) * 1;
 
-                    if (glovId == 0) glovev = 20;
+                    if (glovId == 0 | glovId == 21) glovev = 20;
                     else glovev = glovDefev + 22;
 
-                    if (glovId == 0) glovhev = 60;
+                    if (glovId == 0 | glovId == 21) glovhev = 60;
                     else glovhev = 70;
 
                     if (glovId == 0) glovdr = 22;
+                    else if (glovId == 21) glovdr = 21;
                     else glovdr = 20;
 
                     if (glovId == 0) glovhdr = 7;
+                    else if (glovId == 21) glovhdr = glovDefhdr + 7;
                     else glovhdr = 8;
 
                     cdp += glovdp;
@@ -2125,19 +2164,22 @@ namespace BDO_Builder
 
                     glovdp = glovDefdp + 48;
 
-                    if (glovId == 0) glovacc = glovDefacc + glovEnchLvl * 2;
+                    if (glovId == 0 ) glovacc = glovDefacc + glovEnchLvl * 2;
+                    else if (glovId == 21) glovacc = glovDefacc + 14 + (glovEnchLvl - 14) * 2;
                     else glovacc = glovDefacc + (glovEnchLvl - 5) * 1;
 
-                    if (glovId == 0) glovev = 22;
+                    if (glovId == 0 | glovId == 21) glovev = 22;
                     else glovev = glovDefev +25;
 
-                    if (glovId == 0) glovhev = 66;
+                    if (glovId == 0 | glovId == 21) glovhev = 66;
                     else glovhev = 79;
 
-                    if (glovId == 0) glovdr = 28;
+                    if (glovId == 0 | glovId == 21) glovdr = 28;
+                    else if (glovId == 21) glovdr = 27;
                     else glovdr = 25;
 
                     if (glovId == 0) glovhdr = 9;
+                    else if (glovId == 21) glovhdr = glovDefhdr + 9;
                     else glovhdr = 11;
 
                     cdp += glovdp;
@@ -2159,21 +2201,25 @@ namespace BDO_Builder
                     chdr -= glovhdr;
 
                     if (glovId == 0) glovdp = 55;
+                    else if (glovId == 21) glovdp = 54;
                     else glovdp = 56;
 
                     if (glovId == 0) glovacc = glovDefacc + glovEnchLvl * 2;
+                    else if (glovId == 21) glovacc = glovDefacc + 14 + (glovEnchLvl - 14) * 2;
                     else glovacc = glovDefacc + (glovEnchLvl - 5) * 1;
 
-                    if (glovId == 0) glovev = 24;
+                    if (glovId == 0 | glovId == 21) glovev = 24;
                     else glovev = glovDefev + 29;
 
-                    if (glovId == 0) glovhev = 72;
+                    if (glovId == 0 | glovId == 21) glovhev = 72;
                     else glovhev = 91;
 
-                    if (glovId == 0) glovdr = 31;
+                    if (glovId == 0 ) glovdr = 31;
+                    else if (glovId == 21) glovdr = 30;
                     else glovdr = 27;
 
-                    if (glovId == 0) glovhdr = 13;
+                    if (glovId == 0 | glovId == 21) glovhdr = 13;
+                    else if (glovId == 21) glovhdr = glovDefhdr + 13;
                     else glovhdr = 14;
 
                     cdp += glovdp;
@@ -2195,21 +2241,25 @@ namespace BDO_Builder
                     chdr -= glovhdr;
 
                     if (glovId == 0) glovdp = 60;
+                    else if (glovId == 21) glovdp = 59;
                     else glovdp = 62;
 
                     if (glovId == 0) glovacc = glovDefacc + glovEnchLvl * 2;
+                    else if (glovId == 21) glovacc = glovDefacc + 14 + (glovEnchLvl - 14) * 2;
                     else glovacc = glovDefacc + (glovEnchLvl - 5) * 1;
 
-                    if (glovId == 0) glovev = 26;
+                    if (glovId == 0 | glovId == 21) glovev = 26;
                     else glovev = glovDefev + 33;
 
-                    if (glovId == 0) glovhev = 78;
+                    if (glovId == 0 | glovId == 21) glovhev = 78;
                     else glovhev = 103;
 
-                    if (glovId == 0) glovdr = 34;
+                    if (glovId == 0 ) glovdr = 34;
+                    else if (glovId == 21) glovdr = 33;
                     else glovdr = 29;
 
                     if (glovId == 0) glovhdr = 19;
+                    else if (glovId == 21) glovhdr = glovDefhdr + 19;
                     else glovhdr = 17;
 
                     cdp += glovdp;
@@ -2222,7 +2272,7 @@ namespace BDO_Builder
 
             }
 
-            if (glovEnch == true & glovIsBoss == false)
+            else if (glovEnch == true & glovIsBoss == false)
             {
                 if (glovEnchLvl >= 1 & glovEnchLvl <= 15)
                 {
@@ -2232,12 +2282,54 @@ namespace BDO_Builder
                     chev -= glovhev;
                     cDR -= glovdr;
                     chdr -= glovhdr;
+                    cacc -= glovacc;
+                    cAtkSpeed -= glovAtkSpeed;
+                    cCastSpeed -= glovCastSpeed;
+                    ccr -= glovCrit;
+                    cWeight -= glovWeight;
+                    cRes3 -= glovGrapleRes;
+
 
                     glovdp = glovDefdp + glovEnchLvl * 2;
+                    if(glovId == 9 | glovId == 19)
+                    {
+                        if (glovEnchLvl <= 5) glovacc = glovDefacc;
+                        else if (glovEnchLvl >= 6 & glovEnchLvl <= 10) glovacc = glovDefacc + 3;
+                        else if (glovEnchLvl >= 11) glovacc = glovDefacc + 3 + (glovEnchLvl - 10) * 2;
+                    }
                     glovev = glovDefev + glovEnchLvl * 1;
-                    glovhev = glovDefhev + glovEnchLvl * 3;
+                    if(glovId == 8 | glovId == 13 | glovId == 14 | glovId == 15 | glovId == 24 | glovId == 31 | glovId == 32 | glovId == 33)
+                    {
+                        if (glovEnchLvl == 1) glovhev = glovDefhev + 7;
+                        else if (glovEnchLvl == 2) glovhev = glovDefhev + 9;
+                        else if (glovEnchLvl == 3) glovhev = glovDefhev + 12;
+                        else if (glovEnchLvl == 4) glovhev = glovDefhev + 15;
+                        else if (glovEnchLvl == 5) glovhev = glovDefhev + 18;
+                        else if (glovEnchLvl == 6) glovhev = glovDefhev + 22;
+                        else if (glovEnchLvl == 7) glovhev = glovDefhev + 25;
+                        else if (glovEnchLvl == 8) glovhev = glovDefhev + 29;
+                        else glovhev = glovDefhev + 29 + (glovEnchLvl-8) * 3;
+                    }
+                     else if (glovId == 9| glovId == 19)
+                     {
+                        if (glovEnchLvl <= 10) glovhev = glovDefhev + glovEnchLvl * 2;
+                        else if (glovEnchLvl == 11) glovhev = glovDefhev + 23;
+                        else glovhev = glovDefhev + 23 + (glovEnchLvl - 11) * 2;
+                     }
+                    else glovhev = glovDefhev + glovEnchLvl * 3;
                     glovdr = glovDefdr + glovEnchLvl * 1;
-                    glovhdr = glovDefhdr;
+                    if(glovId == 9| glovId == 19)
+                    {
+                        if (glovEnchLvl <= 5) glovhdr = glovDefhdr;
+                        else glovhdr = glovDefhdr + 3;
+                    }
+                    else glovhdr = glovDefhdr;
+                    glovAtkSpeed = glovDefAtkSpeed;
+                    glovCastSpeed = glovDefCastSpeed;
+                    glovCrit = glovDefCrit;
+                    glovWeight = glovDefWeight;
+                    glovGrapleRes = glovDefGrapleRes;
+
 
 
                     cdp += glovdp;
@@ -2245,6 +2337,12 @@ namespace BDO_Builder
                     chev += glovhev;
                     cDR += glovdr;
                     chdr += glovhdr;
+                    cacc += glovacc;
+                    cAtkSpeed += glovAtkSpeed;
+                    cCastSpeed += glovCastSpeed;
+                    ccr += glovCrit;
+                    cWeight += glovWeight;
+                    cRes3 += glovGrapleRes;
                 }
 
                 if (glovEnchLvl == 16)
@@ -2255,19 +2353,39 @@ namespace BDO_Builder
                     chev -= glovhev;
                     cDR -= glovdr;
                     chdr -= glovhdr;
+                    cacc -= glovacc;
+                    cAtkSpeed -= glovAtkSpeed;
+                    cCastSpeed -= glovCastSpeed;
+                    ccr -= glovCrit;
+                    cWeight -= glovWeight;
+                    cRes3 -= glovGrapleRes;
 
                     glovdp = glovDefdp + (glovEnchLvl -1) * 2 + 5;
+                    if (glovId == 9 | glovId == 19) glovacc = glovDefacc + 16;
                     glovev = glovDefev + (glovEnchLvl-1) * 1 + 2;
-                    glovhev = glovDefhev + (glovEnchLvl-1) * 3 + 10;
+                    if (glovId == 8 | glovId == 13 | glovId == 14 | glovId == 15 | glovId == 24 | glovId == 31 | glovId == 32 | glovId == 33) glovhev = glovDefhev + 55;
+                    else if (glovId == 9 | glovId == 19) glovhev = glovDefhev + 39;
+                    else glovhev = glovDefhev + (glovEnchLvl - 1) * 3 + 10;
                     glovdr = glovDefdr + (glovEnchLvl - 1) * 1 + 3;
-                    glovhdr = glovDefhdr + 1;
-
+                    if (glovId == 9 | glovId == 19) glovhdr = glovDefhdr + 4;
+                    else glovhdr = glovDefhdr + 1;
+                    glovAtkSpeed = glovDefAtkSpeed;
+                    glovCastSpeed = glovDefCastSpeed;
+                    glovCrit = glovDefCrit;
+                    glovWeight = glovDefWeight;
+                    glovGrapleRes = glovDefGrapleRes;
 
                     cdp += glovdp;
                     cev += glovev;
                     chev += glovhev;
                     cDR += glovdr;
                     chdr += glovhdr;
+                    cacc += glovacc;
+                    cAtkSpeed += glovAtkSpeed;
+                    cCastSpeed += glovCastSpeed;
+                    ccr += glovCrit;
+                    cWeight += glovWeight;
+                    cRes3 += glovGrapleRes;
                 }
 
                 if (glovEnchLvl ==17)
@@ -2278,19 +2396,39 @@ namespace BDO_Builder
                     chev -= glovhev;
                     cDR -= glovdr;
                     chdr -= glovhdr;
+                    cacc -= glovacc;
+                    cAtkSpeed -= glovAtkSpeed;
+                    cCastSpeed -= glovCastSpeed;
+                    ccr -= glovCrit;
+                    cWeight -= glovWeight;
+                    cRes3 -= glovGrapleRes;
 
                     glovdp = glovDefdp + 40;
+                    if (glovId == 9 | glovId == 19) glovacc = glovDefacc + 19;
                     glovev = glovDefev + 19;
-                    glovhev = glovDefhev + 61;
+                    if (glovId == 8 | glovId == 13 | glovId == 14 | glovId == 15 | glovId == 24 | glovId == 31 | glovId == 32 | glovId == 33) glovhev = glovDefhev + 61;
+                    else if (glovId == 9 | glovId == 19) glovhev = glovDefhev + 45;
+                    else glovhev = glovDefhev + 61;
                     glovdr = glovDefdr + 19;
-                    glovhdr = glovDefhdr+2;
-
+                    if (glovId == 9 | glovId == 19) glovhdr = glovDefhdr + 5;
+                    else glovhdr = glovDefhdr+2;
+                    glovAtkSpeed = glovDefAtkSpeed;
+                    glovCastSpeed = glovDefCastSpeed;
+                    glovCrit = glovDefCrit;
+                    glovWeight = glovDefWeight;
+                    glovGrapleRes = glovDefGrapleRes;
 
                     cdp += glovdp;
                     cev += glovev;
                     chev += glovhev;
                     cDR += glovdr;
                     chdr += glovhdr;
+                    cacc += glovacc;
+                    cAtkSpeed += glovAtkSpeed;
+                    cCastSpeed += glovCastSpeed;
+                    ccr += glovCrit;
+                    cWeight += glovWeight;
+                    cRes3 += glovGrapleRes;
                 }
 
                 if (glovEnchLvl == 18)
@@ -2301,19 +2439,39 @@ namespace BDO_Builder
                     chev -= glovhev;
                     cDR -= glovdr;
                     chdr -= glovhdr;
+                    cacc -= glovacc;
+                    cAtkSpeed -= glovAtkSpeed;
+                    cCastSpeed -= glovCastSpeed;
+                    ccr -= glovCrit;
+                    cWeight -= glovWeight;
+                    cRes3 -= glovGrapleRes;
 
                     glovdp = glovDefdp + 48;
+                    if (glovId == 9 | glovId == 19) glovacc = glovDefacc + 22;
                     glovev = glovDefev + 21;
-                    glovhev = glovDefhev + 67;
+                    if (glovId == 8 | glovId == 13 | glovId == 14 | glovId == 15 | glovId == 24 | glovId == 31 | glovId == 32 | glovId == 33) glovhev = glovDefhev + 67;
+                    else if (glovId == 9 | glovId == 19) glovhev = glovDefhev + 51;
+                    else glovhev = glovDefhev + 67;
                     glovdr = glovDefdr + 27;
-                    glovhdr = glovDefhdr + 3;
-
+                    if (glovId == 9 | glovId == 19) glovhdr = glovDefhdr + 6;
+                    else glovhdr = glovDefhdr + 3;
+                    glovAtkSpeed = glovDefAtkSpeed;
+                    glovCastSpeed = glovDefCastSpeed;
+                    glovCrit = glovDefCrit;
+                    glovWeight = glovDefWeight;
+                    glovGrapleRes = glovDefGrapleRes;
 
                     cdp += glovdp;
                     cev += glovev;
                     chev += glovhev;
                     cDR += glovdr;
                     chdr += glovhdr;
+                    cacc += glovacc;
+                    cAtkSpeed += glovAtkSpeed;
+                    cCastSpeed += glovCastSpeed;
+                    ccr += glovCrit;
+                    cWeight += glovWeight;
+                    cRes3 += glovGrapleRes;
                 }
 
                 if (glovEnchLvl >= 19 & glovEnchLvl <= 20)
@@ -2324,19 +2482,39 @@ namespace BDO_Builder
                     chev -= glovhev;
                     cDR -= glovdr;
                     chdr -= glovhdr;
+                    cacc -= glovacc;
+                    cAtkSpeed -= glovAtkSpeed;
+                    cCastSpeed -= glovCastSpeed;
+                    ccr -= glovCrit;
+                    cWeight -= glovWeight;
+                    cRes3 -= glovGrapleRes;
 
                     glovdp = glovDefdp + 48 + (glovEnchLvl-18) * 5;
+                    if (glovId == 9 | glovId == 19) glovacc = glovDefacc + 22 + (glovEnchLvl -18) * 3;
                     glovev = glovDefev + 21 + (glovEnchLvl - 18) * 2;
-                    glovhev = glovDefhev + 67 + (glovEnchLvl - 18)*6;
+                    if (glovId == 8 | glovId == 13 | glovId == 14 | glovId == 15 | glovId == 24 | glovId == 31 | glovId == 32 | glovId == 33) glovhev = glovDefhev + 67 + (glovEnchLvl-18) * 6;
+                    else if (glovId == 9 | glovId == 19) glovhev = glovDefhev + 51 + (glovEnchLvl-18) * 6;
+                    else glovhev = glovDefhev + 67 + (glovEnchLvl - 18)*6;
                     glovdr = glovDefdr + 27 + (glovEnchLvl - 18) * 3;
-                    glovhdr = glovDefhdr + 3 + (glovEnchLvl - 18)*1;
-
+                    if (glovId == 9 | glovId == 19) glovhdr = glovDefhdr + 6 + (glovEnchLvl-18) * 1;
+                    else glovhdr = glovDefhdr + 3 + (glovEnchLvl - 18)*1;
+                    glovAtkSpeed = glovDefAtkSpeed;
+                    glovCastSpeed = glovDefCastSpeed;
+                    glovCrit = glovDefCrit;
+                    glovWeight = glovDefWeight;
+                    glovGrapleRes = glovDefGrapleRes;
 
                     cdp += glovdp;
                     cev += glovev;
                     chev += glovhev;
                     cDR += glovdr;
                     chdr += glovhdr;
+                    cacc += glovacc;
+                    cAtkSpeed += glovAtkSpeed;
+                    cCastSpeed += glovCastSpeed;
+                    ccr += glovCrit;
+                    cWeight += glovWeight;
+                    cRes3 += glovGrapleRes;
                 }
 
                 
@@ -2351,8 +2529,12 @@ namespace BDO_Builder
                 chev -= glovhev;
                 cDR -= glovdr;
                 chdr -= glovhdr;
-
-
+                cacc -= glovacc;
+                cAtkSpeed -= glovAtkSpeed;
+                cCastSpeed -= glovCastSpeed;
+                ccr -= glovCrit;
+                cWeight -= glovWeight;
+                cRes3 -= glovGrapleRes;
 
 
                 glovdp = glovDefdp;
@@ -2361,14 +2543,23 @@ namespace BDO_Builder
                 glovhev = glovDefhev;
                 glovdr = glovDefdr;
                 glovhdr = glovDefhdr;
-
+                glovAtkSpeed = glovDefAtkSpeed;
+                glovCastSpeed = glovDefCastSpeed;
+                glovCrit = glovDefCrit;
+                glovWeight = glovDefWeight;
+                glovGrapleRes = glovDefGrapleRes;
 
                 cdp += glovdp;
-                cacc += glovacc;
                 cev += glovev;
                 chev += glovhev;
                 cDR += glovdr;
                 chdr += glovhdr;
+                cacc += glovacc;
+                cAtkSpeed += glovAtkSpeed;
+                cCastSpeed += glovCastSpeed;
+                ccr += glovCrit;
+                cWeight += glovWeight;
+                cRes3 += glovGrapleRes;
 
 
             }

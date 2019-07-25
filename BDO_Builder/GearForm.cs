@@ -91,11 +91,14 @@ namespace BDO_Builder
             Weight_n.Text = Convert.ToString(cs.cWeight);
             cHDR_n.Text = Convert.ToString(cs.chdr);
             cHE_n.Text = Convert.ToString(cs.chev);
+
             //NEW
-            cACS_n.Text = Convert.ToString(cs.cacs);
+            //cAtkSpeed_n.Text = Convert.ToString(cs.cacs);
             cMvS_n.Text = Convert.ToString(cs.cmvs);
             cCR_n.Text = Convert.ToString(cs.ccr);
             cHAP_n.Text = Convert.ToString(cs.chap);
+            cAtkSpeed_n.Text = Convert.ToString(cs.cAtkSpeed);
+            cCastSpeed_n.Text = Convert.ToString(cs.cCastSpeed);
         }
 
         private void ItemStatClear()
@@ -715,9 +718,9 @@ namespace BDO_Builder
                     cs.armDefMP = Convert.ToInt32(dr["MaxMP"]);
                     cs.armEnch = Convert.ToBoolean(dr["Ench"]);
                     cs.armIsBoss = Convert.ToBoolean(dr["IsBossItem"]);
-                    cs.armSSFRes = Convert.ToInt32(dr["SSFRes"]);
+                    cs.armDefSSFRes = Convert.ToInt32(dr["SSFRes"]);
                     cs.armDefWeight = Convert.ToInt32(dr["WeightLimit"]);
-                    cs.armAcc = Convert.ToInt32(dr["Accuracy"]);
+                    cs.armDefAcc = Convert.ToInt32(dr["Accuracy"]);
                     cs.armSB = Convert.ToInt32(dr["SetBonus"]);
                 }
 
@@ -826,6 +829,11 @@ namespace BDO_Builder
                     cs.glovEnch = Convert.ToBoolean(dr["Ench"]);
                     cs.glovIsBoss = Convert.ToBoolean(dr["IsBossItem"]);
                     cs.glovSB = Convert.ToInt32(dr["SetBonus"]);
+                    cs.glovDefAtkSpeed = Convert.ToInt32(dr["AttackSpeed"]);
+                    cs.glovDefCastSpeed = Convert.ToInt32(dr["CastSpeed"]);
+                    cs.glovDefWeight = Convert.ToInt32(dr["WeightLimit"]);
+                    cs.glovDefCrit = Convert.ToInt32(dr["CriticalHit"]);
+                    cs.glovDefGrapleRes = Convert.ToInt32(dr["GrapleRes"]);
                 }
 
                 LoadItemEnch_cb();
@@ -846,6 +854,12 @@ namespace BDO_Builder
                 iDR_n.Text = cs.glovdr.ToString();
                 iHDR_n.Text = cs.glovhdr.ToString();
                 iAcc_n.Text = cs.glovacc.ToString();
+                iGrapR_n.Text = cs.glovGrapleRes.ToString();
+                iAtkSpeed_n.Text = cs.glovAtkSpeed.ToString();
+                iCastSpeed_n.Text = cs.glovCastSpeed.ToString();
+                iCrit_n.Text = cs.glovCrit.ToString();
+                iWeight_n.Text = cs.glovWeight.ToString();
+
 
 
 
@@ -1090,7 +1104,9 @@ namespace BDO_Builder
                 iHDR_n.Text = cs.armhdr.ToString();
                 iHP_n.Text = cs.armHP.ToString();
                 iMP_n.Text = cs.armMP.ToString();
-
+                iSSFR_n.Text = cs.armSSFRes.ToString();
+                iWeight_n.Text = cs.armWeight.ToString();
+                iAcc_n.Text = cs.armAcc.ToString();
 
                 FillCharacterState();
             } // Armor
@@ -1127,7 +1143,11 @@ namespace BDO_Builder
                 iHEV_n.Text = cs.glovhev.ToString();
                 iDR_n.Text = cs.glovdr.ToString();
                 iHDR_n.Text = cs.glovhdr.ToString();
-
+                iGrapR_n.Text = cs.glovGrapleRes.ToString();
+                iAtkSpeed_n.Text = cs.glovAtkSpeed.ToString();
+                iCastSpeed_n.Text = cs.glovCastSpeed.ToString();
+                iCrit_n.Text = cs.glovCrit.ToString();
+                iWeight_n.Text = cs.glovWeight.ToString();
 
 
                 FillCharacterState();
