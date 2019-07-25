@@ -304,6 +304,19 @@ namespace BDO_Builder
         public int shDefhdr;// Shoes default hiden damage reduction
         public int shSB; //Set bonus
 
+        public int shMvs;
+        public int shDefMvs;
+
+        public int shKBRes;
+        public int shDefKBRes;
+
+        public int shMaxST;
+        public int shDefMaxST;
+
+        public int shWeight;
+        public int shDefWeight;
+
+
         readonly SqlCommand cmd = Base_Connect.Connection.CreateCommand();
         
 
@@ -2575,7 +2588,7 @@ namespace BDO_Builder
             da.Fill(dt);
 
 
-            if (shEnch == true & shIsBoss == true)
+            if (shEnch == true & shIsBoss == true | shId == 25)
             {
 
                 if (shEnchLvl >= 1 & shEnchLvl <= 15)
@@ -2586,23 +2599,28 @@ namespace BDO_Builder
                     chev -= shhev;
                     cDR -= shdr;
                     chdr -= shhdr;
+                    cmvs -= shMvs;
 
                     shdp = shDefdp + shEnchLvl * 3;
                     shev = shDefev + shEnchLvl * 2;
-                    if (shId == 0) shhev = shDefhev + shEnchLvl * 4;
+                    if (shId == 0 | shId == 25) shhev = shDefhev + shEnchLvl * 4;
                     else shhev = shDefev + shEnchLvl * 2;
 
                     shdr = shDefdr + shEnchLvl * 1;
 
-                    if (shId == 0) shhdr = shDefhdr;
+                    if (shId == 0 | shId == 25) shhdr = shDefhdr;
                     else if (shId == 1 & shEnchLvl <= 5) shhdr = shDefhdr + shEnchLvl * 1;
                     else shhdr = shDefhdr + 5 + (shEnchLvl - 5) * 2;
+
+                    shMvs = shDefMvs;
 
                     cdp += shdp;
                     cev += shev;
                     chev += shhev;
                     cDR += shdr;
                     chdr += shhdr;
+                    cmvs += shMvs;
+
                 }
 
                 if (shEnchLvl == 16)
@@ -2613,6 +2631,7 @@ namespace BDO_Builder
                     chev -= shhev;
                     cDR -= shdr;
                     chdr -= shhdr;
+                    cmvs -= shMvs;
 
                     shdp = shDefdp + 50;
 
@@ -2620,18 +2639,21 @@ namespace BDO_Builder
                     shev = shDefev + shEnchLvl * 2;
 
                     if (shId == 0) shhev = shDefhev + 68;
+                    else if (shId == 25) shhev = shDefhev + 67;
                     else shhev = shDefhev + 34;
 
                     shdr = shDefdr + 18;
 
-                    if (shId == 0) shhdr = 1;
+                    if (shId == 0 | shId == 25) shhdr = shDefhdr+1;
                     else shhdr = shDefhdr + 28;
+                    shMvs = shDefMvs;
 
                     cdp += shdp;
                     cev += shev;
                     chev += shhev;
                     cDR += shdr;
                     chdr += shhdr;
+                    cmvs += shMvs;
                 }
 
                 if (shEnchLvl == 17)
@@ -2641,24 +2663,29 @@ namespace BDO_Builder
                     chev -= shhev;
                     cDR -= shdr;
                     chdr -= shhdr;
+                    cmvs -= shMvs;
 
                     shdp = shDefdp + 55;
 
                     shev = shDefev + shEnchLvl * 2;
 
-                    if (shId == 0) shhev = shDefhev + 72;
+                    if (shId == 0 ) shhev = shDefhev + 72;
+                    else if (shId == 25) shhev = shDefhev + 71;
                     else shhev = shDefhev + 36;
 
                     shdr = shDefdr + 21;
 
-                    if (shId == 0) shhdr = 2;
+                    if (shId == 0 | shId == 25) shhdr = shDefhdr + 2;
                     else shhdr = shDefhdr + 31;
+                    shMvs = shDefMvs;
 
                     cdp += shdp;
                     cev += shev;
                     chev += shhev;
                     cDR += shdr;
                     chdr += shhdr;
+                    cmvs += shMvs;
+
                 }
 
                 if (shEnchLvl == 18)
@@ -2669,25 +2696,30 @@ namespace BDO_Builder
                     chev -= shhev;
                     cDR -= shdr;
                     chdr -= shhdr;
+                    cmvs -= shMvs;
 
                     shdp = shDefdp + 63;
 
                     shev = shDefev + shEnchLvl * 2;
 
                     if (shId == 0) shhev = shDefhev + 76;
+                    else if (shId == 25) shhev = shDefhev + 75;
                     else shhev = shDefhev + 38;
 
                     shdr = shDefdr + 27;
 
 
-                    if (shId == 0) shhdr = 4;
+                    if (shId == 0 | shId == 25) shhdr = shDefhdr + 4;
                     else shhdr = shDefhdr + 34;
+                    shMvs = shDefMvs;
 
                     cdp += shdp;
                     cev += shev;
                     chev += shhev;
                     cDR += shdr;
                     chdr += shhdr;
+                    cmvs += shMvs;
+
                 }
 
                 if (shEnchLvl == 19)
@@ -2698,24 +2730,29 @@ namespace BDO_Builder
                     chev -= shhev;
                     cDR -= shdr;
                     chdr -= shhdr;
+                    cmvs -= shMvs;
 
                     shdp = shDefdp + 68;
 
                     shev = shDefev + shEnchLvl * 2;
 
-                    if (shId == 0) shhev = shDefhev + 80;
+                    if (shId == 0 ) shhev = shDefhev + 80;
+                    else if (shId == 25) shhev = shDefhev + 79;
                     else shhev = shDefhev + 40;
 
                     shdr = shDefdr + 30;
 
-                    if (shId == 0) shhdr = 8;
+                    if (shId == 0 | shId == 25) shhdr = shDefhdr + 8;
                     else shhdr = shDefhdr + 37;
+                    shMvs = shDefMvs;
 
                     cdp += shdp;
                     cev += shev;
                     chev += shhev;
                     cDR += shdr;
                     chdr += shhdr;
+                    cmvs += shMvs;
+
                 }
 
                 if (shEnchLvl == 20)
@@ -2726,24 +2763,29 @@ namespace BDO_Builder
                     chev -= shhev;
                     cDR -= shdr;
                     chdr -= shhdr;
+                    cmvs -= shMvs;
 
                     shdp = shDefdp + 73;
 
                     shev = shDefev + shEnchLvl * 2;
 
                     if (shId == 0) shhev = shDefhev + 84;
+                    else if (shId == 25) shhev = shDefhev + 83;
                     else shhev = shDefhev + 42;
 
                     shdr = shDefdr + 33;
 
-                    if (shId == 0) shhdr = 14;
+                    if (shId == 0 | shId == 25) shhdr = shDefhdr + 14;
                     else shhdr = shDefhdr + 40;
+                    shMvs = shDefMvs;
 
                     cdp += shdp;
                     cev += shev;
                     chev += shhev;
                     cDR += shdr;
                     chdr += shhdr;
+                    cmvs += shMvs;
+
                 }
 
             }
@@ -2758,19 +2800,66 @@ namespace BDO_Builder
                     chev -= shhev;
                     cDR -= shdr;
                     chdr -= shhdr;
+                    cmvs -= shMvs;
+                    cRes2 -= shKBRes;
+                    cMaxST -= shMaxST;
+                    cWeight -= shWeight;
 
-                    shdp = shDefdp + shEnchLvl * 2;
-                    shev = shDefev + shEnchLvl * 1;
-                    shhev = shDefhev + shEnchLvl * 3;
+                    if(shId == 11 | shId == 23)
+                    {
+                        if (shEnchLvl <= 5) shdp = shDefdp + shEnchLvl * 2;
+                        else shdp = shDefdp + 10 + (shEnchLvl - 5) * 3;
+                    }
+                    else shdp = shDefdp + shEnchLvl * 2;
+
+                    if(shId == 11 | shId == 23)
+                    {
+                        if (shEnchLvl <= 5) shev = shDefev + shEnchLvl * 1;
+                        else shev = shDefev + 5 + (shEnchLvl - 5) * 2;
+                    }
+                    else shev = shDefev + shEnchLvl * 1;
+
+                    if (shId == 10 | shId == 15 | shId == 16 | shId == 17 | shId == 28 | shId == 35 | shId == 36 | shId == 37)
+                    {
+                        if (shEnchLvl == 1) shhev = shDefhev + 7;
+                        else if (shEnchLvl == 2) shhev = shDefhev + 9;
+                        else if (shEnchLvl == 3) shhev = shDefhev + 12;
+                        else if (shEnchLvl == 4) shhev = shDefhev + 15;
+                        else if (shEnchLvl == 5) shhev = shDefhev + 18;
+                        else if (shEnchLvl == 6) shhev = shDefhev + 22;
+                        else if (shEnchLvl == 7) shhev = shDefhev + 25;
+                        else if (shEnchLvl == 8) shhev = shDefhev + 29;
+                        else shhev = shDefhev + 29 + (shEnchLvl - 8) * 3;
+                    }
+                    else if (shId == 11 | shId == 23)
+                    {
+                        if (shEnchLvl <= 5) shhev = shDefhev + shEnchLvl * 2;
+                        else shhev = shDefhev + 10 + (shEnchLvl - 5) * 4;
+                    }
+                    else shhev = shDefhev + shEnchLvl * 3;
+
                     shdr = shDefdr + shEnchLvl * 1;
-                    shhdr = shDefhdr;
+                    if(shId == 11 | shId == 23)
+                    {
+                        if (shEnchLvl <= 10) shhdr = shDefhdr;
+                        else shhdr = shDefhdr + (shEnchLvl - 10) * 1;
+                    }
+                    else shhdr = shDefhdr;
 
+                    shMvs = shDefMvs;
+                    shKBRes = shDefKBRes;
+                    shMaxST = shDefMaxST;
+                    shWeight = shDefWeight;
 
                     cdp += shdp;
                     cev += shev;
                     chev += shhev;
                     cDR += shdr;
                     chdr += shhdr;
+                    cmvs += shMvs;
+                    cRes2 += shKBRes;
+                    cMaxST += shMaxST;
+                    cWeight += shWeight;
                 }
 
                 if (shEnchLvl == 16)
@@ -2781,19 +2870,39 @@ namespace BDO_Builder
                     chev -= shhev;
                     cDR -= shdr;
                     chdr -= shhdr;
+                    cmvs -= shMvs;
+                    cRes2 -= shKBRes;
+                    cMaxST -= shMaxST;
+                    cWeight -= shWeight;
 
-                    shdp = shDefdp + (shEnchLvl - 1) * 2 + 5;
-                    shev = shDefev + (shEnchLvl - 1) * 1 + 2;
-                    shhev = shDefhev + (shEnchLvl - 1) * 3 + 10;
+                    if (shId == 11 | shId == 23) shdp = shDefdp + 45;
+                    else shdp = shDefdp + (shEnchLvl - 1) * 2 + 5;
+
+                    if (shId == 11 | shId == 23) shev = shDefev + 27;
+                    else shev = shDefev + (shEnchLvl - 1) * 1 + 2;
+
+                    if (shId == 10 | shId == 15 | shId == 16 | shId == 17 | shId == 28 | shId == 35 | shId == 36 | shId == 37) shhev = shDefhev + 55;
+                    else if (shId == 11 | shId == 23) shhev = shDefhev + 57;
+                    else shhev = shDefhev + (shEnchLvl - 1) * 3 + 10;
+
                     shdr = shDefdr + (shEnchLvl - 1) * 1 + 3;
-                    shhdr = shDefhdr + 1;
+                    if (shId == 11 | shId == 23) shhdr = shDefhdr + 6;
+                    else shhdr = shDefhdr + 1;
 
+                    shMvs = shDefMvs;
+                    shKBRes = shDefKBRes;
+                    shMaxST = shDefMaxST;
+                    shWeight = shDefWeight;
 
                     cdp += shdp;
                     cev += shev;
                     chev += shhev;
                     cDR += shdr;
                     chdr += shhdr;
+                    cmvs += shMvs;
+                    cRes2 += shKBRes;
+                    cMaxST += shMaxST;
+                    cWeight += shWeight;
                 }
 
                 if (shEnchLvl == 17)
@@ -2804,19 +2913,40 @@ namespace BDO_Builder
                     chev -= shhev;
                     cDR -= shdr;
                     chdr -= shhdr;
+                    cmvs -= shMvs;
+                    cRes2 -= shKBRes;
+                    cMaxST -= shMaxST;
+                    cWeight -= shWeight;
 
-                    shdp = shDefdp + 40;
-                    shev = shDefev + 19;
-                    shhev = shDefhev + 61;
+                    if (shId == 11 | shId == 23) shdp = shDefdp + 50;
+                    else shdp = shDefdp + 40;
+
+                    if (shId == 11 | shId == 23) shev = shDefev + 29;
+                    else shev = shDefev + 19;
+
+                    if (shId == 10 | shId == 15 | shId == 16 | shId == 17 | shId == 28 | shId == 35 | shId == 36 | shId == 37) shhev = shDefhev + 61;
+                    else if (shId == 11 | shId == 23) shhev = shDefhev + 63;
+                    else shhev = shDefhev + 61;
+
                     shdr = shDefdr + 19;
-                    shhdr = shDefhdr + 2;
 
+                    if (shId == 11 | shId == 23) shhdr = shDefhdr + 7;
+                    else shhdr = shDefhdr + 2;
+
+                    shMvs = shDefMvs;
+                    shKBRes = shDefKBRes;
+                    shMaxST = shDefMaxST;
+                    shWeight = shDefWeight;
 
                     cdp += shdp;
                     cev += shev;
                     chev += shhev;
                     cDR += shdr;
                     chdr += shhdr;
+                    cmvs += shMvs;
+                    cRes2 += shKBRes;
+                    cMaxST += shMaxST;
+                    cWeight += shWeight;
                 }
 
                 if (shEnchLvl == 18)
@@ -2827,19 +2957,40 @@ namespace BDO_Builder
                     chev -= shhev;
                     cDR -= shdr;
                     chdr -= shhdr;
+                    cmvs -= shMvs;
+                    cRes2 -= shKBRes;
+                    cMaxST -= shMaxST;
+                    cWeight -= shWeight;
 
-                    shdp = shDefdp + 48;
-                    shev = shDefev + 21;
-                    shhev = shDefhev + 67;
+                    if (shId == 11 | shId == 23) shdp = shDefdp + 58;
+                    else shdp = shDefdp + 48;
+
+                    if (shId == 11 | shId == 23) shev = shDefev + 31;
+                    else shev = shDefev + 21;
+
+                    if (shId == 10 | shId == 15 | shId == 16 | shId == 17 | shId == 28 | shId == 35 | shId == 36 | shId == 37) shhev = shDefhev + 67;
+                    else if (shId == 11 | shId == 23) shhev = shDefhev + 69;
+                    else shhev = shDefhev + 67;
+
                     shdr = shDefdr + 27;
-                    shhdr = shDefhdr + 3;
 
+                    if (shId == 11 | shId == 23) shhdr = shDefhdr + 8;
+                    else shhdr = shDefhdr + 3;
+
+                    shMvs = shDefMvs;
+                    shKBRes = shDefKBRes;
+                    shMaxST = shDefMaxST;
+                    shWeight = shDefWeight;
 
                     cdp += shdp;
                     cev += shev;
                     chev += shhev;
                     cDR += shdr;
                     chdr += shhdr;
+                    cmvs += shMvs;
+                    cRes2 += shKBRes;
+                    cMaxST += shMaxST;
+                    cWeight += shWeight;
                 }
 
                 if (shEnchLvl >= 19 & shEnchLvl <= 20)
@@ -2850,19 +3001,40 @@ namespace BDO_Builder
                     chev -= shhev;
                     cDR -= shdr;
                     chdr -= shhdr;
+                    cmvs -= shMvs;
+                    cRes2 -= shKBRes;
+                    cMaxST -= shMaxST;
+                    cWeight -= shWeight;
 
-                    shdp = shDefdp + 48 + (shEnchLvl - 18) * 5;
-                    shev = shDefev + 21 + (shEnchLvl - 18) * 2;
-                    shhev = shDefhev + 67 + (shEnchLvl - 18) * 6;
+                    if (shId == 11 | shId == 23) shdp = shDefdp + 58 + (shEnchLvl- 18) * 5;
+                    else shdp = shDefdp + 48 + (shEnchLvl - 18) * 5;
+
+                    if (shId == 11 | shId == 23) shev = shDefev + 31 + (shEnchLvl - 18) * 2;
+                    else shev = shDefev + 21 + (shEnchLvl - 18) * 2;
+
+                    if (shId == 10 | shId == 15 | shId == 16 | shId == 17 | shId == 28 | shId == 35 | shId == 36 | shId == 37) shhev = shDefhev + 67 + (shEnchLvl - 18) * 6;
+                    else if (shId == 11 | shId == 23) shhev = shDefhev + 69 + (shEnchLvl - 18) * 6;
+                    else shhev = shDefhev + 67 + (shEnchLvl - 18) * 6;
+
                     shdr = shDefdr + 27 + (shEnchLvl - 18) * 3;
-                    shhdr = shDefhdr + 3 + (shEnchLvl - 18) * 1;
 
+                    if (shId == 11 | shId == 23) shhdr = shDefhdr + 8 +(shEnchLvl - 18) * 1;
+                    else shhdr = shDefhdr + 3 + (shEnchLvl - 18) * 1;
+
+                    shMvs = shDefMvs;
+                    shKBRes = shDefKBRes;
+                    shMaxST = shDefMaxST;
+                    shWeight = shDefWeight;
 
                     cdp += shdp;
                     cev += shev;
                     chev += shhev;
                     cDR += shdr;
                     chdr += shhdr;
+                    cmvs += shMvs;
+                    cRes2 += shKBRes;
+                    cMaxST += shMaxST;
+                    cWeight += shWeight;
                 }
 
 
@@ -2876,7 +3048,10 @@ namespace BDO_Builder
                 chev -= shhev;
                 cDR -= shdr;
                 chdr -= shhdr;
-
+                cmvs -= shMvs;
+                cRes2 -= shKBRes;
+                cMaxST -= shMaxST;
+                cWeight -= shWeight;
 
 
 
@@ -2885,14 +3060,20 @@ namespace BDO_Builder
                 shhev = shDefhev;
                 shdr = shDefdr;
                 shhdr = shDefhdr;
-
+                shMvs = shDefMvs;
+                shKBRes = shDefKBRes;
+                shMaxST = shDefMaxST;
+                shWeight = shDefWeight;
 
                 cdp += shdp;
                 cev += shev;
                 chev += shhev;
                 cDR += shdr;
                 chdr += shhdr;
-
+                cmvs += shMvs;
+                cRes2 += shKBRes;
+                cMaxST += shMaxST;
+                cWeight += shWeight;
 
             }
         }

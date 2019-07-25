@@ -98,6 +98,8 @@
             this.cFish_n = new System.Windows.Forms.Label();
             this.cGath_n = new System.Windows.Forms.Label();
             this.OStats_gb = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cCastSpeed_n = new System.Windows.Forms.Label();
             this.cKFR_n = new System.Windows.Forms.Label();
             this.cGrapR_n = new System.Windows.Forms.Label();
             this.cKBR_n = new System.Windows.Forms.Label();
@@ -150,14 +152,14 @@
             this.InfTest_cb = new System.Windows.Forms.GroupBox();
             this.asb_lbl = new System.Windows.Forms.Label();
             this.lsb_lbl = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cCastSpeed_n = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.iAtkSpeed_n = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.iCastSpeed_n = new System.Windows.Forms.Label();
             this.iCrit_n = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.iMVS_n = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.ShopGear_gb.SuspendLayout();
             this.CharacterGear_gb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Class_pic)).BeginInit();
@@ -948,6 +950,24 @@
             this.OStats_gb.TabStop = false;
             this.OStats_gb.Text = "OtherStats";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 147);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(62, 13);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "Cast Speed";
+            // 
+            // cCastSpeed_n
+            // 
+            this.cCastSpeed_n.AutoSize = true;
+            this.cCastSpeed_n.Location = new System.Drawing.Point(116, 147);
+            this.cCastSpeed_n.Name = "cCastSpeed_n";
+            this.cCastSpeed_n.Size = new System.Drawing.Size(13, 13);
+            this.cCastSpeed_n.TabIndex = 28;
+            this.cCastSpeed_n.Text = "0";
+            // 
             // cKFR_n
             // 
             this.cKFR_n.AutoSize = true;
@@ -1421,24 +1441,6 @@
             this.lsb_lbl.TabIndex = 63;
             this.lsb_lbl.Text = "0";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 147);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 13);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "Cast Speed";
-            // 
-            // cCastSpeed_n
-            // 
-            this.cCastSpeed_n.AutoSize = true;
-            this.cCastSpeed_n.Location = new System.Drawing.Point(116, 147);
-            this.cCastSpeed_n.Name = "cCastSpeed_n";
-            this.cCastSpeed_n.Size = new System.Drawing.Size(13, 13);
-            this.cCastSpeed_n.TabIndex = 28;
-            this.cCastSpeed_n.Text = "0";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -1493,12 +1495,32 @@
             this.label7.TabIndex = 29;
             this.label7.Text = "Critical Rate";
             // 
+            // iMVS_n
+            // 
+            this.iMVS_n.AutoSize = true;
+            this.iMVS_n.Location = new System.Drawing.Point(989, 272);
+            this.iMVS_n.Name = "iMVS_n";
+            this.iMVS_n.Size = new System.Drawing.Size(13, 13);
+            this.iMVS_n.TabIndex = 64;
+            this.iMVS_n.Text = "0";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(885, 272);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(91, 13);
+            this.label5.TabIndex = 63;
+            this.label5.Text = "Movement Speed";
+            // 
             // GearForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1429, 624);
+            this.Controls.Add(this.iMVS_n);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.iCrit_n);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label7);
@@ -1702,5 +1724,7 @@
         private System.Windows.Forms.Label iCastSpeed_n;
         private System.Windows.Forms.Label iCrit_n;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label iMVS_n;
+        private System.Windows.Forms.Label label5;
     }
 }

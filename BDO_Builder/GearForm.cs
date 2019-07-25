@@ -99,6 +99,7 @@ namespace BDO_Builder
             cHAP_n.Text = Convert.ToString(cs.chap);
             cAtkSpeed_n.Text = Convert.ToString(cs.cAtkSpeed);
             cCastSpeed_n.Text = Convert.ToString(cs.cCastSpeed);
+            
         }
 
         private void ItemStatClear()
@@ -119,6 +120,10 @@ namespace BDO_Builder
             iKFR_n.Text = "0";
             iHEV_n.Text = "0";
             iHDR_n.Text = "0";
+            iAtkSpeed_n.Text = "0";
+            iCastSpeed_n.Text = "0";
+            iMVS_n.Text = "0";
+            iCrit_n.Text = "0";
         }
 
         //Item load procedurs
@@ -886,6 +891,12 @@ namespace BDO_Builder
                     cs.shEnch = Convert.ToBoolean(dr["Ench"]);
                     cs.shIsBoss = Convert.ToBoolean(dr["IsBossItem"]);
                     cs.shSB = Convert.ToInt32(dr["SetBonus"]);
+                    cs.shDefMvs = Convert.ToInt32(dr["MovmmentSp"]);
+                    cs.shDefKBRes = Convert.ToInt32(dr["KBRes"]);
+                    cs.shDefMaxST = Convert.ToInt32(dr["MaxStamina"]);
+                    cs.shDefWeight = Convert.ToInt32(dr["WeightLimit"]);
+
+
                 }
 
                 LoadItemEnch_cb();
@@ -905,7 +916,10 @@ namespace BDO_Builder
                 iHEV_n.Text = cs.shhev.ToString();
                 iDR_n.Text = cs.shdr.ToString();
                 iHDR_n.Text = cs.shhdr.ToString();
-
+                iKBR_n.Text = cs.shKBRes.ToString();
+                iMVS_n.Text = cs.shMvs.ToString();
+                iST_n.Text = cs.shMaxST.ToString();
+                iWeight_n.Text = cs.shWeight.ToString();
 
 
                 FillCharacterState();
@@ -1163,6 +1177,10 @@ namespace BDO_Builder
                 iHEV_n.Text = cs.shhev.ToString();
                 iDR_n.Text = cs.shdr.ToString();
                 iHDR_n.Text = cs.shhdr.ToString();
+                iKBR_n.Text = cs.shKBRes.ToString();
+                iMVS_n.Text = cs.shMvs.ToString();
+                iST_n.Text = cs.shMaxST.ToString();
+                iWeight_n.Text = cs.shWeight.ToString();
 
 
 
