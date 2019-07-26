@@ -38,11 +38,13 @@ namespace BDO_Builder
         public int chdr; // hiden damage reduction
         public int cAtkSpeed;
         public int cCastSpeed;
-        //NEW
-        public int cacs; // Attack/Cast speed
         public int cmvs; // Movement speed 
         public int ccr; // Critical Rate
         public int chap; // Hidden AP
+        public int chpr; // HP Recovery
+        public int cluck; // Luck
+        public int ceda; //Extra damage all
+        public int cedh; //Extra damage humans
 
         //BossSetBonus Check (SetBonus = 1)
         public int b_sb; //Set Bonus
@@ -64,6 +66,69 @@ namespace BDO_Builder
         public int a_hsb;
         public int a_bsb;
         public int a_gsb;
+
+        //GrunilSetBonus Check  (SetBonus = 4)
+        public int gr_sb;
+        public int gr_asb;
+        public int gr_hsb;
+        public int gr_bsb;
+        public int gr_gsb;
+
+        //TaritasSetBonus Check  (SetBonus = 5)
+        public int tr_sb;
+        public int tr_asb;
+        public int tr_hsb;
+        public int tr_bsb;
+        public int tr_gsb;
+        
+        //RocabaSetBonus Check  (SetBonus = 6)
+        public int rc_sb;
+        public int rc_asb;
+        public int rc_hsb;
+        public int rc_bsb;
+        public int rc_gsb;
+
+        //AgerianSetBonus Check  (SetBonus = 7)
+        public int ag_sb;
+        public int ag_asb;
+        public int ag_hsb;
+        public int ag_bsb;
+        public int ag_gsb;
+
+        //ZerethSetBonus Check  (SetBonus = 8)
+        public int zr_sb;
+        public int zr_asb;
+        public int zr_hsb;
+        public int zr_bsb;
+        public int zr_gsb;
+
+        //TalisSetBonus Check  (SetBonus = 9)
+        public int tl_sb;
+        public int tl_asb;
+        public int tl_hsb;
+        public int tl_bsb;
+        public int tl_gsb;
+
+        //Strength "" of Heve SetBonus Check (SetBonus = 10)
+        public int sh_sb;
+        public int sh_asb;
+        public int sh_hsb;
+        public int sh_bsb;
+        public int sh_gsb;
+
+        //Hercules' Might SetBonus Check  (SB = 11)
+        public int hm_sb;
+        public int hm_asb;
+        public int hm_hsb;
+        public int hm_bsb;
+        public int hm_gsb;
+
+        //Luck "" of Fortuna SetBonus Check  (SB = 12)
+        public int lf_sb;
+        public int lf_asb;
+        public int lf_hsb;
+        public int lf_bsb;
+        public int lf_gsb;
 
         // Belt stats
         public int beltap; //Betl AP
@@ -3092,6 +3157,43 @@ namespace BDO_Builder
             a_sb = a_sb - a_hsb;
             a_sb = a_sb - a_bsb;
             a_sb = a_sb - a_gsb;
+            gr_sb = gr_sb - gr_asb; // Grunil (4)
+            gr_sb = gr_sb - gr_hsb;
+            gr_sb = gr_sb - gr_bsb;
+            gr_sb = gr_sb - gr_gsb;
+            tr_sb = tr_sb - tr_asb; // Taritas (5)
+            tr_sb = tr_sb - tr_hsb;
+            tr_sb = tr_sb - tr_bsb;
+            tr_sb = tr_sb - tr_gsb;
+            rc_sb = rc_sb - rc_asb; // Rocaba (6)
+            rc_sb = rc_sb - rc_hsb;
+            rc_sb = rc_sb - rc_bsb;
+            rc_sb = rc_sb - rc_gsb;
+            ag_sb = ag_sb - ag_asb; // Agerian (7)
+            ag_sb = ag_sb - ag_hsb;
+            ag_sb = ag_sb - ag_bsb;
+            ag_sb = ag_sb - ag_gsb;
+            zr_sb = zr_sb - zr_asb; // Zereth (8)
+            zr_sb = zr_sb - zr_hsb;
+            zr_sb = zr_sb - zr_bsb;
+            zr_sb = zr_sb - zr_gsb;
+            tl_sb = tl_sb - tl_asb; // Talis (9)
+            tl_sb = tl_sb - tl_hsb;
+            tl_sb = tl_sb - tl_bsb;
+            tl_sb = tl_sb - tl_gsb;
+            sh_sb = sh_sb - sh_asb; // SH (10)
+            sh_sb = sh_sb - sh_hsb;
+            sh_sb = sh_sb - sh_bsb;
+            sh_sb = sh_sb - sh_gsb;
+            hm_sb = hm_sb - hm_asb; // HM (11)
+            hm_sb = hm_sb - hm_hsb;
+            hm_sb = hm_sb - hm_bsb;
+            hm_sb = hm_sb - hm_gsb;
+            lf_sb = lf_sb - lf_asb; // LF (12)
+            lf_sb = lf_sb - lf_hsb;
+            lf_sb = lf_sb - lf_bsb;
+            lf_sb = lf_sb - lf_gsb;
+
             // Boss
             if (armSB == 1) { b_asb = 1; }
             if (armSB != 1 && b_asb > 0) { b_asb = b_asb - 1; }
@@ -3119,6 +3221,87 @@ namespace BDO_Builder
             if (shSB != 3 && a_bsb > 0) { a_bsb = a_bsb - 1; }
             if (glovSB == 3) { a_gsb = 1; }
             if (glovSB != 3 && a_gsb > 0) { a_gsb = a_gsb - 1; }
+            // Grunil
+            if (armSB == 4) { gr_asb = 1; }
+            if (armSB != 4 && gr_asb > 0) { gr_asb = gr_asb - 1; }
+            if (helSB == 4) { gr_hsb = 1; }
+            if (helSB != 4 && gr_hsb > 0) { gr_hsb = gr_hsb - 1; }
+            if (shSB == 4) { gr_bsb = 1; }
+            if (shSB != 4 && gr_bsb > 0) { gr_bsb = gr_bsb - 1; }
+            if (glovSB == 4) { gr_gsb = 1; }
+            if (glovSB != 4 && gr_gsb > 0) { gr_gsb = gr_gsb - 1; }
+            // Taritas
+            if (armSB == 5) { tr_asb = 1; }
+            if (armSB != 5 && tr_asb > 0) { tr_asb = tr_asb - 1; }
+            if (helSB == 5) { tr_hsb = 1; }
+            if (helSB != 5 && tr_hsb > 0) { tr_hsb = tr_hsb - 1; }
+            if (shSB == 5) { tr_bsb = 1; }
+            if (shSB != 5 && tr_bsb > 0) { tr_bsb = tr_bsb - 1; }
+            if (glovSB == 5) { tr_gsb = 1; }
+            if (glovSB != 5 && tr_gsb > 0) { tr_gsb = tr_gsb - 1; }
+            // Rocaba
+            if (armSB == 6) { rc_asb = 1; }
+            if (armSB != 6 && rc_asb > 0) { rc_asb = rc_asb - 1; }
+            if (helSB == 6) { rc_hsb = 1; }
+            if (helSB != 6 && rc_hsb > 0) { rc_hsb = rc_hsb - 1; }
+            if (shSB == 6) { rc_bsb = 1; }
+            if (shSB != 6 && rc_bsb > 0) { rc_bsb = rc_bsb - 1; }
+            if (glovSB == 6) { rc_gsb = 1; }
+            if (glovSB != 6 && rc_gsb > 0) { rc_gsb = rc_gsb - 1; }
+            // Agerian
+            if (armSB == 7) { ag_asb = 1; }
+            if (armSB != 7 && ag_asb > 0) { ag_asb = ag_asb - 1; }
+            if (helSB == 7) { ag_hsb = 1; }
+            if (helSB != 7 && ag_hsb > 0) { ag_hsb = ag_hsb - 1; }
+            if (shSB == 7) { ag_bsb = 1; }
+            if (shSB != 7 && ag_bsb > 0) { ag_bsb = ag_bsb - 1; }
+            if (glovSB == 7) { ag_gsb = 1; }
+            if (glovSB != 7 && ag_gsb > 0) { ag_gsb = ag_gsb - 1; }
+            // Zereth
+            if (armSB == 8) { zr_asb = 1; }
+            if (armSB != 8 && zr_asb > 0) { zr_asb = zr_asb - 1; }
+            if (helSB == 8) { zr_hsb = 1; }
+            if (helSB != 8 && zr_hsb > 0) { zr_hsb = zr_hsb - 1; }
+            if (shSB == 8) { zr_bsb = 1; }
+            if (shSB != 8 && zr_bsb > 0) { zr_bsb = zr_bsb - 1; }
+            if (glovSB == 8) { zr_gsb = 1; }
+            if (glovSB != 8 && zr_gsb > 0) { zr_gsb = zr_gsb - 1; }
+            // Talis
+            if (armSB == 9) { tl_asb = 1; }
+            if (armSB != 9 && tl_asb > 0) { tl_asb = tl_asb - 1; }
+            if (helSB == 9) { tl_hsb = 1; }
+            if (helSB != 9 && tl_hsb > 0) { tl_hsb = tl_hsb - 1; }
+            if (shSB == 9) { tl_bsb = 1; }
+            if (shSB != 9 && tl_bsb > 0) { tl_bsb = tl_bsb - 1; }
+            if (glovSB == 9) { tl_gsb = 1; }
+            if (glovSB != 9 && tl_gsb > 0) { tl_gsb = tl_gsb - 1; }
+            // SH
+            if (armSB == 10) { sh_asb = 1; }
+            if (armSB != 10 && sh_asb > 0) { sh_asb = sh_asb - 1; }
+            if (helSB == 10) { sh_hsb = 1; }
+            if (helSB != 10 && sh_hsb > 0) { sh_hsb = sh_hsb - 1; }
+            if (shSB == 10) { sh_bsb = 1; }
+            if (shSB != 10 && sh_bsb > 0) { sh_bsb = sh_bsb - 1; }
+            if (glovSB == 10) { sh_gsb = 1; }
+            if (glovSB != 10 && sh_gsb > 0) { sh_gsb = sh_gsb - 1; }
+            // HM
+            if (armSB == 11) { hm_asb = 1; }
+            if (armSB != 11 && hm_asb > 0) { hm_asb = hm_asb - 1; }
+            if (helSB == 11) { hm_hsb = 1; }
+            if (helSB != 11 && hm_hsb > 0) { hm_hsb = hm_hsb - 1; }
+            if (shSB == 11) { hm_bsb = 1; }
+            if (shSB != 11 && hm_bsb > 0) { hm_bsb = hm_bsb - 1; }
+            if (glovSB == 11) { hm_gsb = 1; }
+            if (glovSB != 11 && hm_gsb > 0) { hm_gsb = hm_gsb - 1; }
+            // LF
+            if (armSB == 12) { lf_asb = 1; }
+            if (armSB != 12 && lf_asb > 0) { lf_asb = lf_asb - 1; }
+            if (helSB == 12) { lf_hsb = 1; }
+            if (helSB != 12 && lf_hsb > 0) { lf_hsb = lf_hsb - 1; }
+            if (shSB == 12) { lf_bsb = 1; }
+            if (shSB != 12 && lf_bsb > 0) { lf_bsb = lf_bsb - 1; }
+            if (glovSB == 12) { lf_gsb = 1; }
+            if (glovSB != 12 && lf_gsb > 0) { lf_gsb = lf_gsb - 1; }
 
             b_sb = b_sb + b_asb; // Boss
             b_sb = b_sb + b_hsb;
@@ -3132,6 +3315,43 @@ namespace BDO_Builder
             a_sb = a_sb + a_hsb;
             a_sb = a_sb + a_bsb;
             a_sb = a_sb + a_gsb;
+            gr_sb = gr_sb + gr_asb; // Grunil
+            gr_sb = gr_sb + gr_hsb;
+            gr_sb = gr_sb + gr_bsb;
+            gr_sb = gr_sb + gr_gsb;
+            tr_sb = tr_sb + tr_asb; // Taritas
+            tr_sb = tr_sb + tr_hsb;
+            tr_sb = tr_sb + tr_bsb;
+            tr_sb = tr_sb + tr_gsb;
+            rc_sb = rc_sb + rc_asb; // Rocaba
+            rc_sb = rc_sb + rc_hsb;
+            rc_sb = rc_sb + rc_bsb;
+            rc_sb = rc_sb + rc_gsb;
+            ag_sb = ag_sb + ag_asb; // Agerian
+            ag_sb = ag_sb + ag_hsb;
+            ag_sb = ag_sb + ag_bsb;
+            ag_sb = ag_sb + ag_gsb;
+            zr_sb = zr_sb + zr_asb; // Zereth
+            zr_sb = zr_sb + zr_hsb;
+            zr_sb = zr_sb + zr_bsb;
+            zr_sb = zr_sb + zr_gsb;
+            tl_sb = tl_sb + tl_asb; // Talis
+            tl_sb = tl_sb + tl_hsb;
+            tl_sb = tl_sb + tl_bsb;
+            tl_sb = tl_sb + tl_gsb;
+            sh_sb = sh_sb + sh_asb; // SH
+            sh_sb = sh_sb + sh_hsb;
+            sh_sb = sh_sb + sh_bsb;
+            sh_sb = sh_sb + sh_gsb;
+            hm_sb = hm_sb + hm_asb; // HM
+            hm_sb = hm_sb + hm_hsb;
+            hm_sb = hm_sb + hm_bsb;
+            hm_sb = hm_sb + hm_gsb;
+            lf_sb = lf_sb + lf_asb; // LF
+            lf_sb = lf_sb + lf_hsb;
+            lf_sb = lf_sb + lf_bsb;
+            lf_sb = lf_sb + lf_gsb;
+
         }
 
     }
