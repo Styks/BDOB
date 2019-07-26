@@ -743,9 +743,9 @@ namespace BDO_Builder
 
                 iDP_n.Text = cs.armdp.ToString();
                 iEvas_n.Text = cs.armev.ToString();
-                iHEV_n.Text = cs.armev.ToString();
+                iHEV_n.Text = cs.armhev.ToString();
                 iDR_n.Text = cs.armdr.ToString();
-                iHDR_n.Text = cs.armdr.ToString();
+                iHDR_n.Text = cs.armhdr.ToString();
                 iHP_n.Text = cs.armHP.ToString();
                 iMP_n.Text = cs.armMP.ToString();
                 iSSFR_n.Text = cs.armSSFRes.ToString();
@@ -807,7 +807,8 @@ namespace BDO_Builder
                 iKBR_n.Text = cs.helKBRes.ToString();
                 iGrapR_n.Text = cs.helGrapleRes.ToString();
                 iKFR_n.Text = cs.helKFRes.ToString();
-                iST_n.Text = cs.helWeight.ToString();
+                iST_n.Text = cs.helST.ToString();
+                iWeight_n.Text = cs.helWeight.ToString();
 
 
                 FillCharacterState();
@@ -952,7 +953,7 @@ namespace BDO_Builder
             if (cs.a_sb == 3 && a_b3a == 0) { a_b3a = 5; a_b3b = 150; cs.cDR = cs.cDR + a_b3a; cs.cMaxHP = cs.cMaxHP + a_b3b; FillCharacterState(); }
             if (cs.a_sb == 3) { cs.chap = cs.chap - a_b4; a_b4 = 0; FillCharacterState(); }
             if (cs.a_sb == 4 && a_b4 == 0) { a_b4 = 7; cs.chap = cs.chap + a_b4; FillCharacterState(); }
-            //Hercules' Might //Grunil //Taritas //Rocaba //Agerian //Strength "" of Heve //Zereth //Talis //Luck "" of Fortuna
+            //Hercules' Might //Grunil //Taritas //Rocaba //Agerian //Strength "" of Heve //Zereth //Talis //Luck "" of Fortuna 
         }
 
         private void LoadItemEnch_cb()
