@@ -772,9 +772,9 @@ namespace BDO_Builder
 
                 iDP_n.Text = cs.armdp.ToString();
                 iEvas_n.Text = cs.armev.ToString();
-                iHEV_n.Text = cs.armev.ToString();
+                iHEV_n.Text = cs.armhev.ToString();
                 iDR_n.Text = cs.armdr.ToString();
-                iHDR_n.Text = cs.armdr.ToString();
+                iHDR_n.Text = cs.armhdr.ToString();
                 iHP_n.Text = cs.armHP.ToString();
                 iMP_n.Text = cs.armMP.ToString();
                 iSSFR_n.Text = cs.armSSFRes.ToString();
@@ -836,7 +836,8 @@ namespace BDO_Builder
                 iKBR_n.Text = cs.helKBRes.ToString();
                 iGrapR_n.Text = cs.helGrapleRes.ToString();
                 iKFR_n.Text = cs.helKFRes.ToString();
-                iST_n.Text = cs.helWeight.ToString();
+                iST_n.Text = cs.helST.ToString();
+                iWeight_n.Text = cs.helWeight.ToString();
 
 
                 FillCharacterState();
