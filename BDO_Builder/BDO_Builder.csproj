@@ -167,6 +167,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>BDO_Base.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\bell2.wav" />
+    <None Include="Resources\bell1.wav" />
+    <None Include="Resources\rrrou-1.wav" />
     <None Include="Resources\Sound_1.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

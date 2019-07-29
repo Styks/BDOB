@@ -121,6 +121,15 @@
   <data name="BDOB_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BDOB_Icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="bell1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bell1.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bell2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bell2.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="rrrou_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rrrou-1.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Sound_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Sound_1.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

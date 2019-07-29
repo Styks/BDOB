@@ -42,22 +42,23 @@
             this.Back_btn = new System.Windows.Forms.Button();
             this.Cron_rb = new System.Windows.Forms.RadioButton();
             this.Food_panel = new System.Windows.Forms.Panel();
+            this.TestF_rb = new System.Windows.Forms.RadioButton();
             this.Other_rb = new System.Windows.Forms.RadioButton();
             this.Food_Pause = new System.Windows.Forms.Button();
-            this.TestF_rb = new System.Windows.Forms.RadioButton();
             this.Potion_panel = new System.Windows.Forms.Panel();
+            this.TestP_rb = new System.Windows.Forms.RadioButton();
+            this.p10_rb = new System.Windows.Forms.RadioButton();
             this.p5_rb = new System.Windows.Forms.RadioButton();
             this.p8_rb = new System.Windows.Forms.RadioButton();
             this.p15_rb = new System.Windows.Forms.RadioButton();
             this.Potion_Pause = new System.Windows.Forms.Button();
             this.Potion_Start = new System.Windows.Forms.Button();
-            this.p10_rb = new System.Windows.Forms.RadioButton();
-            this.TestP_rb = new System.Windows.Forms.RadioButton();
             this.foodr_lbl = new System.Windows.Forms.Label();
             this.potionr_lbl = new System.Windows.Forms.Label();
             this.Info_btn = new System.Windows.Forms.Button();
             this.TopMostON_btn = new System.Windows.Forms.Button();
             this.TopMostOFF_btn = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.Food_panel.SuspendLayout();
             this.Potion_panel.SuspendLayout();
             this.SuspendLayout();
@@ -174,6 +175,16 @@
             this.Food_panel.Size = new System.Drawing.Size(60, 72);
             this.Food_panel.TabIndex = 9;
             // 
+            // TestF_rb
+            // 
+            this.TestF_rb.AutoSize = true;
+            this.TestF_rb.Location = new System.Drawing.Point(3, 49);
+            this.TestF_rb.Name = "TestF_rb";
+            this.TestF_rb.Size = new System.Drawing.Size(53, 17);
+            this.TestF_rb.TabIndex = 11;
+            this.TestF_rb.Text = "TEST";
+            this.TestF_rb.UseVisualStyleBackColor = true;
+            // 
             // Other_rb
             // 
             this.Other_rb.AutoSize = true;
@@ -194,16 +205,6 @@
             this.Food_Pause.UseVisualStyleBackColor = true;
             this.Food_Pause.Click += new System.EventHandler(this.Food_Pause_Click);
             // 
-            // TestF_rb
-            // 
-            this.TestF_rb.AutoSize = true;
-            this.TestF_rb.Location = new System.Drawing.Point(3, 49);
-            this.TestF_rb.Name = "TestF_rb";
-            this.TestF_rb.Size = new System.Drawing.Size(53, 17);
-            this.TestF_rb.TabIndex = 11;
-            this.TestF_rb.Text = "TEST";
-            this.TestF_rb.UseVisualStyleBackColor = true;
-            // 
             // Potion_panel
             // 
             this.Potion_panel.Controls.Add(this.TestP_rb);
@@ -215,6 +216,26 @@
             this.Potion_panel.Name = "Potion_panel";
             this.Potion_panel.Size = new System.Drawing.Size(60, 117);
             this.Potion_panel.TabIndex = 11;
+            // 
+            // TestP_rb
+            // 
+            this.TestP_rb.AutoSize = true;
+            this.TestP_rb.Location = new System.Drawing.Point(3, 95);
+            this.TestP_rb.Name = "TestP_rb";
+            this.TestP_rb.Size = new System.Drawing.Size(53, 17);
+            this.TestP_rb.TabIndex = 14;
+            this.TestP_rb.Text = "TEST";
+            this.TestP_rb.UseVisualStyleBackColor = true;
+            // 
+            // p10_rb
+            // 
+            this.p10_rb.AutoSize = true;
+            this.p10_rb.Location = new System.Drawing.Point(3, 26);
+            this.p10_rb.Name = "p10_rb";
+            this.p10_rb.Size = new System.Drawing.Size(56, 17);
+            this.p10_rb.TabIndex = 12;
+            this.p10_rb.Text = "10 min";
+            this.p10_rb.UseVisualStyleBackColor = true;
             // 
             // p5_rb
             // 
@@ -268,26 +289,6 @@
             this.Potion_Start.UseVisualStyleBackColor = true;
             this.Potion_Start.Click += new System.EventHandler(this.Potion_Start_Click);
             // 
-            // p10_rb
-            // 
-            this.p10_rb.AutoSize = true;
-            this.p10_rb.Location = new System.Drawing.Point(3, 26);
-            this.p10_rb.Name = "p10_rb";
-            this.p10_rb.Size = new System.Drawing.Size(56, 17);
-            this.p10_rb.TabIndex = 12;
-            this.p10_rb.Text = "10 min";
-            this.p10_rb.UseVisualStyleBackColor = true;
-            // 
-            // TestP_rb
-            // 
-            this.TestP_rb.AutoSize = true;
-            this.TestP_rb.Location = new System.Drawing.Point(3, 95);
-            this.TestP_rb.Name = "TestP_rb";
-            this.TestP_rb.Size = new System.Drawing.Size(53, 17);
-            this.TestP_rb.TabIndex = 14;
-            this.TestP_rb.Text = "TEST";
-            this.TestP_rb.UseVisualStyleBackColor = true;
-            // 
             // foodr_lbl
             // 
             this.foodr_lbl.AutoSize = true;
@@ -310,13 +311,13 @@
             // 
             // Info_btn
             // 
-            this.Info_btn.Enabled = false;
             this.Info_btn.Location = new System.Drawing.Point(212, 41);
             this.Info_btn.Name = "Info_btn";
             this.Info_btn.Size = new System.Drawing.Size(75, 23);
             this.Info_btn.TabIndex = 16;
             this.Info_btn.Text = "Info";
             this.Info_btn.UseVisualStyleBackColor = true;
+            this.Info_btn.Click += new System.EventHandler(this.Info_btn_Click);
             // 
             // TopMostON_btn
             // 
@@ -339,12 +340,23 @@
             this.TopMostOFF_btn.Visible = false;
             this.TopMostOFF_btn.Click += new System.EventHandler(this.TopMostOFF_btn_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(318, 12);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(154, 304);
+            this.textBox1.TabIndex = 19;
+            this.textBox1.Text = "NumLock 1 - TopMostOn\r\nNumLock 2 - TopMostOff";
+            // 
             // TimerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(299, 328);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.TopMostOFF_btn);
             this.Controls.Add(this.TopMostON_btn);
             this.Controls.Add(this.Info_btn);
@@ -368,6 +380,7 @@
             this.Name = "TimerForm";
             this.Text = "Buff Timer";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TimerForm_FormClosing);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TimerForm_KeyDown);
             this.Food_panel.ResumeLayout(false);
             this.Food_panel.PerformLayout();
             this.Potion_panel.ResumeLayout(false);
@@ -407,5 +420,6 @@
         private System.Windows.Forms.Button Info_btn;
         private System.Windows.Forms.Button TopMostON_btn;
         private System.Windows.Forms.Button TopMostOFF_btn;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
