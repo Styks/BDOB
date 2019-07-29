@@ -57,6 +57,20 @@
             this.Armour_btn = new System.Windows.Forms.Button();
             this.Helmet_btn = new System.Windows.Forms.Button();
             this.MStats_gb = new System.Windows.Forms.GroupBox();
+            this.cExtraDamKama_n = new System.Windows.Forms.Label();
+            this.cExtraDamKama_lbl = new System.Windows.Forms.Label();
+            this.cEAPa_n = new System.Windows.Forms.Label();
+            this.cEAPa_lbl = new System.Windows.Forms.Label();
+            this.cMPR_n = new System.Windows.Forms.Label();
+            this.cMPR_lbl = new System.Windows.Forms.Label();
+            this.cEDH_n = new System.Windows.Forms.Label();
+            this.cEDH_lbl = new System.Windows.Forms.Label();
+            this.cEDA_n = new System.Windows.Forms.Label();
+            this.cEDA_lbl = new System.Windows.Forms.Label();
+            this.cHPR_n = new System.Windows.Forms.Label();
+            this.cHPR_lbl = new System.Windows.Forms.Label();
+            this.cLuck_n = new System.Windows.Forms.Label();
+            this.cLuck_lbl = new System.Windows.Forms.Label();
             this.cHAP_n = new System.Windows.Forms.Label();
             this.cHAP_lbl = new System.Windows.Forms.Label();
             this.cStamina_n = new System.Windows.Forms.Label();
@@ -160,14 +174,41 @@
             this.iCR_lbl = new System.Windows.Forms.Label();
             this.iMVS_n = new System.Windows.Forms.Label();
             this.iMvS_lbl = new System.Windows.Forms.Label();
-            this.cLuck_lbl = new System.Windows.Forms.Label();
-            this.cLuck_n = new System.Windows.Forms.Label();
-            this.cHPR_lbl = new System.Windows.Forms.Label();
-            this.cHPR_n = new System.Windows.Forms.Label();
-            this.cEDA_lbl = new System.Windows.Forms.Label();
-            this.cEDA_n = new System.Windows.Forms.Label();
-            this.cEDH_lbl = new System.Windows.Forms.Label();
-            this.cEDH_n = new System.Windows.Forms.Label();
+            this.iMPR_n = new System.Windows.Forms.Label();
+            this.iMPR_lbl = new System.Windows.Forms.Label();
+            this.iHPR_n = new System.Windows.Forms.Label();
+            this.iHPR_lbl = new System.Windows.Forms.Label();
+            this.iLuck_n = new System.Windows.Forms.Label();
+            this.iLuck_lbl = new System.Windows.Forms.Label();
+            this.iEDtA_n = new System.Windows.Forms.Label();
+            this.iEDtA_lbl = new System.Windows.Forms.Label();
+            this.iEAPa_n = new System.Windows.Forms.Label();
+            this.iEAPa_lbl = new System.Windows.Forms.Label();
+            this.iExtraDamKama_n = new System.Windows.Forms.Label();
+            this.iExtraDamKama_lbl = new System.Windows.Forms.Label();
+            this.iEDH_n = new System.Windows.Forms.Label();
+            this.iEDH_lbl = new System.Windows.Forms.Label();
+            this.cADtDemiH_n = new System.Windows.Forms.Label();
+            this.cADtDemiH_lbl = new System.Windows.Forms.Label();
+            this.iADtDemiH_n = new System.Windows.Forms.Label();
+            this.iADtDemiH_lbl = new System.Windows.Forms.Label();
+            this.cEDtAExcHumanAndDemi_n = new System.Windows.Forms.Label();
+            this.cEDtAExcHumanAndDemi_lbl = new System.Windows.Forms.Label();
+            this.iEDtAExcHumanAndDemi_n = new System.Windows.Forms.Label();
+            this.iEDtAExcHumanAndDemi_lbl = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cBidding_lbl = new System.Windows.Forms.Label();
+            this.cBidding_n = new System.Windows.Forms.Label();
+            this.cSpiritRage_lbl = new System.Windows.Forms.Label();
+            this.cSpiritRage_n = new System.Windows.Forms.Label();
+            this.iSpiritRage_lbl = new System.Windows.Forms.Label();
+            this.iSpiritRage_n = new System.Windows.Forms.Label();
+            this.iBidding_lbl = new System.Windows.Forms.Label();
+            this.iBidding_n = new System.Windows.Forms.Label();
+            this.cEDtoBack_n = new System.Windows.Forms.Label();
+            this.cEDtoBack_lbl = new System.Windows.Forms.Label();
+            this.iEDtoBack_n = new System.Windows.Forms.Label();
+            this.iEDtoBack_lbl = new System.Windows.Forms.Label();
             this.ShopGear_gb.SuspendLayout();
             this.CharacterGear_gb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Class_pic)).BeginInit();
@@ -176,6 +217,7 @@
             this.OStats_gb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Item_image)).BeginInit();
             this.InfTest_cb.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Back_btn
@@ -526,10 +568,13 @@
             // 
             // MStats_gb
             // 
-            this.MStats_gb.Controls.Add(this.cEDH_n);
-            this.MStats_gb.Controls.Add(this.cEDH_lbl);
-            this.MStats_gb.Controls.Add(this.cEDA_n);
-            this.MStats_gb.Controls.Add(this.cEDA_lbl);
+            this.MStats_gb.Controls.Add(this.cSpiritRage_lbl);
+            this.MStats_gb.Controls.Add(this.cSpiritRage_n);
+            this.MStats_gb.Controls.Add(this.cBidding_lbl);
+            this.MStats_gb.Controls.Add(this.cBidding_n);
+            this.MStats_gb.Controls.Add(this.groupBox1);
+            this.MStats_gb.Controls.Add(this.cMPR_n);
+            this.MStats_gb.Controls.Add(this.cMPR_lbl);
             this.MStats_gb.Controls.Add(this.cHPR_n);
             this.MStats_gb.Controls.Add(this.cHPR_lbl);
             this.MStats_gb.Controls.Add(this.cLuck_n);
@@ -562,10 +607,136 @@
             this.MStats_gb.Controls.Add(this.cAP_lbl);
             this.MStats_gb.Location = new System.Drawing.Point(19, 394);
             this.MStats_gb.Name = "MStats_gb";
-            this.MStats_gb.Size = new System.Drawing.Size(699, 195);
+            this.MStats_gb.Size = new System.Drawing.Size(966, 195);
             this.MStats_gb.TabIndex = 4;
             this.MStats_gb.TabStop = false;
             this.MStats_gb.Text = "MainStats";
+            // 
+            // cExtraDamKama_n
+            // 
+            this.cExtraDamKama_n.AutoSize = true;
+            this.cExtraDamKama_n.Location = new System.Drawing.Point(228, 84);
+            this.cExtraDamKama_n.Name = "cExtraDamKama_n";
+            this.cExtraDamKama_n.Size = new System.Drawing.Size(13, 13);
+            this.cExtraDamKama_n.TabIndex = 53;
+            this.cExtraDamKama_n.Text = "0";
+            // 
+            // cExtraDamKama_lbl
+            // 
+            this.cExtraDamKama_lbl.AutoSize = true;
+            this.cExtraDamKama_lbl.Location = new System.Drawing.Point(9, 84);
+            this.cExtraDamKama_lbl.Name = "cExtraDamKama_lbl";
+            this.cExtraDamKama_lbl.Size = new System.Drawing.Size(71, 13);
+            this.cExtraDamKama_lbl.TabIndex = 52;
+            this.cExtraDamKama_lbl.Text = "Kamasylvians";
+            // 
+            // cEAPa_n
+            // 
+            this.cEAPa_n.AutoSize = true;
+            this.cEAPa_n.Location = new System.Drawing.Point(228, 63);
+            this.cEAPa_n.Name = "cEAPa_n";
+            this.cEAPa_n.Size = new System.Drawing.Size(13, 13);
+            this.cEAPa_n.TabIndex = 51;
+            this.cEAPa_n.Text = "0";
+            // 
+            // cEAPa_lbl
+            // 
+            this.cEAPa_lbl.AutoSize = true;
+            this.cEAPa_lbl.Location = new System.Drawing.Point(9, 63);
+            this.cEAPa_lbl.Name = "cEAPa_lbl";
+            this.cEAPa_lbl.Size = new System.Drawing.Size(50, 13);
+            this.cEAPa_lbl.TabIndex = 50;
+            this.cEAPa_lbl.Text = "Monsters";
+            // 
+            // cMPR_n
+            // 
+            this.cMPR_n.AutoSize = true;
+            this.cMPR_n.Location = new System.Drawing.Point(319, 77);
+            this.cMPR_n.Name = "cMPR_n";
+            this.cMPR_n.Size = new System.Drawing.Size(13, 13);
+            this.cMPR_n.TabIndex = 49;
+            this.cMPR_n.Text = "0";
+            // 
+            // cMPR_lbl
+            // 
+            this.cMPR_lbl.AutoSize = true;
+            this.cMPR_lbl.Location = new System.Drawing.Point(232, 77);
+            this.cMPR_lbl.Name = "cMPR_lbl";
+            this.cMPR_lbl.Size = new System.Drawing.Size(72, 13);
+            this.cMPR_lbl.TabIndex = 48;
+            this.cMPR_lbl.Text = "MP Recovery";
+            // 
+            // cEDH_n
+            // 
+            this.cEDH_n.AutoSize = true;
+            this.cEDH_n.Location = new System.Drawing.Point(228, 42);
+            this.cEDH_n.Name = "cEDH_n";
+            this.cEDH_n.Size = new System.Drawing.Size(13, 13);
+            this.cEDH_n.TabIndex = 47;
+            this.cEDH_n.Text = "0";
+            // 
+            // cEDH_lbl
+            // 
+            this.cEDH_lbl.AutoSize = true;
+            this.cEDH_lbl.Location = new System.Drawing.Point(9, 42);
+            this.cEDH_lbl.Name = "cEDH_lbl";
+            this.cEDH_lbl.Size = new System.Drawing.Size(46, 13);
+            this.cEDH_lbl.TabIndex = 46;
+            this.cEDH_lbl.Text = "Humans";
+            // 
+            // cEDA_n
+            // 
+            this.cEDA_n.AutoSize = true;
+            this.cEDA_n.Location = new System.Drawing.Point(228, 21);
+            this.cEDA_n.Name = "cEDA_n";
+            this.cEDA_n.Size = new System.Drawing.Size(13, 13);
+            this.cEDA_n.TabIndex = 45;
+            this.cEDA_n.Text = "0";
+            // 
+            // cEDA_lbl
+            // 
+            this.cEDA_lbl.AutoSize = true;
+            this.cEDA_lbl.Location = new System.Drawing.Point(9, 21);
+            this.cEDA_lbl.Name = "cEDA_lbl";
+            this.cEDA_lbl.Size = new System.Drawing.Size(59, 13);
+            this.cEDA_lbl.TabIndex = 44;
+            this.cEDA_lbl.Text = "All Species";
+            // 
+            // cHPR_n
+            // 
+            this.cHPR_n.AutoSize = true;
+            this.cHPR_n.Location = new System.Drawing.Point(319, 53);
+            this.cHPR_n.Name = "cHPR_n";
+            this.cHPR_n.Size = new System.Drawing.Size(13, 13);
+            this.cHPR_n.TabIndex = 43;
+            this.cHPR_n.Text = "0";
+            // 
+            // cHPR_lbl
+            // 
+            this.cHPR_lbl.AutoSize = true;
+            this.cHPR_lbl.Location = new System.Drawing.Point(232, 53);
+            this.cHPR_lbl.Name = "cHPR_lbl";
+            this.cHPR_lbl.Size = new System.Drawing.Size(71, 13);
+            this.cHPR_lbl.TabIndex = 42;
+            this.cHPR_lbl.Text = "HP Recovery";
+            // 
+            // cLuck_n
+            // 
+            this.cLuck_n.AutoSize = true;
+            this.cLuck_n.Location = new System.Drawing.Point(319, 28);
+            this.cLuck_n.Name = "cLuck_n";
+            this.cLuck_n.Size = new System.Drawing.Size(13, 13);
+            this.cLuck_n.TabIndex = 41;
+            this.cLuck_n.Text = "0";
+            // 
+            // cLuck_lbl
+            // 
+            this.cLuck_lbl.AutoSize = true;
+            this.cLuck_lbl.Location = new System.Drawing.Point(272, 28);
+            this.cLuck_lbl.Name = "cLuck_lbl";
+            this.cLuck_lbl.Size = new System.Drawing.Size(31, 13);
+            this.cLuck_lbl.TabIndex = 40;
+            this.cLuck_lbl.Text = "Luck";
             // 
             // cHAP_n
             // 
@@ -959,7 +1130,7 @@
             this.OStats_gb.Controls.Add(this.cMvS_n);
             this.OStats_gb.Controls.Add(this.cAtkSpeed_n);
             this.OStats_gb.Controls.Add(this.cMvS_lbl);
-            this.OStats_gb.Location = new System.Drawing.Point(724, 394);
+            this.OStats_gb.Location = new System.Drawing.Point(992, 394);
             this.OStats_gb.Name = "OStats_gb";
             this.OStats_gb.Size = new System.Drawing.Size(374, 195);
             this.OStats_gb.TabIndex = 18;
@@ -1529,77 +1700,334 @@
             this.iMvS_lbl.TabIndex = 63;
             this.iMvS_lbl.Text = "Movement Speed";
             // 
-            // cLuck_lbl
+            // iMPR_n
             // 
-            this.cLuck_lbl.AutoSize = true;
-            this.cLuck_lbl.Location = new System.Drawing.Point(272, 28);
-            this.cLuck_lbl.Name = "cLuck_lbl";
-            this.cLuck_lbl.Size = new System.Drawing.Size(31, 13);
-            this.cLuck_lbl.TabIndex = 40;
-            this.cLuck_lbl.Text = "Luck";
+            this.iMPR_n.AutoSize = true;
+            this.iMPR_n.Location = new System.Drawing.Point(972, 299);
+            this.iMPR_n.Name = "iMPR_n";
+            this.iMPR_n.Size = new System.Drawing.Size(13, 13);
+            this.iMPR_n.TabIndex = 53;
+            this.iMPR_n.Text = "0";
             // 
-            // cLuck_n
+            // iMPR_lbl
             // 
-            this.cLuck_n.AutoSize = true;
-            this.cLuck_n.Location = new System.Drawing.Point(319, 28);
-            this.cLuck_n.Name = "cLuck_n";
-            this.cLuck_n.Size = new System.Drawing.Size(13, 13);
-            this.cLuck_n.TabIndex = 41;
-            this.cLuck_n.Text = "0";
+            this.iMPR_lbl.AutoSize = true;
+            this.iMPR_lbl.Location = new System.Drawing.Point(885, 299);
+            this.iMPR_lbl.Name = "iMPR_lbl";
+            this.iMPR_lbl.Size = new System.Drawing.Size(72, 13);
+            this.iMPR_lbl.TabIndex = 52;
+            this.iMPR_lbl.Text = "MP Recovery";
             // 
-            // cHPR_lbl
+            // iHPR_n
             // 
-            this.cHPR_lbl.AutoSize = true;
-            this.cHPR_lbl.Location = new System.Drawing.Point(232, 53);
-            this.cHPR_lbl.Name = "cHPR_lbl";
-            this.cHPR_lbl.Size = new System.Drawing.Size(71, 13);
-            this.cHPR_lbl.TabIndex = 42;
-            this.cHPR_lbl.Text = "HP Recovery";
+            this.iHPR_n.AutoSize = true;
+            this.iHPR_n.Location = new System.Drawing.Point(842, 299);
+            this.iHPR_n.Name = "iHPR_n";
+            this.iHPR_n.Size = new System.Drawing.Size(13, 13);
+            this.iHPR_n.TabIndex = 51;
+            this.iHPR_n.Text = "0";
             // 
-            // cHPR_n
+            // iHPR_lbl
             // 
-            this.cHPR_n.AutoSize = true;
-            this.cHPR_n.Location = new System.Drawing.Point(319, 53);
-            this.cHPR_n.Name = "cHPR_n";
-            this.cHPR_n.Size = new System.Drawing.Size(13, 13);
-            this.cHPR_n.TabIndex = 43;
-            this.cHPR_n.Text = "0";
+            this.iHPR_lbl.AutoSize = true;
+            this.iHPR_lbl.Location = new System.Drawing.Point(755, 299);
+            this.iHPR_lbl.Name = "iHPR_lbl";
+            this.iHPR_lbl.Size = new System.Drawing.Size(71, 13);
+            this.iHPR_lbl.TabIndex = 50;
+            this.iHPR_lbl.Text = "HP Recovery";
             // 
-            // cEDA_lbl
+            // iLuck_n
             // 
-            this.cEDA_lbl.AutoSize = true;
-            this.cEDA_lbl.Location = new System.Drawing.Point(412, 28);
-            this.cEDA_lbl.Name = "cEDA_lbl";
-            this.cEDA_lbl.Size = new System.Drawing.Size(141, 13);
-            this.cEDA_lbl.TabIndex = 44;
-            this.cEDA_lbl.Text = "Extra Damage to All Species";
+            this.iLuck_n.AutoSize = true;
+            this.iLuck_n.Location = new System.Drawing.Point(932, 230);
+            this.iLuck_n.Name = "iLuck_n";
+            this.iLuck_n.Size = new System.Drawing.Size(13, 13);
+            this.iLuck_n.TabIndex = 51;
+            this.iLuck_n.Text = "0";
             // 
-            // cEDA_n
+            // iLuck_lbl
             // 
-            this.cEDA_n.AutoSize = true;
-            this.cEDA_n.Location = new System.Drawing.Point(559, 28);
-            this.cEDA_n.Name = "cEDA_n";
-            this.cEDA_n.Size = new System.Drawing.Size(13, 13);
-            this.cEDA_n.TabIndex = 45;
-            this.cEDA_n.Text = "0";
+            this.iLuck_lbl.AutoSize = true;
+            this.iLuck_lbl.Location = new System.Drawing.Point(885, 230);
+            this.iLuck_lbl.Name = "iLuck_lbl";
+            this.iLuck_lbl.Size = new System.Drawing.Size(31, 13);
+            this.iLuck_lbl.TabIndex = 50;
+            this.iLuck_lbl.Text = "Luck";
             // 
-            // cEDH_lbl
+            // iEDtA_n
             // 
-            this.cEDH_lbl.AutoSize = true;
-            this.cEDH_lbl.Location = new System.Drawing.Point(412, 52);
-            this.cEDH_lbl.Name = "cEDH_lbl";
-            this.cEDH_lbl.Size = new System.Drawing.Size(128, 13);
-            this.cEDH_lbl.TabIndex = 46;
-            this.cEDH_lbl.Text = "Extra Damage to Humans";
+            this.iEDtA_n.AutoSize = true;
+            this.iEDtA_n.Location = new System.Drawing.Point(899, 326);
+            this.iEDtA_n.Name = "iEDtA_n";
+            this.iEDtA_n.Size = new System.Drawing.Size(13, 13);
+            this.iEDtA_n.TabIndex = 51;
+            this.iEDtA_n.Text = "0";
             // 
-            // cEDH_n
+            // iEDtA_lbl
             // 
-            this.cEDH_n.AutoSize = true;
-            this.cEDH_n.Location = new System.Drawing.Point(559, 52);
-            this.cEDH_n.Name = "cEDH_n";
-            this.cEDH_n.Size = new System.Drawing.Size(13, 13);
-            this.cEDH_n.TabIndex = 47;
-            this.cEDH_n.Text = "0";
+            this.iEDtA_lbl.AutoSize = true;
+            this.iEDtA_lbl.Location = new System.Drawing.Point(752, 326);
+            this.iEDtA_lbl.Name = "iEDtA_lbl";
+            this.iEDtA_lbl.Size = new System.Drawing.Size(141, 13);
+            this.iEDtA_lbl.TabIndex = 50;
+            this.iEDtA_lbl.Text = "Extra Damage to All Species";
+            // 
+            // iEAPa_n
+            // 
+            this.iEAPa_n.AutoSize = true;
+            this.iEAPa_n.Location = new System.Drawing.Point(1079, 326);
+            this.iEAPa_n.Name = "iEAPa_n";
+            this.iEAPa_n.Size = new System.Drawing.Size(13, 13);
+            this.iEAPa_n.TabIndex = 66;
+            this.iEAPa_n.Text = "0";
+            // 
+            // iEAPa_lbl
+            // 
+            this.iEAPa_lbl.AutoSize = true;
+            this.iEAPa_lbl.Location = new System.Drawing.Point(932, 326);
+            this.iEAPa_lbl.Name = "iEAPa_lbl";
+            this.iEAPa_lbl.Size = new System.Drawing.Size(85, 13);
+            this.iEAPa_lbl.TabIndex = 65;
+            this.iEAPa_lbl.Text = "Extra AP against";
+            // 
+            // iExtraDamKama_n
+            // 
+            this.iExtraDamKama_n.AutoSize = true;
+            this.iExtraDamKama_n.Location = new System.Drawing.Point(911, 344);
+            this.iExtraDamKama_n.Name = "iExtraDamKama_n";
+            this.iExtraDamKama_n.Size = new System.Drawing.Size(13, 13);
+            this.iExtraDamKama_n.TabIndex = 55;
+            this.iExtraDamKama_n.Text = "0";
+            // 
+            // iExtraDamKama_lbl
+            // 
+            this.iExtraDamKama_lbl.AutoSize = true;
+            this.iExtraDamKama_lbl.Location = new System.Drawing.Point(752, 344);
+            this.iExtraDamKama_lbl.Name = "iExtraDamKama_lbl";
+            this.iExtraDamKama_lbl.Size = new System.Drawing.Size(153, 13);
+            this.iExtraDamKama_lbl.TabIndex = 54;
+            this.iExtraDamKama_lbl.Text = "Extra Damage to Kamasylvians";
+            // 
+            // iEDH_n
+            // 
+            this.iEDH_n.AutoSize = true;
+            this.iEDH_n.Location = new System.Drawing.Point(1079, 344);
+            this.iEDH_n.Name = "iEDH_n";
+            this.iEDH_n.Size = new System.Drawing.Size(13, 13);
+            this.iEDH_n.TabIndex = 55;
+            this.iEDH_n.Text = "0";
+            // 
+            // iEDH_lbl
+            // 
+            this.iEDH_lbl.AutoSize = true;
+            this.iEDH_lbl.Location = new System.Drawing.Point(932, 344);
+            this.iEDH_lbl.Name = "iEDH_lbl";
+            this.iEDH_lbl.Size = new System.Drawing.Size(128, 13);
+            this.iEDH_lbl.TabIndex = 54;
+            this.iEDH_lbl.Text = "Extra Damage to Humans";
+            // 
+            // cADtDemiH_n
+            // 
+            this.cADtDemiH_n.AutoSize = true;
+            this.cADtDemiH_n.Location = new System.Drawing.Point(228, 105);
+            this.cADtDemiH_n.Name = "cADtDemiH_n";
+            this.cADtDemiH_n.Size = new System.Drawing.Size(13, 13);
+            this.cADtDemiH_n.TabIndex = 55;
+            this.cADtDemiH_n.Text = "0";
+            // 
+            // cADtDemiH_lbl
+            // 
+            this.cADtDemiH_lbl.AutoSize = true;
+            this.cADtDemiH_lbl.Location = new System.Drawing.Point(9, 105);
+            this.cADtDemiH_lbl.Name = "cADtDemiH_lbl";
+            this.cADtDemiH_lbl.Size = new System.Drawing.Size(68, 13);
+            this.cADtDemiH_lbl.TabIndex = 54;
+            this.cADtDemiH_lbl.Text = "Demihumans";
+            // 
+            // iADtDemiH_n
+            // 
+            this.iADtDemiH_n.AutoSize = true;
+            this.iADtDemiH_n.Location = new System.Drawing.Point(926, 366);
+            this.iADtDemiH_n.Name = "iADtDemiH_n";
+            this.iADtDemiH_n.Size = new System.Drawing.Size(13, 13);
+            this.iADtDemiH_n.TabIndex = 68;
+            this.iADtDemiH_n.Text = "0";
+            // 
+            // iADtDemiH_lbl
+            // 
+            this.iADtDemiH_lbl.AutoSize = true;
+            this.iADtDemiH_lbl.Location = new System.Drawing.Point(752, 366);
+            this.iADtDemiH_lbl.Name = "iADtDemiH_lbl";
+            this.iADtDemiH_lbl.Size = new System.Drawing.Size(172, 13);
+            this.iADtDemiH_lbl.TabIndex = 67;
+            this.iADtDemiH_lbl.Text = "Additional Damage to Demihumans";
+            // 
+            // cEDtAExcHumanAndDemi_n
+            // 
+            this.cEDtAExcHumanAndDemi_n.AutoSize = true;
+            this.cEDtAExcHumanAndDemi_n.Location = new System.Drawing.Point(228, 126);
+            this.cEDtAExcHumanAndDemi_n.Name = "cEDtAExcHumanAndDemi_n";
+            this.cEDtAExcHumanAndDemi_n.Size = new System.Drawing.Size(13, 13);
+            this.cEDtAExcHumanAndDemi_n.TabIndex = 57;
+            this.cEDtAExcHumanAndDemi_n.Text = "0";
+            // 
+            // cEDtAExcHumanAndDemi_lbl
+            // 
+            this.cEDtAExcHumanAndDemi_lbl.AutoSize = true;
+            this.cEDtAExcHumanAndDemi_lbl.Location = new System.Drawing.Point(9, 126);
+            this.cEDtAExcHumanAndDemi_lbl.Name = "cEDtAExcHumanAndDemi_lbl";
+            this.cEDtAExcHumanAndDemi_lbl.Size = new System.Drawing.Size(204, 13);
+            this.cEDtAExcHumanAndDemi_lbl.TabIndex = 56;
+            this.cEDtAExcHumanAndDemi_lbl.Text = "All Species Except Humans, Demihumans\r\n";
+            // 
+            // iEDtAExcHumanAndDemi_n
+            // 
+            this.iEDtAExcHumanAndDemi_n.AutoSize = true;
+            this.iEDtAExcHumanAndDemi_n.Location = new System.Drawing.Point(1251, 366);
+            this.iEDtAExcHumanAndDemi_n.Name = "iEDtAExcHumanAndDemi_n";
+            this.iEDtAExcHumanAndDemi_n.Size = new System.Drawing.Size(13, 13);
+            this.iEDtAExcHumanAndDemi_n.TabIndex = 59;
+            this.iEDtAExcHumanAndDemi_n.Text = "0";
+            // 
+            // iEDtAExcHumanAndDemi_lbl
+            // 
+            this.iEDtAExcHumanAndDemi_lbl.AutoSize = true;
+            this.iEDtAExcHumanAndDemi_lbl.Location = new System.Drawing.Point(945, 366);
+            this.iEDtAExcHumanAndDemi_lbl.Name = "iEDtAExcHumanAndDemi_lbl";
+            this.iEDtAExcHumanAndDemi_lbl.Size = new System.Drawing.Size(304, 13);
+            this.iEDtAExcHumanAndDemi_lbl.TabIndex = 58;
+            this.iEDtAExcHumanAndDemi_lbl.Text = "Extra Damage to All Species Except Humans and Demihumans\r\n";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.cEDtoBack_n);
+            this.groupBox1.Controls.Add(this.cEDtoBack_lbl);
+            this.groupBox1.Controls.Add(this.cEDtAExcHumanAndDemi_n);
+            this.groupBox1.Controls.Add(this.cEDA_lbl);
+            this.groupBox1.Controls.Add(this.cEDtAExcHumanAndDemi_lbl);
+            this.groupBox1.Controls.Add(this.cEDA_n);
+            this.groupBox1.Controls.Add(this.cADtDemiH_n);
+            this.groupBox1.Controls.Add(this.cEDH_lbl);
+            this.groupBox1.Controls.Add(this.cADtDemiH_lbl);
+            this.groupBox1.Controls.Add(this.cEDH_n);
+            this.groupBox1.Controls.Add(this.cExtraDamKama_n);
+            this.groupBox1.Controls.Add(this.cEAPa_lbl);
+            this.groupBox1.Controls.Add(this.cExtraDamKama_lbl);
+            this.groupBox1.Controls.Add(this.cEAPa_n);
+            this.groupBox1.Location = new System.Drawing.Point(389, 19);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(299, 176);
+            this.groupBox1.TabIndex = 69;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Extra damage to";
+            // 
+            // cBidding_lbl
+            // 
+            this.cBidding_lbl.AutoSize = true;
+            this.cBidding_lbl.Location = new System.Drawing.Point(699, 40);
+            this.cBidding_lbl.Name = "cBidding_lbl";
+            this.cBidding_lbl.Size = new System.Drawing.Size(169, 13);
+            this.cBidding_lbl.TabIndex = 58;
+            this.cBidding_lbl.Text = "Marketplace Bidding Succes Rate";
+            // 
+            // cBidding_n
+            // 
+            this.cBidding_n.AutoSize = true;
+            this.cBidding_n.Location = new System.Drawing.Point(918, 40);
+            this.cBidding_n.Name = "cBidding_n";
+            this.cBidding_n.Size = new System.Drawing.Size(21, 13);
+            this.cBidding_n.TabIndex = 59;
+            this.cBidding_n.Text = "0%";
+            // 
+            // cSpiritRage_lbl
+            // 
+            this.cSpiritRage_lbl.AutoSize = true;
+            this.cSpiritRage_lbl.Location = new System.Drawing.Point(699, 62);
+            this.cSpiritRage_lbl.Name = "cSpiritRage_lbl";
+            this.cSpiritRage_lbl.Size = new System.Drawing.Size(96, 13);
+            this.cSpiritRage_lbl.TabIndex = 70;
+            this.cSpiritRage_lbl.Text = "Black Spirit\'s Rage\r\n";
+            // 
+            // cSpiritRage_n
+            // 
+            this.cSpiritRage_n.AutoSize = true;
+            this.cSpiritRage_n.Location = new System.Drawing.Point(918, 62);
+            this.cSpiritRage_n.Name = "cSpiritRage_n";
+            this.cSpiritRage_n.Size = new System.Drawing.Size(21, 13);
+            this.cSpiritRage_n.TabIndex = 71;
+            this.cSpiritRage_n.Text = "0%";
+            // 
+            // iSpiritRage_lbl
+            // 
+            this.iSpiritRage_lbl.AutoSize = true;
+            this.iSpiritRage_lbl.Location = new System.Drawing.Point(480, 347);
+            this.iSpiritRage_lbl.Name = "iSpiritRage_lbl";
+            this.iSpiritRage_lbl.Size = new System.Drawing.Size(96, 13);
+            this.iSpiritRage_lbl.TabIndex = 74;
+            this.iSpiritRage_lbl.Text = "Black Spirit\'s Rage\r\n";
+            // 
+            // iSpiritRage_n
+            // 
+            this.iSpiritRage_n.AutoSize = true;
+            this.iSpiritRage_n.Location = new System.Drawing.Point(699, 347);
+            this.iSpiritRage_n.Name = "iSpiritRage_n";
+            this.iSpiritRage_n.Size = new System.Drawing.Size(21, 13);
+            this.iSpiritRage_n.TabIndex = 75;
+            this.iSpiritRage_n.Text = "0%";
+            // 
+            // iBidding_lbl
+            // 
+            this.iBidding_lbl.AutoSize = true;
+            this.iBidding_lbl.Location = new System.Drawing.Point(480, 323);
+            this.iBidding_lbl.Name = "iBidding_lbl";
+            this.iBidding_lbl.Size = new System.Drawing.Size(169, 13);
+            this.iBidding_lbl.TabIndex = 72;
+            this.iBidding_lbl.Text = "Marketplace Bidding Succes Rate";
+            // 
+            // iBidding_n
+            // 
+            this.iBidding_n.AutoSize = true;
+            this.iBidding_n.Location = new System.Drawing.Point(699, 323);
+            this.iBidding_n.Name = "iBidding_n";
+            this.iBidding_n.Size = new System.Drawing.Size(21, 13);
+            this.iBidding_n.TabIndex = 73;
+            this.iBidding_n.Text = "0%";
+            // 
+            // cEDtoBack_n
+            // 
+            this.cEDtoBack_n.AutoSize = true;
+            this.cEDtoBack_n.Location = new System.Drawing.Point(228, 147);
+            this.cEDtoBack_n.Name = "cEDtoBack_n";
+            this.cEDtoBack_n.Size = new System.Drawing.Size(21, 13);
+            this.cEDtoBack_n.TabIndex = 59;
+            this.cEDtoBack_n.Text = "0%";
+            // 
+            // cEDtoBack_lbl
+            // 
+            this.cEDtoBack_lbl.AutoSize = true;
+            this.cEDtoBack_lbl.Location = new System.Drawing.Point(9, 147);
+            this.cEDtoBack_lbl.Name = "cEDtoBack_lbl";
+            this.cEDtoBack_lbl.Size = new System.Drawing.Size(32, 13);
+            this.cEDtoBack_lbl.TabIndex = 58;
+            this.cEDtoBack_lbl.Text = "Back";
+            // 
+            // iEDtoBack_n
+            // 
+            this.iEDtoBack_n.AutoSize = true;
+            this.iEDtoBack_n.Location = new System.Drawing.Point(699, 299);
+            this.iEDtoBack_n.Name = "iEDtoBack_n";
+            this.iEDtoBack_n.Size = new System.Drawing.Size(21, 13);
+            this.iEDtoBack_n.TabIndex = 61;
+            this.iEDtoBack_n.Text = "0%";
+            // 
+            // iEDtoBack_lbl
+            // 
+            this.iEDtoBack_lbl.AutoSize = true;
+            this.iEDtoBack_lbl.Location = new System.Drawing.Point(480, 299);
+            this.iEDtoBack_lbl.Name = "iEDtoBack_lbl";
+            this.iEDtoBack_lbl.Size = new System.Drawing.Size(100, 13);
+            this.iEDtoBack_lbl.TabIndex = 60;
+            this.iEDtoBack_lbl.Text = "Extra damage Back";
             // 
             // GearForm
             // 
@@ -1607,9 +2035,33 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1429, 624);
+            this.Controls.Add(this.iEDtoBack_n);
+            this.Controls.Add(this.iSpiritRage_lbl);
+            this.Controls.Add(this.iEDtoBack_lbl);
+            this.Controls.Add(this.iEDtAExcHumanAndDemi_n);
+            this.Controls.Add(this.iSpiritRage_n);
+            this.Controls.Add(this.iADtDemiH_n);
+            this.Controls.Add(this.iBidding_lbl);
+            this.Controls.Add(this.iBidding_n);
+            this.Controls.Add(this.iEDtAExcHumanAndDemi_lbl);
+            this.Controls.Add(this.iADtDemiH_lbl);
+            this.Controls.Add(this.iEDH_n);
+            this.Controls.Add(this.iExtraDamKama_n);
+            this.Controls.Add(this.iEDH_lbl);
+            this.Controls.Add(this.iEAPa_n);
+            this.Controls.Add(this.iExtraDamKama_lbl);
+            this.Controls.Add(this.iEAPa_lbl);
+            this.Controls.Add(this.iEDtA_n);
+            this.Controls.Add(this.iLuck_n);
+            this.Controls.Add(this.iEDtA_lbl);
+            this.Controls.Add(this.iMPR_n);
+            this.Controls.Add(this.iLuck_lbl);
             this.Controls.Add(this.iMVS_n);
+            this.Controls.Add(this.iMPR_lbl);
             this.Controls.Add(this.iMvS_lbl);
+            this.Controls.Add(this.iHPR_n);
             this.Controls.Add(this.iCrit_n);
+            this.Controls.Add(this.iHPR_lbl);
             this.Controls.Add(this.iCS_lbl);
             this.Controls.Add(this.iCR_lbl);
             this.Controls.Add(this.iCastSpeed_n);
@@ -1676,6 +2128,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.Item_image)).EndInit();
             this.InfTest_cb.ResumeLayout(false);
             this.InfTest_cb.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1822,5 +2276,46 @@
         private System.Windows.Forms.Label cEDH_lbl;
         private System.Windows.Forms.Label cEDA_n;
         private System.Windows.Forms.Label cEDA_lbl;
+        private System.Windows.Forms.Label cMPR_n;
+        private System.Windows.Forms.Label cMPR_lbl;
+        private System.Windows.Forms.Label iMPR_n;
+        private System.Windows.Forms.Label iHPR_n;
+        private System.Windows.Forms.Label iHPR_lbl;
+        private System.Windows.Forms.Label iMPR_lbl;
+        private System.Windows.Forms.Label iLuck_n;
+        private System.Windows.Forms.Label iLuck_lbl;
+        private System.Windows.Forms.Label iEDtA_n;
+        private System.Windows.Forms.Label iEDtA_lbl;
+        private System.Windows.Forms.Label cEAPa_n;
+        private System.Windows.Forms.Label cEAPa_lbl;
+        private System.Windows.Forms.Label iEAPa_n;
+        private System.Windows.Forms.Label iEAPa_lbl;
+        private System.Windows.Forms.Label cExtraDamKama_n;
+        private System.Windows.Forms.Label cExtraDamKama_lbl;
+        private System.Windows.Forms.Label iExtraDamKama_n;
+        private System.Windows.Forms.Label iExtraDamKama_lbl;
+        private System.Windows.Forms.Label iEDH_n;
+        private System.Windows.Forms.Label iEDH_lbl;
+        private System.Windows.Forms.Label cADtDemiH_n;
+        private System.Windows.Forms.Label cADtDemiH_lbl;
+        private System.Windows.Forms.Label iADtDemiH_n;
+        private System.Windows.Forms.Label iADtDemiH_lbl;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label cEDtAExcHumanAndDemi_n;
+        private System.Windows.Forms.Label cEDtAExcHumanAndDemi_lbl;
+        private System.Windows.Forms.Label iEDtAExcHumanAndDemi_n;
+        private System.Windows.Forms.Label iEDtAExcHumanAndDemi_lbl;
+        private System.Windows.Forms.Label cSpiritRage_lbl;
+        private System.Windows.Forms.Label cSpiritRage_n;
+        private System.Windows.Forms.Label cBidding_lbl;
+        private System.Windows.Forms.Label cBidding_n;
+        private System.Windows.Forms.Label iSpiritRage_lbl;
+        private System.Windows.Forms.Label iSpiritRage_n;
+        private System.Windows.Forms.Label iBidding_lbl;
+        private System.Windows.Forms.Label iBidding_n;
+        private System.Windows.Forms.Label cEDtoBack_n;
+        private System.Windows.Forms.Label cEDtoBack_lbl;
+        private System.Windows.Forms.Label iEDtoBack_n;
+        private System.Windows.Forms.Label iEDtoBack_lbl;
     }
 }

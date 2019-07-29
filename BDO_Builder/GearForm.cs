@@ -109,10 +109,10 @@ namespace BDO_Builder
             cDP_n.Text = Convert.ToString(cs.cdp);
             cEvas_n.Text = Convert.ToString(cs.cev);
             cAcc_n.Text = Convert.ToString(cs.cacc);
-            cSSFR_n.Text = Convert.ToString(cs.cRes1);
-            cKBR_n.Text = Convert.ToString(cs.cRes2);
-            cGrapR_n.Text = Convert.ToString(cs.cRes3);
-            cKFR_n.Text = Convert.ToString(cs.cRes4);
+            cSSFR_n.Text = Convert.ToString(cs.cRes1) + "%";
+            cKBR_n.Text = Convert.ToString(cs.cRes2) + "%";
+            cGrapR_n.Text = Convert.ToString(cs.cRes3) + "%";
+            cKFR_n.Text = Convert.ToString(cs.cRes4) + "%";
             cDR_n.Text = Convert.ToString(cs.cDR);
             cHP_n.Text = Convert.ToString(cs.cMaxHP);
             cMP_n.Text = Convert.ToString(cs.cMaxMP);
@@ -126,33 +126,53 @@ namespace BDO_Builder
             cAtkSpeed_n.Text = Convert.ToString(cs.cAtkSpeed);
             cCastSpeed_n.Text = Convert.ToString(cs.cCastSpeed);
             cHPR_n.Text = Convert.ToString(cs.chpr);
+            cMPR_n.Text = Convert.ToString(cs.cmpr);
             cLuck_n.Text = Convert.ToString(cs.cluck);
             cEDA_n.Text = Convert.ToString(cs.ceda);
-            cEDH_n.Text = Convert.ToString(cs.cedh);          
+            cEDH_n.Text = Convert.ToString(cs.cedh);
+            cEAPa_n.Text = Convert.ToString(cs.ceapa);
+            cExtraDamKama_n.Text = Convert.ToString(cs.cedKama);
+            cADtDemiH_n.Text = Convert.ToString(cs.cADtDemiH);
+            cEDtAExcHumanAndDemi_n.Text = Convert.ToString(cs.cADtoAllWithExcept);
+            cBidding_n.Text = Convert.ToString(cs.cBidding) + "%";
+            cSpiritRage_n.Text = Convert.ToString(cs.cSpiritRage) + "%";
+            cEDtoBack_n.Text = Convert.ToString(cs.cEDtoBack) + "%";
         }
 
         private void ItemStatClear()
         {
-            iAP_n.Text = "0";
-            iDP_n.Text = "0";
-            iEvas_n.Text = "0";
-            iAcc_n.Text = "0";
-            iRes_n.Text = "0";
-            iDR_n.Text = "0";
-            iHP_n.Text = "0";
-            iWeight_n.Text = "0";
-            iMP_n.Text = "0";
-            iST_n.Text = "0";
-            iSSFR_n.Text = "0";
-            iKBR_n.Text = "0";
-            iGrapR_n.Text = "0";
-            iKFR_n.Text = "0";
-            iHEV_n.Text = "0";
-            iHDR_n.Text = "0";
-            iAtkSpeed_n.Text = "0";
-            iCastSpeed_n.Text = "0";
-            iMVS_n.Text = "0";
-            iCrit_n.Text = "0";
+            iAP_n.Text = "0"; //AP
+            iDP_n.Text = "0"; //DP
+            iEvas_n.Text = "0"; //Evasion
+            iAcc_n.Text = "0"; //Accuracy
+            iRes_n.Text = "0%"; //All Resists
+            iDR_n.Text = "0"; // Damage Reduction
+            iHP_n.Text = "0"; // Max HP
+            iWeight_n.Text = "0"; // Max Weight
+            iMP_n.Text = "0"; //Max MP
+            iST_n.Text = "0"; //Max stamina
+            iSSFR_n.Text = "0%"; // SSF Resist
+            iKBR_n.Text = "0%"; // KB Resist
+            iGrapR_n.Text = "0%"; // Graple Resist
+            iKFR_n.Text = "0%"; //KF Resist
+            iHEV_n.Text = "0"; //Hiden Evasion
+            iHDR_n.Text = "0"; //Hiden Damage Reduction
+            iAtkSpeed_n.Text = "0"; // Attack speed
+            iCastSpeed_n.Text = "0"; //Cast speed
+            iMVS_n.Text = "0"; // Movement speed
+            iCrit_n.Text = "0"; // Critical rate
+            iExtraDamKama_n.Text = "0"; //Extra Damage to Kamasylvians
+            iEDtA_n.Text = "0"; // Extra Damage to All Species
+            iEAPa_n.Text = "0"; // Extra AP against monters
+            iMPR_n.Text = "0"; // MP Recovery
+            iHPR_n.Text = "0"; // HP Recovery
+            iLuck_n.Text = "0"; // Luck
+            iEDH_n.Text = "0"; //Extra damage to Humans
+            iADtDemiH_n.Text = "0"; // Additional damage to Demihumans
+            iEDtAExcHumanAndDemi_n.Text = "0"; //Extra damage to All Species Except Humans and Demihumans
+            iSpiritRage_n.Text = "0%"; // Black Spirit's Rage
+            iBidding_n.Text = "0%"; //Marketplace Bidding Success Rate
+            iEDtoBack_n.Text = "0%"; // Extra damage to back
         }
 
         //Item load procedurs
@@ -468,6 +488,8 @@ namespace BDO_Builder
                     cs.beltDefHP = Convert.ToInt32(dr["MaxHP"]);
                     cs.beltDefWeight = Convert.ToInt32(dr["Weight"]);
                     cs.beltEnch = Convert.ToBoolean(dr["Ench"]);
+                    cs.beltDefSpiritRage = Convert.ToInt32(dr["BlackSpirit"]);
+                    cs.beltDefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
                 }
                 LoadItemEnch_cb();                
                 cs.Type = "Belts";
@@ -486,7 +508,8 @@ namespace BDO_Builder
                 iDR_n.Text = cs.beltDR.ToString();
                 iHP_n.Text = cs.beltHP.ToString();
                 iWeight_n.Text = cs.beltWeight.ToString();
-
+                iSpiritRage_n.Text = Convert.ToString(cs.beltSpiritRage) + "%";
+                iEAPa_n.Text = cs.beltAPagaingst.ToString();
 
                 FillCharacterState();
                 cs.beltId = SelectGear_cb.SelectedIndex;
@@ -514,6 +537,11 @@ namespace BDO_Builder
                     cs.neckDefKF = Convert.ToInt32(dr["KFRes"]);
                     cs.neckDefHP = Convert.ToInt32(dr["MaxHP"]);
                     cs.neckEnch = Convert.ToBoolean(dr["Ench"]);
+                    cs.neckDefSpiritRage = Convert.ToInt32(dr["BlackSpirit"]);
+                    cs.neckDefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
+                    cs.neckDefKamaDamage = Convert.ToInt32(dr["KamaDamage"]);
+                    cs.neckDefBackDamage = Convert.ToInt32(dr["BackDamage"]);
+
                 }
                 LoadItemEnch_cb();
                 cs.Type = "Neck";
@@ -529,14 +557,17 @@ namespace BDO_Builder
                 iDP_n.Text = cs.neckdp.ToString();
                 iEvas_n.Text = cs.neckev.ToString();
                 iAcc_n.Text = cs.neckacc.ToString();
-                iRes_n.Text = cs.neckAllRes.ToString();
+                iRes_n.Text = cs.neckAllRes.ToString() + "%";
                 iDR_n.Text = cs.neckDR.ToString();
-                iSSFR_n.Text = cs.neckSSF.ToString();
-                iKBR_n.Text = cs.neckKB.ToString();
-                iGrapR_n.Text = cs.neckG.ToString();
-                iKFR_n.Text = cs.neckKF.ToString();
+                iSSFR_n.Text = cs.neckSSF.ToString() + "%";
+                iKBR_n.Text = cs.neckKB.ToString() + "%";
+                iGrapR_n.Text = cs.neckG.ToString() + "%";
+                iKFR_n.Text = cs.neckKF.ToString() + "%";
                 iHP_n.Text = cs.neckHP.ToString();
-
+                iSpiritRage_n.Text = Convert.ToString(cs.neckSpiritRage) + "%";
+                iEAPa_n.Text = cs.neckAPagaingst.ToString();
+                iExtraDamKama_n.Text = cs.neckKamaDamage.ToString();
+                iEDtoBack_n.Text = cs.neckBackDamage.ToString() + "%";
 
                 FillCharacterState();
                 cs.neckId = SelectGear_cb.SelectedIndex;
@@ -558,9 +589,17 @@ namespace BDO_Builder
                     cs.ring1Defacc = Convert.ToInt32(dr["Accuracy"]);
                     cs.ring1DefDR = Convert.ToInt32(dr["DR"]);
                     cs.ring1DefHP = Convert.ToInt32(dr["MaxHP"]);
-                    cs.ring1DefHP = Convert.ToInt32(dr["MaxMP"]);
-                    cs.ring1DefHP = Convert.ToInt32(dr["MaxST"]);
+                    cs.ring1DefMP = Convert.ToInt32(dr["MaxMP"]);
+                    cs.ring1DefST = Convert.ToInt32(dr["MaxST"]);
                     cs.ring1Ench = Convert.ToBoolean(dr["Ench"]);
+                    cs.ring1DefHEv = Convert.ToInt32(dr["HEv"]);
+                    cs.ring1DefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
+                    cs.ring1DefKamaDamage = Convert.ToInt32(dr["KamaDamage"]);
+                    cs.ring1DefDamageHumans = Convert.ToInt32(dr["HumanDamage"]);
+                    cs.ring1DefDamageDemihumans = Convert.ToInt32(dr["DemiHumanDamage"]);
+                    cs.ring1DefDamageAllExcept = Convert.ToInt32(dr["DamAllExHuman"]);
+                    cs.ring1DefBidding = Convert.ToInt32(dr["MarketBidding"]);
+                    cs.ring1DefSpiritRage = Convert.ToInt32(dr["BlackSpirit"]);
                 }
 
                 LoadItemEnch_cb();
@@ -583,7 +622,14 @@ namespace BDO_Builder
                 iHP_n.Text = cs.ring1HP.ToString();
                 iMP_n.Text = cs.ring1MP.ToString();
                 iST_n.Text = cs.ring1ST.ToString();
-
+                iHEV_n.Text = cs.ring1HEv.ToString();
+                iEAPa_n.Text = cs.ring1APagaingst.ToString();
+                iExtraDamKama_n.Text = cs.ring1KamaDamage.ToString();
+                iEDH_n.Text = cs.ring1DamageHumans.ToString();
+                iADtDemiH_n.Text = cs.ring1DamageDemihumans.ToString();
+                iEDtAExcHumanAndDemi_n.Text = Convert.ToString(cs.ring1DamageAllExcept);
+                iBidding_n.Text = Convert.ToString(cs.ring1Bidding) + "%";
+                iSpiritRage_n.Text = Convert.ToString(cs.ring1SpiritRage) + "%";
 
                 FillCharacterState();
                 cs.ring1Id = SelectGear_cb.SelectedIndex;
@@ -605,9 +651,18 @@ namespace BDO_Builder
                     cs.ring2Defacc = Convert.ToInt32(dr["Accuracy"]);
                     cs.ring2DefDR = Convert.ToInt32(dr["DR"]);
                     cs.ring2DefHP = Convert.ToInt32(dr["MaxHP"]);
-                    cs.ring2DefHP = Convert.ToInt32(dr["MaxMP"]);
-                    cs.ring2DefHP = Convert.ToInt32(dr["MaxST"]);
+                    cs.ring2DefMP = Convert.ToInt32(dr["MaxMP"]);
+                    cs.ring2DefST = Convert.ToInt32(dr["MaxST"]);
                     cs.ring2Ench = Convert.ToBoolean(dr["Ench"]);
+                    cs.ring2DefHEv = Convert.ToInt32(dr["HEv"]);
+                    cs.ring2DefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
+                    cs.ring2DefKamaDamage = Convert.ToInt32(dr["KamaDamage"]);
+                    cs.ring2DefDamageHumans = Convert.ToInt32(dr["HumanDamage"]);
+                    cs.ring2DefDamageDemihumans = Convert.ToInt32(dr["DemiHumanDamage"]);
+                    cs.ring2DefDamageAllExcept = Convert.ToInt32(dr["DamAllExHuman"]);
+                    cs.ring2DefBidding = Convert.ToInt32(dr["MarketBidding"]);
+                    cs.ring2DefSpiritRage = Convert.ToInt32(dr["BlackSpirit"]);
+
                 }
 
                 LoadItemEnch_cb();
@@ -630,7 +685,14 @@ namespace BDO_Builder
                 iHP_n.Text = cs.ring2HP.ToString();
                 iMP_n.Text = cs.ring2MP.ToString();
                 iST_n.Text = cs.ring2ST.ToString();
-
+                iHEV_n.Text = cs.ring2HEv.ToString();
+                iEAPa_n.Text = cs.ring2APagaingst.ToString();
+                iExtraDamKama_n.Text = cs.ring2KamaDamage.ToString();
+                iEDH_n.Text = cs.ring2DamageHumans.ToString();
+                iADtDemiH_n.Text = cs.ring2DamageDemihumans.ToString();
+                iEDtAExcHumanAndDemi_n.Text = Convert.ToString(cs.ring2DamageAllExcept);
+                iBidding_n.Text = Convert.ToString(cs.ring2Bidding) + "%";
+                iSpiritRage_n.Text = Convert.ToString(cs.ring2SpiritRage) + "%";
 
                 FillCharacterState();
 
@@ -654,9 +716,12 @@ namespace BDO_Builder
                     cs.ear1Defacc = Convert.ToInt32(dr["Accuracy"]);
                     cs.ear1DefDR = Convert.ToInt32(dr["DR"]);
                     cs.ear1DefHP = Convert.ToInt32(dr["MaxHP"]);
-                    cs.ear1DefHP = Convert.ToInt32(dr["MaxMP"]);
-                    cs.ear1DefHP = Convert.ToInt32(dr["MaxST"]);
+                    cs.ear1DefMP = Convert.ToInt32(dr["MaxMP"]);
+                    cs.ear1DefST = Convert.ToInt32(dr["MaxST"]);
                     cs.ear1Ench = Convert.ToBoolean(dr["Ench"]);
+                    cs.ear1DefSpiritRage = Convert.ToInt32(dr["BlackSpirit"]);
+                    cs.ear1DefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
+                    cs.ear1DefKamaDamage = Convert.ToInt32(dr["KamaDamage"]);
                 }
 
                 LoadItemEnch_cb();
@@ -679,7 +744,9 @@ namespace BDO_Builder
                 iHP_n.Text = cs.ear1HP.ToString();
                 iMP_n.Text = cs.ear1MP.ToString();
                 iST_n.Text = cs.ear1ST.ToString();
-
+                iSpiritRage_n.Text = Convert.ToString(cs.ear1SpiritRage) + "%";
+                iEAPa_n.Text = cs.ear1APagaingst.ToString();
+                iExtraDamKama_n.Text = cs.ear1KamaDamage.ToString();
 
                 FillCharacterState();
 
@@ -702,9 +769,12 @@ namespace BDO_Builder
                     cs.ear2Defacc = Convert.ToInt32(dr["Accuracy"]);
                     cs.ear2DefDR = Convert.ToInt32(dr["DR"]);
                     cs.ear2DefHP = Convert.ToInt32(dr["MaxHP"]);
-                    cs.ear2DefHP = Convert.ToInt32(dr["MaxMP"]);
-                    cs.ear2DefHP = Convert.ToInt32(dr["MaxST"]);
+                    cs.ear2DefMP = Convert.ToInt32(dr["MaxMP"]);
+                    cs.ear2DefST = Convert.ToInt32(dr["MaxST"]);
                     cs.ear2Ench = Convert.ToBoolean(dr["Ench"]);
+                    cs.ear2DefSpiritRage = Convert.ToInt32(dr["BlackSpirit"]);
+                    cs.ear2DefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
+                    cs.ear2DefKamaDamage = Convert.ToInt32(dr["KamaDamage"]);
                 }
 
                 LoadItemEnch_cb();
@@ -727,7 +797,9 @@ namespace BDO_Builder
                 iHP_n.Text = cs.ear2HP.ToString();
                 iMP_n.Text = cs.ear2MP.ToString();
                 iST_n.Text = cs.ear2ST.ToString();
-
+                iSpiritRage_n.Text = Convert.ToString(cs.ear2SpiritRage) + "%";
+                iEAPa_n.Text = cs.ear2APagaingst.ToString();
+                iExtraDamKama_n.Text = cs.ear2KamaDamage.ToString();
 
                 FillCharacterState();
                 cs.ear2Id = SelectGear_cb.SelectedIndex;
@@ -756,6 +828,8 @@ namespace BDO_Builder
                     cs.armDefWeight = Convert.ToInt32(dr["WeightLimit"]);
                     cs.armDefAcc = Convert.ToInt32(dr["Accuracy"]);
                     cs.armSB = Convert.ToInt32(dr["SetBonus"]);
+                    cs.armDefHPRecovery = Convert.ToInt32(dr["HPRecovery"]);
+                    cs.armDefMPRecovery = Convert.ToInt32(dr["MPRecovery"]);
                 }
 
                 LoadItemEnch_cb();
@@ -777,10 +851,11 @@ namespace BDO_Builder
                 iHDR_n.Text = cs.armhdr.ToString();
                 iHP_n.Text = cs.armHP.ToString();
                 iMP_n.Text = cs.armMP.ToString();
-                iSSFR_n.Text = cs.armSSFRes.ToString();
+                iSSFR_n.Text = cs.armSSFRes.ToString() + "%";
                 iWeight_n.Text = cs.armWeight.ToString();
                 iAcc_n.Text = cs.armAcc.ToString();
-
+                iHPR_n.Text = cs.armHPRecovery.ToString();
+                iMPR_n.Text = cs.armMPRecovery.ToString(); 
 
                 FillCharacterState();
                 cs.armId = SelectGear_cb.SelectedIndex;
@@ -812,6 +887,8 @@ namespace BDO_Builder
                     cs.helIsBoss = Convert.ToBoolean(dr["IsBossItem"]);
                     cs.helSB = Convert.ToInt32(dr["SetBonus"]);
                     cs.helDefST = Convert.ToInt32(dr["MaxStamina"]);
+                    cs.helDefHPRecovery =Convert.ToInt32(dr["HPRecovery"]);
+                    cs.helDefLuck = Convert.ToInt32(dr["Luck"]);
                 }
 
                 LoadItemEnch_cb();
@@ -832,13 +909,14 @@ namespace BDO_Builder
                 iDR_n.Text = cs.heldr.ToString();
                 iHDR_n.Text = cs.helhdr.ToString();
                 iHP_n.Text = cs.helHP.ToString();
-                iSSFR_n.Text = cs.helSSFRes.ToString();
-                iKBR_n.Text = cs.helKBRes.ToString();
-                iGrapR_n.Text = cs.helGrapleRes.ToString();
-                iKFR_n.Text = cs.helKFRes.ToString();
+                iSSFR_n.Text = cs.helSSFRes.ToString() + "%";
+                iKBR_n.Text = cs.helKBRes.ToString() + "%";
+                iGrapR_n.Text = cs.helGrapleRes.ToString() + "%";
+                iKFR_n.Text = cs.helKFRes.ToString() + "%";
                 iST_n.Text = cs.helST.ToString();
                 iWeight_n.Text = cs.helWeight.ToString();
-
+                iHPR_n.Text = cs.helHPRecovery.ToString();
+                iLuck_n.Text = cs.helLuck.ToString();
 
                 FillCharacterState();
 
@@ -869,6 +947,7 @@ namespace BDO_Builder
                     cs.glovDefWeight = Convert.ToInt32(dr["WeightLimit"]);
                     cs.glovDefCrit = Convert.ToInt32(dr["CriticalHit"]);
                     cs.glovDefGrapleRes = Convert.ToInt32(dr["GrapleRes"]);
+                    cs.glovDefDamage = Convert.ToInt32(dr["DamageToAll"]);
                 }
 
                 LoadItemEnch_cb();
@@ -889,12 +968,12 @@ namespace BDO_Builder
                 iDR_n.Text = cs.glovdr.ToString();
                 iHDR_n.Text = cs.glovhdr.ToString();
                 iAcc_n.Text = cs.glovacc.ToString();
-                iGrapR_n.Text = cs.glovGrapleRes.ToString();
+                iGrapR_n.Text = cs.glovGrapleRes.ToString() + "%";
                 iAtkSpeed_n.Text = cs.glovAtkSpeed.ToString();
                 iCastSpeed_n.Text = cs.glovCastSpeed.ToString();
                 iCrit_n.Text = cs.glovCrit.ToString();
                 iWeight_n.Text = cs.glovWeight.ToString();
-
+                iEDtA_n.Text = cs.glovDamage.ToString();
 
 
 
@@ -1088,7 +1167,8 @@ namespace BDO_Builder
                 iDR_n.Text = cs.beltDR.ToString();
                 iHP_n.Text = cs.beltHP.ToString();
                 iWeight_n.Text = cs.beltWeight.ToString();
-
+                iSpiritRage_n.Text = Convert.ToString(cs.beltSpiritRage) + "%";
+                iEAPa_n.Text = cs.beltAPagaingst.ToString();
                 FillCharacterState();
 
             } //Belt
@@ -1102,14 +1182,17 @@ namespace BDO_Builder
                 iDP_n.Text = cs.neckdp.ToString();
                 iEvas_n.Text = cs.neckev.ToString();
                 iAcc_n.Text = cs.neckacc.ToString();
-                iRes_n.Text = cs.neckAllRes.ToString();
+                iRes_n.Text = cs.neckAllRes.ToString() + "%";
                 iDR_n.Text = cs.neckDR.ToString();
-                iSSFR_n.Text = cs.neckSSF.ToString();
-                iKBR_n.Text = cs.neckKB.ToString();
-                iGrapR_n.Text = cs.neckG.ToString();
-                iKFR_n.Text = cs.neckKF.ToString();
+                iSSFR_n.Text = cs.neckSSF.ToString() + "%";
+                iKBR_n.Text = cs.neckKB.ToString() + "%";
+                iGrapR_n.Text = cs.neckG.ToString() + "%";
+                iKFR_n.Text = cs.neckKF.ToString() + "%";
                 iHP_n.Text = cs.neckHP.ToString();
-
+                iSpiritRage_n.Text = Convert.ToString(cs.neckSpiritRage) + "%";
+                iEAPa_n.Text = cs.neckAPagaingst.ToString();
+                iExtraDamKama_n.Text = cs.neckKamaDamage.ToString();
+                iEDtoBack_n.Text = cs.neckBackDamage.ToString() + "%";
                 FillCharacterState();
 
             } //Neck
@@ -1127,7 +1210,12 @@ namespace BDO_Builder
                 iHP_n.Text = cs.ring1HP.ToString();
                 iMP_n.Text = cs.ring1MP.ToString();
                 iST_n.Text = cs.ring1ST.ToString();
-
+                iEDH_n.Text = cs.ring1DamageHumans.ToString();
+                iADtDemiH_n.Text = cs.ring1DamageDemihumans.ToString();
+                iEDtAExcHumanAndDemi_n.Text = cs.ring1DamageAllExcept.ToString();
+                iEAPa_n.Text = cs.ring1APagaingst.ToString();
+                iBidding_n.Text = Convert.ToString(cs.ring1Bidding) + "%";
+                iSpiritRage_n.Text = Convert.ToString(cs.ring1SpiritRage) + "%";
 
                 FillCharacterState();
             } // Ring1
@@ -1145,7 +1233,12 @@ namespace BDO_Builder
                 iHP_n.Text = cs.ring2HP.ToString();
                 iMP_n.Text = cs.ring2MP.ToString();
                 iST_n.Text = cs.ring2ST.ToString();
-
+                iEDH_n.Text = cs.ring2DamageHumans.ToString();
+                iADtDemiH_n.Text = cs.ring2DamageDemihumans.ToString();
+                iEDtAExcHumanAndDemi_n.Text = cs.ring2DamageAllExcept.ToString();
+                iEAPa_n.Text = cs.ring2APagaingst.ToString();
+                iBidding_n.Text = Convert.ToString(cs.ring2Bidding) + "%";
+                iSpiritRage_n.Text = Convert.ToString(cs.ring2SpiritRage) + "%";
 
                 FillCharacterState();
             } //Ring2
@@ -1163,7 +1256,9 @@ namespace BDO_Builder
                 iHP_n.Text = cs.ear1HP.ToString();
                 iMP_n.Text = cs.ear1MP.ToString();
                 iST_n.Text = cs.ear1ST.ToString();
-
+                iSpiritRage_n.Text = Convert.ToString(cs.ear1SpiritRage) + "%";
+                iEAPa_n.Text = cs.ear1APagaingst.ToString();
+                iExtraDamKama_n.Text = cs.ear1KamaDamage.ToString();
 
                 FillCharacterState();
             } //Earring 1
@@ -1181,7 +1276,9 @@ namespace BDO_Builder
                 iHP_n.Text = cs.ear2HP.ToString();
                 iMP_n.Text = cs.ear2MP.ToString();
                 iST_n.Text = cs.ear2ST.ToString();
-
+                iSpiritRage_n.Text = Convert.ToString(cs.ear2SpiritRage) + "%";
+                iEAPa_n.Text = cs.ear2APagaingst.ToString();
+                iExtraDamKama_n.Text = cs.ear2KamaDamage.ToString();
 
                 FillCharacterState();
             } //Earring 2
@@ -1198,9 +1295,11 @@ namespace BDO_Builder
                 iHDR_n.Text = cs.armhdr.ToString();
                 iHP_n.Text = cs.armHP.ToString();
                 iMP_n.Text = cs.armMP.ToString();
-                iSSFR_n.Text = cs.armSSFRes.ToString();
+                iSSFR_n.Text = cs.armSSFRes.ToString() + "%";
                 iWeight_n.Text = cs.armWeight.ToString();
                 iAcc_n.Text = cs.armAcc.ToString();
+                iHPR_n.Text = cs.armHPRecovery.ToString();
+                iMPR_n.Text = cs.armMPRecovery.ToString();
 
                 FillCharacterState();
             } // Armor
@@ -1216,12 +1315,13 @@ namespace BDO_Builder
                 iDR_n.Text = cs.heldr.ToString();
                 iHDR_n.Text = cs.helhdr.ToString();
                 iHP_n.Text = cs.helHP.ToString();
-                iSSFR_n.Text = cs.helSSFRes.ToString();
-                iKBR_n.Text = cs.helKBRes.ToString();
-                iGrapR_n.Text = cs.helGrapleRes.ToString();
-                iKFR_n.Text = cs.helKFRes.ToString();
+                iSSFR_n.Text = cs.helSSFRes.ToString() + "%";
+                iKBR_n.Text = cs.helKBRes.ToString() + "%";
+                iGrapR_n.Text = cs.helGrapleRes.ToString() + "%";
+                iKFR_n.Text = cs.helKFRes.ToString() + "%";
                 iST_n.Text = cs.helWeight.ToString();
-
+                iHPR_n.Text = cs.helHPRecovery.ToString();
+                iLuck_n.Text = cs.helLuck.ToString();
 
                 FillCharacterState();
             } // Helmet
@@ -1237,11 +1337,12 @@ namespace BDO_Builder
                 iHEV_n.Text = cs.glovhev.ToString();
                 iDR_n.Text = cs.glovdr.ToString();
                 iHDR_n.Text = cs.glovhdr.ToString();
-                iGrapR_n.Text = cs.glovGrapleRes.ToString();
+                iGrapR_n.Text = cs.glovGrapleRes.ToString() + "%";
                 iAtkSpeed_n.Text = cs.glovAtkSpeed.ToString();
                 iCastSpeed_n.Text = cs.glovCastSpeed.ToString();
                 iCrit_n.Text = cs.glovCrit.ToString();
                 iWeight_n.Text = cs.glovWeight.ToString();
+                iEDtA_n.Text = cs.glovDamage.ToString();
 
 
                 FillCharacterState();
@@ -1269,6 +1370,5 @@ namespace BDO_Builder
 
         }
 
-        
     }
 }

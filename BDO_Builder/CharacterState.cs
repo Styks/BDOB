@@ -42,9 +42,17 @@ namespace BDO_Builder
         public int ccr; // Critical Rate
         public int chap; // Hidden AP
         public int chpr; // HP Recovery
+        public int cmpr; //MP Recovery
         public int cluck; // Luck
         public int ceda; //Extra damage all
         public int cedh; //Extra damage humans
+        public int ceapa; //Extra AP agains monster
+        public int cedKama; //Extra Damage to Kamasylvians
+        public int cADtDemiH; //Additional Damage to Demihumans
+        public int cADtoAllWithExcept; //Extra Damage to All Species Except Humans and Demihumans
+        public int cSpiritRage; // Black Spirit's Rage
+        public int cBidding; // Marketplace Bidding Success Rate
+        public int cEDtoBack; //Back extra damage
 
         //BossSetBonus Check (SetBonus = 1)
         public int b_sb; //Set Bonus
@@ -150,6 +158,10 @@ namespace BDO_Builder
         public int beltDefDR; //Belt default DR
         public int beltDefHP; //Belt default MaxHP
         public int beltDefWeight;//Belt default Weight
+        public int beltDefAPagainst;
+        public int beltAPagaingst;
+        public int beltSpiritRage; // Black Spirit's Rage
+        public int beltDefSpiritRage;
 
         // Neck stats
         public int neckap; //Neck AP
@@ -178,6 +190,17 @@ namespace BDO_Builder
         public int neckDefKF; //Neck Resists: Knockback/Floating
         public int neckDefHP; //Neck Max HP
 
+        public int neckDefAPagainst;
+        public int neckAPagaingst;
+
+        public int neckDefKamaDamage;
+        public int neckKamaDamage;
+        public int neckSpiritRage; // Black Spirit's Rage
+        public int neckDefSpiritRage;
+
+        public int neckBackDamage;
+        public int neckDefBackDamage;
+
         //First Ring stats
         public int ring1ap; //Ring AP
         public int ring1ev; // Ring Evasion
@@ -199,6 +222,29 @@ namespace BDO_Builder
         public int ring1DefMP; //Ring default Max MP
         public int ring1DefST; //Ring default Max stamina
 
+        public int ring1DefHEv;
+        public int ring1HEv;
+
+        public int ring1DefAPagainst;
+        public int ring1APagaingst;
+
+        public int ring1DefKamaDamage;
+        public int ring1KamaDamage;
+
+        public int ring1DefDamageHumans;
+        public int ring1DamageHumans;
+
+        public int ring1DefDamageDemihumans;
+        public int ring1DamageDemihumans;
+
+        public int ring1DefDamageAllExcept;
+        public int ring1DamageAllExcept;
+
+        public int ring1SpiritRage; // Black Spirit's Rage
+        public int ring1DefSpiritRage;
+
+        public int ring1Bidding; // Marketplace Bidding Success Rate
+        public int ring1DefBidding;
 
         //Second Ring stats
         public int ring2ap; //Ring AP
@@ -221,6 +267,29 @@ namespace BDO_Builder
         public int ring2DefMP; //Ring default Max MP
         public int ring2DefST; //Ring default Max stamina
 
+        public int ring2DefHEv;
+        public int ring2HEv;
+
+        public int ring2DefAPagainst;
+        public int ring2APagaingst;
+
+        public int ring2DefKamaDamage;
+        public int ring2KamaDamage;
+
+        public int ring2DefDamageHumans;
+        public int ring2DamageHumans;
+
+        public int ring2DefDamageDemihumans;
+        public int ring2DamageDemihumans;
+
+        public int ring2DefDamageAllExcept;
+        public int ring2DamageAllExcept;
+
+        public int ring2SpiritRage; // Black Spirit's Rage
+        public int ring2DefSpiritRage; 
+
+        public int ring2Bidding; // Marketplace Bidding Success Rate
+        public int ring2DefBidding; 
 
         //First earring stats
         public int ear1ap; //Earring AP
@@ -243,6 +312,14 @@ namespace BDO_Builder
         public int ear1DefMP; //Earring default Max MP
         public int ear1DefST; //Earring default Max stamina
 
+        public int ear1DefAPagainst;
+        public int ear1APagaingst;
+
+        public int ear1DefKamaDamage;
+        public int ear1KamaDamage;
+        public int ear1SpiritRage; // Black Spirit's Rage
+        public int ear1DefSpiritRage;
+
         //Second earring stats
         public int ear2ap; //Earring AP
         public int ear2ev; // Earring Evasion
@@ -264,6 +341,13 @@ namespace BDO_Builder
         public int ear2DefMP; //Earring default Max MP
         public int ear2DefST; //Earring default Max stamina
 
+        public int ear2DefAPagainst;
+        public int ear2APagaingst;
+
+        public int ear2DefKamaDamage;
+        public int ear2KamaDamage;
+        public int ear2SpiritRage; // Black Spirit's Rage
+        public int ear2DefSpiritRage;
 
         //Armor stats
         public int armdp;// Armor DP
@@ -290,6 +374,13 @@ namespace BDO_Builder
         public int armDefWeight;
         public int armAcc;
         public int armDefAcc;
+
+        public int armHPRecovery;
+        public int armDefHPRecovery;
+
+        public int armMPRecovery;
+        public int armDefMPRecovery;
+           
         public int armSB; //set bonus
 
         //Helmet stats
@@ -322,6 +413,10 @@ namespace BDO_Builder
         public int helST;
         public int helDefST;
         public int helSB; // set bonus
+        public int helDefHPRecovery;
+        public int helHPRecovery;
+        public int helLuck;
+        public int helDefLuck;
 
         //Gloves stats
         public int glovdp;// Gloves DP
@@ -351,6 +446,9 @@ namespace BDO_Builder
         public int glovDefWeight;
         public int glovGrapleRes;
         public int glovDefGrapleRes;
+
+        public int glovDamage;
+        public int glovDefDamage;
 
         //Shoes stats
         public int shdp;// Shoes DP
@@ -409,17 +507,61 @@ namespace BDO_Builder
                 cDR -= beltDR;
                 cMaxHP -= beltHP;
                 cWeight -= beltWeight;
+                cSpiritRage -= beltSpiritRage;
+                ceapa -= beltAPagaingst;
 
+                if(beltId == 6)
+                {
+                    if (beltEnchLvl == 2 | beltEnchLvl == 3) beltap = 15;
+                    else if (beltEnchLvl == 4 ) beltap = 16;
+                    else if (beltEnchLvl == 5 ) beltap = 17;
+                }
+                else beltap = beltDefap + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["APsh"]);
 
+                if (beltId == 29)
+                {
+                    if (beltEnchLvl == 1 | beltEnchLvl == 2) beltdp = 1;
+                    else if (beltEnchLvl == 3 | beltEnchLvl == 4) beltdp = 2;
+                    else if (beltEnchLvl == 5) beltdp = 3;
+                }
+                
+                else beltdp = beltDefdp + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["DPsh"]);
 
-                beltap = beltDefap + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["APsh"]);
-                beltdp = beltDefdp + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["DPsh"]);
-                beltacc = beltDefacc + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["Accsh"]);
+                if (beltId == 29)
+                {
+                    if (beltEnchLvl == 1) beltacc = 0;
+                    else if (beltEnchLvl == 2 | beltEnchLvl == 3) beltacc = 2;
+                    else if (beltEnchLvl == 4 | beltEnchLvl == 5) beltacc = 4;
+                }
+                else if (beltId == 6)
+                {
+                    if (beltEnchLvl == 1| beltEnchLvl == 2) beltacc = 9;
+                    else if (beltEnchLvl == 3 | beltEnchLvl == 4 | beltEnchLvl == 5) beltacc = 10;
+                }
+                else beltacc = beltDefacc + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["Accsh"]);
                 beltev = beltDefev + beltEnchLvl* Convert.ToInt32(dt.Rows[0]["Evsh"]);
                 beltResis = beltDefResis + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["Ressh"]);
-                beltDR = beltDefDR + beltEnchLvl* Convert.ToInt32(dt.Rows[0]["DRsh"]);
+
+                if (beltId == 29)
+                {
+                    if (beltEnchLvl == 1 | beltEnchLvl == 2) beltDR = 1;
+                    else if (beltEnchLvl == 3 | beltEnchLvl == 4) beltDR = 2;
+                    else if (beltEnchLvl == 5) beltDR = 3;
+                }
+                else beltDR = beltDefDR + beltEnchLvl* Convert.ToInt32(dt.Rows[0]["DRsh"]);
                 beltHP = beltDefHP + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["HPsh"]);
                 beltWeight = beltDefWeight + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["Wgsh"]);
+
+                if (beltId == 11)
+                {
+                    if (beltEnchLvl == 1) beltAPagaingst = 6;
+                    else if (beltEnchLvl == 2) beltAPagaingst = 8;
+                    else if (beltEnchLvl == 3) beltAPagaingst = 9;
+                    else if (beltEnchLvl == 4) beltAPagaingst = 10;
+                    else if (beltEnchLvl == 5) beltAPagaingst = 12;
+                }
+                else beltAPagaingst = beltDefAPagainst + beltEnchLvl * Convert.ToInt32(dt.Rows[0]["shApAgainst"]);
+                beltSpiritRage = beltDefSpiritRage;
 
                 cap += beltap ;
                 caap += beltap ;
@@ -433,6 +575,8 @@ namespace BDO_Builder
                 cDR += beltDR;
                 cMaxHP += beltHP;
                 cWeight += beltWeight;
+                cSpiritRage += beltSpiritRage;
+                ceapa += beltAPagaingst;
             }
 
             else
@@ -449,7 +593,8 @@ namespace BDO_Builder
                 cDR -= beltDR;
                 cMaxHP -= beltHP;
                 cWeight -= beltWeight;
-
+                cSpiritRage -= beltSpiritRage;
+                ceapa -= beltAPagaingst;
 
                 beltap = beltDefap;
                 beltdp = beltDefdp;
@@ -459,6 +604,8 @@ namespace BDO_Builder
                 beltDR = beltDefDR;
                 beltHP = beltDefHP;
                 beltWeight = beltDefWeight;
+                beltSpiritRage = beltDefSpiritRage;
+                beltAPagaingst = beltDefAPagainst;
 
                 cap += beltap;
                 caap += beltap;
@@ -472,6 +619,8 @@ namespace BDO_Builder
                 cDR += beltDR;
                 cMaxHP += beltHP;
                 cWeight += beltWeight;
+                cSpiritRage += beltSpiritRage;
+                ceapa += beltAPagaingst;
             }
         }
 
@@ -500,19 +649,53 @@ namespace BDO_Builder
                 cRes2 -= neckAllRes ;
                 cRes3 -= neckAllRes ;
                 cRes4 -= neckAllRes ;
-
+                ceapa -= neckAPagaingst;
+                cSpiritRage -= neckSpiritRage;
 
                 neckap = neckDefap + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["APSh"]);
-                neckdp = neckDefdp + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["DPSh"]);
-                neckacc = neckDefacc + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["AccuracySh"]);
+
+                if (neckId == 26)
+                {
+                    if (neckEnchLvl == 1 | neckEnchLvl == 2) neckdp = 4;
+                    else if (neckEnchLvl == 3 | neckEnchLvl == 4) neckdp = 5;
+                    else if (neckEnchLvl == 5) neckdp = 6;
+                }
+                else neckdp = neckDefdp + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["DPSh"]);
+
+               
+                if (neckId == 26)
+                {
+                    if (neckEnchLvl == 1) neckacc = 0;
+                    else if (neckEnchLvl == 2 | neckEnchLvl == 3) neckacc = 2;
+                    else if (neckEnchLvl == 4 | neckEnchLvl == 5) neckacc = 4;
+                }
+                else if (neckId == 5)
+                {
+                    if (neckEnchLvl == 1) neckacc = 16;
+                    else if (neckEnchLvl == 2) neckacc = 17;
+                    else if (neckEnchLvl == 3) neckacc = 18;
+                    else if (neckEnchLvl == 4) neckacc = 19;
+                    else if (neckEnchLvl == 5) neckacc = 20;
+                }
+                else neckacc = neckDefacc + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["AccuracySh"]);
                 neckev = neckDefev + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["EvSh"]);
                 neckAllRes = neckDefAllRes + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["AllResSh"]);
-                neckDR = neckDefDR + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["DRSh"]);
+
+                if (neckId == 26)
+                {
+                    if (neckEnchLvl == 1 | neckEnchLvl == 2) neckDR = 4;
+                    else if (neckEnchLvl == 3 | neckEnchLvl == 4) neckDR = 5;
+                    else if (neckEnchLvl == 5) neckDR = 6;
+                }
+                else neckDR = neckDefDR + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["DRSh"]);
                 neckSSF = neckDefSSF + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["SSFSh"]);
                 neckKB = neckDefKB + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["KBSh"]);
                 neckG = neckDefG + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["GrapSh"]);
                 neckKF = neckDefKF + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["KFSh"]);
                 neckHP = neckDefHP;
+
+                neckAPagaingst = neckDefAPagainst + neckEnchLvl * Convert.ToInt32(dt.Rows[0]["shApAgainst"]);
+                neckSpiritRage = neckDefSpiritRage;
 
                 cap += neckap;
                 caap += neckap;
@@ -529,6 +712,8 @@ namespace BDO_Builder
                 cRes3 += neckAllRes;
                 cRes4 += neckAllRes;
                 cMaxHP += neckHP;
+                ceapa += neckAPagaingst;
+                cSpiritRage += neckSpiritRage;
             }
 
             else
@@ -548,6 +733,10 @@ namespace BDO_Builder
                 cRes3 -= neckAllRes;
                 cRes4 -= neckAllRes;
                 cMaxHP -= neckHP;
+                ceapa -= neckAPagaingst;
+                cedKama -= neckKamaDamage;
+                cSpiritRage -= neckSpiritRage;
+                cEDtoBack -= neckBackDamage;
 
                 neckap = neckDefap;
                 neckdp = neckDefdp;
@@ -560,6 +749,11 @@ namespace BDO_Builder
                 neckG = neckDefG;
                 neckKF = neckDefKF;
                 neckHP = neckDefHP;
+                neckSpiritRage = neckDefSpiritRage;
+                neckAPagaingst = neckDefAPagainst;
+                neckKamaDamage = neckDefKamaDamage;
+                neckBackDamage = neckDefBackDamage;
+
 
                 cap += neckap;
                 caap += neckap;
@@ -576,6 +770,10 @@ namespace BDO_Builder
                 cRes3 += neckAllRes;
                 cRes4 += neckAllRes;
                 cMaxHP += neckHP;
+                ceapa += neckAPagaingst;
+                cedKama += neckKamaDamage;
+                cSpiritRage += neckSpiritRage;
+                cEDtoBack += neckBackDamage;
             }
         }
 
@@ -600,16 +798,82 @@ namespace BDO_Builder
                 cMaxHP -= ring1HP;
                 cMaxMP -= ring1MP;
                 cMaxST -= ring1ST;
+                chev -= ring1HEv;
+                ceapa -= ring1APagaingst;
+                cedh -= ring1DamageHumans;
+                cADtDemiH -= ring1DamageDemihumans;
+                cADtoAllWithExcept -= ring1DamageAllExcept;
+                cSpiritRage -= ring1SpiritRage;
 
-                    ring1ap = ring1Defap + ring1EnchLvl * Convert.ToInt32(dt.Rows[0]["APsh"]);
-                    ring1dp = ring1Defdp + ring1EnchLvl * Convert.ToInt32(dt.Rows[0]["DPsh"]);
-                    ring1acc = ring1Defacc + ring1EnchLvl * Convert.ToInt32(dt.Rows[0]["Accsh"]);
+                if (ring1Id == 3)
+                {
+                    if (ring1EnchLvl == 1) ring1ap = 14;
+                    else if (ring1EnchLvl == 2 | ring1EnchLvl == 3) ring1ap = 15;
+                    else if (ring1EnchLvl == 4 ) ring1ap = 16;
+                    else if (ring1EnchLvl == 5) ring1ap = 17;
+                }
+                   else ring1ap = ring1Defap + ring1EnchLvl * Convert.ToInt32(dt.Rows[0]["APsh"]);
+                if(ring1Id == 25)
+                {
+                    if (ring1EnchLvl == 1 | ring1EnchLvl == 2) ring1dp = 3;
+                    else if (ring1EnchLvl == 3 | ring1EnchLvl == 4) ring1dp = 4;
+                    else if (ring1EnchLvl == 5) ring1dp = 5;
+                }
+                else ring1dp = ring1Defdp + ring1EnchLvl * Convert.ToInt32(dt.Rows[0]["DPsh"]);
+
+
+                if(ring1Id == 10)
+                {
+                    if (ring1EnchLvl == 1) ring1acc = 6;
+                    else if (ring1EnchLvl == 2) ring1acc = 8;
+                    else if (ring1EnchLvl == 3) ring1acc = 9;
+                    else if (ring1EnchLvl == 4) ring1acc = 10;
+                    else if (ring1EnchLvl == 5) ring1acc = 12;
+                }
+                else if(ring1Id == 25)
+                {
+                    if (ring1EnchLvl == 1) ring1acc = 0;
+                    else if (ring1EnchLvl == 2 | ring1EnchLvl == 3) ring1acc = 2;
+                    else if (ring1EnchLvl == 4 | ring1EnchLvl == 5) ring1acc = 4;
+                }
+                else if (ring1Id == 3)
+                {
+                    if (ring1EnchLvl == 1 | ring1EnchLvl == 2) ring1acc = 9;
+                    else if (ring1EnchLvl == 3 | ring1EnchLvl == 4 |ring1EnchLvl == 5) ring1acc = 10;
+                }
+                else ring1acc = ring1Defacc + ring1EnchLvl * Convert.ToInt32(dt.Rows[0]["Accsh"]);
+
                     ring1ev = ring1Defev + ring1EnchLvl * Convert.ToInt32(dt.Rows[0]["Evsh"]);
-                    ring1DR = ring1DefDR + ring1EnchLvl * Convert.ToInt32(dt.Rows[0]["DRsh"]);
-                    ring1HP = ring1DefHP + ring1EnchLvl * Convert.ToInt32(dt.Rows[0]["HPsh"]);
-                    ring1MP = ring1DefHP + ring1EnchLvl * Convert.ToInt32(dt.Rows[0]["MPsh"]);
-                    ring1ST = ring1DefHP + ring1EnchLvl * Convert.ToInt32(dt.Rows[0]["STsh"]);
 
+                if(ring1Id == 25)
+                {
+                    if (ring1EnchLvl == 1| ring1EnchLvl == 2) ring1DR = 3;
+                    else if (ring1EnchLvl == 3 | ring1EnchLvl == 4) ring1DR = 4;
+                    else if (ring1EnchLvl == 5) ring1DR = 5;
+                }
+                   else ring1DR = ring1DefDR + ring1EnchLvl * Convert.ToInt32(dt.Rows[0]["DRsh"]);
+                    ring1HP = ring1DefHP + ring1EnchLvl * Convert.ToInt32(dt.Rows[0]["HPsh"]);
+                    ring1MP = ring1DefMP + ring1EnchLvl * Convert.ToInt32(dt.Rows[0]["MPsh"]);
+                    ring1ST = ring1DefST + ring1EnchLvl * Convert.ToInt32(dt.Rows[0]["STsh"]);
+                ring1HEv = ring1DefHEv;
+
+                if(ring1Id == 10)
+                {
+                    if (ring1EnchLvl == 1) ring1APagaingst = 2;
+                    else if (ring1EnchLvl == 2) ring1APagaingst = 3;
+                    else if (ring1EnchLvl == 3) ring1APagaingst = 4;
+                    else if (ring1EnchLvl == 4) ring1APagaingst = 5;
+                    else if (ring1EnchLvl == 5) ring1APagaingst = 7;
+                }
+                else ring1APagaingst = ring1DefAPagainst + ring1EnchLvl * Convert.ToInt32(dt.Rows[0]["shApAgainst"]);
+
+                //Extra Damage to Humans
+                ring1DamageHumans = ring1DefDamageHumans + ring1EnchLvl * Convert.ToInt32(dt.Rows[0]["shHumanDamage"]);
+                //Additional damage to Demihumans
+                ring1DamageDemihumans = ring1DefDamageDemihumans + ring1EnchLvl * Convert.ToInt32(dt.Rows[0]["shDemiHumanDamage"]);
+                //Extra damage to all species except Humans and demihumans
+                ring1DamageAllExcept = ring1DefDamageAllExcept + ring1EnchLvl * Convert.ToInt32(dt.Rows[0]["shDamAllExHuman"]);
+                ring1SpiritRage = ring1DefSpiritRage;
 
                 cap += ring1ap;
                 caap += ring1ap;
@@ -620,6 +884,13 @@ namespace BDO_Builder
                 cMaxHP += ring1HP;
                 cMaxMP += ring1MP;
                 cMaxST += ring1ST;
+                chev += ring1HEv;
+                ceapa += ring1APagaingst;
+                cedh += ring1DamageHumans;
+                cADtDemiH += ring1DamageDemihumans;
+                cADtoAllWithExcept += ring1DamageAllExcept;
+                cSpiritRage += ring1SpiritRage;
+
             }
 
             else
@@ -633,6 +904,14 @@ namespace BDO_Builder
                 cMaxHP -= ring1HP;
                 cMaxMP -= ring1MP;
                 cMaxST -= ring1ST;
+                chev -= ring1HEv;
+                ceapa -= ring1APagaingst;
+                cedKama -= ring1KamaDamage;
+                cedh -= ring1DamageHumans;
+                cADtDemiH -= ring1DamageDemihumans;
+                cADtoAllWithExcept -= ring1DamageAllExcept;
+                cSpiritRage -= ring1SpiritRage;
+                cBidding -= ring1Bidding;
 
 
                 ring1ap = ring1Defap;
@@ -641,8 +920,16 @@ namespace BDO_Builder
                 ring1ev = ring1Defev;
                 ring1DR = ring1DefDR;
                 ring1HP = ring1DefHP;
-                ring1MP = ring1DefHP;
-                ring1ST = ring1DefHP;
+                ring1MP = ring1DefMP;
+                ring1ST = ring1DefST;
+                ring1HEv = ring1DefHEv;
+                ring1APagaingst = ring1DefAPagainst;
+                ring1KamaDamage = ring1DefKamaDamage;
+                ring1DamageHumans = ring1DefDamageHumans;
+                ring1DamageDemihumans = ring1DefDamageDemihumans;
+                ring1DamageAllExcept = ring1DefDamageAllExcept;
+                ring1SpiritRage = ring1DefSpiritRage;
+                ring1Bidding = ring1DefBidding;
 
                 cap += ring1ap;
                 caap += ring1ap;
@@ -653,6 +940,15 @@ namespace BDO_Builder
                 cMaxHP += ring1HP;
                 cMaxMP += ring1MP;
                 cMaxST += ring1ST;
+                chev += ring1HEv;
+                ceapa += ring1APagaingst;
+                cedKama += ring1KamaDamage;
+                cedh += ring1DamageHumans;
+                cADtDemiH += ring1DamageDemihumans;
+                cADtoAllWithExcept += ring1DamageAllExcept;
+                cSpiritRage += ring1SpiritRage;
+                cBidding += ring1Bidding;
+
             }
         }
 
@@ -677,16 +973,82 @@ namespace BDO_Builder
                 cMaxHP -= ring2HP;
                 cMaxMP -= ring2MP;
                 cMaxST -= ring2ST;
+                chev -= ring2HEv;
+                ceapa -= ring2APagaingst;
+                cedh -= ring2DamageHumans;
+                cADtDemiH -= ring2DamageDemihumans;
+                cADtoAllWithExcept -= ring2DamageAllExcept;
+                cSpiritRage -= ring2SpiritRage;
 
-                ring2ap = ring2Defap + ring2EnchLvl * Convert.ToInt32(dt.Rows[0]["APsh"]);
-                ring2dp = ring2Defdp + ring2EnchLvl * Convert.ToInt32(dt.Rows[0]["DPsh"]);
-                ring2acc = ring2Defacc + ring2EnchLvl * Convert.ToInt32(dt.Rows[0]["Accsh"]);
+                if (ring2Id == 3)
+                {
+                    if (ring2EnchLvl == 1) ring2ap = 14;
+                    else if (ring2EnchLvl == 2 | ring2EnchLvl == 3) ring2ap = 15;
+                    else if (ring2EnchLvl == 4) ring2ap = 16;
+                    else if (ring2EnchLvl == 5) ring2ap = 17;
+                }
+                else ring2ap = ring2Defap + ring2EnchLvl * Convert.ToInt32(dt.Rows[0]["APsh"]);
+                if (ring2Id == 25)
+                {
+                    if (ring2EnchLvl == 1 | ring2EnchLvl == 2) ring2dp = 3;
+                    else if (ring2EnchLvl == 3 | ring2EnchLvl == 4) ring2dp = 4;
+                    else if (ring2EnchLvl == 5) ring2dp = 5;
+                }
+                else ring2dp = ring2Defdp + ring2EnchLvl * Convert.ToInt32(dt.Rows[0]["DPsh"]);
+
+
+                if (ring2Id == 10)
+                {
+                    if (ring2EnchLvl == 1) ring2acc = 6;
+                    else if (ring2EnchLvl == 2) ring2acc = 8;
+                    else if (ring2EnchLvl == 3) ring2acc = 9;
+                    else if (ring2EnchLvl == 4) ring2acc = 10;
+                    else if (ring2EnchLvl == 5) ring2acc = 12;
+                }
+                else if (ring2Id == 25)
+                {
+                    if (ring2EnchLvl == 1) ring2acc = 0;
+                    else if (ring2EnchLvl == 2 | ring2EnchLvl == 3) ring2acc = 2;
+                    else if (ring2EnchLvl == 4 | ring2EnchLvl == 5) ring2acc = 4;
+                }
+                else if (ring2Id == 3)
+                {
+                    if (ring2EnchLvl == 1 | ring2EnchLvl == 2) ring2acc = 9;
+                    else if (ring2EnchLvl == 3 | ring2EnchLvl == 4 | ring2EnchLvl == 5) ring2acc = 10;
+                }
+                else ring2acc = ring2Defacc + ring2EnchLvl * Convert.ToInt32(dt.Rows[0]["Accsh"]);
+
                 ring2ev = ring2Defev + ring2EnchLvl * Convert.ToInt32(dt.Rows[0]["Evsh"]);
-                ring2DR = ring2DefDR + ring2EnchLvl * Convert.ToInt32(dt.Rows[0]["DRsh"]);
-                ring2HP = ring2DefHP + ring2EnchLvl * Convert.ToInt32(dt.Rows[0]["HPsh"]);
-                ring2MP = ring2DefHP + ring2EnchLvl * Convert.ToInt32(dt.Rows[0]["MPsh"]);
-                ring2ST = ring2DefHP + ring2EnchLvl * Convert.ToInt32(dt.Rows[0]["STsh"]);
 
+                if (ring2Id == 25)
+                {
+                    if (ring2EnchLvl == 1 | ring2EnchLvl == 2) ring2DR = 3;
+                    else if (ring2EnchLvl == 3 | ring2EnchLvl == 4) ring2DR = 4;
+                    else if (ring2EnchLvl == 5) ring2DR = 5;
+                }
+                else ring2DR = ring2DefDR + ring2EnchLvl * Convert.ToInt32(dt.Rows[0]["DRsh"]);
+                ring2HP = ring2DefHP + ring2EnchLvl * Convert.ToInt32(dt.Rows[0]["HPsh"]);
+                ring2MP = ring2DefMP + ring2EnchLvl * Convert.ToInt32(dt.Rows[0]["MPsh"]);
+                ring2ST = ring2DefST + ring2EnchLvl * Convert.ToInt32(dt.Rows[0]["STsh"]);
+                ring2HEv = ring2DefHEv;
+
+                if (ring2Id == 10)
+                {
+                    if (ring2EnchLvl == 1) ring2APagaingst = 2;
+                    else if (ring2EnchLvl == 2) ring2APagaingst = 3;
+                    else if (ring2EnchLvl == 3) ring2APagaingst = 4;
+                    else if (ring2EnchLvl == 4) ring2APagaingst = 5;
+                    else if (ring2EnchLvl == 5) ring2APagaingst = 7;
+                }
+                else ring2APagaingst = ring2DefAPagainst + ring2EnchLvl * Convert.ToInt32(dt.Rows[0]["shApAgainst"]);
+
+                //Extra Damage to Humans
+                ring2DamageHumans = ring2DefDamageHumans + ring2EnchLvl * Convert.ToInt32(dt.Rows[0]["shHumanDamage"]);
+                //Additional damage to Demihumans
+                ring2DamageDemihumans = ring2DefDamageDemihumans + ring2EnchLvl * Convert.ToInt32(dt.Rows[0]["shDemiHumanDamage"]);
+                //Extra damage to all species except Humans and demihumans
+                ring2DamageAllExcept = ring2DefDamageAllExcept + ring2EnchLvl * Convert.ToInt32(dt.Rows[0]["shDamAllExHuman"]);
+                ring2SpiritRage = ring2DefSpiritRage;
 
                 cap += ring2ap;
                 caap += ring2ap;
@@ -697,6 +1059,13 @@ namespace BDO_Builder
                 cMaxHP += ring2HP;
                 cMaxMP += ring2MP;
                 cMaxST += ring2ST;
+                chev += ring2HEv;
+                ceapa += ring2APagaingst;
+                cedh += ring2DamageHumans;
+                cADtDemiH += ring2DamageDemihumans;
+                cADtoAllWithExcept += ring2DamageAllExcept;
+                cSpiritRage += ring2SpiritRage;
+
             }
 
             else
@@ -710,6 +1079,14 @@ namespace BDO_Builder
                 cMaxHP -= ring2HP;
                 cMaxMP -= ring2MP;
                 cMaxST -= ring2ST;
+                chev -= ring2HEv;
+                ceapa -= ring2APagaingst;
+                cedKama -= ring2KamaDamage;
+                cedh -= ring2DamageHumans;
+                cADtDemiH -= ring2DamageDemihumans;
+                cADtoAllWithExcept -= ring2DamageAllExcept;
+                cSpiritRage -= ring2SpiritRage;
+                cBidding -= ring2Bidding;
 
 
                 ring2ap = ring2Defap;
@@ -718,8 +1095,16 @@ namespace BDO_Builder
                 ring2ev = ring2Defev;
                 ring2DR = ring2DefDR;
                 ring2HP = ring2DefHP;
-                ring2MP = ring2DefHP;
-                ring2ST = ring2DefHP;
+                ring2MP = ring2DefMP;
+                ring2ST = ring2DefST;
+                ring2HEv = ring2DefHEv;
+                ring2APagaingst = ring2DefAPagainst;
+                ring2KamaDamage = ring2DefKamaDamage;
+                ring2DamageHumans = ring2DefDamageHumans;
+                ring2DamageDemihumans = ring2DefDamageDemihumans;
+                ring2DamageAllExcept = ring2DefDamageAllExcept;
+                ring2SpiritRage = ring2DefSpiritRage;
+                ring2Bidding = ring2DefBidding;
 
                 cap += ring2ap;
                 caap += ring2ap;
@@ -730,6 +1115,15 @@ namespace BDO_Builder
                 cMaxHP += ring2HP;
                 cMaxMP += ring2MP;
                 cMaxST += ring2ST;
+                chev += ring2HEv;
+                ceapa += ring2APagaingst;
+                cedKama += ring2KamaDamage;
+                cedh += ring2DamageHumans;
+                cADtDemiH += ring2DamageDemihumans;
+                cADtoAllWithExcept += ring2DamageAllExcept;
+                cSpiritRage += ring2SpiritRage;
+                cBidding += ring2Bidding;
+
             }
         }
 
@@ -755,15 +1149,74 @@ namespace BDO_Builder
                 cMaxMP -= ear1MP;
                 cMaxST -= ear1ST;
 
+                ceapa -= ear1APagaingst;
+                cedKama -= ear1KamaDamage;
+                cSpiritRage -= ear1SpiritRage;
+
                 ear1ap = ear1Defap + ear1EnchLvl * Convert.ToInt32(dt.Rows[0]["APsh"]);
-                ear1dp = ear1Defdp + ear1EnchLvl * Convert.ToInt32(dt.Rows[0]["DPsh"]);
-                ear1acc = ear1Defacc + ear1EnchLvl * Convert.ToInt32(dt.Rows[0]["Accsh"]);
+
+                if (ear1Id == 25)
+                {
+                    if (ear1EnchLvl == 1 | ear1EnchLvl == 2) ear1dp = 1;
+                    else if (ear1EnchLvl == 3 | ear1EnchLvl == 4) ear1dp = 2;
+                    else if (ear1EnchLvl == 5) ear1dp = 3;
+                }
+                else if(ear1Id == 6)
+                {
+                    if (ear1EnchLvl == 2) ear1dp = 1;
+                    else if (ear1EnchLvl == 3) ear1dp = 2;
+                    else if (ear1EnchLvl == 4) ear1dp = 3;
+                    else if (ear1EnchLvl == 5) ear1dp = 4;
+                }
+                else ear1dp = ear1Defdp + ear1EnchLvl * Convert.ToInt32(dt.Rows[0]["DPsh"]);
+
+                if (ear1Id == 9)
+                {
+                    if (ear1EnchLvl == 1) ear1acc = 2;
+                    else if (ear1EnchLvl == 2) ear1acc = 3;
+                    else if (ear1EnchLvl == 3) ear1acc = 4;
+                    else if (ear1EnchLvl == 4) ear1acc = 5;
+                    else if (ear1EnchLvl == 5) ear1acc = 7;
+                }
+                else if (ear1Id == 25)
+                {
+                    if (ear1EnchLvl == 1) ear1acc = 0;
+                    else if (ear1EnchLvl == 2 | ear1EnchLvl == 3) ear1acc = 2;
+                    else if (ear1EnchLvl == 4 | ear1EnchLvl == 5) ear1acc = 4;
+                }
+                else if (ear1Id == 6)
+                {
+                    if (ear1EnchLvl == 1) ear1acc = 9;
+                    else if (ear1EnchLvl == 2) ear1acc = 10;
+                    else if (ear1EnchLvl == 3) ear1acc = 11;
+                    else if (ear1EnchLvl == 4 | ear1EnchLvl == 5) ear1acc = 12;
+                }
+                else ear1acc = ear1Defacc + ear1EnchLvl * Convert.ToInt32(dt.Rows[0]["Accsh"]);
+
                 ear1ev = ear1Defev + ear1EnchLvl * Convert.ToInt32(dt.Rows[0]["Evsh"]);
-                ear1DR = ear1DefDR + ear1EnchLvl * Convert.ToInt32(dt.Rows[0]["DRsh"]);
+                if(ear1Id == 25)
+                {
+                    if (ear1EnchLvl == 1 | ear1EnchLvl == 2) ear1DR = 1;
+                    else if (ear1EnchLvl == 3 | ear1EnchLvl == 4) ear1DR = 2;
+                    else if (ear1EnchLvl == 5) ear1DR = 3;
+                }
+                else ear1DR = ear1DefDR + ear1EnchLvl * Convert.ToInt32(dt.Rows[0]["DRsh"]);
                 ear1HP = ear1DefHP + ear1EnchLvl * Convert.ToInt32(dt.Rows[0]["HPsh"]);
                 ear1MP = ear1DefMP + ear1EnchLvl * Convert.ToInt32(dt.Rows[0]["MPsh"]);
                 ear1ST = ear1DefST + ear1EnchLvl * Convert.ToInt32(dt.Rows[0]["STsh"]);
 
+                if (ear1Id == 9)
+                {
+                    if (ear1EnchLvl == 1) ear1APagaingst = 6;
+                    else if (ear1EnchLvl == 2) ear1APagaingst = 8;
+                    else if (ear1EnchLvl == 3) ear1APagaingst = 9;
+                    else if (ear1EnchLvl == 4) ear1APagaingst = 10;
+                    else if (ear1EnchLvl == 5) ear1APagaingst = 12;
+                }
+                else ear1APagaingst = ear1DefAPagainst + ear1EnchLvl * Convert.ToInt32(dt.Rows[0]["shApAgainst"]);
+                ear1SpiritRage = ear1DefSpiritRage;
+
+                ear1KamaDamage = ear1DefKamaDamage + ear1EnchLvl * Convert.ToInt32(dt.Rows[0]["shKamaDamage"]);
 
                 cap += ear1ap;
                 caap += ear1ap;
@@ -774,6 +1227,9 @@ namespace BDO_Builder
                 cMaxHP += ear1HP;
                 cMaxMP += ear1MP;
                 cMaxST += ear1ST;
+                ceapa += ear1APagaingst;
+                cedKama += ear1KamaDamage;
+                cSpiritRage += ear1SpiritRage;
             }
 
             else
@@ -787,7 +1243,9 @@ namespace BDO_Builder
                 cMaxHP -= ear1HP;
                 cMaxMP -= ear1MP;
                 cMaxST -= ear1ST;
-
+                ceapa -= ear1APagaingst;
+                cedKama -= ear1KamaDamage;
+                cSpiritRage -= ear1SpiritRage;
 
                 ear1ap = ear1Defap;
                 ear1dp = ear1Defdp;
@@ -797,6 +1255,9 @@ namespace BDO_Builder
                 ear1HP = ear1DefHP;
                 ear1MP = ear1DefMP;
                 ear1ST = ear1DefST;
+                ear1SpiritRage = ear1DefSpiritRage;
+                ear1APagaingst = ear1DefAPagainst;
+                ear1KamaDamage = ear1DefKamaDamage;
 
                 cap += ear1ap;
                 caap += ear1ap;
@@ -807,6 +1268,9 @@ namespace BDO_Builder
                 cMaxHP += ear1HP;
                 cMaxMP += ear1MP;
                 cMaxST += ear1ST;
+                ceapa += ear1APagaingst;
+                cedKama += ear1KamaDamage;
+                cSpiritRage += ear1SpiritRage;
             }
         }
 
@@ -832,15 +1296,74 @@ namespace BDO_Builder
                 cMaxMP -= ear2MP;
                 cMaxST -= ear2ST;
 
-                ear2ap = ear2Defap + ear2EnchLvl * Convert.ToInt32(dt.Rows[0]["APsh"]);
-                ear2dp = ear2Defdp + ear2EnchLvl * Convert.ToInt32(dt.Rows[0]["DPsh"]);
-                ear2acc = ear2Defacc + ear2EnchLvl * Convert.ToInt32(dt.Rows[0]["Accsh"]);
-                ear2ev = ear2Defev + ear2EnchLvl * Convert.ToInt32(dt.Rows[0]["Evsh"]);
-                ear2DR = ear2DefDR + ear2EnchLvl * Convert.ToInt32(dt.Rows[0]["DRsh"]);
-                ear2HP = ear2DefHP + ear2EnchLvl * Convert.ToInt32(dt.Rows[0]["HPsh"]);
-                ear2MP = ear2DefHP + ear2EnchLvl * Convert.ToInt32(dt.Rows[0]["MPsh"]);
-                ear2ST = ear2DefHP + ear2EnchLvl * Convert.ToInt32(dt.Rows[0]["STsh"]);
+                ceapa -= ear2APagaingst;
+                cedKama -= ear2KamaDamage;
+                cSpiritRage -= ear2SpiritRage;
 
+                ear2ap = ear2Defap + ear2EnchLvl * Convert.ToInt32(dt.Rows[0]["APsh"]);
+
+                if (ear2Id == 25)
+                {
+                    if (ear2EnchLvl == 1 | ear2EnchLvl == 2) ear2dp = 1;
+                    else if (ear2EnchLvl == 3 | ear2EnchLvl == 4) ear2dp = 2;
+                    else if (ear2EnchLvl == 5) ear2dp = 3;
+                }
+                else if (ear2Id == 6)
+                {
+                    if (ear2EnchLvl == 2) ear2dp = 1;
+                    else if (ear2EnchLvl == 3) ear2dp = 2;
+                    else if (ear2EnchLvl == 4) ear2dp = 3;
+                    else if (ear2EnchLvl == 5) ear2dp = 4;
+                }
+                else ear2dp = ear2Defdp + ear2EnchLvl * Convert.ToInt32(dt.Rows[0]["DPsh"]);
+
+                if (ear2Id == 9)
+                {
+                    if (ear2EnchLvl == 1) ear2acc = 2;
+                    else if (ear2EnchLvl == 2) ear2acc = 3;
+                    else if (ear2EnchLvl == 3) ear2acc = 4;
+                    else if (ear2EnchLvl == 4) ear2acc = 5;
+                    else if (ear2EnchLvl == 5) ear2acc = 7;
+                }
+                else if (ear2Id == 25)
+                {
+                    if (ear2EnchLvl == 1) ear2acc = 0;
+                    else if (ear2EnchLvl == 2 | ear2EnchLvl == 3) ear2acc = 2;
+                    else if (ear2EnchLvl == 4 | ear2EnchLvl == 5) ear2acc = 4;
+                }
+                else if (ear2Id == 6)
+                {
+                    if (ear2EnchLvl == 1) ear2acc = 9;
+                    else if (ear2EnchLvl == 2) ear2acc = 10;
+                    else if (ear2EnchLvl == 3) ear2acc = 11;
+                    else if (ear2EnchLvl == 4 | ear2EnchLvl == 5) ear2acc = 12;
+                }
+                else ear2acc = ear2Defacc + ear2EnchLvl * Convert.ToInt32(dt.Rows[0]["Accsh"]);
+
+                ear2ev = ear2Defev + ear2EnchLvl * Convert.ToInt32(dt.Rows[0]["Evsh"]);
+                if (ear2Id == 25)
+                {
+                    if (ear2EnchLvl == 1 | ear2EnchLvl == 2) ear2DR = 1;
+                    else if (ear2EnchLvl == 3 | ear2EnchLvl == 4) ear2DR = 2;
+                    else if (ear2EnchLvl == 5) ear2DR = 3;
+                }
+                else ear2DR = ear2DefDR + ear2EnchLvl * Convert.ToInt32(dt.Rows[0]["DRsh"]);
+                ear2HP = ear2DefHP + ear2EnchLvl * Convert.ToInt32(dt.Rows[0]["HPsh"]);
+                ear2MP = ear2DefMP + ear2EnchLvl * Convert.ToInt32(dt.Rows[0]["MPsh"]);
+                ear2ST = ear2DefST + ear2EnchLvl * Convert.ToInt32(dt.Rows[0]["STsh"]);
+
+                if (ear2Id == 9)
+                {
+                    if (ear2EnchLvl == 1) ear2APagaingst = 6;
+                    else if (ear2EnchLvl == 2) ear2APagaingst = 8;
+                    else if (ear2EnchLvl == 3) ear2APagaingst = 9;
+                    else if (ear2EnchLvl == 4) ear2APagaingst = 10;
+                    else if (ear2EnchLvl == 5) ear2APagaingst = 12;
+                }
+                else ear2APagaingst = ear2DefAPagainst + ear2EnchLvl * Convert.ToInt32(dt.Rows[0]["shApAgainst"]);
+                ear2SpiritRage = ear2DefSpiritRage;
+
+                ear2KamaDamage = ear2DefKamaDamage + ear2EnchLvl * Convert.ToInt32(dt.Rows[0]["shKamaDamage"]);
 
                 cap += ear2ap;
                 caap += ear2ap;
@@ -851,6 +1374,9 @@ namespace BDO_Builder
                 cMaxHP += ear2HP;
                 cMaxMP += ear2MP;
                 cMaxST += ear2ST;
+                ceapa += ear2APagaingst;
+                cedKama += ear2KamaDamage;
+                cSpiritRage += ear2SpiritRage;
             }
 
             else
@@ -864,7 +1390,9 @@ namespace BDO_Builder
                 cMaxHP -= ear2HP;
                 cMaxMP -= ear2MP;
                 cMaxST -= ear2ST;
-
+                ceapa -= ear2APagaingst;
+                cedKama -= ear2KamaDamage;
+                cSpiritRage -= ear2SpiritRage;
 
                 ear2ap = ear2Defap;
                 ear2dp = ear2Defdp;
@@ -872,8 +1400,11 @@ namespace BDO_Builder
                 ear2ev = ear2Defev;
                 ear2DR = ear2DefDR;
                 ear2HP = ear2DefHP;
-                ear2MP = ear2DefHP;
-                ear2ST = ear2DefHP;
+                ear2MP = ear2DefMP;
+                ear2ST = ear2DefST;
+                ear2SpiritRage = ear2DefSpiritRage;
+                ear2APagaingst = ear2DefAPagainst;
+                ear2KamaDamage = ear2DefKamaDamage;
 
                 cap += ear2ap;
                 caap += ear2ap;
@@ -884,6 +1415,9 @@ namespace BDO_Builder
                 cMaxHP += ear2HP;
                 cMaxMP += ear2MP;
                 cMaxST += ear2ST;
+                ceapa += ear2APagaingst;
+                cedKama += ear2KamaDamage;
+                cSpiritRage += ear2SpiritRage;
             }
         }
 
@@ -1085,6 +1619,8 @@ namespace BDO_Builder
                     cMaxHP -= armHP;
                     cMaxMP -= armMP;
                     cWeight -= armWeight;
+                    chpr -= armHPRecovery;
+                    cmpr -= armMPRecovery;
 
 
                     //DP
@@ -1103,6 +1639,8 @@ namespace BDO_Builder
                     armWeight = armDefWeight;
                     armHP = armDefHP;
                     armMP = armDefMP;
+                    armHPRecovery = armDefHPRecovery;
+                    armMPRecovery = armDefMPRecovery;
 
                     cdp += armdp;
                     cev += armev;
@@ -1112,6 +1650,8 @@ namespace BDO_Builder
                     cMaxHP += armHP;
                     cMaxMP += armMP;
                     cWeight += armWeight;
+                    chpr += armHPRecovery;
+                    cmpr += armMPRecovery;
 
                 }
 
@@ -1126,7 +1666,8 @@ namespace BDO_Builder
                     cMaxHP -= armHP;
                     cMaxMP -= armMP;
                     cWeight -= armWeight;
-
+                    chpr -= armHPRecovery;
+                    cmpr -= armMPRecovery;
 
                     //DP
                     if (armId == 10 | armId == 19) armdp = armDefdp + armEnchLvl * 3;
@@ -1148,6 +1689,8 @@ namespace BDO_Builder
                     armWeight = armDefWeight;
                     armHP = armDefHP;
                     armMP = armDefMP;
+                    armHPRecovery = armDefHPRecovery;
+                    armMPRecovery = armDefMPRecovery;
 
                     cdp += armdp;
                     cev += armev;
@@ -1157,7 +1700,8 @@ namespace BDO_Builder
                     cMaxHP += armHP;
                     cMaxMP += armMP;
                     cWeight += armWeight;
-
+                    chpr += armHPRecovery;
+                    cmpr += armMPRecovery;
                 }
 
                 if (armEnchLvl >= 4 & armEnchLvl <= 5)
@@ -1171,7 +1715,8 @@ namespace BDO_Builder
                     cMaxHP -= armHP;
                     cMaxMP -= armMP;
                     cWeight -= armWeight;
-
+                    chpr -= armHPRecovery;
+                    cmpr -= armMPRecovery;
                     //DP
                     if (armId == 10 | armId == 19 ) armdp = armDefdp + armEnchLvl * 3;
                     else armdp = armDefdp + 10 + (armEnchLvl - 3) * 2;
@@ -1192,6 +1737,8 @@ namespace BDO_Builder
                     armWeight = armDefWeight;
                     armHP = armDefHP;
                     armMP = armDefMP;
+                    armHPRecovery = armDefHPRecovery;
+                    armMPRecovery = armDefMPRecovery;
 
                     cdp += armdp;
                     cev += armev;
@@ -1201,7 +1748,8 @@ namespace BDO_Builder
                     cMaxHP += armHP;
                     cMaxMP += armMP;
                     cWeight += armWeight;
-
+                    chpr += armHPRecovery;
+                    cmpr += armMPRecovery;
                 }
 
                 if (armEnchLvl >= 6 & armEnchLvl <= 15)
@@ -1215,7 +1763,8 @@ namespace BDO_Builder
                     cMaxHP -= armHP;
                     cMaxMP -= armMP;
                     cWeight -= armWeight;
-
+                    chpr -= armHPRecovery;
+                    cmpr -= armMPRecovery;
                     //DP
                     if (armId == 10 | armId == 19) armdp = armDefdp + 15 + (armEnchLvl - 5) * 4;
                     else armdp = armDefdp + 14 + (armEnchLvl - 5) * 3;
@@ -1251,6 +1800,8 @@ namespace BDO_Builder
                     armWeight = armDefWeight;
                     armHP = armDefHP;
                     armMP = armDefMP;
+                    armHPRecovery = armDefHPRecovery;
+                    armMPRecovery = armDefMPRecovery;
 
                     cdp += armdp;
                     cev += armev;
@@ -1260,7 +1811,8 @@ namespace BDO_Builder
                     cMaxHP += armHP;
                     cMaxMP += armMP;
                     cWeight += armWeight;
-
+                    chpr += armHPRecovery;
+                    cmpr += armMPRecovery;
                 }
 
                 if (armEnchLvl == 16)
@@ -1274,7 +1826,8 @@ namespace BDO_Builder
                     cMaxHP -= armHP;
                     cMaxMP -= armMP;
                     cWeight -= armWeight;
-
+                    chpr -= armHPRecovery;
+                    cmpr -= armMPRecovery;
                     //DR
                     if (armId == 10 | armId == 19) armdp = armDefdp + 15 + (armEnchLvl - 5) * 4;
                     else armdp = armDefdp + 49;
@@ -1295,6 +1848,8 @@ namespace BDO_Builder
                     armWeight = armDefWeight;
                     armHP = armDefHP;
                     armMP = armDefMP;
+                    armHPRecovery = armDefHPRecovery;
+                    armMPRecovery = armDefMPRecovery;
 
                     cdp += armdp;
                     cev += armev;
@@ -1304,7 +1859,8 @@ namespace BDO_Builder
                     cMaxHP += armHP;
                     cMaxMP += armMP;
                     cWeight += armWeight;
-
+                    chpr += armHPRecovery;
+                    cmpr += armMPRecovery;
                 }
 
                 if (armEnchLvl == 17)
@@ -1318,7 +1874,8 @@ namespace BDO_Builder
                     cMaxHP -= armHP;
                     cMaxMP -= armMP;
                     cWeight -= armWeight;
-
+                    chpr -= armHPRecovery;
+                    cmpr -= armMPRecovery;
                     //DP
                     if (armId == 10 | armId == 19) armdp = armDefdp + 15 + (armEnchLvl - 5) * 4;
                     else armdp = armDefdp + 54;
@@ -1338,6 +1895,8 @@ namespace BDO_Builder
                     armWeight = armDefWeight;
                     armHP = armDefHP;
                     armMP = armDefMP;
+                    armHPRecovery = armDefHPRecovery;
+                    armMPRecovery = armDefMPRecovery;
 
                     cdp += armdp;
                     cev += armev;
@@ -1347,7 +1906,8 @@ namespace BDO_Builder
                     cMaxHP += armHP;
                     cMaxMP += armMP;
                     cWeight += armWeight;
-
+                    chpr += armHPRecovery;
+                    cmpr += armMPRecovery;
                 }
 
                 if (armEnchLvl == 18)
@@ -1361,7 +1921,8 @@ namespace BDO_Builder
                     cMaxHP -= armHP;
                     cMaxMP -= armMP;
                     cWeight -= armWeight;
-
+                    chpr -= armHPRecovery;
+                    cmpr -= armMPRecovery;
                     //DP
                     if (armId == 10 | armId == 19) armdp = armDefdp + 70;
                     else armdp = armDefdp + 62;
@@ -1382,6 +1943,8 @@ namespace BDO_Builder
                     armWeight = armDefWeight;
                     armHP = armDefHP;
                     armMP = armDefMP;
+                    armHPRecovery = armDefHPRecovery;
+                    armMPRecovery = armDefMPRecovery;
 
                     cdp += armdp;
                     cev += armev;
@@ -1391,7 +1954,8 @@ namespace BDO_Builder
                     cMaxHP += armHP;
                     cMaxMP += armMP;
                     cWeight += armWeight;
-
+                    chpr += armHPRecovery;
+                    cmpr += armMPRecovery;
                 }
 
                 if (armEnchLvl >= 19 & armEnchLvl <= 20)
@@ -1405,7 +1969,8 @@ namespace BDO_Builder
                     cMaxHP -= armHP;
                     cMaxMP -= armMP;
                     cWeight -= armWeight;
-
+                    chpr -= armHPRecovery;
+                    cmpr -= armMPRecovery;
                     //DP
                     if (armId == 10 | armId == 19) armdp = armDefdp + 70 + (armEnchLvl-18) * 4;
                     else armdp = armDefdp + 62 + (armEnchLvl-18)  * 5;
@@ -1426,6 +1991,8 @@ namespace BDO_Builder
                     armWeight = armDefWeight;
                     armHP = armDefHP;
                     armMP = armDefMP;
+                    armHPRecovery = armDefHPRecovery;
+                    armMPRecovery = armDefMPRecovery;
 
                     cdp += armdp;
                     cev += armev;
@@ -1435,7 +2002,8 @@ namespace BDO_Builder
                     cMaxHP += armHP;
                     cMaxMP += armMP;
                     cWeight += armWeight;
-
+                    chpr += armHPRecovery;
+                    cmpr += armMPRecovery;
                 }
             }
 
@@ -1452,7 +2020,8 @@ namespace BDO_Builder
                 cRes1 -= armSSFRes;
                 cWeight -= armWeight;
                 cacc -= armAcc;
-
+                chpr -= armHPRecovery;
+                cmpr -= armMPRecovery;
 
                 armdp = armDefdp;
                 armev = armDefev;
@@ -1463,7 +2032,8 @@ namespace BDO_Builder
                 armMP = armDefMP;
                 armWeight = armDefWeight;
                 armAcc = armDefAcc;
-
+                armHPRecovery = armDefHPRecovery;
+                armMPRecovery = armDefMPRecovery;
 
 
                 cdp += armdp;
@@ -1476,7 +2046,8 @@ namespace BDO_Builder
                 cRes1 += armSSFRes;
                 cWeight += armWeight;
                 cacc += armAcc;
-
+                chpr += armHPRecovery;
+                cmpr += armMPRecovery;
             }
         }
 
@@ -2068,7 +2639,8 @@ namespace BDO_Builder
                 cRes4 -= helKFRes;
                 cWeight -= helWeight;
                 cMaxST -= helST;
-
+                chpr -= helHPRecovery;
+                cluck -= helLuck;
 
 
 
@@ -2084,6 +2656,9 @@ namespace BDO_Builder
                 helKFRes = helKFDefRes;
                 helWeight = helDefWeight;
                 helST = helDefST;
+                helLuck = helDefLuck;
+                helHPRecovery = helDefHPRecovery;
+
 
                 cdp += heldp;
                 cev += helev;
@@ -2097,6 +2672,8 @@ namespace BDO_Builder
                 cRes4 += helKFRes;
                 cWeight += helWeight;
                 cMaxST += helST;
+                chpr += helHPRecovery;
+                cluck += helLuck;
             }
         }
 
@@ -2383,7 +2960,7 @@ namespace BDO_Builder
                     ccr -= glovCrit;
                     cWeight -= glovWeight;
                     cRes3 -= glovGrapleRes;
-
+                    ceda -= glovDamage;
 
                     glovdp = glovDefdp + glovEnchLvl * 2;
                     if(glovId == 9 | glovId == 19)
@@ -2425,7 +3002,7 @@ namespace BDO_Builder
                     glovWeight = glovDefWeight;
                     glovGrapleRes = glovDefGrapleRes;
                     glovacc = glovDefacc;
-
+                    glovDamage = glovDefDamage;
 
 
                     cdp += glovdp;
@@ -2439,6 +3016,8 @@ namespace BDO_Builder
                     ccr += glovCrit;
                     cWeight += glovWeight;
                     cRes3 += glovGrapleRes;
+                    ceda += glovDamage;
+
                 }
 
                 if (glovEnchLvl == 16)
@@ -2455,6 +3034,7 @@ namespace BDO_Builder
                     ccr -= glovCrit;
                     cWeight -= glovWeight;
                     cRes3 -= glovGrapleRes;
+                    ceda -= glovDamage;
 
                     glovdp = glovDefdp + (glovEnchLvl -1) * 2 + 5;
                     if (glovId == 9 | glovId == 19) glovacc = glovDefacc + 16;
@@ -2471,6 +3051,7 @@ namespace BDO_Builder
                     glovWeight = glovDefWeight;
                     glovGrapleRes = glovDefGrapleRes;
                     glovacc = glovDefacc;
+                    glovDamage = glovDefDamage;
 
                     cdp += glovdp;
                     cev += glovev;
@@ -2483,6 +3064,7 @@ namespace BDO_Builder
                     ccr += glovCrit;
                     cWeight += glovWeight;
                     cRes3 += glovGrapleRes;
+                    ceda += glovDamage;
                 }
 
                 if (glovEnchLvl ==17)
@@ -2499,6 +3081,7 @@ namespace BDO_Builder
                     ccr -= glovCrit;
                     cWeight -= glovWeight;
                     cRes3 -= glovGrapleRes;
+                    ceda -= glovDamage;
 
                     glovdp = glovDefdp + 40;
                     if (glovId == 9 | glovId == 19) glovacc = glovDefacc + 19;
@@ -2515,6 +3098,7 @@ namespace BDO_Builder
                     glovWeight = glovDefWeight;
                     glovGrapleRes = glovDefGrapleRes;
                     glovacc = glovDefacc;
+                    glovDamage = glovDefDamage;
 
                     cdp += glovdp;
                     cev += glovev;
@@ -2527,6 +3111,8 @@ namespace BDO_Builder
                     ccr += glovCrit;
                     cWeight += glovWeight;
                     cRes3 += glovGrapleRes;
+                    ceda += glovDamage;
+
                 }
 
                 if (glovEnchLvl == 18)
@@ -2543,6 +3129,7 @@ namespace BDO_Builder
                     ccr -= glovCrit;
                     cWeight -= glovWeight;
                     cRes3 -= glovGrapleRes;
+                    ceda -= glovDamage;
 
                     glovdp = glovDefdp + 48;
                     if (glovId == 9 | glovId == 19) glovacc = glovDefacc + 22;
@@ -2559,6 +3146,7 @@ namespace BDO_Builder
                     glovWeight = glovDefWeight;
                     glovGrapleRes = glovDefGrapleRes;
                     glovacc = glovDefacc;
+                    glovDamage = glovDefDamage;
 
                     cdp += glovdp;
                     cev += glovev;
@@ -2571,6 +3159,8 @@ namespace BDO_Builder
                     ccr += glovCrit;
                     cWeight += glovWeight;
                     cRes3 += glovGrapleRes;
+                    ceda += glovDamage;
+
                 }
 
                 if (glovEnchLvl >= 19 & glovEnchLvl <= 20)
@@ -2587,6 +3177,7 @@ namespace BDO_Builder
                     ccr -= glovCrit;
                     cWeight -= glovWeight;
                     cRes3 -= glovGrapleRes;
+                    ceda -= glovDamage;
 
                     glovdp = glovDefdp + 48 + (glovEnchLvl-18) * 5;
                     if (glovId == 9 | glovId == 19) glovacc = glovDefacc + 22 + (glovEnchLvl -18) * 3;
@@ -2603,6 +3194,7 @@ namespace BDO_Builder
                     glovWeight = glovDefWeight;
                     glovGrapleRes = glovDefGrapleRes;
                     glovacc = glovDefacc;
+                    glovDamage = glovDefDamage;
 
                     cdp += glovdp;
                     cev += glovev;
@@ -2615,9 +3207,11 @@ namespace BDO_Builder
                     ccr += glovCrit;
                     cWeight += glovWeight;
                     cRes3 += glovGrapleRes;
+                    ceda += glovDamage;
+
                 }
 
-                
+
             }
 
             if (glovEnch == false | glovEnch == true & glovEnchLvl == 0)
@@ -2634,6 +3228,7 @@ namespace BDO_Builder
                 ccr -= glovCrit;
                 cWeight -= glovWeight;
                 cRes3 -= glovGrapleRes;
+                ceda -= glovDamage;
 
 
                 glovdp = glovDefdp;
@@ -2648,6 +3243,7 @@ namespace BDO_Builder
                 glovWeight = glovDefWeight;
                 glovGrapleRes = glovDefGrapleRes;
                 glovacc = glovDefacc;
+                glovDamage = glovDefDamage;
 
                 cdp += glovdp;
                 cev += glovev;
@@ -2660,6 +3256,7 @@ namespace BDO_Builder
                 ccr += glovCrit;
                 cWeight += glovWeight;
                 cRes3 += glovGrapleRes;
+                ceda += glovDamage;
 
 
             }
