@@ -1451,7 +1451,6 @@ namespace BDO_Builder
                     armhdr = armDefhdr + armEnchLvl * 0;
                     armMP = armDefMP;
                     armHP = armDefHP;
-
                     cdp += armdp;
                     cev += armev;
                     chev += armhev;
@@ -1479,7 +1478,6 @@ namespace BDO_Builder
                     armhdr = armDefhdr;
                     armHP = armDefHP;
                     armMP = armDefMP;
-
                     cdp += armdp;
                     cev += armev;
                     chev += armhev;
@@ -1641,7 +1639,6 @@ namespace BDO_Builder
                     armMP = armDefMP;
                     armHPRecovery = armDefHPRecovery;
                     armMPRecovery = armDefMPRecovery;
-
                     cdp += armdp;
                     cev += armev;
                     chev += armhev;
@@ -1691,7 +1688,6 @@ namespace BDO_Builder
                     armMP = armDefMP;
                     armHPRecovery = armDefHPRecovery;
                     armMPRecovery = armDefMPRecovery;
-
                     cdp += armdp;
                     cev += armev;
                     chev += armhev;
@@ -1739,7 +1735,6 @@ namespace BDO_Builder
                     armMP = armDefMP;
                     armHPRecovery = armDefHPRecovery;
                     armMPRecovery = armDefMPRecovery;
-
                     cdp += armdp;
                     cev += armev;
                     chev += armhev;
@@ -1802,7 +1797,6 @@ namespace BDO_Builder
                     armMP = armDefMP;
                     armHPRecovery = armDefHPRecovery;
                     armMPRecovery = armDefMPRecovery;
-
                     cdp += armdp;
                     cev += armev;
                     chev += armhev;
@@ -1850,7 +1844,6 @@ namespace BDO_Builder
                     armMP = armDefMP;
                     armHPRecovery = armDefHPRecovery;
                     armMPRecovery = armDefMPRecovery;
-
                     cdp += armdp;
                     cev += armev;
                     chev += armhev;
@@ -1897,7 +1890,6 @@ namespace BDO_Builder
                     armMP = armDefMP;
                     armHPRecovery = armDefHPRecovery;
                     armMPRecovery = armDefMPRecovery;
-
                     cdp += armdp;
                     cev += armev;
                     chev += armhev;
@@ -1945,7 +1937,6 @@ namespace BDO_Builder
                     armMP = armDefMP;
                     armHPRecovery = armDefHPRecovery;
                     armMPRecovery = armDefMPRecovery;
-
                     cdp += armdp;
                     cev += armev;
                     chev += armhev;
@@ -1993,7 +1984,6 @@ namespace BDO_Builder
                     armMP = armDefMP;
                     armHPRecovery = armDefHPRecovery;
                     armMPRecovery = armDefMPRecovery;
-
                     cdp += armdp;
                     cev += armev;
                     chev += armhev;
