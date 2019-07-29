@@ -73,6 +73,33 @@ namespace BDO_Builder.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.IO.UnmanagedMemoryStream, аналогичного System.IO.MemoryStream.
         /// </summary>
+        internal static System.IO.UnmanagedMemoryStream bell1 {
+            get {
+                return ResourceManager.GetStream("bell1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.IO.UnmanagedMemoryStream, аналогичного System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream bell2 {
+            get {
+                return ResourceManager.GetStream("bell2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.IO.UnmanagedMemoryStream, аналогичного System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream rrrou_1 {
+            get {
+                return ResourceManager.GetStream("rrrou_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.IO.UnmanagedMemoryStream, аналогичного System.IO.MemoryStream.
+        /// </summary>
         internal static System.IO.UnmanagedMemoryStream Sound_1 {
             get {
                 return ResourceManager.GetStream("Sound_1", resourceCulture);

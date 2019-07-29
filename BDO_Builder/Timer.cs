@@ -16,8 +16,10 @@ namespace BDO_Builder
         public TimerForm()
         {
             InitializeComponent();
+            KeyPreview = true;
         }
 
+        public int IC; //Info check
         public int FTS; //Food timer stop check
         public int PTS; //Potion timer stop check
         public int sF; //Food sec
@@ -48,7 +50,7 @@ namespace BDO_Builder
                 mF = 0;
             }
             Timer_Food.Start();
-            Food_Start.Enabled = false;
+            Food_Start.Visible = false;
             Food_panel.Enabled = false;
         }
 
@@ -57,14 +59,14 @@ namespace BDO_Builder
             if (FTS == 1)
             {
                 Timer_Food.Start();
-                Food_Start.Enabled = false;
+                Food_Start.Visible = false;
                 Food_panel.Enabled = false;
             }
             if (FTS == 0)
             {
                 Timer_Food.Stop();
                 FTS = 1;
-                Food_Start.Enabled = true;
+                Food_Start.Visible = true;
                 Food_panel.Enabled = true;
             }
         }
@@ -98,10 +100,9 @@ namespace BDO_Builder
             if (mF == 0 && sF == 0)
             {
                 //Play Sound
-                //SystemSounds.Exclamation.Play();
-                SoundPlayer player = new SoundPlayer();
-                player.Stream = Properties.Resources.Sound_1;
-                player.Play();
+                SoundPlayer player1 = new SoundPlayer();
+                player1.Stream = Properties.Resources.bell2;
+                player1.Play();
             }
             M_food_n.Text = mF.ToString();
             S_food_n.Text = sF.ToString();
@@ -136,7 +137,7 @@ namespace BDO_Builder
                 mP = 0;
             }
             Timer_Potion.Start();
-            Potion_Start.Enabled = false;
+            Potion_Start.Visible = false;
             Potion_panel.Enabled = false;
         }
 
@@ -145,14 +146,14 @@ namespace BDO_Builder
             if (PTS == 1)
             {
                 Timer_Potion.Start();
-                Potion_Start.Enabled = false;
+                Potion_Start.Visible = false;
                 Potion_panel.Enabled = false;
             }
             if (PTS == 0)
             {
                 Timer_Potion.Stop();
                 PTS = 1;
-                Potion_Start.Enabled = true;
+                Potion_Start.Visible = true;
                 Potion_panel.Enabled = true;
             }
         }
@@ -196,10 +197,9 @@ namespace BDO_Builder
             if (mP == 0 && sP == 0)
             {
                 //Play Sound
-                SystemSounds.Beep.Play();
-                //SoundPlayer player = new SoundPlayer();
-                //player.Stream = Properties.Resources.Sound_2;
-                //player.Play();
+                SoundPlayer player2 = new SoundPlayer();
+                player2.Stream = Properties.Resources.bell1;
+                player2.Play();
             }
             M_potion_n.Text = mP.ToString();
             S_potion_n.Text = sP.ToString();
@@ -214,10 +214,8 @@ namespace BDO_Builder
             TransparencyKey = Color.Gray;
             Back_btn.Visible = false;
             Info_btn.Visible = false;
-            //Food_Start.Visible = false;
             Food_Pause.Visible = false;
             Food_panel.Visible = false;
-            //Potion_Start.Visible = false;
             Potion_Pause.Visible = false;
             Potion_panel.Visible = false;
             TopMostON_btn.Visible = false;
@@ -232,14 +230,43 @@ namespace BDO_Builder
             TransparencyKey = Color.Empty;
             Back_btn.Visible = true;
             Info_btn.Visible = true;
-            //Food_Start.Visible = true;
             Food_Pause.Visible = true;
             Food_panel.Visible = true;
-            //Potion_Start.Visible = true;
             Potion_Pause.Visible = true;
             Potion_panel.Visible = true;
             TopMostON_btn.Visible = true;
             TopMostOFF_btn.Visible = false;
+        }
+
+        private void TimerForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == (char)Keys.NumPad1)
+            {
+                TopMostON_btn_Click(sender,e);
+                TopMostOFF_btn.Visible = false;
+            }
+            if (e.KeyValue == (char)Keys.NumPad2)
+            {
+                TopMostOFF_btn_Click(sender, e);
+            }
+        }
+
+        private void Info_btn_Click(object sender, EventArgs e)
+        {
+            if (IC == 0)
+            {
+                this.Width = 500;
+                this.Height = 367;
+                IC = 1;
+                return;
+            }
+            if (IC == 1)
+            {
+                this.Width = 315;
+                this.Height = 367;
+                IC = 0;
+                return;
+            }
         }
     }
 }
