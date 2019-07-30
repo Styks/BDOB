@@ -1372,7 +1372,7 @@
             // iAP_lbl
             // 
             this.iAP_lbl.AutoSize = true;
-            this.iAP_lbl.Location = new System.Drawing.Point(755, 115);
+            this.iAP_lbl.Location = new System.Drawing.Point(739, 115);
             this.iAP_lbl.Name = "iAP_lbl";
             this.iAP_lbl.Size = new System.Drawing.Size(21, 13);
             this.iAP_lbl.TabIndex = 23;
@@ -1390,7 +1390,7 @@
             // iAP_n
             // 
             this.iAP_n.AutoSize = true;
-            this.iAP_n.Location = new System.Drawing.Point(797, 115);
+            this.iAP_n.Location = new System.Drawing.Point(766, 115);
             this.iAP_n.Name = "iAP_n";
             this.iAP_n.Size = new System.Drawing.Size(13, 13);
             this.iAP_n.TabIndex = 25;

@@ -522,6 +522,28 @@ namespace BDO_Builder
         public int shDefWeight;
 
 
+        //Awakening Weapons State
+        public int awkId = 0;
+        public bool awkEnch;
+        public int awkEnchLvl = 0;
+        public int awkAPlow;
+        public int awkAPhigh;
+        public int awkAP;
+        public int awkDefAPlow;
+        public int awkDefAPhigh;
+        public int awkDamageHumans;
+        public int awkDefDamageHumans;
+        public int awkAPagainst;
+        public int awkDefAPagainst;
+        public int awkAccuracy;
+        public int awkDefAccuracy;
+        public int awkDamageAll;
+        public int awkDefDamageAll;
+        public bool awkCheckHd;
+        public bool awkCheckAd;
+        public bool awkCheckAg;
+
+
         readonly SqlCommand cmd = Base_Connect.Connection.CreateCommand();
         
 
@@ -4073,358 +4095,332 @@ namespace BDO_Builder
             if (lf_sb == 3 && lf_b3 == 0) { lf_b3 = 3; cmvs += lf_b3; }
         }
 
-
-        public class  Awakening_Weapons
+        public void AwakeningState(string chClass)
         {
-            public int Id = 0;
-            public bool Ench;
-            public int EnchLvl = 0;
-            public int APlow;
-            public int APhigh;
-            public int AP;
-            public int DefAPlow;
-            public int DefAPhigh;
-            public int DamageHumans;
-            public int DefDamageHumans;
-            public int APagainst;
-            public int DefAPagainst;
-            public int Accuracy;
-            public int DefAccuracy;
-            public int DamageAll;
-            public int DefDamageAll;
-            public bool CheckHd;
-            public bool CheckAd;
-            public bool CheckAg;
+            SqlCommand cmd = Base_Connect.Connection.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from [" + chClass + " Awakening Weapons] where Id='" + awkId.ToString() + "'";
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
 
-            public void AwakeningState(string chClass)
+            if (awkEnch == true & awkEnchLvl == 1)
             {
-                SqlCommand cmd = Base_Connect.Connection.CreateCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from ["+ chClass + " Awakening Weapons] where Id='" + Id.ToString() + "'";
-                cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
-
-                CharacterState cs = new CharacterState();
-
-                if (Ench == true & EnchLvl == 1)
-                {
-                    cs.caap -= AP;
-                    cs.cacc -= Accuracy;
-                    cs.ceapa -= APagainst;
-                    cs.cedh -= DamageHumans;
-                    cs.ceda -= DamageAll;
+                caap -= awkAP;
+                cacc -= awkAccuracy;
+                ceapa -= awkAPagainst;
+                cedh -= awkDamageHumans;
+                ceda -= awkDamageAll;
 
 
-                    //AP High
-                    APhigh = DefAPhigh + 4;
-                    //AP Low
-                    APlow = DefAPlow+4;
-                    //Main AP
-                    AP = (APhigh + APlow) / 2;
-                    //AP against monsters
-                    APagainst = DefAPagainst;
-                    //Extra damage tp Humans
-                    DamageHumans = DefDamageHumans;
-                    //Extra Damage to All Species
-                    DamageAll = DefDamageAll;
+                //AP High
+                awkAPhigh = awkDefAPhigh + 4;
+                //AP Low
+                awkAPlow = awkDefAPlow + 4;
+                //Main AP
+                awkAP = (awkAPhigh + awkAPlow) / 2;
+                //AP against monsters
+                awkAPagainst = awkDefAPagainst;
+                //Extra damage tp Humans
+                awkDamageHumans = awkDefDamageHumans;
+                //Extra Damage to All Species
+                awkDamageAll = awkDefDamageAll;
 
-                    cs.caap += AP;
-                    cs.cacc += Accuracy;
-                    cs.ceapa += APagainst;
-                    cs.cedh += DamageHumans;
-                    cs.ceda += DamageAll;
-                }
+                caap += awkAP;
+                cacc += awkAccuracy;
+                ceapa += awkAPagainst;
+                cedh += awkDamageHumans;
+                ceda += awkDamageAll;
+            }
 
-                if (Ench == true & EnchLvl >= 2 & EnchLvl <=3)
-                {
-                    cs.caap -= AP;
-                    cs.cacc -= Accuracy;
-                    cs.ceapa -= APagainst;
-                    cs.cedh -= DamageHumans;
-                    cs.ceda -= DamageAll;
-
-
-                    //AP High
-                    APhigh = DefAPhigh + 4 + (EnchLvl-1)*3;
-                    //AP Low
-                    APlow = DefAPlow + 4 + (EnchLvl - 1) * 3;
-                    //Main AP
-                    AP = (APhigh + APlow) / 2;
-                    //AP against monsters
-                    APagainst = DefAPagainst;
-                    //Extra damage tp Humans
-                    DamageHumans = DefDamageHumans;
-                    //Extra Damage to All Species
-                    DamageAll = DefDamageAll;
-
-                    cs.caap += AP;
-                    cs.cacc += Accuracy;
-                    cs.ceapa += APagainst;
-                    cs.cedh += DamageHumans;
-                    cs.ceda += DamageAll;
-
-                }
-
-                if (Ench == true & EnchLvl >= 4 & EnchLvl <= 5)
-                {
-                    cs.caap -= AP;
-                    cs.cacc -= Accuracy;
-                    cs.ceapa -= APagainst;
-                    cs.cedh -= DamageHumans;
-                    cs.ceda -= DamageAll;
+            else if (awkEnch == true & awkEnchLvl >= 2 & awkEnchLvl <= 3)
+            {
+                caap -= awkAP;
+                cacc -= awkAccuracy;
+                ceapa -= awkAPagainst;
+                cedh -= awkDamageHumans;
+                ceda -= awkDamageAll;
 
 
-                    //AP High
-                    APhigh = DefAPhigh + 10 + (EnchLvl - 3) * 3;
-                    //AP Low
-                    APlow = DefAPlow + 10 + (EnchLvl - 3) * 3;
-                    //Main AP
-                    AP = (APhigh + APlow) / 2;
-                    //AP against monsters
-                    APagainst = DefAPagainst;
-                    //Extra damage tp Humans
-                    DamageHumans = DefDamageHumans;
-                    //Extra Damage to All Species
-                    DamageAll = DefDamageAll;
+                //AP High
+                awkAPhigh = awkDefAPhigh + 4 + (awkEnchLvl - 1) * 3;
+                //AP Low
+                awkAPlow = awkDefAPlow + 4 + (awkEnchLvl - 1) * 3;
+                //Main AP
+                awkAP = (awkAPhigh + awkAPlow) / 2;
+                //AP against monsters
+                awkAPagainst = awkDefAPagainst;
+                //Extra damage tp Humans
+                awkDamageHumans = awkDefDamageHumans;
+                //Extra Damage to All Species
+                awkDamageAll = awkDefDamageAll;
 
-                    cs.caap += AP;
-                    cs.cacc += Accuracy;
-                    cs.ceapa += APagainst;
-                    cs.cedh += DamageHumans;
-                    cs.ceda += DamageAll;
-
-                }
-
-                if (Ench == true & EnchLvl >= 6 & EnchLvl <= 7)
-                {
-                    cs.caap -= AP;
-                    cs.cacc -= Accuracy;
-                    cs.ceapa -= APagainst;
-                    cs.cedh -= DamageHumans;
-                    cs.ceda -= DamageAll;
-
-
-                    //AP High
-                    APhigh = DefAPhigh + 14 + (EnchLvl - 5) * 3;
-                    //AP Low
-                    APlow = DefAPlow + 14 + (EnchLvl - 5) * 3;
-                    //Main AP
-                    AP = (APhigh + APlow) / 2;
-                    //AP against monsters
-                    APagainst = DefAPagainst;
-                    //Extra damage tp Humans
-                    if(CheckHd == true) DamageHumans = DefDamageHumans+1;
-                    //Extra Damage to All Species
-                    if (CheckAd == true) DamageAll = DefDamageAll+1;
-
-
-                    cs.caap += AP;
-                    cs.cacc += Accuracy;
-                    cs.ceapa += APagainst;
-                    cs.cedh += DamageHumans;
-                    cs.ceda += DamageAll;
-
-                }
-
-                if (Ench == true & EnchLvl >= 8 & EnchLvl <= 15)
-                {
-                    cs.caap -= AP;
-                    cs.cacc -= Accuracy;
-                    cs.ceapa -= APagainst;
-                    cs.cedh -= DamageHumans;
-                    cs.ceda -= DamageAll;
-
-                    if(Id == 3| Id == 2)
-                    {
-                        //AP High
-                        APhigh = DefAPhigh + 20 + (EnchLvl - 7) * 5;
-                        //AP Low
-                        APlow = DefAPlow + 20 + (EnchLvl - 7) * 5;
-                    }
-                    else
-                    {
-                        //AP High
-                        APhigh = DefAPhigh + 20 + (EnchLvl - 7) * 4;
-                        //AP Low
-                        APlow = DefAPlow + 20 + (EnchLvl - 7) * 4;
-                    }
-                    //Main AP
-                    AP = (APhigh + APlow) / 2;
-                    //AP against monsters
-                    APagainst = DefAPagainst;
-                    //Extra damage tp Humans
-                    if (CheckHd == true)
-                    {
-                       if(EnchLvl >=6 & EnchLvl <=9) DamageHumans = DefDamageHumans+1;
-                       else if (EnchLvl >= 10 & EnchLvl <= 12) DamageHumans = DefDamageHumans + 2;
-                        else if (EnchLvl >= 13 & EnchLvl <= 15) DamageHumans = DefDamageHumans + 3;
-
-                    }
-                    //Extra Damage to All Species
-                    if (CheckAd == true)
-                    {
-                        if (EnchLvl >= 6 & EnchLvl <= 9) DamageAll = DefDamageAll+1;
-                        else if (EnchLvl >= 10 & EnchLvl <= 12) DamageAll = DefDamageAll + 2;
-                        else if (EnchLvl >= 13 & EnchLvl <= 15) DamageAll = DefDamageAll + 3;
-                    }
-
-
-                    cs.caap += AP;
-                    cs.cacc += Accuracy;
-                    cs.ceapa += APagainst;
-                    cs.cedh += DamageHumans;
-                    cs.ceda += DamageAll;
-
-                }
-
-                if (Ench == true & EnchLvl >= 16 & EnchLvl <= 17)
-                {
-                    cs.caap -= AP;
-                    cs.cacc -= Accuracy;
-                    cs.ceapa -= APagainst;
-                    cs.cedh -= DamageHumans;
-                    cs.ceda -= DamageAll;
-
-                    if (Id == 3 | Id == 2)
-                    {
-                        //AP High
-                        APhigh = DefAPhigh + 60 + (EnchLvl - 15) * 8;
-                        //AP Low
-                        APlow = DefAPlow + 60 + (EnchLvl - 15) * 8;
-                    }
-                    else
-                    {
-                        //AP High
-                        APhigh = DefAPhigh + 52 + (EnchLvl - 15) * 8;
-                        //AP Low
-                        APlow = DefAPlow + 52 + (EnchLvl - 15) * 8;
-                    }
-                    //Main AP
-                    AP = (APhigh + APlow) / 2;
-                    //AP against monsters
-                    if (CheckAg == true) APagainst = DefAPagainst + (EnchLvl-15);
-                    //Extra damage tp Humans
-                    if (CheckHd == true) DamageHumans = DefDamageHumans + 4;
-                    //Extra Damage to All Species
-                    if (CheckAd == true) DamageAll = DefDamageAll + 4;
-
-
-                    cs.caap += AP;
-                    cs.cacc += Accuracy;
-                    cs.ceapa += APagainst;
-                    cs.cedh += DamageHumans;
-                    cs.ceda += DamageAll;
-
-                }
-
-                if (Ench == true & EnchLvl == 18)
-                {
-                    cs.caap -= AP;
-                    cs.cacc -= Accuracy;
-                    cs.ceapa -= APagainst;
-                    cs.cedh -= DamageHumans;
-                    cs.ceda -= DamageAll;
-
-                    if (Id == 3 | Id == 2)
-                    {
-                        //AP High
-                        APhigh = DefAPhigh + 88 ;
-                        //AP Low
-                        APlow = DefAPlow + 88;
-                    }
-                    else
-                    {
-                        //AP High
-                        APhigh = DefAPhigh + 80 ;
-                        //AP Low
-                        APlow = DefAPlow + 80;
-                    }
-                    //Main AP
-                    AP = (APhigh + APlow) / 2;
-                    //AP against monsters
-                    if (CheckAg == true) APagainst = DefAPagainst + 4;
-                    //Extra damage tp Humans
-                    if (CheckHd == true) DamageHumans = DefDamageHumans + 4;
-                    //Extra Damage to All Species
-                    if (CheckAd == true) DamageAll = DefDamageAll + 4;
-
-
-                    cs.caap += AP;
-                    cs.cacc += Accuracy;
-                    cs.ceapa += APagainst;
-                    cs.cedh += DamageHumans;
-                    cs.ceda += DamageAll;
-
-                }
-
-                if (Ench == true & EnchLvl >= 19 & EnchLvl <= 20)
-                {
-                    cs.caap -= AP;
-                    cs.cacc -= Accuracy;
-                    cs.ceapa -= APagainst;
-                    cs.cedh -= DamageHumans;
-                    cs.ceda -= DamageAll;
-
-                    if (Id == 3 | Id == 2)
-                    {
-                        //AP High
-                        APhigh = DefAPhigh + 88 + (EnchLvl - 18) * 8;
-                        //AP Low
-                        APlow = DefAPlow + 88 + (EnchLvl - 18) * 8;
-                    }
-                    else
-                    {
-                        //AP High
-                        APhigh = DefAPhigh + 80 + (EnchLvl - 18) * 8;
-                        //AP Low
-                        APlow = DefAPlow + 80 + (EnchLvl - 18) * 8;
-                    }
-                    //Main AP
-                    AP = (APhigh + APlow) / 2;
-                    //AP against monsters
-                    if (CheckAg == true) APagainst = DefAPagainst + 10;
-                    //Extra damage tp Humans
-                    if (CheckHd == true) DamageHumans = DefDamageHumans + 5;
-                    //Extra Damage to All Species
-                    if (CheckAd == true) DamageAll = DefDamageAll + 5;
-
-
-                    cs.caap += AP;
-                    cs.cacc += Accuracy;
-                    cs.ceapa += APagainst;
-                    cs.cedh += DamageHumans;
-                    cs.ceda += DamageAll;
-
-                }
-
-                else
-                {
-                    cs.caap -= AP;
-                    cs.cacc -= Accuracy;
-                    cs.ceapa -= APagainst;
-                    cs.cedh -= DamageHumans;
-                    cs.ceda -= DamageAll;
-
-                    APhigh = DefAPhigh;
-                    APlow = DefAPlow;
-                    AP = (APhigh + APlow) / 2;
-                    APagainst = DefAPagainst;
-                    DamageHumans = DefDamageHumans;
-                    Accuracy = DefAccuracy;
-                    DamageAll = DefDamageAll;
-
-                    cs.caap += AP;
-                    cs.cacc += Accuracy;
-                    cs.ceapa += APagainst;
-                    cs.cedh += DamageHumans;
-                    cs.ceda += DamageAll;
-                }
+                caap += awkAP;
+                cacc += awkAccuracy;
+                ceapa += awkAPagainst;
+                cedh += awkDamageHumans;
+                ceda += awkDamageAll;
 
             }
-            
+
+            else if (awkEnch == true & awkEnchLvl >= 4 & awkEnchLvl <= 5)
+            {
+                caap -= awkAP;
+                cacc -= awkAccuracy;
+                ceapa -= awkAPagainst;
+                cedh -= awkDamageHumans;
+                ceda -= awkDamageAll;
+
+
+                //AP High
+                awkAPhigh = awkDefAPhigh + 10 + (awkEnchLvl - 3) * 2;
+                //AP Low
+                awkAPlow = awkDefAPlow + 10 + (awkEnchLvl - 3) * 2;
+                //Main AP
+                awkAP = (awkAPhigh + awkAPlow) / 2;
+                //AP against monsters
+                awkAPagainst = awkDefAPagainst;
+                //Extra damage tp Humans
+                awkDamageHumans = awkDefDamageHumans;
+                //Extra Damage to All Species
+                awkDamageAll = awkDefDamageAll;
+
+                caap += awkAP;
+                cacc += awkAccuracy;
+                ceapa += awkAPagainst;
+                cedh += awkDamageHumans;
+                ceda += awkDamageAll;
+
+            }
+
+            else if (awkEnch == true & awkEnchLvl >= 6 & awkEnchLvl <= 7)
+            {
+                caap -= awkAP;
+                cacc -= awkAccuracy;
+                ceapa -= awkAPagainst;
+                cedh -= awkDamageHumans;
+                ceda -= awkDamageAll;
+
+
+                //AP High
+                awkAPhigh = awkDefAPhigh + 14 + (awkEnchLvl - 5) * 3;
+                //AP Low
+                awkAPlow = awkDefAPlow + 14 + (awkEnchLvl - 5) * 3;
+                //Main AP
+                awkAP = (awkAPhigh + awkAPlow) / 2;
+                //AP against monsters
+                awkAPagainst = awkDefAPagainst;
+                //Extra damage tp Humans
+                if (awkCheckHd == true) awkDamageHumans = awkDefDamageHumans + 1;
+                //Extra Damage to All Species
+                if (awkCheckAd == true) awkDamageAll = awkDefDamageAll + 1;
+
+
+                caap += awkAP;
+                cacc += awkAccuracy;
+                ceapa += awkAPagainst;
+                cedh += awkDamageHumans;
+                ceda += awkDamageAll;
+
+            }
+
+            else if (awkEnch == true & awkEnchLvl >= 8 & awkEnchLvl <= 15)
+            {
+                caap -= awkAP;
+                cacc -= awkAccuracy;
+                ceapa -= awkAPagainst;
+                cedh -= awkDamageHumans;
+                ceda -= awkDamageAll;
+
+                if (awkId == 3 | awkId == 2)
+                {
+                    //AP High
+                    awkAPhigh = awkDefAPhigh + 20 + (awkEnchLvl - 7) * 5;
+                    //AP Low
+                    awkAPlow = awkDefAPlow + 20 + (awkEnchLvl - 7) * 5;
+                }
+                else
+                {
+                    //AP High
+                    awkAPhigh = awkDefAPhigh + 20 + (awkEnchLvl - 7) * 4;
+                    //AP Low
+                    awkAPlow = awkDefAPlow + 20 + (awkEnchLvl - 7) * 4;
+                }
+                //Main AP
+                awkAP = (awkAPhigh + awkAPlow) / 2;
+                //AP against monsters
+                awkAPagainst = awkDefAPagainst;
+                //Extra damage tp Humans
+                if (awkCheckHd == true)
+                {
+                    if (awkEnchLvl >= 6 & awkEnchLvl <= 9) awkDamageHumans = awkDefDamageHumans + 1;
+                    else if (awkEnchLvl >= 10 & awkEnchLvl <= 12) awkDamageHumans = awkDefDamageHumans + 2;
+                    else if (awkEnchLvl >= 13 & awkEnchLvl <= 15) awkDamageHumans = awkDefDamageHumans + 3;
+
+                }
+                //Extra Damage to All Species
+                if (awkCheckAd == true)
+                {
+                    if (awkEnchLvl >= 6 & awkEnchLvl <= 9) awkDamageAll = awkDefDamageAll + 1;
+                    else if (awkEnchLvl >= 10 & awkEnchLvl <= 12) awkDamageAll = awkDefDamageAll + 2;
+                    else if (awkEnchLvl >= 13 & awkEnchLvl <= 15) awkDamageAll = awkDefDamageAll + 3;
+                }
+
+
+                caap += awkAP;
+                cacc += awkAccuracy;
+                ceapa += awkAPagainst;
+                cedh += awkDamageHumans;
+                ceda += awkDamageAll;
+
+            }
+
+            else if (awkEnch == true & awkEnchLvl >= 16 & awkEnchLvl <= 17)
+            {
+                caap -= awkAP;
+                cacc -= awkAccuracy;
+                ceapa -= awkAPagainst;
+                cedh -= awkDamageHumans;
+                ceda -= awkDamageAll;
+
+                if (awkId == 3 | awkId == 2)
+                {
+                    //AP High
+                    awkAPhigh = awkDefAPhigh + 60 + (awkEnchLvl - 15) * 8;
+                    //AP Low
+                    awkAPlow = awkDefAPlow + 60 + (awkEnchLvl - 15) * 8;
+                }
+                else
+                {
+                    //AP High
+                    awkAPhigh = awkDefAPhigh + 52 + (awkEnchLvl - 15) * 8;
+                    //AP Low
+                    awkAPlow = awkDefAPlow + 52 + (awkEnchLvl - 15) * 8;
+                }
+                //Main AP
+                awkAP = (awkAPhigh + awkAPlow) / 2;
+                //AP against monsters
+                if (awkCheckAg == true) awkAPagainst = awkDefAPagainst + (awkEnchLvl - 15);
+                //Extra damage tp Humans
+                if (awkCheckHd == true) awkDamageHumans = awkDefDamageHumans + 4;
+                //Extra Damage to All Species
+                if (awkCheckAd == true) awkDamageAll = awkDefDamageAll + 4;
+
+
+                caap += awkAP;
+                cacc += awkAccuracy;
+                ceapa += awkAPagainst;
+                cedh += awkDamageHumans;
+                ceda += awkDamageAll;
+
+            }
+
+            else if (awkEnch == true & awkEnchLvl == 18)
+            {
+                caap -= awkAP;
+                cacc -= awkAccuracy;
+                ceapa -= awkAPagainst;
+                cedh -= awkDamageHumans;
+                ceda -= awkDamageAll;
+
+                if (awkId == 3 | awkId == 2)
+                {
+                    //AP High
+                    awkAPhigh = awkDefAPhigh + 88;
+                    //AP Low
+                    awkAPlow = awkDefAPlow + 88;
+                }
+                else
+                {
+                    //AP High
+                    awkAPhigh = awkDefAPhigh + 80;
+                    //AP Low
+                    awkAPlow = awkDefAPlow + 80;
+                }
+                //Main AP
+                awkAP = (awkAPhigh + awkAPlow) / 2;
+                //AP against monsters
+                if (awkCheckAg == true) awkAPagainst = awkDefAPagainst + 4;
+                //Extra damage tp Humans
+                if (awkCheckHd == true) awkDamageHumans = awkDefDamageHumans + 4;
+                //Extra Damage to All Species
+                if (awkCheckAd == true) awkDamageAll = awkDefDamageAll + 4;
+
+
+                caap += awkAP;
+                cacc += awkAccuracy;
+                ceapa += awkAPagainst;
+                cedh += awkDamageHumans;
+                ceda += awkDamageAll;
+
+            }
+
+            else if (awkEnch == true & awkEnchLvl >= 19 & awkEnchLvl <= 20)
+            {
+                caap -= awkAP;
+                cacc -= awkAccuracy;
+                ceapa -= awkAPagainst;
+                cedh -= awkDamageHumans;
+                ceda -= awkDamageAll;
+
+                if (awkId == 3 | awkId == 2)
+                {
+                    //AP High
+                    awkAPhigh = awkDefAPhigh + 88 + (awkEnchLvl - 18) * 8;
+                    //AP Low
+                    awkAPlow = awkDefAPlow + 88 + (awkEnchLvl - 18) * 8;
+                }
+                else
+                {
+                    //AP High
+                    awkAPhigh = awkDefAPhigh + 80 + (awkEnchLvl - 18) * 8;
+                    //AP Low
+                    awkAPlow = awkDefAPlow + 80 + (awkEnchLvl - 18) * 8;
+                }
+                //Main AP
+                awkAP = (awkAPhigh + awkAPlow) / 2;
+                //AP against monsters
+                if (awkCheckAg == true) awkAPagainst = awkDefAPagainst + 10;
+                //Extra damage tp Humans
+                if (awkCheckHd == true) awkDamageHumans = awkDefDamageHumans + 5;
+                //Extra Damage to All Species
+                if (awkCheckAd == true) awkDamageAll = awkDefDamageAll + 5;
+
+
+                caap += awkAP;
+                cacc += awkAccuracy;
+                ceapa += awkAPagainst;
+                cedh += awkDamageHumans;
+                ceda += awkDamageAll;
+
+            }
+
+            else
+            {
+                caap -= awkAP;
+                cacc -= awkAccuracy;
+                ceapa -= awkAPagainst;
+                cedh -= awkDamageHumans;
+                ceda -= awkDamageAll;
+
+                awkAPhigh = awkDefAPhigh;
+                awkAPlow = awkDefAPlow;
+                awkAP = (awkAPhigh + awkAPlow) / 2;
+                awkAPagainst = awkDefAPagainst;
+                awkDamageHumans = awkDefDamageHumans;
+                awkAccuracy = awkDefAccuracy;
+                awkDamageAll = awkDefDamageAll;
+
+                caap += awkAP;
+                cacc += awkAccuracy;
+                ceapa += awkAPagainst;
+                cedh += awkDamageHumans;
+                ceda += awkDamageAll;
+            }
+
         }
 
+        
     }
 }
