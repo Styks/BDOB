@@ -20,6 +20,7 @@ namespace BDO_Builder
         public int TempEnchLvl;
       
         readonly CharacterState cs = new CharacterState();
+        readonly CharacterState.Awakening_Weapons AW = new CharacterState.Awakening_Weapons();
 
         public GearForm()
         {
@@ -33,7 +34,7 @@ namespace BDO_Builder
 
         private void Item_Icon_Load(string type, int id)
         {
-            var cmd = new SqlCommand(@"select * from "+ type +" where Id ='" + id + " ' ")
+            var cmd = new SqlCommand(@"select * from ["+ type +"] where Id ='" + id + " ' ")
             {
                 Connection = Base_Connect.Connection,
                 CommandType = CommandType.Text
@@ -296,6 +297,22 @@ namespace BDO_Builder
             LoadItemEnch_cb();
         }
 
+        private void LoadAW() // AW
+        {
+            SelectGear_cb.SelectedIndexChanged -= SelectedGear_cb_SelectedIndexChanged;
+            var sql = @"select * from ["+sclass+" Awakening Weapons]";
+            var da = new SqlDataAdapter(sql, Base_Connect.Connection);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            SelectGear_cb.DataSource = ds.Tables[0];
+            SelectGear_cb.DisplayMember = "Name";
+            SelectGear_cb.ValueMember = "Id";
+            Item_Icon_Load(sclass.ToString() +" Awakening Weapons", AW.Id);
+            SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
+            SelectGear_cb.SelectedIndex = AW.Id;
+            LoadItemEnch_cb();
+        }
+
         //Books
         private void DpLvl_cb_CheckedChanged(object sender, EventArgs e)
         {
@@ -423,7 +440,13 @@ namespace BDO_Builder
             LoadShoes();
         }
 
-        
+        private void AW_btn_Click(object sender, EventArgs e)
+        {
+            ItemStatClear();
+            cs.sgn = 11;
+            LoadAW();
+        }
+
         private void SelectedGear_cb_SelectedIndexChanged(object sender, EventArgs e)
         {
           ItemStatClear();
@@ -978,6 +1001,49 @@ namespace BDO_Builder
                 textBox1.Text = cs.shId.ToString();
             } //Shoes
 
+            if (cs.sgn == 11)
+            {
+                cmd.CommandText = "select * from [" + sclass + " Awakening Weapons] where Id='" + SelectGear_cb.SelectedIndex.ToString() + "'";
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    AW.DefAPhigh = Convert.ToInt32(dr["APhigh"]);
+                    AW.DefAPlow = Convert.ToInt32(dr["APlow"]);
+                    AW.DefAccuracy = Convert.ToInt32(dr["Accuracy"]);
+                    AW.DefDamageHumans = Convert.ToInt32(dr["HumanDamage"]);
+                    AW.CheckHd = Convert.ToBoolean(dr["CheckHd"]);
+                    AW.DefDamageAll = Convert.ToInt32(dr["DamageAllSpecies"]);
+                    AW.CheckAd = Convert.ToBoolean(dr["CheckAd"]);
+                    AW.DefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
+                    AW.CheckAg = Convert.ToBoolean(dr["CheckAg"]);
+                    AW.Ench = Convert.ToBoolean(dr["Ench"]);
+                }
+
+                LoadItemEnch_cb();
+
+                cs.Type = "" + sclass + " Awakening Weapons";
+                Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
+                AW_btn.BackgroundImage = Item_image.Image;
+                AW.AwakeningState(sclass);
+
+                if (AW.Ench == true && SelectGear_cb.SelectedIndex == AW.Id) { TempEnchLvl = ItemEnch_cb.SelectedIndex; AW.EnchLvl = TempEnchLvl; }
+                if (AW.Ench == true && SelectGear_cb.SelectedIndex != AW.Id) { ItemEnch_cb.SelectedIndex = 0; AW.EnchLvl = 0; TempEnchLvl = 0; }
+                else if (AW.Ench == false) { AW.EnchLvl = 0; }
+
+
+                iAP_n.Text = AW.APlow.ToString() + '~' + AW.APhigh.ToString();
+                iAcc_n.Text = AW.Accuracy.ToString();
+                iEDH_n.Text = AW.DamageHumans.ToString();
+                iEDtA_n.Text = AW.DamageAll.ToString();
+                iEAPa_n.Text = AW.APagainst.ToString();
+
+                AW.Id = SelectGear_cb.SelectedIndex;
+                textBox1.Text = AW.Id.ToString();
+            } //Awakening Weapon 
+
             //SetBonus
             cs.BossSetBonusCheck();
             bsb_lbl.Text = cs.b_sb.ToString();
@@ -995,7 +1061,7 @@ namespace BDO_Builder
             {
                 ItemEnch_cb.SelectedIndexChanged -= ItemEnch_cb_SelectedIndexChanged;
                 ItemEnch_cb.Visible = true; Ench_lbl.Visible = true;
-                string[] EnchAccessories = { "0", "1", "2", "3", "4", "5" };
+                string[] EnchAccessories = { "0", "I", "II", "III", "IV", "V" };
                 ItemEnch_cb.DataSource = EnchAccessories;
                 ItemEnch_cb.SelectedIndexChanged += ItemEnch_cb_SelectedIndexChanged;
                 if (cs.sgn == 1) ItemEnch_cb.SelectedIndex = cs.beltEnchLvl;
@@ -1006,7 +1072,7 @@ namespace BDO_Builder
                 else if (cs.sgn == 6) ItemEnch_cb.SelectedIndex = cs.ear2EnchLvl;
             } //For accesories
 
-            else if (cs.sgn == 7 & cs.armEnch == true | cs.sgn == 8 & cs.helEnch == true | cs.sgn == 9 & cs.glovEnch == true | cs.sgn ==10 & cs.shEnch ==true)
+           else if (cs.sgn == 7 & cs.armEnch == true | cs.sgn == 8 & cs.helEnch == true | cs.sgn == 9 & cs.glovEnch == true | cs.sgn == 10 & cs.shEnch == true | cs.sgn == 11 & AW.Id != 1 & AW.Ench == true)
             {
                 ItemEnch_cb.SelectedIndexChanged -= ItemEnch_cb_SelectedIndexChanged;
                 ItemEnch_cb.Visible = true; Ench_lbl.Visible = true;
@@ -1017,10 +1083,19 @@ namespace BDO_Builder
                 if (cs.sgn == 8) ItemEnch_cb.SelectedIndex = cs.helEnchLvl;
                 if (cs.sgn == 9) ItemEnch_cb.SelectedIndex = cs.glovEnchLvl;
                 if (cs.sgn == 10) ItemEnch_cb.SelectedIndex = cs.shEnchLvl;
-
+                if (cs.sgn == 11) ItemEnch_cb.SelectedIndex = AW.EnchLvl;
 
             } //For armor
 
+            else if (cs.sgn == 11 & AW.Id == 1)
+            {
+                ItemEnch_cb.SelectedIndexChanged -= ItemEnch_cb_SelectedIndexChanged;
+                ItemEnch_cb.Visible = true; Ench_lbl.Visible = true;
+                string[] EnchArmor = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "I", "II", "III", "IV" };
+                ItemEnch_cb.DataSource = EnchArmor;
+                ItemEnch_cb.SelectedIndexChanged += ItemEnch_cb_SelectedIndexChanged;
+                if (cs.sgn == 11) ItemEnch_cb.SelectedIndex = AW.EnchLvl;
+            }
             else { ItemEnch_cb.Visible = false; Ench_lbl.Visible = false; }
         }
 
@@ -1242,7 +1317,23 @@ namespace BDO_Builder
                 FillCharacterState();
             } //Shoes
 
+            else if (cs.sgn == 11)
+            {
+                AW.EnchLvl = ItemEnch_cb.SelectedIndex;
+                AW.AwakeningState(sclass);
+
+                iAP_n.Text = AW.APlow.ToString() + '~' + AW.APhigh.ToString();
+                iAcc_n.Text = AW.Accuracy.ToString();
+                iEDH_n.Text = AW.DamageHumans.ToString();
+                iEDtA_n.Text = AW.DamageAll.ToString();
+                iEAPa_n.Text = AW.APagainst.ToString();
+
+
+                FillCharacterState();
+            } //Awakening Weapons
+
         }
 
+        
     }
 }

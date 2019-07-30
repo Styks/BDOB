@@ -4073,5 +4073,358 @@ namespace BDO_Builder
             if (lf_sb == 3 && lf_b3 == 0) { lf_b3 = 3; cmvs += lf_b3; }
         }
 
+
+        public class  Awakening_Weapons
+        {
+            public int Id = 0;
+            public bool Ench;
+            public int EnchLvl = 0;
+            public int APlow;
+            public int APhigh;
+            public int AP;
+            public int DefAPlow;
+            public int DefAPhigh;
+            public int DamageHumans;
+            public int DefDamageHumans;
+            public int APagainst;
+            public int DefAPagainst;
+            public int Accuracy;
+            public int DefAccuracy;
+            public int DamageAll;
+            public int DefDamageAll;
+            public bool CheckHd;
+            public bool CheckAd;
+            public bool CheckAg;
+
+            public void AwakeningState(string chClass)
+            {
+                SqlCommand cmd = Base_Connect.Connection.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from ["+ chClass + " Awakening Weapons] where Id='" + Id.ToString() + "'";
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+
+                CharacterState cs = new CharacterState();
+
+                if (Ench == true & EnchLvl == 1)
+                {
+                    cs.caap -= AP;
+                    cs.cacc -= Accuracy;
+                    cs.ceapa -= APagainst;
+                    cs.cedh -= DamageHumans;
+                    cs.ceda -= DamageAll;
+
+
+                    //AP High
+                    APhigh = DefAPhigh + 4;
+                    //AP Low
+                    APlow = DefAPlow+4;
+                    //Main AP
+                    AP = (APhigh + APlow) / 2;
+                    //AP against monsters
+                    APagainst = DefAPagainst;
+                    //Extra damage tp Humans
+                    DamageHumans = DefDamageHumans;
+                    //Extra Damage to All Species
+                    DamageAll = DefDamageAll;
+
+                    cs.caap += AP;
+                    cs.cacc += Accuracy;
+                    cs.ceapa += APagainst;
+                    cs.cedh += DamageHumans;
+                    cs.ceda += DamageAll;
+                }
+
+                if (Ench == true & EnchLvl >= 2 & EnchLvl <=3)
+                {
+                    cs.caap -= AP;
+                    cs.cacc -= Accuracy;
+                    cs.ceapa -= APagainst;
+                    cs.cedh -= DamageHumans;
+                    cs.ceda -= DamageAll;
+
+
+                    //AP High
+                    APhigh = DefAPhigh + 4 + (EnchLvl-1)*3;
+                    //AP Low
+                    APlow = DefAPlow + 4 + (EnchLvl - 1) * 3;
+                    //Main AP
+                    AP = (APhigh + APlow) / 2;
+                    //AP against monsters
+                    APagainst = DefAPagainst;
+                    //Extra damage tp Humans
+                    DamageHumans = DefDamageHumans;
+                    //Extra Damage to All Species
+                    DamageAll = DefDamageAll;
+
+                    cs.caap += AP;
+                    cs.cacc += Accuracy;
+                    cs.ceapa += APagainst;
+                    cs.cedh += DamageHumans;
+                    cs.ceda += DamageAll;
+
+                }
+
+                if (Ench == true & EnchLvl >= 4 & EnchLvl <= 5)
+                {
+                    cs.caap -= AP;
+                    cs.cacc -= Accuracy;
+                    cs.ceapa -= APagainst;
+                    cs.cedh -= DamageHumans;
+                    cs.ceda -= DamageAll;
+
+
+                    //AP High
+                    APhigh = DefAPhigh + 10 + (EnchLvl - 3) * 3;
+                    //AP Low
+                    APlow = DefAPlow + 10 + (EnchLvl - 3) * 3;
+                    //Main AP
+                    AP = (APhigh + APlow) / 2;
+                    //AP against monsters
+                    APagainst = DefAPagainst;
+                    //Extra damage tp Humans
+                    DamageHumans = DefDamageHumans;
+                    //Extra Damage to All Species
+                    DamageAll = DefDamageAll;
+
+                    cs.caap += AP;
+                    cs.cacc += Accuracy;
+                    cs.ceapa += APagainst;
+                    cs.cedh += DamageHumans;
+                    cs.ceda += DamageAll;
+
+                }
+
+                if (Ench == true & EnchLvl >= 6 & EnchLvl <= 7)
+                {
+                    cs.caap -= AP;
+                    cs.cacc -= Accuracy;
+                    cs.ceapa -= APagainst;
+                    cs.cedh -= DamageHumans;
+                    cs.ceda -= DamageAll;
+
+
+                    //AP High
+                    APhigh = DefAPhigh + 14 + (EnchLvl - 5) * 3;
+                    //AP Low
+                    APlow = DefAPlow + 14 + (EnchLvl - 5) * 3;
+                    //Main AP
+                    AP = (APhigh + APlow) / 2;
+                    //AP against monsters
+                    APagainst = DefAPagainst;
+                    //Extra damage tp Humans
+                    if(CheckHd == true) DamageHumans = DefDamageHumans+1;
+                    //Extra Damage to All Species
+                    if (CheckAd == true) DamageAll = DefDamageAll+1;
+
+
+                    cs.caap += AP;
+                    cs.cacc += Accuracy;
+                    cs.ceapa += APagainst;
+                    cs.cedh += DamageHumans;
+                    cs.ceda += DamageAll;
+
+                }
+
+                if (Ench == true & EnchLvl >= 8 & EnchLvl <= 15)
+                {
+                    cs.caap -= AP;
+                    cs.cacc -= Accuracy;
+                    cs.ceapa -= APagainst;
+                    cs.cedh -= DamageHumans;
+                    cs.ceda -= DamageAll;
+
+                    if(Id == 3| Id == 2)
+                    {
+                        //AP High
+                        APhigh = DefAPhigh + 20 + (EnchLvl - 7) * 5;
+                        //AP Low
+                        APlow = DefAPlow + 20 + (EnchLvl - 7) * 5;
+                    }
+                    else
+                    {
+                        //AP High
+                        APhigh = DefAPhigh + 20 + (EnchLvl - 7) * 4;
+                        //AP Low
+                        APlow = DefAPlow + 20 + (EnchLvl - 7) * 4;
+                    }
+                    //Main AP
+                    AP = (APhigh + APlow) / 2;
+                    //AP against monsters
+                    APagainst = DefAPagainst;
+                    //Extra damage tp Humans
+                    if (CheckHd == true)
+                    {
+                       if(EnchLvl >=6 & EnchLvl <=9) DamageHumans = DefDamageHumans+1;
+                       else if (EnchLvl >= 10 & EnchLvl <= 12) DamageHumans = DefDamageHumans + 2;
+                        else if (EnchLvl >= 13 & EnchLvl <= 15) DamageHumans = DefDamageHumans + 3;
+
+                    }
+                    //Extra Damage to All Species
+                    if (CheckAd == true)
+                    {
+                        if (EnchLvl >= 6 & EnchLvl <= 9) DamageAll = DefDamageAll+1;
+                        else if (EnchLvl >= 10 & EnchLvl <= 12) DamageAll = DefDamageAll + 2;
+                        else if (EnchLvl >= 13 & EnchLvl <= 15) DamageAll = DefDamageAll + 3;
+                    }
+
+
+                    cs.caap += AP;
+                    cs.cacc += Accuracy;
+                    cs.ceapa += APagainst;
+                    cs.cedh += DamageHumans;
+                    cs.ceda += DamageAll;
+
+                }
+
+                if (Ench == true & EnchLvl >= 16 & EnchLvl <= 17)
+                {
+                    cs.caap -= AP;
+                    cs.cacc -= Accuracy;
+                    cs.ceapa -= APagainst;
+                    cs.cedh -= DamageHumans;
+                    cs.ceda -= DamageAll;
+
+                    if (Id == 3 | Id == 2)
+                    {
+                        //AP High
+                        APhigh = DefAPhigh + 60 + (EnchLvl - 15) * 8;
+                        //AP Low
+                        APlow = DefAPlow + 60 + (EnchLvl - 15) * 8;
+                    }
+                    else
+                    {
+                        //AP High
+                        APhigh = DefAPhigh + 52 + (EnchLvl - 15) * 8;
+                        //AP Low
+                        APlow = DefAPlow + 52 + (EnchLvl - 15) * 8;
+                    }
+                    //Main AP
+                    AP = (APhigh + APlow) / 2;
+                    //AP against monsters
+                    if (CheckAg == true) APagainst = DefAPagainst + (EnchLvl-15);
+                    //Extra damage tp Humans
+                    if (CheckHd == true) DamageHumans = DefDamageHumans + 4;
+                    //Extra Damage to All Species
+                    if (CheckAd == true) DamageAll = DefDamageAll + 4;
+
+
+                    cs.caap += AP;
+                    cs.cacc += Accuracy;
+                    cs.ceapa += APagainst;
+                    cs.cedh += DamageHumans;
+                    cs.ceda += DamageAll;
+
+                }
+
+                if (Ench == true & EnchLvl == 18)
+                {
+                    cs.caap -= AP;
+                    cs.cacc -= Accuracy;
+                    cs.ceapa -= APagainst;
+                    cs.cedh -= DamageHumans;
+                    cs.ceda -= DamageAll;
+
+                    if (Id == 3 | Id == 2)
+                    {
+                        //AP High
+                        APhigh = DefAPhigh + 88 ;
+                        //AP Low
+                        APlow = DefAPlow + 88;
+                    }
+                    else
+                    {
+                        //AP High
+                        APhigh = DefAPhigh + 80 ;
+                        //AP Low
+                        APlow = DefAPlow + 80;
+                    }
+                    //Main AP
+                    AP = (APhigh + APlow) / 2;
+                    //AP against monsters
+                    if (CheckAg == true) APagainst = DefAPagainst + 4;
+                    //Extra damage tp Humans
+                    if (CheckHd == true) DamageHumans = DefDamageHumans + 4;
+                    //Extra Damage to All Species
+                    if (CheckAd == true) DamageAll = DefDamageAll + 4;
+
+
+                    cs.caap += AP;
+                    cs.cacc += Accuracy;
+                    cs.ceapa += APagainst;
+                    cs.cedh += DamageHumans;
+                    cs.ceda += DamageAll;
+
+                }
+
+                if (Ench == true & EnchLvl >= 19 & EnchLvl <= 20)
+                {
+                    cs.caap -= AP;
+                    cs.cacc -= Accuracy;
+                    cs.ceapa -= APagainst;
+                    cs.cedh -= DamageHumans;
+                    cs.ceda -= DamageAll;
+
+                    if (Id == 3 | Id == 2)
+                    {
+                        //AP High
+                        APhigh = DefAPhigh + 88 + (EnchLvl - 18) * 8;
+                        //AP Low
+                        APlow = DefAPlow + 88 + (EnchLvl - 18) * 8;
+                    }
+                    else
+                    {
+                        //AP High
+                        APhigh = DefAPhigh + 80 + (EnchLvl - 18) * 8;
+                        //AP Low
+                        APlow = DefAPlow + 80 + (EnchLvl - 18) * 8;
+                    }
+                    //Main AP
+                    AP = (APhigh + APlow) / 2;
+                    //AP against monsters
+                    if (CheckAg == true) APagainst = DefAPagainst + 10;
+                    //Extra damage tp Humans
+                    if (CheckHd == true) DamageHumans = DefDamageHumans + 5;
+                    //Extra Damage to All Species
+                    if (CheckAd == true) DamageAll = DefDamageAll + 5;
+
+
+                    cs.caap += AP;
+                    cs.cacc += Accuracy;
+                    cs.ceapa += APagainst;
+                    cs.cedh += DamageHumans;
+                    cs.ceda += DamageAll;
+
+                }
+
+                else
+                {
+                    cs.caap -= AP;
+                    cs.cacc -= Accuracy;
+                    cs.ceapa -= APagainst;
+                    cs.cedh -= DamageHumans;
+                    cs.ceda -= DamageAll;
+
+                    APhigh = DefAPhigh;
+                    APlow = DefAPlow;
+                    AP = (APhigh + APlow) / 2;
+                    APagainst = DefAPagainst;
+                    DamageHumans = DefDamageHumans;
+                    Accuracy = DefAccuracy;
+                    DamageAll = DefDamageAll;
+
+                    cs.caap += AP;
+                    cs.cacc += Accuracy;
+                    cs.ceapa += APagainst;
+                    cs.cedh += DamageHumans;
+                    cs.ceda += DamageAll;
+                }
+
+            }
+            
+        }
+
     }
 }
