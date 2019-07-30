@@ -18,48 +18,7 @@ namespace BDO_Builder
         public string sclass;
         public Image cimg;
         public int TempEnchLvl;
-        
-        //Boss
-        public int b_b3;
-        public int b_b4;
-        //Lemoria
-        public int l_b2;
-        public int l_b4;
-        //Akum
-        public int a_b2;
-        public int a_b3a;
-        public int a_b3b;
-        public int a_b4;
-        //Grunil
-        public int gr_b2;
-        public int gr_b3;
-        public int gr_b4;
-        //Taritas 
-        public int tr_b2;
-        public int tr_b3;
-        //Rocaba
-        public int rc_b2;
-        public int rc_b3;
-        public int rc_b4;
-        //Agerian 
-        public int ag_b2;
-        public int ag_b3;
-        //Zereth
-        public int zr_b2;
-        public int zr_b3;
-        //Talis
-        public int tl_b2;
-        public int tl_b3;
-        //Strength "" of Heve 
-        public int sh_b2;
-        public int sh_b3;
-        //Hercules' Might
-        public int hm_b2;
-        public int hm_b3;
-        //Luck "" of Fortuna
-        public int lf_b2;
-        public int lf_b3;
-
+      
         readonly CharacterState cs = new CharacterState();
 
         public GearForm()
@@ -511,7 +470,6 @@ namespace BDO_Builder
                 iSpiritRage_n.Text = Convert.ToString(cs.beltSpiritRage) + "%";
                 iEAPa_n.Text = cs.beltAPagaingst.ToString();
 
-                FillCharacterState();
                 cs.beltId = SelectGear_cb.SelectedIndex;
                 textBox1.Text = cs.beltId.ToString();
             } //Belt
@@ -569,7 +527,6 @@ namespace BDO_Builder
                 iExtraDamKama_n.Text = cs.neckKamaDamage.ToString();
                 iEDtoBack_n.Text = cs.neckBackDamage.ToString() + "%";
 
-                FillCharacterState();
                 cs.neckId = SelectGear_cb.SelectedIndex;
                 textBox1.Text = cs.neckId.ToString();
             } //Necklace
@@ -631,7 +588,6 @@ namespace BDO_Builder
                 iBidding_n.Text = Convert.ToString(cs.ring1Bidding) + "%";
                 iSpiritRage_n.Text = Convert.ToString(cs.ring1SpiritRage) + "%";
 
-                FillCharacterState();
                 cs.ring1Id = SelectGear_cb.SelectedIndex;
                 textBox1.Text = cs.ring1Id.ToString();
             } //Ring1
@@ -694,8 +650,6 @@ namespace BDO_Builder
                 iBidding_n.Text = Convert.ToString(cs.ring2Bidding) + "%";
                 iSpiritRage_n.Text = Convert.ToString(cs.ring2SpiritRage) + "%";
 
-                FillCharacterState();
-
                 cs.ring2Id = SelectGear_cb.SelectedIndex;
                 textBox1.Text = cs.ring2Id.ToString();
             }//Ring 2
@@ -748,8 +702,6 @@ namespace BDO_Builder
                 iEAPa_n.Text = cs.ear1APagaingst.ToString();
                 iExtraDamKama_n.Text = cs.ear1KamaDamage.ToString();
 
-                FillCharacterState();
-
                 cs.ear1Id = SelectGear_cb.SelectedIndex;
                 textBox1.Text = cs.ear1Id.ToString();
             } //Earring 1
@@ -801,7 +753,6 @@ namespace BDO_Builder
                 iEAPa_n.Text = cs.ear2APagaingst.ToString();
                 iExtraDamKama_n.Text = cs.ear2KamaDamage.ToString();
 
-                FillCharacterState();
                 cs.ear2Id = SelectGear_cb.SelectedIndex;
                 textBox1.Text = cs.ear2Id.ToString();
             } //Earring 2
@@ -857,7 +808,6 @@ namespace BDO_Builder
                 iHPR_n.Text = cs.armHPRecovery.ToString();
                 iMPR_n.Text = cs.armMPRecovery.ToString(); 
 
-                FillCharacterState();
                 cs.armId = SelectGear_cb.SelectedIndex;
                 textBox1.Text = cs.armId.ToString();
             } //Armor
@@ -918,8 +868,6 @@ namespace BDO_Builder
                 iHPR_n.Text = cs.helHPRecovery.ToString();
                 iLuck_n.Text = cs.helLuck.ToString();
 
-                FillCharacterState();
-
                 cs.helId = SelectGear_cb.SelectedIndex;
                 textBox1.Text = cs.helId.ToString();
             } //Helmet
@@ -975,10 +923,6 @@ namespace BDO_Builder
                 iWeight_n.Text = cs.glovWeight.ToString();
                 iEDtA_n.Text = cs.glovDamage.ToString();
 
-
-
-                FillCharacterState();
-
                 cs.glovId = SelectGear_cb.SelectedIndex;
                 textBox1.Text = cs.glovId.ToString();
             } //Gloves
@@ -1030,9 +974,6 @@ namespace BDO_Builder
                 iST_n.Text = cs.shMaxST.ToString();
                 iWeight_n.Text = cs.shWeight.ToString();
 
-
-                FillCharacterState();
-
                 cs.shId = SelectGear_cb.SelectedIndex;
                 textBox1.Text = cs.shId.ToString();
             } //Shoes
@@ -1042,74 +983,7 @@ namespace BDO_Builder
             bsb_lbl.Text = cs.b_sb.ToString();
             lsb_lbl.Text = cs.l_sb.ToString();
             asb_lbl.Text = cs.a_sb.ToString();
-
-            //TEST__//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            //BossSet
-            if (cs.b_sb <= 2) { cs.cMaxST = cs.cMaxST - b_b3; b_b3 = 0;  }
-            if (cs.b_sb == 3 && b_b3 == 0) { b_b3 = 200; cs.cMaxST = cs.cMaxST + b_b3;  }
-            if (cs.b_sb == 3) { cs.cAtkSpeed = cs.cAtkSpeed - b_b4; cs.cCastSpeed = cs.cCastSpeed - b_b4; b_b4 = 0;  }
-            if (cs.b_sb == 4 && b_b4 == 0) { b_b4 = 1; cs.cAtkSpeed = cs.cAtkSpeed + b_b4; cs.cCastSpeed = cs.cCastSpeed + b_b4;  }
-            //Lemoria
-            if (cs.l_sb < 2) { cs.cmvs = cs.cmvs - l_b2; cs.ccr = cs.ccr - l_b2; l_b2 = 0;  }
-            if (cs.l_sb == 2 && l_b2 == 0) { l_b2 = 1; cs.cmvs = cs.cmvs + l_b2; cs.ccr = cs.ccr + l_b2;  }
-            if (cs.l_sb == 3) { cs.cAtkSpeed = cs.cAtkSpeed - l_b4; cs.cCastSpeed = cs.cCastSpeed - l_b4; l_b4 = 0;  }
-            if (cs.l_sb == 4 && l_b4 == 0) { l_b4 = 2; cs.cAtkSpeed = cs.cAtkSpeed + l_b4; cs.cCastSpeed = cs.cCastSpeed + l_b4;  }
-            //Akum
-            if (cs.a_sb < 2) { cs.cev = cs.cev - a_b2; a_b2 = 0;  }
-            if (cs.a_sb == 2 && a_b2 == 0) { a_b2 = 1; cs.cev = cs.cev + a_b2;  }
-            if (cs.a_sb == 2) { cs.cDR = cs.cDR - a_b3a; cs.cMaxHP = cs.cMaxHP - a_b3b; a_b3a = 0; a_b3b = 0;  }
-            if (cs.a_sb == 3 && a_b3a == 0) { a_b3a = 5; a_b3b = 150; cs.cDR = cs.cDR + a_b3a; cs.cMaxHP = cs.cMaxHP + a_b3b;  }
-            if (cs.a_sb == 3) { cs.chap = cs.chap - a_b4; a_b4 = 0;  }
-            if (cs.a_sb == 4 && a_b4 == 0) { a_b4 = 7; cs.chap = cs.chap + a_b4;  }
-            //Grunil
-            if (cs.gr_sb < 2) { cs.chap = cs.chap - gr_b2; gr_b2 = 0; }
-            if (cs.gr_sb == 2 && gr_b2 == 0) { gr_b2 = 5; cs.chap = cs.chap + gr_b2; }
-            if (cs.gr_sb == 2) { cs.cMaxHP = cs.cMaxHP - gr_b3;  gr_b3 = 0; }
-            if (cs.gr_sb == 3 && gr_b3 == 0) { gr_b3 = 150; cs.cMaxHP = cs.cMaxHP + gr_b3; }
-            if (cs.gr_sb == 3) { cs.chap = cs.chap - gr_b4; gr_b4 = 0; }
-            if (cs.gr_sb == 4 && gr_b4 == 0) { gr_b4 = 2; cs.chap = cs.chap + gr_b4; }
-            //Taritas 
-            if (cs.tr_sb < 2) { cs.cMaxMP = cs.cMaxMP - tr_b2; tr_b2 = 0; }
-            if (cs.tr_sb == 2 && tr_b2 == 0) { tr_b2 = 100; cs.cMaxMP = cs.cMaxMP + tr_b2; }
-            if (cs.tr_sb == 2) { cs.cacc = cs.cacc - tr_b3; tr_b3 = 0; }
-            if (cs.tr_sb == 3 && tr_b3 == 0) { tr_b3 = 20; cs.cacc = cs.cacc + tr_b3; }
-            //Rocaba
-            if (cs.rc_sb < 2) { cs.cev = cs.cev - rc_b2; rc_b2 = 0; }
-            if (cs.rc_sb == 2 && rc_b2 == 0) { rc_b2 = 5; cs.cev = cs.cev + rc_b2; }
-            if (cs.rc_sb == 2) { cs.cMaxMP = cs.cMaxMP - rc_b3; cs.cMaxHP = cs.cMaxHP - rc_b3; rc_b3 = 0; }
-            if (cs.rc_sb == 3 && rc_b3 == 0) { rc_b3 = 75; cs.cMaxMP = cs.cMaxMP + rc_b3; ; cs.cMaxHP = cs.cMaxHP + rc_b3; }
-            if (cs.rc_sb == 3) { cs.cev = cs.cev - rc_b4; rc_b4 = 0; }
-            if (cs.rc_sb == 4 && rc_b4 == 0) { rc_b4 = 2; cs.cev = cs.cev + rc_b4; }
-            //Agerian
-            if (cs.ag_sb < 2) { cs.cMaxMP = cs.cMaxMP - ag_b2; ag_b2 = 0; }
-            if (cs.ag_sb == 2 && ag_b2 == 0) { ag_b2 = 100; cs.cMaxMP = cs.cMaxMP + ag_b2; }
-            if (cs.ag_sb == 2) { cs.cAtkSpeed = cs.cAtkSpeed - ag_b3; cs.cCastSpeed = cs.cCastSpeed - ag_b3; ag_b3 = 0; }
-            if (cs.ag_sb == 3 && ag_b3 == 0) { ag_b3 = 2; cs.cAtkSpeed = cs.cAtkSpeed + ag_b3; cs.cCastSpeed = cs.cCastSpeed + ag_b3; }
-            //Zereth
-            if (cs.zr_sb < 2) { cs.cMaxST = cs.cMaxST - zr_b2; zr_b2 = 0; }
-            if (cs.zr_sb == 2 && zr_b2 == 0) { zr_b2 = 200; cs.cMaxST = cs.cMaxST + zr_b2; }
-            if (cs.zr_sb == 2) { cs.ceda = cs.ceda- zr_b3; zr_b3 = 0; }
-            if (cs.zr_sb == 3 && zr_b3 == 0) { zr_b3 = 5; cs.ceda= cs.ceda + zr_b3; }
-            //Talis
-            if (cs.tl_sb < 2) { cs.cmvs = cs.cmvs - tl_b2; tl_b2 = 0; }
-            if (cs.tl_sb == 2 && tl_b2 == 0) { tl_b2 = 1; cs.cmvs = cs.cmvs + tl_b2; }
-            if (cs.tl_sb == 2) { cs.cmvs = cs.cmvs - tl_b3; tl_b3 = 0; }
-            if (cs.tl_sb == 3 && tl_b3 == 0) { tl_b3 = 2; cs.cmvs = cs.cmvs + tl_b3; }
-            //Strength "" of Heve 
-            if (cs.sh_sb < 2) { cs.cMaxHP = cs.cMaxHP - sh_b2; sh_b2 = 0; }
-            if (cs.sh_sb == 2 && sh_b2 == 0) { sh_b2 = 250; cs.cMaxHP = cs.cMaxHP + sh_b2; }
-            if (cs.sh_sb == 2) { cs.cMaxHP = cs.cMaxHP - sh_b3; sh_b3 = 0; }
-            if (cs.sh_sb == 3 && sh_b3 == 0) { sh_b3 = 50; cs.cMaxHP = cs.cMaxHP + sh_b3; }
-            //Hercules' Might
-            if (cs.hm_sb < 2) { cs.cWeight = cs.cWeight - hm_b2; hm_b2 = 0; }
-            if (cs.hm_sb == 2 && hm_b2 == 0) { hm_b2 = 150; cs.cWeight = cs.cWeight + hm_b2; }
-            if (cs.hm_sb == 2) { cs.cWeight = cs.cWeight - hm_b3; hm_b3 = 0; }
-            if (cs.hm_sb == 3 && hm_b3 == 0) { hm_b3 = 50; cs.cWeight = cs.cWeight + hm_b3; }
-            //Luck "" of Fortuna
-            if (cs.lf_sb < 2) { cs.cluck = cs.cluck - lf_b2; lf_b2 = 0; }
-            if (cs.lf_sb == 2 && lf_b2 == 0) { lf_b2 = 2; cs.cluck = cs.cluck + lf_b2; }
-            if (cs.lf_sb == 2) { cs.cmvs = cs.cmvs - lf_b3; lf_b3 = 0; }
-            if (cs.lf_sb == 3 && lf_b3 == 0) { lf_b3 = 3; cs.cmvs = cs.cmvs + lf_b3; }
+            cs.BossSetBonus();
 
             FillCharacterState();
         }

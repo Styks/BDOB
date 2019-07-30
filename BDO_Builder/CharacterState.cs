@@ -138,6 +138,48 @@ namespace BDO_Builder
         public int lf_bsb;
         public int lf_gsb;
 
+        //Set bonus (num)
+        //Boss
+        public int b_b3;
+        public int b_b4;
+        //Lemoria
+        public int l_b2;
+        public int l_b4;
+        //Akum
+        public int a_b2;
+        public int a_b3a;
+        public int a_b3b;
+        public int a_b4;
+        //Grunil
+        public int gr_b2;
+        public int gr_b3;
+        public int gr_b4;
+        //Taritas 
+        public int tr_b2;
+        public int tr_b3;
+        //Rocaba
+        public int rc_b2;
+        public int rc_b3;
+        public int rc_b4;
+        //Agerian 
+        public int ag_b2;
+        public int ag_b3;
+        //Zereth
+        public int zr_b2;
+        public int zr_b3;
+        //Talis
+        public int tl_b2;
+        public int tl_b3;
+        //Strength "" of Heve 
+        public int sh_b2;
+        public int sh_b3;
+        //Hercules' Might
+        public int hm_b2;
+        public int hm_b3;
+        //Luck "" of Fortuna
+        public int lf_b2;
+        public int lf_b3;
+
         // Belt stats
         public int beltap; //Betl AP
         public int beltev; // Belt Evasion
@@ -3754,213 +3796,281 @@ namespace BDO_Builder
 
         public void BossSetBonusCheck()
         {
-            b_sb = b_sb - b_asb; // Boss (1)
-            b_sb = b_sb - b_hsb;
-            b_sb = b_sb - b_bsb;
-            b_sb = b_sb - b_gsb;
-            l_sb = l_sb - l_asb; // Lemoria (2)
-            l_sb = l_sb - l_hsb;
-            l_sb = l_sb - l_bsb;
-            l_sb = l_sb - l_gsb;
-            a_sb = a_sb - a_asb; // Akum (3)
-            a_sb = a_sb - a_hsb;
-            a_sb = a_sb - a_bsb;
-            a_sb = a_sb - a_gsb;
-            gr_sb = gr_sb - gr_asb; // Grunil (4)
-            gr_sb = gr_sb - gr_hsb;
-            gr_sb = gr_sb - gr_bsb;
-            gr_sb = gr_sb - gr_gsb;
-            tr_sb = tr_sb - tr_asb; // Taritas (5)
-            tr_sb = tr_sb - tr_hsb;
-            tr_sb = tr_sb - tr_bsb;
-            tr_sb = tr_sb - tr_gsb;
-            rc_sb = rc_sb - rc_asb; // Rocaba (6)
-            rc_sb = rc_sb - rc_hsb;
-            rc_sb = rc_sb - rc_bsb;
-            rc_sb = rc_sb - rc_gsb;
-            ag_sb = ag_sb - ag_asb; // Agerian (7)
-            ag_sb = ag_sb - ag_hsb;
-            ag_sb = ag_sb - ag_bsb;
-            ag_sb = ag_sb - ag_gsb;
-            zr_sb = zr_sb - zr_asb; // Zereth (8)
-            zr_sb = zr_sb - zr_hsb;
-            zr_sb = zr_sb - zr_bsb;
-            zr_sb = zr_sb - zr_gsb;
-            tl_sb = tl_sb - tl_asb; // Talis (9)
-            tl_sb = tl_sb - tl_hsb;
-            tl_sb = tl_sb - tl_bsb;
-            tl_sb = tl_sb - tl_gsb;
-            sh_sb = sh_sb - sh_asb; // SH (10)
-            sh_sb = sh_sb - sh_hsb;
-            sh_sb = sh_sb - sh_bsb;
-            sh_sb = sh_sb - sh_gsb;
-            hm_sb = hm_sb - hm_asb; // HM (11)
-            hm_sb = hm_sb - hm_hsb;
-            hm_sb = hm_sb - hm_bsb;
-            hm_sb = hm_sb - hm_gsb;
-            lf_sb = lf_sb - lf_asb; // LF (12)
-            lf_sb = lf_sb - lf_hsb;
-            lf_sb = lf_sb - lf_bsb;
-            lf_sb = lf_sb - lf_gsb;
+            b_sb -= b_asb; // Boss (1)
+            b_sb -= b_hsb;
+            b_sb -= b_bsb;
+            b_sb -= b_gsb;
+            l_sb -= l_asb; // Lemoria (2)
+            l_sb -= l_hsb;
+            l_sb -= l_bsb;
+            l_sb -= l_gsb;
+            a_sb -= a_asb; // Akum (3)
+            a_sb -= a_hsb;
+            a_sb -= a_bsb;
+            a_sb -= a_gsb;
+            gr_sb -= gr_asb; // Grunil (4)
+            gr_sb -= gr_hsb;
+            gr_sb -= gr_bsb;
+            gr_sb -= gr_gsb;
+            tr_sb -= tr_asb; // Taritas (5)
+            tr_sb -= tr_hsb;
+            tr_sb -= tr_bsb;
+            tr_sb -= tr_gsb;
+            rc_sb -= rc_asb; // Rocaba (6)
+            rc_sb -= rc_hsb;
+            rc_sb -= rc_bsb;
+            rc_sb -= rc_gsb;
+            ag_sb -= ag_asb; // Agerian (7)
+            ag_sb -= ag_hsb;
+            ag_sb -= ag_bsb;
+            ag_sb -= ag_gsb;
+            zr_sb -= zr_asb; // Zereth (8)
+            zr_sb -= zr_hsb;
+            zr_sb -= zr_bsb;
+            zr_sb -= zr_gsb;
+            tl_sb -= tl_asb; // Talis (9)
+            tl_sb -= tl_hsb;
+            tl_sb -= tl_bsb;
+            tl_sb -= tl_gsb;
+            sh_sb -= sh_asb; // SH (10)
+            sh_sb -= sh_hsb;
+            sh_sb -= sh_bsb;
+            sh_sb -= sh_gsb;
+            hm_sb -= hm_asb; // HM (11)
+            hm_sb -= hm_hsb;
+            hm_sb -= hm_bsb;
+            hm_sb -= hm_gsb;
+            lf_sb -= lf_asb; // LF (12)
+            lf_sb -= lf_hsb;
+            lf_sb -= lf_bsb;
+            lf_sb -= lf_gsb;
 
             // Boss
             if (armSB == 1) { b_asb = 1; }
-            if (armSB != 1 && b_asb > 0) { b_asb = b_asb - 1; }
+            if (armSB != 1 && b_asb > 0) { b_asb -= 1; }
             if (helSB == 1) { b_hsb = 1; }
-            if (helSB != 1 && b_hsb > 0) { b_hsb = b_hsb - 1; }
+            if (helSB != 1 && b_hsb > 0) { b_hsb -= 1; }
             if (shSB == 1) { b_bsb = 1; }
-            if (shSB != 1 && b_bsb > 0) { b_bsb = b_bsb - 1; }
+            if (shSB != 1 && b_bsb > 0) { b_bsb -= 1; }
             if (glovSB == 1) { b_gsb = 1; }
-            if (glovSB != 1 && b_gsb > 0) { b_gsb = b_gsb - 1; }
+            if (glovSB != 1 && b_gsb > 0) { b_gsb -= 1; }
             // Lemoria
             if (armSB == 2) { l_asb = 1; }
-            if (armSB != 2 && l_asb > 0) { l_asb = l_asb - 1; }
+            if (armSB != 2 && l_asb > 0) { l_asb -= 1; }
             if (helSB == 2) { l_hsb = 1; }
-            if (helSB != 2 && l_hsb > 0) { l_hsb = l_hsb - 1; }
+            if (helSB != 2 && l_hsb > 0) { l_hsb -= 1; }
             if (shSB == 2) { l_bsb = 1; }
-            if (shSB != 2 && l_bsb > 0) { l_bsb = l_bsb - 1; }
+            if (shSB != 2 && l_bsb > 0) { l_bsb -= 1; }
             if (glovSB == 2) { l_gsb = 1; }
-            if (glovSB != 2 && l_gsb > 0) { l_gsb = l_gsb - 1; }
+            if (glovSB != 2 && l_gsb > 0) { l_gsb -= 1; }
             // Akum
             if (armSB == 3) { a_asb = 1; }
-            if (armSB != 3 && a_asb > 0) { a_asb = a_asb - 1; }
+            if (armSB != 3 && a_asb > 0) { a_asb -= 1; }
             if (helSB == 3) { a_hsb = 1; }
-            if (helSB != 3 && a_hsb > 0) { a_hsb = a_hsb - 1; }
+            if (helSB != 3 && a_hsb > 0) { a_hsb -= 1; }
             if (shSB == 3) { a_bsb = 1; }
-            if (shSB != 3 && a_bsb > 0) { a_bsb = a_bsb - 1; }
+            if (shSB != 3 && a_bsb > 0) { a_bsb -= 1; }
             if (glovSB == 3) { a_gsb = 1; }
-            if (glovSB != 3 && a_gsb > 0) { a_gsb = a_gsb - 1; }
+            if (glovSB != 3 && a_gsb > 0) { a_gsb -= 1; }
             // Grunil
             if (armSB == 4) { gr_asb = 1; }
-            if (armSB != 4 && gr_asb > 0) { gr_asb = gr_asb - 1; }
+            if (armSB != 4 && gr_asb > 0) { gr_asb -= 1; }
             if (helSB == 4) { gr_hsb = 1; }
-            if (helSB != 4 && gr_hsb > 0) { gr_hsb = gr_hsb - 1; }
+            if (helSB != 4 && gr_hsb > 0) { gr_hsb -= 1; }
             if (shSB == 4) { gr_bsb = 1; }
-            if (shSB != 4 && gr_bsb > 0) { gr_bsb = gr_bsb - 1; }
+            if (shSB != 4 && gr_bsb > 0) { gr_bsb -= 1; }
             if (glovSB == 4) { gr_gsb = 1; }
-            if (glovSB != 4 && gr_gsb > 0) { gr_gsb = gr_gsb - 1; }
+            if (glovSB != 4 && gr_gsb > 0) { gr_gsb -= 1; }
             // Taritas
             if (armSB == 5) { tr_asb = 1; }
-            if (armSB != 5 && tr_asb > 0) { tr_asb = tr_asb - 1; }
+            if (armSB != 5 && tr_asb > 0) { tr_asb -= 1; }
             if (helSB == 5) { tr_hsb = 1; }
-            if (helSB != 5 && tr_hsb > 0) { tr_hsb = tr_hsb - 1; }
+            if (helSB != 5 && tr_hsb > 0) { tr_hsb -= 1; }
             if (shSB == 5) { tr_bsb = 1; }
-            if (shSB != 5 && tr_bsb > 0) { tr_bsb = tr_bsb - 1; }
+            if (shSB != 5 && tr_bsb > 0) { tr_bsb -= 1; }
             if (glovSB == 5) { tr_gsb = 1; }
-            if (glovSB != 5 && tr_gsb > 0) { tr_gsb = tr_gsb - 1; }
+            if (glovSB != 5 && tr_gsb > 0) { tr_gsb -= 1; }
             // Rocaba
             if (armSB == 6) { rc_asb = 1; }
-            if (armSB != 6 && rc_asb > 0) { rc_asb = rc_asb - 1; }
+            if (armSB != 6 && rc_asb > 0) { rc_asb -= 1; }
             if (helSB == 6) { rc_hsb = 1; }
-            if (helSB != 6 && rc_hsb > 0) { rc_hsb = rc_hsb - 1; }
+            if (helSB != 6 && rc_hsb > 0) { rc_hsb -= 1; }
             if (shSB == 6) { rc_bsb = 1; }
-            if (shSB != 6 && rc_bsb > 0) { rc_bsb = rc_bsb - 1; }
+            if (shSB != 6 && rc_bsb > 0) { rc_bsb -= 1; }
             if (glovSB == 6) { rc_gsb = 1; }
-            if (glovSB != 6 && rc_gsb > 0) { rc_gsb = rc_gsb - 1; }
+            if (glovSB != 6 && rc_gsb > 0) { rc_gsb -= 1; }
             // Agerian
             if (armSB == 7) { ag_asb = 1; }
-            if (armSB != 7 && ag_asb > 0) { ag_asb = ag_asb - 1; }
+            if (armSB != 7 && ag_asb > 0) { ag_asb -= 1; }
             if (helSB == 7) { ag_hsb = 1; }
-            if (helSB != 7 && ag_hsb > 0) { ag_hsb = ag_hsb - 1; }
+            if (helSB != 7 && ag_hsb > 0) { ag_hsb -= 1; }
             if (shSB == 7) { ag_bsb = 1; }
-            if (shSB != 7 && ag_bsb > 0) { ag_bsb = ag_bsb - 1; }
+            if (shSB != 7 && ag_bsb > 0) { ag_bsb -= 1; }
             if (glovSB == 7) { ag_gsb = 1; }
-            if (glovSB != 7 && ag_gsb > 0) { ag_gsb = ag_gsb - 1; }
+            if (glovSB != 7 && ag_gsb > 0) { ag_gsb -= 1; }
             // Zereth
             if (armSB == 8) { zr_asb = 1; }
-            if (armSB != 8 && zr_asb > 0) { zr_asb = zr_asb - 1; }
+            if (armSB != 8 && zr_asb > 0) { zr_asb -= 1; }
             if (helSB == 8) { zr_hsb = 1; }
-            if (helSB != 8 && zr_hsb > 0) { zr_hsb = zr_hsb - 1; }
+            if (helSB != 8 && zr_hsb > 0) { zr_hsb -= 1; }
             if (shSB == 8) { zr_bsb = 1; }
-            if (shSB != 8 && zr_bsb > 0) { zr_bsb = zr_bsb - 1; }
+            if (shSB != 8 && zr_bsb > 0) { zr_bsb -= 1; }
             if (glovSB == 8) { zr_gsb = 1; }
-            if (glovSB != 8 && zr_gsb > 0) { zr_gsb = zr_gsb - 1; }
+            if (glovSB != 8 && zr_gsb > 0) { zr_gsb -= 1; }
             // Talis
             if (armSB == 9) { tl_asb = 1; }
-            if (armSB != 9 && tl_asb > 0) { tl_asb = tl_asb - 1; }
+            if (armSB != 9 && tl_asb > 0) { tl_asb -= 1; }
             if (helSB == 9) { tl_hsb = 1; }
-            if (helSB != 9 && tl_hsb > 0) { tl_hsb = tl_hsb - 1; }
+            if (helSB != 9 && tl_hsb > 0) { tl_hsb -= 1; }
             if (shSB == 9) { tl_bsb = 1; }
-            if (shSB != 9 && tl_bsb > 0) { tl_bsb = tl_bsb - 1; }
+            if (shSB != 9 && tl_bsb > 0) { tl_bsb -= 1; }
             if (glovSB == 9) { tl_gsb = 1; }
-            if (glovSB != 9 && tl_gsb > 0) { tl_gsb = tl_gsb - 1; }
+            if (glovSB != 9 && tl_gsb > 0) { tl_gsb -= 1; }
             // SH
             if (armSB == 10) { sh_asb = 1; }
-            if (armSB != 10 && sh_asb > 0) { sh_asb = sh_asb - 1; }
+            if (armSB != 10 && sh_asb > 0) { sh_asb -= 1; }
             if (helSB == 10) { sh_hsb = 1; }
-            if (helSB != 10 && sh_hsb > 0) { sh_hsb = sh_hsb - 1; }
+            if (helSB != 10 && sh_hsb > 0) { sh_hsb -= 1; }
             if (shSB == 10) { sh_bsb = 1; }
-            if (shSB != 10 && sh_bsb > 0) { sh_bsb = sh_bsb - 1; }
+            if (shSB != 10 && sh_bsb > 0) { sh_bsb -= 1; }
             if (glovSB == 10) { sh_gsb = 1; }
-            if (glovSB != 10 && sh_gsb > 0) { sh_gsb = sh_gsb - 1; }
+            if (glovSB != 10 && sh_gsb > 0) { sh_gsb -= 1; }
             // HM
             if (armSB == 11) { hm_asb = 1; }
-            if (armSB != 11 && hm_asb > 0) { hm_asb = hm_asb - 1; }
+            if (armSB != 11 && hm_asb > 0) { hm_asb -= 1; }
             if (helSB == 11) { hm_hsb = 1; }
-            if (helSB != 11 && hm_hsb > 0) { hm_hsb = hm_hsb - 1; }
+            if (helSB != 11 && hm_hsb > 0) { hm_hsb -= 1; }
             if (shSB == 11) { hm_bsb = 1; }
-            if (shSB != 11 && hm_bsb > 0) { hm_bsb = hm_bsb - 1; }
+            if (shSB != 11 && hm_bsb > 0) { hm_bsb -= 1; }
             if (glovSB == 11) { hm_gsb = 1; }
-            if (glovSB != 11 && hm_gsb > 0) { hm_gsb = hm_gsb - 1; }
+            if (glovSB != 11 && hm_gsb > 0) { hm_gsb -= 1; }
             // LF
             if (armSB == 12) { lf_asb = 1; }
-            if (armSB != 12 && lf_asb > 0) { lf_asb = lf_asb - 1; }
+            if (armSB != 12 && lf_asb > 0) { lf_asb -= 1; }
             if (helSB == 12) { lf_hsb = 1; }
-            if (helSB != 12 && lf_hsb > 0) { lf_hsb = lf_hsb - 1; }
+            if (helSB != 12 && lf_hsb > 0) { lf_hsb -= 1; }
             if (shSB == 12) { lf_bsb = 1; }
-            if (shSB != 12 && lf_bsb > 0) { lf_bsb = lf_bsb - 1; }
+            if (shSB != 12 && lf_bsb > 0) { lf_bsb -= 1; }
             if (glovSB == 12) { lf_gsb = 1; }
-            if (glovSB != 12 && lf_gsb > 0) { lf_gsb = lf_gsb - 1; }
+            if (glovSB != 12 && lf_gsb > 0) { lf_gsb -= 1; }
 
-            b_sb = b_sb + b_asb; // Boss
-            b_sb = b_sb + b_hsb;
-            b_sb = b_sb + b_bsb;
-            b_sb = b_sb + b_gsb;
-            l_sb = l_sb + l_asb; // Lemoria
-            l_sb = l_sb + l_hsb;
-            l_sb = l_sb + l_bsb;
-            l_sb = l_sb + l_gsb;
-            a_sb = a_sb + a_asb; // Akum
-            a_sb = a_sb + a_hsb;
-            a_sb = a_sb + a_bsb;
-            a_sb = a_sb + a_gsb;
-            gr_sb = gr_sb + gr_asb; // Grunil
-            gr_sb = gr_sb + gr_hsb;
-            gr_sb = gr_sb + gr_bsb;
-            gr_sb = gr_sb + gr_gsb;
-            tr_sb = tr_sb + tr_asb; // Taritas
-            tr_sb = tr_sb + tr_hsb;
-            tr_sb = tr_sb + tr_bsb;
-            tr_sb = tr_sb + tr_gsb;
-            rc_sb = rc_sb + rc_asb; // Rocaba
-            rc_sb = rc_sb + rc_hsb;
-            rc_sb = rc_sb + rc_bsb;
-            rc_sb = rc_sb + rc_gsb;
-            ag_sb = ag_sb + ag_asb; // Agerian
-            ag_sb = ag_sb + ag_hsb;
-            ag_sb = ag_sb + ag_bsb;
-            ag_sb = ag_sb + ag_gsb;
-            zr_sb = zr_sb + zr_asb; // Zereth
-            zr_sb = zr_sb + zr_hsb;
-            zr_sb = zr_sb + zr_bsb;
-            zr_sb = zr_sb + zr_gsb;
-            tl_sb = tl_sb + tl_asb; // Talis
-            tl_sb = tl_sb + tl_hsb;
-            tl_sb = tl_sb + tl_bsb;
-            tl_sb = tl_sb + tl_gsb;
-            sh_sb = sh_sb + sh_asb; // SH
-            sh_sb = sh_sb + sh_hsb;
-            sh_sb = sh_sb + sh_bsb;
-            sh_sb = sh_sb + sh_gsb;
-            hm_sb = hm_sb + hm_asb; // HM
-            hm_sb = hm_sb + hm_hsb;
-            hm_sb = hm_sb + hm_bsb;
-            hm_sb = hm_sb + hm_gsb;
-            lf_sb = lf_sb + lf_asb; // LF
-            lf_sb = lf_sb + lf_hsb;
-            lf_sb = lf_sb + lf_bsb;
-            lf_sb = lf_sb + lf_gsb;
-
+            b_sb += b_asb; // Boss
+            b_sb += b_hsb;
+            b_sb += b_bsb;
+            b_sb += b_gsb;
+            l_sb += l_asb; // Lemoria
+            l_sb += l_hsb;
+            l_sb += l_bsb;
+            l_sb += l_gsb;
+            a_sb += a_asb; // Akum
+            a_sb += a_hsb;
+            a_sb += a_bsb;
+            a_sb += a_gsb;
+            gr_sb += gr_asb; // Grunil
+            gr_sb += gr_hsb;
+            gr_sb += gr_bsb;
+            gr_sb += gr_gsb;
+            tr_sb += tr_asb; // Taritas
+            tr_sb += tr_hsb;
+            tr_sb += tr_bsb;
+            tr_sb += tr_gsb;
+            rc_sb += rc_asb; // Rocaba
+            rc_sb += rc_hsb;
+            rc_sb += rc_bsb;
+            rc_sb += rc_gsb;
+            ag_sb += ag_asb; // Agerian
+            ag_sb += ag_hsb;
+            ag_sb += ag_bsb;
+            ag_sb += ag_gsb;
+            zr_sb += zr_asb; // Zereth
+            zr_sb += zr_hsb;
+            zr_sb += zr_bsb;
+            zr_sb += zr_gsb;
+            tl_sb += tl_asb; // Talis
+            tl_sb += tl_hsb;
+            tl_sb += tl_bsb;
+            tl_sb += tl_gsb;
+            sh_sb += sh_asb; // SH
+            sh_sb += sh_hsb;
+            sh_sb += sh_bsb;
+            sh_sb += sh_gsb;
+            hm_sb += hm_asb; // HM
+            hm_sb += hm_hsb;
+            hm_sb += hm_bsb;
+            hm_sb += hm_gsb;
+            lf_sb += lf_asb; // LF
+            lf_sb += lf_hsb;
+            lf_sb += lf_bsb;
+            lf_sb += lf_gsb;
+        }
+        public void BossSetBonus()
+        {
+            //BossSet
+            if (b_sb <= 2) { cMaxST -= b_b3; b_b3 = 0; }
+            if (b_sb == 3 && b_b3 == 0) { b_b3 = 200; cMaxST += b_b3; }
+            if (b_sb == 3) { cAtkSpeed -= b_b4; cCastSpeed -= b_b4; b_b4 = 0; }
+            if (b_sb == 4 && b_b4 == 0) { b_b4 = 1; cAtkSpeed += b_b4; cCastSpeed += b_b4; }
+            //Lemoria
+            if (l_sb < 2) { cmvs -= l_b2; ccr -= l_b2; l_b2 = 0; }
+            if (l_sb == 2 && l_b2 == 0) { l_b2 = 1; cmvs += l_b2; ccr += l_b2; }
+            if (l_sb == 3) { cAtkSpeed -= l_b4; cCastSpeed -= l_b4; l_b4 = 0; }
+            if (l_sb == 4 && l_b4 == 0) { l_b4 = 2; cAtkSpeed += l_b4; cCastSpeed += l_b4; }
+            //Akum
+            if (a_sb < 2) { cev -= a_b2; a_b2 = 0; }
+            if (a_sb == 2 && a_b2 == 0) { a_b2 = 1; cev += a_b2; }
+            if (a_sb == 2) { cDR -= a_b3a; cMaxHP -= a_b3b; a_b3a = 0; a_b3b = 0; }
+            if (a_sb == 3 && a_b3a == 0) { a_b3a = 5; a_b3b = 150; cDR += a_b3a; cMaxHP += a_b3b; }
+            if (a_sb == 3) { chap -= a_b4; a_b4 = 0; }
+            if (a_sb == 4 && a_b4 == 0) { a_b4 = 7; chap += a_b4; }
+            //Grunil
+            if (gr_sb < 2) { chap -= gr_b2; gr_b2 = 0; }
+            if (gr_sb == 2 && gr_b2 == 0) { gr_b2 = 5; chap += gr_b2; }
+            if (gr_sb == 2) { cMaxHP -= gr_b3; gr_b3 = 0; }
+            if (gr_sb == 3 && gr_b3 == 0) { gr_b3 = 150; cMaxHP += gr_b3; }
+            if (gr_sb == 3) { chap -= gr_b4; gr_b4 = 0; }
+            if (gr_sb == 4 && gr_b4 == 0) { gr_b4 = 2; chap += gr_b4; }
+            //Taritas 
+            if (tr_sb < 2) { cMaxMP -= tr_b2; tr_b2 = 0; }
+            if (tr_sb == 2 && tr_b2 == 0) { tr_b2 = 100; cMaxMP += tr_b2; }
+            if (tr_sb == 2) { cacc -= tr_b3; tr_b3 = 0; }
+            if (tr_sb == 3 && tr_b3 == 0) { tr_b3 = 20; cacc += tr_b3; }
+            //Rocaba
+            if (rc_sb < 2) { cev -= rc_b2; rc_b2 = 0; }
+            if (rc_sb == 2 && rc_b2 == 0) { rc_b2 = 5; cev += rc_b2; }
+            if (rc_sb == 2) { cMaxMP -= rc_b3; cMaxHP -= rc_b3; rc_b3 = 0; }
+            if (rc_sb == 3 && rc_b3 == 0) { rc_b3 = 75; cMaxMP += rc_b3; ; cMaxHP += rc_b3; }
+            if (rc_sb == 3) { cev -= rc_b4; rc_b4 = 0; }
+            if (rc_sb == 4 && rc_b4 == 0) { rc_b4 = 2; cev += rc_b4; }
+            //Agerian
+            if (ag_sb < 2) { cMaxMP -= ag_b2; ag_b2 = 0; }
+            if (ag_sb == 2 && ag_b2 == 0) { ag_b2 = 100; cMaxMP += ag_b2; }
+            if (ag_sb == 2) { cAtkSpeed -= ag_b3; cCastSpeed -= ag_b3; ag_b3 = 0; }
+            if (ag_sb == 3 && ag_b3 == 0) { ag_b3 = 2; cAtkSpeed += ag_b3; cCastSpeed += ag_b3; }
+            //Zereth
+            if (zr_sb < 2) { cMaxST -= zr_b2; zr_b2 = 0; }
+            if (zr_sb == 2 && zr_b2 == 0) { zr_b2 = 200; cMaxST += zr_b2; }
+            if (zr_sb == 2) { ceda -= zr_b3; zr_b3 = 0; }
+            if (zr_sb == 3 && zr_b3 == 0) { zr_b3 = 5; ceda += zr_b3; }
+            //Talis
+            if (tl_sb < 2) { cmvs -= tl_b2; tl_b2 = 0; }
+            if (tl_sb == 2 && tl_b2 == 0) { tl_b2 = 1; cmvs += tl_b2; }
+            if (tl_sb == 2) { cmvs -= tl_b3; tl_b3 = 0; }
+            if (tl_sb == 3 && tl_b3 == 0) { tl_b3 = 2; cmvs += tl_b3; }
+            //Strength "" of Heve 
+            if (sh_sb < 2) { cMaxHP -= sh_b2; sh_b2 = 0; }
+            if (sh_sb == 2 && sh_b2 == 0) { sh_b2 = 250; cMaxHP += sh_b2; }
+            if (sh_sb == 2) { cMaxHP -= sh_b3; sh_b3 = 0; }
+            if (sh_sb == 3 && sh_b3 == 0) { sh_b3 = 50; cMaxHP += sh_b3; }
+            //Hercules' Might
+            if (hm_sb < 2) { cWeight -= hm_b2; hm_b2 = 0; }
+            if (hm_sb == 2 && hm_b2 == 0) { hm_b2 = 150; cWeight += hm_b2; }
+            if (hm_sb == 2) { cWeight -= hm_b3; hm_b3 = 0; }
+            if (hm_sb == 3 && hm_b3 == 0) { hm_b3 = 50; cWeight += hm_b3; }
+            //Luck "" of Fortuna
+            if (lf_sb < 2) { cluck -= lf_b2; lf_b2 = 0; }
+            if (lf_sb == 2 && lf_b2 == 0) { lf_b2 = 2; cluck += lf_b2; }
+            if (lf_sb == 2) { cmvs -= lf_b3; lf_b3 = 0; }
+            if (lf_sb == 3 && lf_b3 == 0) { lf_b3 = 3; cmvs += lf_b3; }
         }
 
     }
