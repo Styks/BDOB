@@ -53,6 +53,7 @@ namespace BDO_Builder
         public int cSpiritRage; // Black Spirit's Rage
         public int cBidding; // Marketplace Bidding Success Rate
         public int cEDtoBack; //Back extra damage
+        public int cdfm; //Damage from Monsters
 
         //BossSetBonus Check (SetBonus = 1)
         public int b_sb; //Set Bonus
@@ -60,78 +61,67 @@ namespace BDO_Builder
         public int b_hsb; //Helm
         public int b_bsb; //Boots
         public int b_gsb; //Gloves
-
         //LemoriaSetBonus Check (SetBonus = 2)
         public int l_sb;
         public int l_asb;
         public int l_hsb;
         public int l_bsb;
         public int l_gsb;
-
         //AkumSetBonus Check (SetBonus = 3)
         public int a_sb;
         public int a_asb;
         public int a_hsb;
         public int a_bsb;
         public int a_gsb;
-
         //GrunilSetBonus Check  (SetBonus = 4)
         public int gr_sb;
         public int gr_asb;
         public int gr_hsb;
         public int gr_bsb;
         public int gr_gsb;
-
         //TaritasSetBonus Check  (SetBonus = 5)
         public int tr_sb;
         public int tr_asb;
         public int tr_hsb;
         public int tr_bsb;
-        public int tr_gsb;
-        
+        public int tr_gsb;       
         //RocabaSetBonus Check  (SetBonus = 6)
         public int rc_sb;
         public int rc_asb;
         public int rc_hsb;
         public int rc_bsb;
         public int rc_gsb;
-
         //AgerianSetBonus Check  (SetBonus = 7)
         public int ag_sb;
         public int ag_asb;
         public int ag_hsb;
         public int ag_bsb;
         public int ag_gsb;
-
         //ZerethSetBonus Check  (SetBonus = 8)
         public int zr_sb;
         public int zr_asb;
         public int zr_hsb;
         public int zr_bsb;
         public int zr_gsb;
-
         //TalisSetBonus Check  (SetBonus = 9)
         public int tl_sb;
         public int tl_asb;
         public int tl_hsb;
         public int tl_bsb;
         public int tl_gsb;
-
         //Strength "" of Heve SetBonus Check (SetBonus = 10)
         public int sh_sb;
         public int sh_asb;
         public int sh_hsb;
         public int sh_bsb;
         public int sh_gsb;
-
-        //Hercules' Might SetBonus Check  (SB = 11)
+        //Hercules' Might SetBonus Check  (SetBonus  = 11)
         public int hm_sb;
         public int hm_asb;
         public int hm_hsb;
         public int hm_bsb;
         public int hm_gsb;
-
-        //Luck "" of Fortuna SetBonus Check  (SB = 12)
+        //Luck "" of Fortuna SetBonus Check  (SetBonus = 12)
         public int lf_sb;
         public int lf_asb;
         public int lf_hsb;
@@ -180,6 +170,85 @@ namespace BDO_Builder
         public int lf_b2;
         public int lf_b3;
 
+        //AccSet
+        //GránaSetBonus Check (AccSetBonus = 1)
+        public int a_g_sb; //Set Bonus
+        public int a_g_bsb; //belt
+        public int a_g_nsb; //neck
+        public int a_g_e1sb; //ear1
+        public int a_g_e2sb; //ear2
+        public int a_g_r1sb; //ring1
+        public int a_g_r2sb; //ring2
+        //AsulaSetBonus Check (AccSetBonus = 2)
+        public int a_a_sb;
+        public int a_a_bsb;
+        public int a_a_nsb;
+        public int a_a_e1sb;
+        public int a_a_e2sb;
+        public int a_a_r1sb;
+        public int a_a_r2sb;
+        //JaretteSetBonus Check (AccSetBonus = 3)
+        public int a_j_sb;
+        public int a_j_bsb;
+        public int a_j_nsb;
+        public int a_j_e1sb;
+        public int a_j_e2sb;
+        public int a_j_r1sb;
+        public int a_j_r2sb;
+        //Treant Spirit SetBonus Check (AccSetBonus = 4)
+        public int a_ts_sb;
+        public int a_ts_bsb;
+        public int a_ts_nsb;
+        public int a_ts_e1sb;
+        public int a_ts_e2sb;
+        public int a_ts_r1sb;
+        public int a_ts_r2sb;
+        //Root Treant SetBonus Check (AccSetBonus = 5)
+        public int a_rt_sb;
+        public int a_rt_bsb;
+        public int a_rt_nsb;
+        public int a_rt_e1sb;
+        public int a_rt_e2sb;
+        public int a_rt_r1sb;
+        public int a_rt_r2sb;
+        //Val AP SetBonus Check (AccSetBonus = 6)
+        public int a_va_sb;
+        public int a_va_bsb;
+        public int a_va_nsb;
+        public int a_va_e1sb;
+        public int a_va_e2sb;
+        public int a_va_r1sb;
+        public int a_va_r2sb;
+        //Val DP SetBonus Check (AccSetBonus = 7)
+        public int a_vd_sb;
+        public int a_vd_bsb;
+        public int a_vd_nsb;
+        public int a_vd_e1sb;
+        public int a_vd_e2sb;
+        public int a_vd_r1sb;
+        public int a_vd_r2sb;
+
+        //Acc SetBonus (num)
+        //Grána
+        public int a_g_b3a;
+        public int a_g_b3b;
+        //Asula
+        public int a_a_b3;
+        public int a_a_b5;
+        //Jarette
+        public int a_j_b3;
+        public int a_j_b5;
+        //Treant Spirit
+        public int a_ts_b3;
+        public int a_ts_b5;
+        //Root Treant
+        public int a_rt_b3;
+        public int a_rt_b5;
+        //Val AP
+        public int a_va_b2;
+        //Val DP
+        public int a_vd_b2;
+
         // Belt stats
         public int beltap; //Betl AP
         public int beltev; // Belt Evasion
@@ -204,6 +273,7 @@ namespace BDO_Builder
         public int beltAPagaingst;
         public int beltSpiritRage; // Black Spirit's Rage
         public int beltDefSpiritRage;
+        public int beltSB; // Belt SetBonus
 
         // Neck stats
         public int neckap; //Neck AP
@@ -242,6 +312,8 @@ namespace BDO_Builder
 
         public int neckBackDamage;
         public int neckDefBackDamage;
+
+        public int neckSB; // Neck SetBonus
 
         //First Ring stats
         public int ring1ap; //Ring AP
@@ -288,6 +360,8 @@ namespace BDO_Builder
         public int ring1Bidding; // Marketplace Bidding Success Rate
         public int ring1DefBidding;
 
+        public int ring1SB; // Ring SetBonus
+
         //Second Ring stats
         public int ring2ap; //Ring AP
         public int ring2ev; // Ring Evasion
@@ -331,7 +405,9 @@ namespace BDO_Builder
         public int ring2DefSpiritRage; 
 
         public int ring2Bidding; // Marketplace Bidding Success Rate
-        public int ring2DefBidding; 
+        public int ring2DefBidding;
+
+        public int ring2SB; // Ring SetBonus
 
         //First earring stats
         public int ear1ap; //Earring AP
@@ -362,6 +438,8 @@ namespace BDO_Builder
         public int ear1SpiritRage; // Black Spirit's Rage
         public int ear1DefSpiritRage;
 
+        public int ear1SB; // Earring SetBonus
+
         //Second earring stats
         public int ear2ap; //Earring AP
         public int ear2ev; // Earring Evasion
@@ -390,6 +468,8 @@ namespace BDO_Builder
         public int ear2KamaDamage;
         public int ear2SpiritRage; // Black Spirit's Rage
         public int ear2DefSpiritRage;
+
+        public int ear2SB; // Earring SetBonus
 
         //Armor stats
         public int armdp;// Armor DP
@@ -4093,6 +4173,218 @@ namespace BDO_Builder
             if (lf_sb == 2 && lf_b2 == 0) { lf_b2 = 2; cluck += lf_b2; }
             if (lf_sb == 2) { cmvs -= lf_b3; lf_b3 = 0; }
             if (lf_sb == 3 && lf_b3 == 0) { lf_b3 = 3; cmvs += lf_b3; }
+        }
+        public void AccSetBonusCheck()
+        {
+            a_g_sb -= a_g_bsb; // Grána (1)
+            a_g_sb -= a_g_nsb;
+            a_g_sb -= a_g_e1sb;
+            a_g_sb -= a_g_e2sb;
+            a_g_sb -= a_g_r1sb;
+            a_g_sb -= a_g_r2sb;
+            a_a_sb -= a_a_bsb; // Asula (2)
+            a_a_sb -= a_a_nsb;
+            a_a_sb -= a_a_e1sb;
+            a_a_sb -= a_a_e2sb;
+            a_a_sb -= a_a_r1sb;
+            a_a_sb -= a_a_r2sb;
+            a_j_sb -= a_j_bsb; // Jarette (3)
+            a_j_sb -= a_j_nsb;
+            a_j_sb -= a_j_e1sb;
+            a_j_sb -= a_j_e2sb;
+            a_j_sb -= a_j_r1sb;
+            a_j_sb -= a_j_r2sb;
+            a_ts_sb -= a_ts_bsb; // Treant Spirit (4)
+            a_ts_sb -= a_ts_nsb;
+            a_ts_sb -= a_ts_e1sb;
+            a_ts_sb -= a_ts_e2sb;
+            a_ts_sb -= a_ts_r1sb;
+            a_ts_sb -= a_ts_r2sb;
+            a_rt_sb -= a_rt_bsb; // Root Treant  (5)
+            a_rt_sb -= a_rt_nsb;
+            a_rt_sb -= a_rt_e1sb;
+            a_rt_sb -= a_rt_e2sb;
+            a_rt_sb -= a_rt_r1sb;
+            a_rt_sb -= a_rt_r2sb;
+            a_va_sb -= a_va_bsb; // Val AP  (6)
+            a_va_sb -= a_va_nsb;
+            a_va_sb -= a_va_e1sb;
+            a_va_sb -= a_va_e2sb;
+            a_va_sb -= a_va_r1sb;
+            a_va_sb -= a_va_r2sb;
+            a_vd_sb -= a_vd_bsb; // Val DP  (7)
+            a_vd_sb -= a_vd_nsb;
+            a_vd_sb -= a_vd_e1sb;
+            a_vd_sb -= a_vd_e2sb;
+            a_vd_sb -= a_vd_r1sb;
+            a_vd_sb -= a_vd_r2sb;
+
+            // Grána
+            if (beltSB == 1) { a_g_bsb = 1; }
+            if (beltSB != 1 && a_g_bsb > 0) { a_g_bsb -= 1; }
+            if (neckSB == 1) { a_g_nsb = 1; }
+            if (neckSB != 1 && a_g_nsb > 0) { a_g_nsb -= 1; }
+            if (ear1SB == 1) { a_g_e1sb = 1; }
+            if (ear1SB != 1 && a_g_e1sb > 0) { a_g_e1sb -= 1; }
+            if (ear2SB == 1) { a_g_e2sb = 1; }
+            if (ear2SB != 1 && a_g_e2sb > 0) { a_g_e2sb -= 1; }
+            if (ring1SB == 1) { a_g_r1sb = 1; }
+            if (ring1SB != 1 && a_g_r1sb > 0) { a_g_r1sb -= 1; }
+            if (ring2SB == 1) { a_g_r2sb = 1; }
+            if (ring2SB != 1 && a_g_r2sb > 0) { a_g_r2sb -= 1; }
+            // Asula
+            if (beltSB == 2) { a_a_bsb = 1; }
+            if (beltSB != 2 && a_a_bsb > 0) { a_a_bsb -= 1; }
+            if (neckSB == 2) { a_a_nsb = 1; }
+            if (neckSB != 2 && a_a_nsb > 0) { a_a_nsb -= 1; }
+            if (ear1SB == 2) { a_a_e1sb = 1; }
+            if (ear1SB != 2 && a_a_e1sb > 0) { a_a_e1sb -= 1; }
+            if (ear2SB == 2) { a_a_e2sb = 1; }
+            if (ear2SB != 2 && a_a_e2sb > 0) { a_a_e2sb -= 1; }
+            if (ring1SB == 2) { a_a_r1sb = 1; }
+            if (ring1SB != 2 && a_a_r1sb > 0) { a_a_r1sb -= 1; }
+            if (ring2SB == 2) { a_a_r2sb = 1; }
+            if (ring2SB != 2 && a_a_r2sb > 0) { a_a_r2sb -= 1; }
+            // Jarette
+            if (beltSB == 3) { a_j_bsb = 1; }
+            if (beltSB != 3 && a_j_bsb > 0) { a_j_bsb -= 1; }
+            if (neckSB == 3) { a_j_nsb = 1; }
+            if (neckSB != 3 && a_j_nsb > 0) { a_j_nsb -= 1; }
+            if (ear1SB == 3) { a_j_e1sb = 1; }
+            if (ear1SB != 3 && a_j_e1sb > 0) { a_j_e1sb -= 1; }
+            if (ear2SB == 3) { a_j_e2sb = 1; }
+            if (ear2SB != 3 && a_j_e2sb > 0) { a_j_e2sb -= 1; }
+            if (ring1SB == 3) { a_j_r1sb = 1; }
+            if (ring1SB != 3 && a_j_r1sb > 0) { a_j_r1sb -= 1; }
+            if (ring2SB == 3) { a_j_r2sb = 1; }
+            if (ring2SB != 3 && a_j_r2sb > 0) { a_j_r2sb -= 1; }
+            // Treant Spirit
+            if (beltSB == 4) { a_ts_bsb = 1; }
+            if (beltSB != 4 && a_ts_bsb > 0) { a_ts_bsb -= 1; }
+            if (neckSB == 4) { a_ts_nsb = 1; }
+            if (neckSB != 4 && a_ts_nsb > 0) { a_ts_nsb -= 1; }
+            if (ear1SB == 4) { a_ts_e1sb = 1; }
+            if (ear1SB != 4 && a_ts_e1sb > 0) { a_ts_e1sb -= 1; }
+            if (ear2SB == 4) { a_ts_e2sb = 1; }
+            if (ear2SB != 4 && a_ts_e2sb > 0) { a_ts_e2sb -= 1; }
+            if (ring1SB == 4) { a_ts_r1sb = 1; }
+            if (ring1SB != 4 && a_ts_r1sb > 0) { a_ts_r1sb -= 1; }
+            if (ring2SB == 4) { a_ts_r2sb = 1; }
+            if (ring2SB != 4 && a_ts_r2sb > 0) { a_ts_r2sb -= 1; }
+            // Root Treant
+            if (beltSB == 5) { a_rt_bsb = 1; }
+            if (beltSB != 5 && a_rt_bsb > 0) { a_rt_bsb -= 1; }
+            if (neckSB == 5) { a_rt_nsb = 1; }
+            if (neckSB != 5 && a_rt_nsb > 0) { a_rt_nsb -= 1; }
+            if (ear1SB == 5) { a_rt_e1sb = 1; }
+            if (ear1SB != 5 && a_rt_e1sb > 0) { a_rt_e1sb -= 1; }
+            if (ear2SB == 5) { a_rt_e2sb = 1; }
+            if (ear2SB != 5 && a_rt_e2sb > 0) { a_rt_e2sb -= 1; }
+            if (ring1SB == 5) { a_rt_r1sb = 1; }
+            if (ring1SB != 5 && a_rt_r1sb > 0) { a_rt_r1sb -= 1; }
+            if (ring2SB == 5) { a_rt_r2sb = 1; }
+            if (ring2SB != 5 && a_rt_r2sb > 0) { a_rt_r2sb -= 1; }
+            // Val AP
+            if (beltSB == 6) { a_va_bsb = 1; }
+            if (beltSB != 6 && a_va_bsb > 0) { a_va_bsb -= 1; }
+            if (neckSB == 6) { a_va_nsb = 1; }
+            if (neckSB != 6 && a_va_nsb > 0) { a_va_nsb -= 1; }
+            if (ear1SB == 6) { a_va_e1sb = 1; }
+            if (ear1SB != 6 && a_va_e1sb > 0) { a_va_e1sb -= 1; }
+            if (ear2SB == 6) { a_va_e2sb = 1; }
+            if (ear2SB != 6 && a_va_e2sb > 0) { a_va_e2sb -= 1; }
+            if (ring1SB == 6) { a_va_r1sb = 1; }
+            if (ring1SB != 6 && a_va_r1sb > 0) { a_va_r1sb -= 1; }
+            if (ring2SB == 6) { a_va_r2sb = 1; }
+            if (ring2SB != 6 && a_va_r2sb > 0) { a_va_r2sb -= 1; }
+            // Val DP
+            if (beltSB == 7) { a_vd_bsb = 1; }
+            if (beltSB != 7 && a_vd_bsb > 0) { a_vd_bsb -= 1; }
+            if (neckSB == 7) { a_vd_nsb = 1; }
+            if (neckSB != 7 && a_vd_nsb > 0) { a_vd_nsb -= 1; }
+            if (ear1SB == 7) { a_vd_e1sb = 1; }
+            if (ear1SB != 7 && a_vd_e1sb > 0) { a_vd_e1sb -= 1; }
+            if (ear2SB == 7) { a_vd_e2sb = 1; }
+            if (ear2SB != 7 && a_vd_e2sb > 0) { a_vd_e2sb -= 1; }
+            if (ring1SB == 7) { a_vd_r1sb = 1; }
+            if (ring1SB != 7 && a_vd_r1sb > 0) { a_vd_r1sb -= 1; }
+            if (ring2SB == 7) { a_vd_r2sb = 1; }
+            if (ring2SB != 7 && a_vd_r2sb > 0) { a_vd_r2sb -= 1; }
+
+            a_g_sb += a_g_bsb; // Grána
+            a_g_sb += a_g_nsb;
+            a_g_sb += a_g_e1sb;
+            a_g_sb += a_g_e2sb;
+            a_g_sb += a_g_r1sb;
+            a_g_sb += a_g_r2sb;
+            a_a_sb += a_a_bsb; // Asula
+            a_a_sb += a_a_nsb;
+            a_a_sb += a_a_e1sb;
+            a_a_sb += a_a_e2sb;
+            a_a_sb += a_a_r1sb;
+            a_a_sb += a_a_r2sb;
+            a_j_sb += a_j_bsb; // Jarette
+            a_j_sb += a_j_nsb;
+            a_j_sb += a_j_e1sb;
+            a_j_sb += a_j_e2sb;
+            a_j_sb += a_j_r1sb;
+            a_j_sb += a_j_r2sb;
+            a_ts_sb += a_ts_bsb; // Treant Spirit
+            a_ts_sb += a_ts_nsb;
+            a_ts_sb += a_ts_e1sb;
+            a_ts_sb += a_ts_e2sb;
+            a_ts_sb += a_ts_r1sb;
+            a_ts_sb += a_ts_r2sb;
+            a_rt_sb += a_rt_bsb; // Root Treant
+            a_rt_sb += a_rt_nsb;
+            a_rt_sb += a_rt_e1sb;
+            a_rt_sb += a_rt_e2sb;
+            a_rt_sb += a_rt_r1sb;
+            a_rt_sb += a_rt_r2sb;
+            a_va_sb += a_va_bsb; // Val AP
+            a_va_sb += a_va_nsb;
+            a_va_sb += a_va_e1sb;
+            a_va_sb += a_va_e2sb;
+            a_va_sb += a_va_r1sb;
+            a_va_sb += a_va_r2sb;
+            a_vd_sb += a_vd_bsb; // Val DP
+            a_vd_sb += a_vd_nsb;
+            a_vd_sb += a_vd_e1sb;
+            a_vd_sb += a_vd_e2sb;
+            a_vd_sb += a_vd_r1sb;
+            a_vd_sb += a_vd_r2sb;
+        }
+        public void AccSetBonus()
+        {
+            //Grána
+            if (a_g_sb <= 2) { cedKama -= a_g_b3a; cMaxHP -= a_g_b3b; cMaxST -= a_g_b3b; a_g_b3a = 0; a_g_b3b = 0; }
+            if (a_g_sb == 3 && a_g_b3a == 0) { a_g_b3a = 5; a_g_b3b = 50; cedKama += a_g_b3a; cMaxHP += a_g_b3b; cMaxST += a_g_b3b; }
+            //Asula
+            if (a_a_sb <= 2) { cMaxHP -= a_a_b3; a_a_b3 = 0; }
+            if (a_a_sb == 3 && a_a_b3 == 0) { a_a_b3 = 300; cMaxHP += a_a_b3; }
+            if (a_a_sb <=4) { cacc -= a_a_b5; a_a_b5 = 0; }
+            if (a_a_sb == 5 && a_a_b5 == 0) { a_a_b5 = 20; cacc += a_a_b5; }
+            //Jarrete
+            if (a_j_sb <= 2) { chap -= a_j_b3; a_j_b3 = 0; }
+            if (a_j_sb == 3 && a_j_b3 == 0) { a_j_b3 = 5; chap += a_j_b3; }
+            if (a_j_sb <= 4) { chap -= a_j_b5; a_j_b5 = 0; }
+            if (a_j_sb == 5 && a_j_b5 == 0) { a_j_b5 = 10; chap += a_j_b5; }
+            //Treant Spirit
+            if (a_ts_sb <= 2) { chdr -= a_ts_b3; a_ts_b3 = 0; }
+            if (a_ts_sb == 3 && a_ts_b3 == 0) { a_ts_b3 = 5; chdr += a_ts_b3; }
+            if (a_ts_sb <= 4) { cWeight -= a_ts_b5; a_ts_b5 = 0; }
+            if (a_ts_sb == 5 && a_ts_b5 == 0) { a_ts_b5 = 100; cWeight += a_ts_b5; }
+            //Root Treant
+            if (a_rt_sb <= 2) { chdr -= a_rt_b3; a_rt_b3 = 0; }
+            if (a_rt_sb == 3 && a_rt_b3 == 0) { a_rt_b3 = 5; chdr += a_rt_b3; }
+            if (a_rt_sb <= 4) { cWeight -= a_rt_b5; a_rt_b5 = 0; }
+            if (a_rt_sb == 5 && a_rt_b5 == 0) { a_rt_b5 = 100; cWeight += a_rt_b5; }
+            //Val AP
+            if (a_va_sb <= 1) { ceapa -= a_va_b2; a_va_b2 = 0; }
+            if (a_va_sb == 2 && a_va_b2 == 0) { a_va_b2 = 7; ceapa += a_va_b2; }
+            //Val DP
+            if (a_vd_sb <= 1) { cdfm += a_vd_b2; a_vd_b2 = 0; }
+            if (a_vd_sb == 2 && a_vd_b2 == 0) { a_vd_b2 = 5; cdfm -= a_vd_b2; }
         }
 
         public void AwakeningState(string chClass)

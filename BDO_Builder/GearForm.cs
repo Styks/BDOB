@@ -97,6 +97,7 @@ namespace BDO_Builder
             cBidding_n.Text = Convert.ToString(cs.cBidding) + "%";
             cSpiritRage_n.Text = Convert.ToString(cs.cSpiritRage) + "%";
             cEDtoBack_n.Text = Convert.ToString(cs.cEDtoBack) + "%";
+            cDFM_n.Text = Convert.ToString(cs.cdfm) + "%";
         }
 
         private void ItemStatClear()
@@ -475,6 +476,7 @@ namespace BDO_Builder
                     cs.beltEnch = Convert.ToBoolean(dr["Ench"]);
                     cs.beltDefSpiritRage = Convert.ToInt32(dr["BlackSpirit"]);
                     cs.beltDefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
+                    //cs.beltSB = Convert.ToInt32(dr["SetBonus"]);
                 }
                 LoadItemEnch_cb();                
                 cs.Type = "Belts";
@@ -525,7 +527,7 @@ namespace BDO_Builder
                     cs.neckDefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
                     cs.neckDefKamaDamage = Convert.ToInt32(dr["KamaDamage"]);
                     cs.neckDefBackDamage = Convert.ToInt32(dr["BackDamage"]);
-
+                    //cs.neckSB = Convert.ToInt32(dr["SetBonus"]);
                 }
                 LoadItemEnch_cb();
                 cs.Type = "Neck";
@@ -583,6 +585,7 @@ namespace BDO_Builder
                     cs.ring1DefDamageAllExcept = Convert.ToInt32(dr["DamAllExHuman"]);
                     cs.ring1DefBidding = Convert.ToInt32(dr["MarketBidding"]);
                     cs.ring1DefSpiritRage = Convert.ToInt32(dr["BlackSpirit"]);
+                    //cs.ring1SB = Convert.ToInt32(dr["SetBonus"]);
                 }
 
                 LoadItemEnch_cb();
@@ -644,7 +647,7 @@ namespace BDO_Builder
                     cs.ring2DefDamageAllExcept = Convert.ToInt32(dr["DamAllExHuman"]);
                     cs.ring2DefBidding = Convert.ToInt32(dr["MarketBidding"]);
                     cs.ring2DefSpiritRage = Convert.ToInt32(dr["BlackSpirit"]);
-
+                    //cs.ring2SB = Convert.ToInt32(dr["SetBonus"]);
                 }
 
                 LoadItemEnch_cb();
@@ -702,6 +705,7 @@ namespace BDO_Builder
                     cs.ear1DefSpiritRage = Convert.ToInt32(dr["BlackSpirit"]);
                     cs.ear1DefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
                     cs.ear1DefKamaDamage = Convert.ToInt32(dr["KamaDamage"]);
+                    //cs.ear1SB = Convert.ToInt32(dr["SetBonus"]);
                 }
 
                 LoadItemEnch_cb();
@@ -753,6 +757,7 @@ namespace BDO_Builder
                     cs.ear2DefSpiritRage = Convert.ToInt32(dr["BlackSpirit"]);
                     cs.ear2DefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
                     cs.ear2DefKamaDamage = Convert.ToInt32(dr["KamaDamage"]);
+                    //cs.ear2SB = Convert.ToInt32(dr["SetBonus"]);
                 }
 
                 LoadItemEnch_cb();
@@ -1050,10 +1055,12 @@ namespace BDO_Builder
 
             //SetBonus
             cs.BossSetBonusCheck();
+            cs.AccSetBonusCheck();
             bsb_lbl.Text = cs.b_sb.ToString();
             lsb_lbl.Text = cs.l_sb.ToString();
             asb_lbl.Text = cs.a_sb.ToString();
             cs.BossSetBonus();
+            cs.AccSetBonus();
 
             FillCharacterState();
 

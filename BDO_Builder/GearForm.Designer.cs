@@ -209,6 +209,8 @@
             this.iBidding_n = new System.Windows.Forms.Label();
             this.iEDtoBack_n = new System.Windows.Forms.Label();
             this.iEDtoBack_lbl = new System.Windows.Forms.Label();
+            this.cDFM_lbl = new System.Windows.Forms.Label();
+            this.cDFM_n = new System.Windows.Forms.Label();
             this.ShopGear_gb.SuspendLayout();
             this.CharacterGear_gb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Class_pic)).BeginInit();
@@ -569,6 +571,8 @@
             // 
             // MStats_gb
             // 
+            this.MStats_gb.Controls.Add(this.cDFM_n);
+            this.MStats_gb.Controls.Add(this.cDFM_lbl);
             this.MStats_gb.Controls.Add(this.cSpiritRage_lbl);
             this.MStats_gb.Controls.Add(this.cSpiritRage_n);
             this.MStats_gb.Controls.Add(this.cBidding_lbl);
@@ -2030,6 +2034,24 @@
             this.iEDtoBack_lbl.TabIndex = 60;
             this.iEDtoBack_lbl.Text = "Extra damage Back";
             // 
+            // cDFM_lbl
+            // 
+            this.cDFM_lbl.AutoSize = true;
+            this.cDFM_lbl.Location = new System.Drawing.Point(699, 126);
+            this.cDFM_lbl.Name = "cDFM_lbl";
+            this.cDFM_lbl.Size = new System.Drawing.Size(116, 13);
+            this.cDFM_lbl.TabIndex = 72;
+            this.cDFM_lbl.Text = "Damage from Monsters";
+            // 
+            // cDFM_n
+            // 
+            this.cDFM_n.AutoSize = true;
+            this.cDFM_n.Location = new System.Drawing.Point(918, 126);
+            this.cDFM_n.Name = "cDFM_n";
+            this.cDFM_n.Size = new System.Drawing.Size(21, 13);
+            this.cDFM_n.TabIndex = 73;
+            this.cDFM_n.Text = "0%";
+            // 
             // GearForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2318,5 +2340,7 @@
         private System.Windows.Forms.Label cEDtoBack_lbl;
         private System.Windows.Forms.Label iEDtoBack_n;
         private System.Windows.Forms.Label iEDtoBack_lbl;
+        private System.Windows.Forms.Label cDFM_n;
+        private System.Windows.Forms.Label cDFM_lbl;
     }
 }
