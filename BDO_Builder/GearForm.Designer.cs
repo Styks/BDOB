@@ -211,6 +211,14 @@
             this.iBidding_n = new System.Windows.Forms.Label();
             this.iEDtoBack_n = new System.Windows.Forms.Label();
             this.iEDtoBack_lbl = new System.Windows.Forms.Label();
+            this.cMistyHdp_lbl = new System.Windows.Forms.Label();
+            this.cMistyHdp_n = new System.Windows.Forms.Label();
+            this.cMistyHev_lbl = new System.Windows.Forms.Label();
+            this.cMistyHev_n = new System.Windows.Forms.Label();
+            this.cDelusLmvs_lbl = new System.Windows.Forms.Label();
+            this.cDelusLmvs_n = new System.Windows.Forms.Label();
+            this.cSunMoon_n = new System.Windows.Forms.Label();
+            this.cSunMoon_lbl = new System.Windows.Forms.Label();
             this.ShopGear_gb.SuspendLayout();
             this.CharacterGear_gb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Class_pic)).BeginInit();
@@ -571,6 +579,14 @@
             // 
             // MStats_gb
             // 
+            this.MStats_gb.Controls.Add(this.cSunMoon_lbl);
+            this.MStats_gb.Controls.Add(this.cSunMoon_n);
+            this.MStats_gb.Controls.Add(this.cDelusLmvs_lbl);
+            this.MStats_gb.Controls.Add(this.cDelusLmvs_n);
+            this.MStats_gb.Controls.Add(this.cMistyHdp_lbl);
+            this.MStats_gb.Controls.Add(this.cMistyHdp_n);
+            this.MStats_gb.Controls.Add(this.cMistyHev_lbl);
+            this.MStats_gb.Controls.Add(this.cMistyHev_n);
             this.MStats_gb.Controls.Add(this.cSpiritRage_lbl);
             this.MStats_gb.Controls.Add(this.cSpiritRage_n);
             this.MStats_gb.Controls.Add(this.cBidding_lbl);
@@ -2050,6 +2066,78 @@
             this.iEDtoBack_lbl.TabIndex = 60;
             this.iEDtoBack_lbl.Text = "Extra damage Back";
             // 
+            // cMistyHdp_lbl
+            // 
+            this.cMistyHdp_lbl.AutoSize = true;
+            this.cMistyHdp_lbl.Location = new System.Drawing.Point(699, 104);
+            this.cMistyHdp_lbl.Name = "cMistyHdp_lbl";
+            this.cMistyHdp_lbl.Size = new System.Drawing.Size(130, 13);
+            this.cMistyHdp_lbl.TabIndex = 74;
+            this.cMistyHdp_lbl.Text = "[Misty Haze] DP reduction\r\n";
+            // 
+            // cMistyHdp_n
+            // 
+            this.cMistyHdp_n.AutoSize = true;
+            this.cMistyHdp_n.Location = new System.Drawing.Point(918, 104);
+            this.cMistyHdp_n.Name = "cMistyHdp_n";
+            this.cMistyHdp_n.Size = new System.Drawing.Size(21, 13);
+            this.cMistyHdp_n.TabIndex = 75;
+            this.cMistyHdp_n.Text = "0%";
+            // 
+            // cMistyHev_lbl
+            // 
+            this.cMistyHev_lbl.AutoSize = true;
+            this.cMistyHev_lbl.Location = new System.Drawing.Point(699, 82);
+            this.cMistyHev_lbl.Name = "cMistyHev_lbl";
+            this.cMistyHev_lbl.Size = new System.Drawing.Size(146, 13);
+            this.cMistyHev_lbl.TabIndex = 72;
+            this.cMistyHev_lbl.Text = "[Misty Haze] All Evasion Rate";
+            // 
+            // cMistyHev_n
+            // 
+            this.cMistyHev_n.AutoSize = true;
+            this.cMistyHev_n.Location = new System.Drawing.Point(918, 82);
+            this.cMistyHev_n.Name = "cMistyHev_n";
+            this.cMistyHev_n.Size = new System.Drawing.Size(21, 13);
+            this.cMistyHev_n.TabIndex = 73;
+            this.cMistyHev_n.Text = "0%";
+            // 
+            // cDelusLmvs_lbl
+            // 
+            this.cDelusLmvs_lbl.AutoSize = true;
+            this.cDelusLmvs_lbl.Location = new System.Drawing.Point(699, 126);
+            this.cDelusLmvs_lbl.Name = "cDelusLmvs_lbl";
+            this.cDelusLmvs_lbl.Size = new System.Drawing.Size(214, 13);
+            this.cDelusLmvs_lbl.TabIndex = 76;
+            this.cDelusLmvs_lbl.Text = "[Delusive Light] Movement Speed reduction";
+            // 
+            // cDelusLmvs_n
+            // 
+            this.cDelusLmvs_n.AutoSize = true;
+            this.cDelusLmvs_n.Location = new System.Drawing.Point(918, 126);
+            this.cDelusLmvs_n.Name = "cDelusLmvs_n";
+            this.cDelusLmvs_n.Size = new System.Drawing.Size(21, 13);
+            this.cDelusLmvs_n.TabIndex = 77;
+            this.cDelusLmvs_n.Text = "0%";
+            // 
+            // cSunMoon_n
+            // 
+            this.cSunMoon_n.AutoSize = true;
+            this.cSunMoon_n.Location = new System.Drawing.Point(918, 148);
+            this.cSunMoon_n.Name = "cSunMoon_n";
+            this.cSunMoon_n.Size = new System.Drawing.Size(21, 13);
+            this.cSunMoon_n.TabIndex = 79;
+            this.cSunMoon_n.Text = "0%";
+            // 
+            // cSunMoon_lbl
+            // 
+            this.cSunMoon_lbl.AutoSize = true;
+            this.cSunMoon_lbl.Location = new System.Drawing.Point(699, 148);
+            this.cSunMoon_lbl.Name = "cSunMoon_lbl";
+            this.cSunMoon_lbl.Size = new System.Drawing.Size(186, 13);
+            this.cSunMoon_lbl.TabIndex = 78;
+            this.cSunMoon_lbl.Text = "[Sun, Moon, Stars] All Speed increase";
+            // 
             // GearForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2342,5 +2430,13 @@
         private System.Windows.Forms.Label iEDtoBack_lbl;
         private System.Windows.Forms.Label cDFM_n;
         private System.Windows.Forms.Label cDFM_lbl;
+        private System.Windows.Forms.Label cSunMoon_lbl;
+        private System.Windows.Forms.Label cSunMoon_n;
+        private System.Windows.Forms.Label cDelusLmvs_lbl;
+        private System.Windows.Forms.Label cDelusLmvs_n;
+        private System.Windows.Forms.Label cMistyHdp_lbl;
+        private System.Windows.Forms.Label cMistyHdp_n;
+        private System.Windows.Forms.Label cMistyHev_lbl;
+        private System.Windows.Forms.Label cMistyHev_n;
     }
 }

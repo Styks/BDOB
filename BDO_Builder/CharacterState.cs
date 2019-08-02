@@ -55,6 +55,12 @@ namespace BDO_Builder
         public int cEDtoBack; //Back extra damage
         public int cdfm; //Damage from Monsters
 
+        //Shai's talent bonus
+        public int shaiEv;
+        public int shaiDP;
+        public int shaiMvs;
+        public int shaiSpeed;
+
         //BossSetBonus Check (SetBonus = 1)
         public int b_sb; //Set Bonus
         public int b_asb; //Armour
@@ -622,6 +628,19 @@ namespace BDO_Builder
         public bool awkCheckHd;
         public bool awkCheckAd;
         public bool awkCheckAg;
+
+        public int awkDefAllEvasion;
+        public int awkAllEvasion;
+
+        public int awkDefDPReduction;
+        public int awkDPReduction;
+
+        public int awkDefMvsSpeedRed;
+        public int awkMvsSpeedRed;
+
+        public int awkDefSpeedIncrease;
+        public int awkSpeedIncrease;
+        
 
 
         readonly SqlCommand cmd = Base_Connect.Connection.CreateCommand();
@@ -4404,7 +4423,10 @@ namespace BDO_Builder
                 ceapa -= awkAPagainst;
                 cedh -= awkDamageHumans;
                 ceda -= awkDamageAll;
-
+                shaiDP -= awkDPReduction;
+                shaiEv -= awkAllEvasion;
+                shaiMvs -= awkMvsSpeedRed;
+                shaiSpeed -= awkSpeedIncrease;
 
                 //AP High
                 awkAPhigh = awkDefAPhigh + 4;
@@ -4419,11 +4441,24 @@ namespace BDO_Builder
                 //Extra Damage to All Species
                 awkDamageAll = awkDefDamageAll;
 
+                if(chClass == "Shai")
+                {
+                    awkDPReduction = 1;
+                    awkAllEvasion = 1;
+                    awkMvsSpeedRed = 1;
+                    awkSpeedIncrease = 1;
+
+                }
+
                 caap += awkAP;
                 cacc += awkAccuracy;
                 ceapa += awkAPagainst;
                 cedh += awkDamageHumans;
                 ceda += awkDamageAll;
+                shaiDP += awkDPReduction;
+                shaiEv += awkAllEvasion;
+                shaiMvs += awkMvsSpeedRed;
+                shaiSpeed += awkSpeedIncrease;
             }
 
             else if (awkEnch == true & awkEnchLvl >= 2 & awkEnchLvl <= 3)
@@ -4433,7 +4468,10 @@ namespace BDO_Builder
                 ceapa -= awkAPagainst;
                 cedh -= awkDamageHumans;
                 ceda -= awkDamageAll;
-
+                shaiDP -= awkDPReduction;
+                shaiEv -= awkAllEvasion;
+                shaiMvs -= awkMvsSpeedRed;
+                shaiSpeed -= awkSpeedIncrease;
 
                 //AP High
                 awkAPhigh = awkDefAPhigh + 4 + (awkEnchLvl - 1) * 3;
@@ -4448,12 +4486,24 @@ namespace BDO_Builder
                 //Extra Damage to All Species
                 awkDamageAll = awkDefDamageAll;
 
+                if (chClass == "Shai")
+                {
+                    awkDPReduction = 1;
+                    awkAllEvasion = 1;
+                    awkMvsSpeedRed = 1;
+                    awkSpeedIncrease = 1;
+
+                }
+
                 caap += awkAP;
                 cacc += awkAccuracy;
                 ceapa += awkAPagainst;
                 cedh += awkDamageHumans;
                 ceda += awkDamageAll;
-
+                shaiDP += awkDPReduction;
+                shaiEv += awkAllEvasion;
+                shaiMvs += awkMvsSpeedRed;
+                shaiSpeed += awkSpeedIncrease;
             }
 
             else if (awkEnch == true & awkEnchLvl >= 4 & awkEnchLvl <= 5)
@@ -4463,7 +4513,10 @@ namespace BDO_Builder
                 ceapa -= awkAPagainst;
                 cedh -= awkDamageHumans;
                 ceda -= awkDamageAll;
-
+                shaiDP -= awkDPReduction;
+                shaiEv -= awkAllEvasion;
+                shaiMvs -= awkMvsSpeedRed;
+                shaiSpeed -= awkSpeedIncrease;
 
                 //AP High
                 awkAPhigh = awkDefAPhigh + 10 + (awkEnchLvl - 3) * 2;
@@ -4477,13 +4530,24 @@ namespace BDO_Builder
                 awkDamageHumans = awkDefDamageHumans;
                 //Extra Damage to All Species
                 awkDamageAll = awkDefDamageAll;
+                if (chClass == "Shai")
+                {
+                    awkDPReduction = 1;
+                    awkAllEvasion = 1;
+                    awkMvsSpeedRed = 1;
+                    awkSpeedIncrease = 1;
+
+                }
 
                 caap += awkAP;
                 cacc += awkAccuracy;
                 ceapa += awkAPagainst;
                 cedh += awkDamageHumans;
                 ceda += awkDamageAll;
-
+                shaiDP += awkDPReduction;
+                shaiEv += awkAllEvasion;
+                shaiMvs += awkMvsSpeedRed;
+                shaiSpeed += awkSpeedIncrease;
             }
 
             else if (awkEnch == true & awkEnchLvl >= 6 & awkEnchLvl <= 7)
@@ -4493,7 +4557,10 @@ namespace BDO_Builder
                 ceapa -= awkAPagainst;
                 cedh -= awkDamageHumans;
                 ceda -= awkDamageAll;
-
+                shaiDP -= awkDPReduction;
+                shaiEv -= awkAllEvasion;
+                shaiMvs -= awkMvsSpeedRed;
+                shaiSpeed -= awkSpeedIncrease;
 
                 //AP High
                 awkAPhigh = awkDefAPhigh + 14 + (awkEnchLvl - 5) * 3;
@@ -4507,14 +4574,24 @@ namespace BDO_Builder
                 if (awkCheckHd == true) awkDamageHumans = awkDefDamageHumans + 1;
                 //Extra Damage to All Species
                 if (awkCheckAd == true) awkDamageAll = awkDefDamageAll + 1;
+                if (chClass == "Shai")
+                {
+                    awkDPReduction = 1;
+                    awkAllEvasion = 1;
+                    awkMvsSpeedRed = 1;
+                    awkSpeedIncrease = 1;
 
+                }
 
                 caap += awkAP;
                 cacc += awkAccuracy;
                 ceapa += awkAPagainst;
                 cedh += awkDamageHumans;
                 ceda += awkDamageAll;
-
+                shaiDP += awkDPReduction;
+                shaiEv += awkAllEvasion;
+                shaiMvs += awkMvsSpeedRed;
+                shaiSpeed += awkSpeedIncrease;
             }
 
             else if (awkEnch == true & awkEnchLvl >= 8 & awkEnchLvl <= 15)
@@ -4524,8 +4601,12 @@ namespace BDO_Builder
                 ceapa -= awkAPagainst;
                 cedh -= awkDamageHumans;
                 ceda -= awkDamageAll;
+                shaiDP -= awkDPReduction;
+                shaiEv -= awkAllEvasion;
+                shaiMvs -= awkMvsSpeedRed;
+                shaiSpeed -= awkSpeedIncrease;
 
-                if (awkId == 3 | awkId == 2)
+                if (awkId == 3 | awkId == 2 | chClass == "Shai" & awkId == 0)
                 {
                     //AP High
                     awkAPhigh = awkDefAPhigh + 20 + (awkEnchLvl - 7) * 5;
@@ -4558,6 +4639,48 @@ namespace BDO_Builder
                     else if (awkEnchLvl >= 10 & awkEnchLvl <= 12) awkDamageAll = awkDefDamageAll + 2;
                     else if (awkEnchLvl >= 13 & awkEnchLvl <= 15) awkDamageAll = awkDefDamageAll + 3;
                 }
+                if (chClass == "Shai")
+                { 
+                  if(awkEnchLvl >= 8 & awkEnchLvl <= 10)
+                    {
+                    awkDPReduction = 2;
+                    awkAllEvasion = 2;
+                    awkMvsSpeedRed = 2;
+                    awkSpeedIncrease = 2;
+                    }
+                   else if (awkEnchLvl >= 11 & awkEnchLvl <= 12)
+                    {
+                        awkDPReduction = 3;
+                        awkAllEvasion = 3;
+                        awkMvsSpeedRed = 3;
+                        awkSpeedIncrease = 3;
+                    }
+
+                    else if (awkEnchLvl == 13)
+                    {
+                        awkDPReduction = 4;
+                        awkAllEvasion = 4;
+                        awkMvsSpeedRed = 4;
+                        awkSpeedIncrease = 4;
+                    }
+
+                    else if (awkEnchLvl == 14)
+                    {
+                        awkDPReduction = 5;
+                        awkAllEvasion = 5;
+                        awkMvsSpeedRed = 5;
+                        awkSpeedIncrease = 5;
+                    }
+
+                    else if (awkEnchLvl == 15)
+                    {
+                        awkDPReduction = 6;
+                        awkAllEvasion = 6;
+                        awkMvsSpeedRed = 6;
+                        awkSpeedIncrease = 6;
+                    }
+
+                }
 
 
                 caap += awkAP;
@@ -4565,7 +4688,10 @@ namespace BDO_Builder
                 ceapa += awkAPagainst;
                 cedh += awkDamageHumans;
                 ceda += awkDamageAll;
-
+                shaiDP += awkDPReduction;
+                shaiEv += awkAllEvasion;
+                shaiMvs += awkMvsSpeedRed;
+                shaiSpeed += awkSpeedIncrease;
             }
 
             else if (awkEnch == true & awkEnchLvl >= 16 & awkEnchLvl <= 17)
@@ -4575,8 +4701,12 @@ namespace BDO_Builder
                 ceapa -= awkAPagainst;
                 cedh -= awkDamageHumans;
                 ceda -= awkDamageAll;
+                shaiDP -= awkDPReduction;
+                shaiEv -= awkAllEvasion;
+                shaiMvs -= awkMvsSpeedRed;
+                shaiSpeed -= awkSpeedIncrease;
 
-                if (awkId == 3 | awkId == 2)
+                if (awkId == 3 | awkId == 2 | chClass == "Shai" & awkId == 0)
                 {
                     //AP High
                     awkAPhigh = awkDefAPhigh + 60 + (awkEnchLvl - 15) * 8;
@@ -4599,13 +4729,22 @@ namespace BDO_Builder
                 //Extra Damage to All Species
                 if (awkCheckAd == true) awkDamageAll = awkDefDamageAll + 4;
 
-
+                if (chClass == "Shai")
+                {
+                    awkDPReduction = 6 + (awkEnchLvl-15);
+                    awkAllEvasion = 6 + (awkEnchLvl - 15);
+                    awkMvsSpeedRed = 6 + (awkEnchLvl - 15);
+                    awkSpeedIncrease = 6 + (awkEnchLvl - 15);
+                }
                 caap += awkAP;
                 cacc += awkAccuracy;
                 ceapa += awkAPagainst;
                 cedh += awkDamageHumans;
                 ceda += awkDamageAll;
-
+                shaiDP += awkDPReduction;
+                shaiEv += awkAllEvasion;
+                shaiMvs += awkMvsSpeedRed;
+                shaiSpeed += awkSpeedIncrease;
             }
 
             else if (awkEnch == true & awkEnchLvl == 18)
@@ -4615,8 +4754,12 @@ namespace BDO_Builder
                 ceapa -= awkAPagainst;
                 cedh -= awkDamageHumans;
                 ceda -= awkDamageAll;
+                shaiDP -= awkDPReduction;
+                shaiEv -= awkAllEvasion;
+                shaiMvs -= awkMvsSpeedRed;
+                shaiSpeed -= awkSpeedIncrease;
 
-                if (awkId == 3 | awkId == 2)
+                if (awkId == 3 | awkId == 2 | chClass == "Shai" & awkId == 0)
                 {
                     //AP High
                     awkAPhigh = awkDefAPhigh + 88;
@@ -4639,13 +4782,23 @@ namespace BDO_Builder
                 //Extra Damage to All Species
                 if (awkCheckAd == true) awkDamageAll = awkDefDamageAll + 4;
 
+                if (chClass == "Shai")
+                {
+                    awkDPReduction = 9;
+                    awkAllEvasion = 9;
+                    awkMvsSpeedRed = 9;
+                    awkSpeedIncrease =9;
+                }
 
                 caap += awkAP;
                 cacc += awkAccuracy;
                 ceapa += awkAPagainst;
                 cedh += awkDamageHumans;
                 ceda += awkDamageAll;
-
+                shaiDP += awkDPReduction;
+                shaiEv += awkAllEvasion;
+                shaiMvs += awkMvsSpeedRed;
+                shaiSpeed += awkSpeedIncrease;
             }
 
             else if (awkEnch == true & awkEnchLvl >= 19 & awkEnchLvl <= 20)
@@ -4655,8 +4808,12 @@ namespace BDO_Builder
                 ceapa -= awkAPagainst;
                 cedh -= awkDamageHumans;
                 ceda -= awkDamageAll;
+                shaiDP -= awkDPReduction;
+                shaiEv -= awkAllEvasion;
+                shaiMvs -= awkMvsSpeedRed;
+                shaiSpeed -= awkSpeedIncrease;
 
-                if (awkId == 3 | awkId == 2)
+                if (awkId == 3 | awkId == 2 | chClass == "Shai" & awkId == 0)
                 {
                     //AP High
                     awkAPhigh = awkDefAPhigh + 88 + (awkEnchLvl - 18) * 8;
@@ -4679,13 +4836,35 @@ namespace BDO_Builder
                 //Extra Damage to All Species
                 if (awkCheckAd == true) awkDamageAll = awkDefDamageAll + 5;
 
+                if (chClass == "Shai")
+                {
+                    if (awkEnchLvl == 19)
+                    {
+                    awkDPReduction = 11;
+                    awkAllEvasion = 11;
+                    awkMvsSpeedRed = 11;
+                    awkSpeedIncrease = 11;
+                    }
+
+                   else  if (awkEnchLvl == 20)
+                    {
+                        awkDPReduction = 15;
+                        awkAllEvasion = 15;
+                        awkMvsSpeedRed = 15;
+                        awkSpeedIncrease = 15;
+                    }
+
+                }
 
                 caap += awkAP;
                 cacc += awkAccuracy;
                 ceapa += awkAPagainst;
                 cedh += awkDamageHumans;
                 ceda += awkDamageAll;
-
+                shaiDP += awkDPReduction;
+                shaiEv += awkAllEvasion;
+                shaiMvs += awkMvsSpeedRed;
+                shaiSpeed += awkSpeedIncrease;
             }
 
             else
@@ -4695,6 +4874,10 @@ namespace BDO_Builder
                 ceapa -= awkAPagainst;
                 cedh -= awkDamageHumans;
                 ceda -= awkDamageAll;
+                shaiDP -= awkDPReduction;
+                shaiEv -= awkAllEvasion;
+                shaiMvs -= awkMvsSpeedRed;
+                shaiSpeed -= awkSpeedIncrease;
 
                 awkAPhigh = awkDefAPhigh;
                 awkAPlow = awkDefAPlow;
@@ -4703,12 +4886,21 @@ namespace BDO_Builder
                 awkDamageHumans = awkDefDamageHumans;
                 awkAccuracy = awkDefAccuracy;
                 awkDamageAll = awkDefDamageAll;
+                awkDPReduction = awkDefDPReduction;
+                awkAllEvasion = awkDefAllEvasion;
+                awkMvsSpeedRed = awkDefMvsSpeedRed;
+                awkSpeedIncrease = awkDefSpeedIncrease;
+
 
                 caap += awkAP;
                 cacc += awkAccuracy;
                 ceapa += awkAPagainst;
                 cedh += awkDamageHumans;
                 ceda += awkDamageAll;
+                shaiDP += awkDPReduction;
+                shaiEv += awkAllEvasion;
+                shaiMvs += awkMvsSpeedRed;
+                shaiSpeed += awkSpeedIncrease;
             }
 
         }

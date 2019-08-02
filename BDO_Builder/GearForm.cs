@@ -55,7 +55,8 @@ namespace BDO_Builder
             cs.caap = Convert.ToInt32(cAAP_n.Text);
             Sclass_lbl.Text = sclass;
             Class_pic.BackgroundImage = cimg;
-            if (sclass == "Shai") { AW_btn.Visible = false; SAW_btn.Visible = false; }
+            if (sclass == "Shai") { cMistyHev_lbl.Visible = true; cMistyHev_n.Visible = true; cMistyHdp_lbl.Visible = true; cMistyHdp_n.Visible = true; cDelusLmvs_lbl.Visible = true; cDelusLmvs_n.Visible = true; cSunMoon_lbl.Visible = true; cSunMoon_n.Visible = true; }
+            else { cMistyHev_lbl.Visible = false; cMistyHev_n.Visible = false; cMistyHdp_lbl.Visible = false; cMistyHdp_n.Visible = false; cDelusLmvs_lbl.Visible = false; cDelusLmvs_n.Visible = false; cSunMoon_lbl.Visible = false; cSunMoon_n.Visible = false; }
             ////////// Edit ComboBox
             this.SelectGear_cb.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             this.SelectGear_cb.AutoCompleteSource = AutoCompleteSource.ListItems;
@@ -98,6 +99,11 @@ namespace BDO_Builder
             cSpiritRage_n.Text = Convert.ToString(cs.cSpiritRage) + "%";
             cEDtoBack_n.Text = Convert.ToString(cs.cEDtoBack) + "%";
             cDFM_n.Text = Convert.ToString(cs.cdfm) + "%";
+            cMistyHev_n.Text = Convert.ToString(cs.shaiEv) + "%";
+            cMistyHdp_n.Text = Convert.ToString(cs.shaiDP) + "%";
+            cDelusLmvs_n.Text = Convert.ToString(cs.shaiMvs) + "%";
+            cSunMoon_n.Text = Convert.ToString(cs.shaiSpeed) + "%";
+
         }
 
         private void ItemStatClear()
@@ -1016,20 +1022,47 @@ namespace BDO_Builder
                 DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
-                foreach (DataRow dr in dt.Rows)
+                if (sclass == "Shai")
                 {
-                    cs.awkDefAPhigh = Convert.ToInt32(dr["APhigh"]);
-                    cs.awkDefAPlow = Convert.ToInt32(dr["APlow"]);
-                    cs.awkDefAccuracy = Convert.ToInt32(dr["Accuracy"]);
-                    cs.awkDefDamageHumans = Convert.ToInt32(dr["HumanDamage"]);
-                    cs.awkCheckHd = Convert.ToBoolean(dr["CheckHd"]);
-                    cs.awkDefDamageAll = Convert.ToInt32(dr["DamageAllSpecies"]);
-                    cs.awkCheckAd = Convert.ToBoolean(dr["CheckAd"]);
-                    cs.awkDefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
-                    cs.awkCheckAg = Convert.ToBoolean(dr["CheckAg"]);
-                    cs.awkEnch = Convert.ToBoolean(dr["Ench"]);
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        cs.awkDefAPhigh = Convert.ToInt32(dr["APhigh"]);
+                        cs.awkDefAPlow = Convert.ToInt32(dr["APlow"]);
+                        cs.awkDefAccuracy = 0;
+                        cs.awkDefDamageHumans =0;
+                        cs.awkCheckHd = false;
+                        cs.awkDefDamageAll = 0;
+                        cs.awkCheckAd = false;
+                        cs.awkDefAPagainst = 0;
+                        cs.awkCheckAg = false;
+                        cs.awkEnch = Convert.ToBoolean(dr["Ench"]);
+                        cs.awkDefAllEvasion = Convert.ToInt32(dr["AllEvasion"]);
+                        cs.awkDefDPReduction = Convert.ToInt32(dr["DPReduction"]);
+                        cs.awkDefMvsSpeedRed = Convert.ToInt32(dr["MvsSpeedRed"]);
+                        cs.awkDefSpeedIncrease = Convert.ToInt32(dr["SpeedIncrease"]);
+                    }
                 }
 
+                else
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        cs.awkDefAPhigh = Convert.ToInt32(dr["APhigh"]);
+                        cs.awkDefAPlow = Convert.ToInt32(dr["APlow"]);
+                        cs.awkDefAccuracy = Convert.ToInt32(dr["Accuracy"]);
+                        cs.awkDefDamageHumans = Convert.ToInt32(dr["HumanDamage"]);
+                        cs.awkCheckHd = Convert.ToBoolean(dr["CheckHd"]);
+                        cs.awkDefDamageAll = Convert.ToInt32(dr["DamageAllSpecies"]);
+                        cs.awkCheckAd = Convert.ToBoolean(dr["CheckAd"]);
+                        cs.awkDefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
+                        cs.awkCheckAg = Convert.ToBoolean(dr["CheckAg"]);
+                        cs.awkEnch = Convert.ToBoolean(dr["Ench"]);
+                        cs.awkDefAllEvasion = 0;
+                        cs.awkDefDPReduction = 0;
+                        cs.awkDefMvsSpeedRed = 0;
+                        cs.awkDefSpeedIncrease = 0;
+                    }
+                }
                 LoadItemEnch_cb();
 
                 cs.Type = "" + sclass + " Awakening Weapons";
