@@ -57,8 +57,14 @@
             this.Armour_btn = new System.Windows.Forms.Button();
             this.Helmet_btn = new System.Windows.Forms.Button();
             this.MStats_gb = new System.Windows.Forms.GroupBox();
-            this.cDFM_n = new System.Windows.Forms.Label();
-            this.cDFM_lbl = new System.Windows.Forms.Label();
+            this.cSunMoon_lbl = new System.Windows.Forms.Label();
+            this.cSunMoon_n = new System.Windows.Forms.Label();
+            this.cDelusLmvs_lbl = new System.Windows.Forms.Label();
+            this.cDelusLmvs_n = new System.Windows.Forms.Label();
+            this.cMistyHdp_lbl = new System.Windows.Forms.Label();
+            this.cMistyHdp_n = new System.Windows.Forms.Label();
+            this.cMistyHev_lbl = new System.Windows.Forms.Label();
+            this.cMistyHev_n = new System.Windows.Forms.Label();
             this.cSpiritRage_lbl = new System.Windows.Forms.Label();
             this.cSpiritRage_n = new System.Windows.Forms.Label();
             this.cBidding_lbl = new System.Windows.Forms.Label();
@@ -110,6 +116,8 @@
             this.cAP_n = new System.Windows.Forms.Label();
             this.cDP_lbl = new System.Windows.Forms.Label();
             this.cAP_lbl = new System.Windows.Forms.Label();
+            this.cDFM_n = new System.Windows.Forms.Label();
+            this.cDFM_lbl = new System.Windows.Forms.Label();
             this.Book_cb = new System.Windows.Forms.CheckBox();
             this.apLvl_cb = new System.Windows.Forms.CheckBox();
             this.Settings_gb = new System.Windows.Forms.GroupBox();
@@ -211,14 +219,6 @@
             this.iBidding_n = new System.Windows.Forms.Label();
             this.iEDtoBack_n = new System.Windows.Forms.Label();
             this.iEDtoBack_lbl = new System.Windows.Forms.Label();
-            this.cMistyHdp_lbl = new System.Windows.Forms.Label();
-            this.cMistyHdp_n = new System.Windows.Forms.Label();
-            this.cMistyHev_lbl = new System.Windows.Forms.Label();
-            this.cMistyHev_n = new System.Windows.Forms.Label();
-            this.cDelusLmvs_lbl = new System.Windows.Forms.Label();
-            this.cDelusLmvs_n = new System.Windows.Forms.Label();
-            this.cSunMoon_n = new System.Windows.Forms.Label();
-            this.cSunMoon_lbl = new System.Windows.Forms.Label();
             this.ShopGear_gb.SuspendLayout();
             this.CharacterGear_gb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Class_pic)).BeginInit();
@@ -415,7 +415,10 @@
             this.SW_btn.BackColor = System.Drawing.Color.Transparent;
             this.SW_btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SW_btn.BackgroundImage")));
             this.SW_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.SW_btn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.SW_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SW_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SW_btn.ForeColor = System.Drawing.Color.Red;
             this.SW_btn.Location = new System.Drawing.Point(229, 274);
             this.SW_btn.Name = "SW_btn";
             this.SW_btn.Size = new System.Drawing.Size(40, 40);
@@ -427,7 +430,10 @@
             this.AW_btn.BackColor = System.Drawing.Color.Transparent;
             this.AW_btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AW_btn.BackgroundImage")));
             this.AW_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.AW_btn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.AW_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AW_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AW_btn.ForeColor = System.Drawing.Color.Red;
             this.AW_btn.Location = new System.Drawing.Point(166, 292);
             this.AW_btn.Name = "AW_btn";
             this.AW_btn.Size = new System.Drawing.Size(40, 40);
@@ -440,7 +446,10 @@
             this.MW_btn.BackColor = System.Drawing.Color.Transparent;
             this.MW_btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MW_btn.BackgroundImage")));
             this.MW_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.MW_btn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.MW_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MW_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.MW_btn.ForeColor = System.Drawing.Color.Red;
             this.MW_btn.Location = new System.Drawing.Point(103, 274);
             this.MW_btn.Name = "MW_btn";
             this.MW_btn.Size = new System.Drawing.Size(40, 40);
@@ -452,7 +461,10 @@
             this.Necklace_btn.BackColor = System.Drawing.Color.Transparent;
             this.Necklace_btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Necklace_btn.BackgroundImage")));
             this.Necklace_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Necklace_btn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.Necklace_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Necklace_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Necklace_btn.ForeColor = System.Drawing.Color.Red;
             this.Necklace_btn.Location = new System.Drawing.Point(275, 233);
             this.Necklace_btn.Name = "Necklace_btn";
             this.Necklace_btn.Size = new System.Drawing.Size(40, 40);
@@ -465,7 +477,10 @@
             this.Belt_btn.BackColor = System.Drawing.Color.Transparent;
             this.Belt_btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Belt_btn.BackgroundImage")));
             this.Belt_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Belt_btn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.Belt_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Belt_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Belt_btn.ForeColor = System.Drawing.Color.Red;
             this.Belt_btn.Location = new System.Drawing.Point(55, 233);
             this.Belt_btn.Name = "Belt_btn";
             this.Belt_btn.Size = new System.Drawing.Size(40, 40);
@@ -478,7 +493,10 @@
             this.Gloves_btn.BackColor = System.Drawing.Color.Transparent;
             this.Gloves_btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Gloves_btn.BackgroundImage")));
             this.Gloves_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Gloves_btn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.Gloves_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Gloves_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Gloves_btn.ForeColor = System.Drawing.Color.Red;
             this.Gloves_btn.Location = new System.Drawing.Point(295, 178);
             this.Gloves_btn.Name = "Gloves_btn";
             this.Gloves_btn.Size = new System.Drawing.Size(40, 40);
@@ -491,7 +509,10 @@
             this.Boots_btn.BackColor = System.Drawing.Color.Transparent;
             this.Boots_btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Boots_btn.BackgroundImage")));
             this.Boots_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Boots_btn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.Boots_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Boots_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Boots_btn.ForeColor = System.Drawing.Color.Red;
             this.Boots_btn.Location = new System.Drawing.Point(38, 178);
             this.Boots_btn.Name = "Boots_btn";
             this.Boots_btn.Size = new System.Drawing.Size(40, 40);
@@ -504,7 +525,10 @@
             this.Ring2_btn.BackColor = System.Drawing.Color.Transparent;
             this.Ring2_btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Ring2_btn.BackgroundImage")));
             this.Ring2_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Ring2_btn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.Ring2_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ring2_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Ring2_btn.ForeColor = System.Drawing.Color.Red;
             this.Ring2_btn.Location = new System.Drawing.Point(295, 123);
             this.Ring2_btn.Name = "Ring2_btn";
             this.Ring2_btn.Size = new System.Drawing.Size(40, 40);
@@ -517,7 +541,10 @@
             this.Ring1_btn.BackColor = System.Drawing.Color.Transparent;
             this.Ring1_btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Ring1_btn.BackgroundImage")));
             this.Ring1_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Ring1_btn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.Ring1_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ring1_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Ring1_btn.ForeColor = System.Drawing.Color.Red;
             this.Ring1_btn.Location = new System.Drawing.Point(275, 67);
             this.Ring1_btn.Name = "Ring1_btn";
             this.Ring1_btn.Size = new System.Drawing.Size(40, 40);
@@ -530,7 +557,10 @@
             this.Earring2_btn.BackColor = System.Drawing.Color.Transparent;
             this.Earring2_btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Earring2_btn.BackgroundImage")));
             this.Earring2_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Earring2_btn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.Earring2_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Earring2_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Earring2_btn.ForeColor = System.Drawing.Color.Red;
             this.Earring2_btn.Location = new System.Drawing.Point(38, 123);
             this.Earring2_btn.Name = "Earring2_btn";
             this.Earring2_btn.Size = new System.Drawing.Size(40, 40);
@@ -543,7 +573,10 @@
             this.Earring1_btn.BackColor = System.Drawing.Color.Transparent;
             this.Earring1_btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Earring1_btn.BackgroundImage")));
             this.Earring1_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Earring1_btn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.Earring1_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Earring1_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Earring1_btn.ForeColor = System.Drawing.Color.Red;
             this.Earring1_btn.Location = new System.Drawing.Point(55, 67);
             this.Earring1_btn.Name = "Earring1_btn";
             this.Earring1_btn.Size = new System.Drawing.Size(40, 40);
@@ -556,7 +589,10 @@
             this.Armour_btn.BackColor = System.Drawing.Color.Transparent;
             this.Armour_btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Armour_btn.BackgroundImage")));
             this.Armour_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Armour_btn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.Armour_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Armour_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Armour_btn.ForeColor = System.Drawing.Color.Red;
             this.Armour_btn.Location = new System.Drawing.Point(229, 25);
             this.Armour_btn.Name = "Armour_btn";
             this.Armour_btn.Size = new System.Drawing.Size(40, 40);
@@ -569,7 +605,10 @@
             this.Helmet_btn.BackColor = System.Drawing.Color.Transparent;
             this.Helmet_btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Helmet_btn.BackgroundImage")));
             this.Helmet_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Helmet_btn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.Helmet_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Helmet_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Helmet_btn.ForeColor = System.Drawing.Color.Red;
             this.Helmet_btn.Location = new System.Drawing.Point(103, 25);
             this.Helmet_btn.Name = "Helmet_btn";
             this.Helmet_btn.Size = new System.Drawing.Size(40, 40);
@@ -631,23 +670,77 @@
             this.MStats_gb.TabStop = false;
             this.MStats_gb.Text = "MainStats";
             // 
-            // cDFM_n
+            // cSunMoon_lbl
             // 
-            this.cDFM_n.AutoSize = true;
-            this.cDFM_n.Location = new System.Drawing.Point(699, 375);
-            this.cDFM_n.Name = "cDFM_n";
-            this.cDFM_n.Size = new System.Drawing.Size(21, 13);
-            this.cDFM_n.TabIndex = 73;
-            this.cDFM_n.Text = "0%";
+            this.cSunMoon_lbl.AutoSize = true;
+            this.cSunMoon_lbl.Location = new System.Drawing.Point(699, 148);
+            this.cSunMoon_lbl.Name = "cSunMoon_lbl";
+            this.cSunMoon_lbl.Size = new System.Drawing.Size(186, 13);
+            this.cSunMoon_lbl.TabIndex = 78;
+            this.cSunMoon_lbl.Text = "[Sun, Moon, Stars] All Speed increase";
             // 
-            // cDFM_lbl
+            // cSunMoon_n
             // 
-            this.cDFM_lbl.AutoSize = true;
-            this.cDFM_lbl.Location = new System.Drawing.Point(480, 375);
-            this.cDFM_lbl.Name = "cDFM_lbl";
-            this.cDFM_lbl.Size = new System.Drawing.Size(116, 13);
-            this.cDFM_lbl.TabIndex = 72;
-            this.cDFM_lbl.Text = "Damage from Monsters";
+            this.cSunMoon_n.AutoSize = true;
+            this.cSunMoon_n.Location = new System.Drawing.Point(918, 148);
+            this.cSunMoon_n.Name = "cSunMoon_n";
+            this.cSunMoon_n.Size = new System.Drawing.Size(21, 13);
+            this.cSunMoon_n.TabIndex = 79;
+            this.cSunMoon_n.Text = "0%";
+            // 
+            // cDelusLmvs_lbl
+            // 
+            this.cDelusLmvs_lbl.AutoSize = true;
+            this.cDelusLmvs_lbl.Location = new System.Drawing.Point(699, 126);
+            this.cDelusLmvs_lbl.Name = "cDelusLmvs_lbl";
+            this.cDelusLmvs_lbl.Size = new System.Drawing.Size(214, 13);
+            this.cDelusLmvs_lbl.TabIndex = 76;
+            this.cDelusLmvs_lbl.Text = "[Delusive Light] Movement Speed reduction";
+            // 
+            // cDelusLmvs_n
+            // 
+            this.cDelusLmvs_n.AutoSize = true;
+            this.cDelusLmvs_n.Location = new System.Drawing.Point(918, 126);
+            this.cDelusLmvs_n.Name = "cDelusLmvs_n";
+            this.cDelusLmvs_n.Size = new System.Drawing.Size(21, 13);
+            this.cDelusLmvs_n.TabIndex = 77;
+            this.cDelusLmvs_n.Text = "0%";
+            // 
+            // cMistyHdp_lbl
+            // 
+            this.cMistyHdp_lbl.AutoSize = true;
+            this.cMistyHdp_lbl.Location = new System.Drawing.Point(699, 104);
+            this.cMistyHdp_lbl.Name = "cMistyHdp_lbl";
+            this.cMistyHdp_lbl.Size = new System.Drawing.Size(130, 13);
+            this.cMistyHdp_lbl.TabIndex = 74;
+            this.cMistyHdp_lbl.Text = "[Misty Haze] DP reduction\r\n";
+            // 
+            // cMistyHdp_n
+            // 
+            this.cMistyHdp_n.AutoSize = true;
+            this.cMistyHdp_n.Location = new System.Drawing.Point(918, 104);
+            this.cMistyHdp_n.Name = "cMistyHdp_n";
+            this.cMistyHdp_n.Size = new System.Drawing.Size(21, 13);
+            this.cMistyHdp_n.TabIndex = 75;
+            this.cMistyHdp_n.Text = "0%";
+            // 
+            // cMistyHev_lbl
+            // 
+            this.cMistyHev_lbl.AutoSize = true;
+            this.cMistyHev_lbl.Location = new System.Drawing.Point(699, 82);
+            this.cMistyHev_lbl.Name = "cMistyHev_lbl";
+            this.cMistyHev_lbl.Size = new System.Drawing.Size(146, 13);
+            this.cMistyHev_lbl.TabIndex = 72;
+            this.cMistyHev_lbl.Text = "[Misty Haze] All Evasion Rate";
+            // 
+            // cMistyHev_n
+            // 
+            this.cMistyHev_n.AutoSize = true;
+            this.cMistyHev_n.Location = new System.Drawing.Point(918, 82);
+            this.cMistyHev_n.Name = "cMistyHev_n";
+            this.cMistyHev_n.Size = new System.Drawing.Size(21, 13);
+            this.cMistyHev_n.TabIndex = 73;
+            this.cMistyHev_n.Text = "0%";
             // 
             // cSpiritRage_lbl
             // 
@@ -1121,6 +1214,24 @@
             this.cAP_lbl.Size = new System.Drawing.Size(21, 13);
             this.cAP_lbl.TabIndex = 5;
             this.cAP_lbl.Text = "AP";
+            // 
+            // cDFM_n
+            // 
+            this.cDFM_n.AutoSize = true;
+            this.cDFM_n.Location = new System.Drawing.Point(699, 375);
+            this.cDFM_n.Name = "cDFM_n";
+            this.cDFM_n.Size = new System.Drawing.Size(21, 13);
+            this.cDFM_n.TabIndex = 73;
+            this.cDFM_n.Text = "0%";
+            // 
+            // cDFM_lbl
+            // 
+            this.cDFM_lbl.AutoSize = true;
+            this.cDFM_lbl.Location = new System.Drawing.Point(480, 375);
+            this.cDFM_lbl.Name = "cDFM_lbl";
+            this.cDFM_lbl.Size = new System.Drawing.Size(116, 13);
+            this.cDFM_lbl.TabIndex = 72;
+            this.cDFM_lbl.Text = "Damage from Monsters";
             // 
             // Book_cb
             // 
@@ -2065,78 +2176,6 @@
             this.iEDtoBack_lbl.Size = new System.Drawing.Size(100, 13);
             this.iEDtoBack_lbl.TabIndex = 60;
             this.iEDtoBack_lbl.Text = "Extra damage Back";
-            // 
-            // cMistyHdp_lbl
-            // 
-            this.cMistyHdp_lbl.AutoSize = true;
-            this.cMistyHdp_lbl.Location = new System.Drawing.Point(699, 104);
-            this.cMistyHdp_lbl.Name = "cMistyHdp_lbl";
-            this.cMistyHdp_lbl.Size = new System.Drawing.Size(130, 13);
-            this.cMistyHdp_lbl.TabIndex = 74;
-            this.cMistyHdp_lbl.Text = "[Misty Haze] DP reduction\r\n";
-            // 
-            // cMistyHdp_n
-            // 
-            this.cMistyHdp_n.AutoSize = true;
-            this.cMistyHdp_n.Location = new System.Drawing.Point(918, 104);
-            this.cMistyHdp_n.Name = "cMistyHdp_n";
-            this.cMistyHdp_n.Size = new System.Drawing.Size(21, 13);
-            this.cMistyHdp_n.TabIndex = 75;
-            this.cMistyHdp_n.Text = "0%";
-            // 
-            // cMistyHev_lbl
-            // 
-            this.cMistyHev_lbl.AutoSize = true;
-            this.cMistyHev_lbl.Location = new System.Drawing.Point(699, 82);
-            this.cMistyHev_lbl.Name = "cMistyHev_lbl";
-            this.cMistyHev_lbl.Size = new System.Drawing.Size(146, 13);
-            this.cMistyHev_lbl.TabIndex = 72;
-            this.cMistyHev_lbl.Text = "[Misty Haze] All Evasion Rate";
-            // 
-            // cMistyHev_n
-            // 
-            this.cMistyHev_n.AutoSize = true;
-            this.cMistyHev_n.Location = new System.Drawing.Point(918, 82);
-            this.cMistyHev_n.Name = "cMistyHev_n";
-            this.cMistyHev_n.Size = new System.Drawing.Size(21, 13);
-            this.cMistyHev_n.TabIndex = 73;
-            this.cMistyHev_n.Text = "0%";
-            // 
-            // cDelusLmvs_lbl
-            // 
-            this.cDelusLmvs_lbl.AutoSize = true;
-            this.cDelusLmvs_lbl.Location = new System.Drawing.Point(699, 126);
-            this.cDelusLmvs_lbl.Name = "cDelusLmvs_lbl";
-            this.cDelusLmvs_lbl.Size = new System.Drawing.Size(214, 13);
-            this.cDelusLmvs_lbl.TabIndex = 76;
-            this.cDelusLmvs_lbl.Text = "[Delusive Light] Movement Speed reduction";
-            // 
-            // cDelusLmvs_n
-            // 
-            this.cDelusLmvs_n.AutoSize = true;
-            this.cDelusLmvs_n.Location = new System.Drawing.Point(918, 126);
-            this.cDelusLmvs_n.Name = "cDelusLmvs_n";
-            this.cDelusLmvs_n.Size = new System.Drawing.Size(21, 13);
-            this.cDelusLmvs_n.TabIndex = 77;
-            this.cDelusLmvs_n.Text = "0%";
-            // 
-            // cSunMoon_n
-            // 
-            this.cSunMoon_n.AutoSize = true;
-            this.cSunMoon_n.Location = new System.Drawing.Point(918, 148);
-            this.cSunMoon_n.Name = "cSunMoon_n";
-            this.cSunMoon_n.Size = new System.Drawing.Size(21, 13);
-            this.cSunMoon_n.TabIndex = 79;
-            this.cSunMoon_n.Text = "0%";
-            // 
-            // cSunMoon_lbl
-            // 
-            this.cSunMoon_lbl.AutoSize = true;
-            this.cSunMoon_lbl.Location = new System.Drawing.Point(699, 148);
-            this.cSunMoon_lbl.Name = "cSunMoon_lbl";
-            this.cSunMoon_lbl.Size = new System.Drawing.Size(186, 13);
-            this.cSunMoon_lbl.TabIndex = 78;
-            this.cSunMoon_lbl.Text = "[Sun, Moon, Stars] All Speed increase";
             // 
             // GearForm
             // 
