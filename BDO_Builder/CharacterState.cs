@@ -53,6 +53,8 @@ namespace BDO_Builder
         public int cSpiritRage; // Black Spirit's Rage
         public int cBidding; // Marketplace Bidding Success Rate
         public int cEDtoBack; //Back extra damage
+        public int cResistIgnore; // Ignore all Resistance
+        public int cHPrecoveryChance; //HP recovery by hit chance 
         public int cdfm; //Damage from Monsters
         public int cResistIgnore; // Ignore all Resistance
         public int cHPrecoveryChance; //HP recovery by hit chance 
