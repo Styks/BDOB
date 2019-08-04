@@ -1253,6 +1253,10 @@ namespace BDO_Builder
                 iWeight_n.Text = cs.beltWeight.ToString();
                 iSpiritRage_n.Text = Convert.ToString(cs.beltSpiritRage) + "%";
                 iEAPa_n.Text = cs.beltAPagaingst.ToString();
+
+                if (ItemEnch_cb.SelectedIndex == 0) { Belt_btn.Text = ""; }
+                else { Belt_btn.Text = ItemEnch_cb.Text; }
+
                 FillCharacterState();
 
             } //Belt
@@ -1277,6 +1281,10 @@ namespace BDO_Builder
                 iEAPa_n.Text = cs.neckAPagaingst.ToString();
                 iExtraDamKama_n.Text = cs.neckKamaDamage.ToString();
                 iEDtoBack_n.Text = cs.neckBackDamage.ToString() + "%";
+
+                if (ItemEnch_cb.SelectedIndex == 0) { Necklace_btn.Text = ""; }
+                else { Necklace_btn.Text = ItemEnch_cb.Text; }
+
                 FillCharacterState();
 
             } //Neck
@@ -1301,6 +1309,9 @@ namespace BDO_Builder
                 iBidding_n.Text = Convert.ToString(cs.ring1Bidding) + "%";
                 iSpiritRage_n.Text = Convert.ToString(cs.ring1SpiritRage) + "%";
 
+                if (ItemEnch_cb.SelectedIndex == 0) { Ring1_btn.Text = ""; }
+                else { Ring1_btn.Text = ItemEnch_cb.Text; }
+
                 FillCharacterState();
             } // Ring1
 
@@ -1324,6 +1335,9 @@ namespace BDO_Builder
                 iBidding_n.Text = Convert.ToString(cs.ring2Bidding) + "%";
                 iSpiritRage_n.Text = Convert.ToString(cs.ring2SpiritRage) + "%";
 
+                if (ItemEnch_cb.SelectedIndex == 0) { Ring2_btn.Text = ""; }
+                else { Ring2_btn.Text = ItemEnch_cb.Text; }
+
                 FillCharacterState();
             } //Ring2
 
@@ -1343,6 +1357,9 @@ namespace BDO_Builder
                 iSpiritRage_n.Text = Convert.ToString(cs.ear1SpiritRage) + "%";
                 iEAPa_n.Text = cs.ear1APagaingst.ToString();
                 iExtraDamKama_n.Text = cs.ear1KamaDamage.ToString();
+
+                if (ItemEnch_cb.SelectedIndex == 0) { Earring1_btn.Text = ""; }
+                else { Earring1_btn.Text = ItemEnch_cb.Text; }
 
                 FillCharacterState();
             } //Earring 1
@@ -1364,6 +1381,9 @@ namespace BDO_Builder
                 iEAPa_n.Text = cs.ear2APagaingst.ToString();
                 iExtraDamKama_n.Text = cs.ear2KamaDamage.ToString();
 
+                if (ItemEnch_cb.SelectedIndex == 0) { Earring2_btn.Text = ""; }
+                else { Earring2_btn.Text = ItemEnch_cb.Text; }
+
                 FillCharacterState();
             } //Earring 2
 
@@ -1384,6 +1404,10 @@ namespace BDO_Builder
                 iAcc_n.Text = cs.armAcc.ToString();
                 iHPR_n.Text = cs.armHPRecovery.ToString();
                 iMPR_n.Text = cs.armMPRecovery.ToString();
+
+                if (ItemEnch_cb.SelectedIndex == 0) { Armour_btn.Text = ""; }
+                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Armour_btn.Text = "+" + ItemEnch_cb.Text; }
+                else Armour_btn.Text = ItemEnch_cb.Text;
 
                 FillCharacterState();
             } // Armor
@@ -1407,6 +1431,10 @@ namespace BDO_Builder
                 iHPR_n.Text = cs.helHPRecovery.ToString();
                 iLuck_n.Text = cs.helLuck.ToString();
 
+                if (ItemEnch_cb.SelectedIndex == 0) { Helmet_btn.Text = ""; }
+                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Helmet_btn.Text = "+" + ItemEnch_cb.Text; }
+                else Helmet_btn.Text = ItemEnch_cb.Text;
+
                 FillCharacterState();
             } // Helmet
 
@@ -1427,7 +1455,10 @@ namespace BDO_Builder
                 iCrit_n.Text = cs.glovCrit.ToString();
                 iWeight_n.Text = cs.glovWeight.ToString();
                 iEDtA_n.Text = cs.glovDamage.ToString();
-
+               
+                if (ItemEnch_cb.SelectedIndex == 0) { Gloves_btn.Text = ""; }
+                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Gloves_btn.Text = "+" + ItemEnch_cb.Text; }
+                else Gloves_btn.Text = ItemEnch_cb.Text;
 
                 FillCharacterState();
             } //Gloves
@@ -1447,7 +1478,9 @@ namespace BDO_Builder
                 iST_n.Text = cs.shMaxST.ToString();
                 iWeight_n.Text = cs.shWeight.ToString();
 
-
+                if (ItemEnch_cb.SelectedIndex == 0) { Boots_btn.Text = ""; }
+                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { Boots_btn.Text = "+" + ItemEnch_cb.Text; }
+                else Boots_btn.Text = ItemEnch_cb.Text;
 
                 FillCharacterState();
             } //Shoes
@@ -1463,6 +1496,10 @@ namespace BDO_Builder
                 iEDH_n.Text = cs.awkDamageHumans.ToString();
                 iEDtA_n.Text = cs.awkDamageAll.ToString();
                 iEAPa_n.Text = cs.awkAPagainst.ToString();
+
+                if (ItemEnch_cb.SelectedIndex == 0) { AW_btn.Text = ""; }
+                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { AW_btn.Text = "+" + ItemEnch_cb.Text; }
+                else AW_btn.Text = ItemEnch_cb.Text;
 
                 FillCharacterState();
             } //Awakening Weapons
