@@ -1526,6 +1526,29 @@ namespace BDO_Builder
             } //Main Weapons
         }
 
-        
+        private void CharacterS_btn_Click(object sender, EventArgs e)
+        {
+            CharacterS_gb.Visible = true;
+            ShopS_gb.Visible = false;
+            Books_gb.Visible = false;
+        }
+
+        private void ShopS_btn_Click(object sender, EventArgs e)
+        {
+            ShopS_gb.Visible = true;
+            ShopS_gb.Location = CharacterS_gb.Location;
+            ShopS_gb.Size = CharacterS_gb.Size;
+            CharacterS_gb.Visible = false;
+            Books_gb.Visible = false;
+        }
+
+        private void BooksS_btn_Click(object sender, EventArgs e)
+        {
+            Books_gb.Visible = true;
+            Books_gb.Location = CharacterS_gb.Location;
+            Books_gb.Size = CharacterS_gb.Size;
+            CharacterS_gb.Visible = false;
+            ShopS_gb.Visible = false;
+        }
     }
 }
