@@ -54,6 +54,8 @@ namespace BDO_Builder
         public int cBidding; // Marketplace Bidding Success Rate
         public int cEDtoBack; //Back extra damage
         public int cdfm; //Damage from Monsters
+        public int cResistIgnore; // Ignore all Resistance
+        public int cHPrecoveryChance; //HP recovery by hit chance 
 
         //Shai's talent bonus
         public int shaiEv;
@@ -640,7 +642,43 @@ namespace BDO_Builder
 
         public int awkDefSpeedIncrease;
         public int awkSpeedIncrease;
+
+
+        //Main Weapons State
+        public int mwId = 0;
+        public bool mwEnch;
+        public int mwEnchLvl = 0;
+        public int mwAPlow;
+        public int mwAPhigh;
+        public int mwAP;
+        public int mwDefAPlow;
+        public int mwDefAPhigh;
+        public int mwDamageHumans;
+        public int mwDefDamageHumans;
+        public int mwAPagainst;
+        public int mwDefAPagainst;
+        public int mwAccuracy;
+        public int mwDefAccuracy;
+        public int mwDamageAll;
+        public int mwDefDamageAll;
+        public int mwCrit;
+        public int mwDefCrit;
+        public int mwAtkSpeed;
+        public int mwCastSpeed;
+        public int mwDefAtkSpeed;
+        public int mwDefCastSpeed;
+        public int mwIgnore;
+        public int mwDefIgnore;
+        public int mwRecoveryChance;
+        public int mwDefRecoveryChance;
+        public int mwDamDemi;
+        public int mwDefDamDemi;
+        public int mwHidenAP;
+        public int mwDefHidenAP;
+
+
         
+
 
 
         readonly SqlCommand cmd = Base_Connect.Connection.CreateCommand();
@@ -4408,7 +4446,6 @@ namespace BDO_Builder
 
         public void AwakeningState(string chClass)
         {
-            SqlCommand cmd = Base_Connect.Connection.CreateCommand();
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "select * from [" + chClass + " Awakening Weapons] where Id='" + awkId.ToString() + "'";
             cmd.ExecuteNonQuery();
@@ -4905,6 +4942,446 @@ namespace BDO_Builder
 
         }
 
+
+        public void MainWeaponState(string weapon)
+        {
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from [" + weapon + " Main Weapon] where Id='" + mwId.ToString() + "'";
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+
+            if(mwEnch == true & mwEnchLvl >= 1)
+            {
+                caap -= mwAP;
+                cacc -= mwAccuracy;
+                ceapa -= mwAPagainst;
+                cedh -= mwDamageHumans;
+                ceda -= mwDamageAll;
+                cADtDemiH -= mwDamDemi;
+                cAtkSpeed -= mwAtkSpeed;
+                cCastSpeed -= mwCastSpeed;
+                ccr -= mwCrit;
+                chap -= mwHidenAP;
+                cResistIgnore -= mwIgnore;
+                cHPrecoveryChance -= mwRecoveryChance;
+
+                //High and low AP
+                if(mwId == 3 | mwId == 6 | mwId == 7 | mwId == 21)
+                {
+                    if(mwEnchLvl == 1)
+                    {
+                        //AP High
+                        mwAPhigh = mwDefAPhigh + 4;
+                        //AP Low
+                        mwAPlow = mwDefAPlow + 4;
+                    }
+
+                    else if (mwEnchLvl >= 2 & mwEnchLvl<=3)
+                    {
+                        //AP High
+                        mwAPhigh = mwDefAPhigh + 4 + (mwEnchLvl-1) * 3;
+                        //AP Low
+                        mwAPlow = mwDefAPlow + 4 + (mwEnchLvl - 1) * 3;
+                    }
+
+                    else if (mwEnchLvl >= 4 & mwEnchLvl <= 5)
+                    {
+                        //AP High
+                        mwAPhigh = mwDefAPhigh + 10 + (mwEnchLvl - 3) * 2;
+                        //AP Low
+                        mwAPlow = mwDefAPlow + 10 + (mwEnchLvl - 3) * 2;
+                    }
+
+                    else if (mwEnchLvl >= 6 & mwEnchLvl <= 7)
+                    {
+                        //AP High
+                        mwAPhigh = mwDefAPhigh + 14 + (mwEnchLvl - 5) * 3;
+                        //AP Low
+                        mwAPlow = mwDefAPlow + 14 + (mwEnchLvl - 5) * 3;
+                    }
+
+                    else if (mwEnchLvl >= 8 & mwEnchLvl <= 15)
+                    {
+                        //AP High
+                        mwAPhigh = mwDefAPhigh + 20 + (mwEnchLvl - 7) * 5;
+                        //AP Low
+                        mwAPlow = mwDefAPlow + 20 + (mwEnchLvl - 7) * 5;
+                    }
+
+                    else if (mwEnchLvl >= 16 & mwEnchLvl <= 17)
+                    {
+                        //AP High
+                        mwAPhigh = mwDefAPhigh + 60 + (mwEnchLvl - 15) * 8;
+                        //AP Low
+                        mwAPlow = mwDefAPlow + 60 + (mwEnchLvl - 15) * 8;
+                    }
+
+                    else if (mwEnchLvl == 18 )
+                    {
+                        //AP High
+                        mwAPhigh = mwDefAPhigh + 88 ;
+                        //AP Low
+                        mwAPlow = mwDefAPlow + 88;
+                    }
+
+                    else if (mwEnchLvl >= 19 & mwEnchLvl <= 20)
+                    {
+                        //AP High
+                        mwAPhigh = mwDefAPhigh + 88 + (mwEnchLvl - 18) * 8;
+                        //AP Low
+                        mwAPlow = mwDefAPlow + 88 + (mwEnchLvl - 18) * 8;
+                    }
+
+                }
+                else if (mwId == 0)
+                {
+                    if (mwEnchLvl >= 1 & mwEnchLvl <= 2)
+                    {
+                        //AP High
+                        mwAPhigh = mwDefAPhigh + mwEnchLvl * 3;
+                        //AP Low
+                        mwAPlow = mwDefAPlow + mwEnchLvl * 3;
+                    }
+
+                    else if (mwEnchLvl >= 3 & mwEnchLvl <= 4)
+                    {
+                        //AP High
+                        mwAPhigh = mwDefAPhigh + 6 + (mwEnchLvl - 2) * 2;
+                        //AP Low
+                        mwAPlow = mwDefAPlow + 6 + (mwEnchLvl - 2) * 2;
+                    }
+
+                    else if (mwEnchLvl >= 5 & mwEnchLvl <= 6)
+                    {
+                        //AP High
+                        mwAPhigh = mwDefAPhigh + 10 + (mwEnchLvl - 4) * 3;
+                        //AP Low
+                        mwAPlow = mwDefAPlow + 10 + (mwEnchLvl - 4) * 3;
+                    }
+
+                    else if (mwEnchLvl >= 7 & mwEnchLvl <= 14)
+                    {
+                        //AP High
+                        mwAPhigh = mwDefAPhigh + 16 + (mwEnchLvl - 6) * 5;
+                        //AP Low
+                        mwAPlow = mwDefAPlow + 16 + (mwEnchLvl - 6) * 5;
+                    }
+
+                    else if (mwEnchLvl >= 15 & mwEnchLvl <= 16)
+                    {
+                        //AP High
+                        mwAPhigh = mwDefAPhigh + 56 + (mwEnchLvl - 14) * 8;
+                        //AP Low
+                        mwAPlow = mwDefAPlow + 56 + (mwEnchLvl - 14) * 8;
+                    }
+
+                    else if (mwEnchLvl == 17)
+                    {
+                        //AP High
+                        mwAPhigh = mwDefAPhigh + 84 ;
+                        //AP Low
+                        mwAPlow = mwDefAPlow + 84;
+                    }
+
+                    else if (mwEnchLvl >= 18 & mwEnchLvl <= 19)
+                    {
+                        //AP High
+                        mwAPhigh = mwDefAPhigh + 84 + (mwEnchLvl - 17) * 8;
+                        //AP Low
+                        mwAPlow = mwDefAPlow + 84 + (mwEnchLvl - 17) * 8;
+                    }
+
+                    else if (mwEnchLvl == 20)
+                    {
+                        //AP High
+                        mwAPhigh = mwDefAPhigh + 110;
+                        //AP Low
+                        mwAPlow = mwDefAPlow + 110;
+                    }
+
+                }
+                else
+                {
+                    if (mwEnchLvl == 1)
+                    {
+                        //AP High
+                        mwAPhigh = mwDefAPhigh + 4;
+                        //AP Low
+                        mwAPlow = mwDefAPlow + 4;
+                    }
+
+                    else if (mwEnchLvl >= 2 & mwEnchLvl <= 3)
+                    {
+                        //AP High
+                        mwAPhigh = mwDefAPhigh + 4 + (mwEnchLvl - 1) * 3;
+                        //AP Low
+                        mwAPlow = mwDefAPlow + 4 + (mwEnchLvl - 1) * 3;
+                    }
+
+                    else if (mwEnchLvl >= 4 & mwEnchLvl <= 5)
+                    {
+                        //AP High
+                        mwAPhigh = mwDefAPhigh + 10 + (mwEnchLvl - 3) * 2;
+                        //AP Low
+                        mwAPlow = mwDefAPlow + 10 + (mwEnchLvl - 3) * 2;
+                    }
+
+                    else if (mwEnchLvl >= 6 & mwEnchLvl <= 7)
+                    {
+                        //AP High
+                        mwAPhigh = mwDefAPhigh + 14 + (mwEnchLvl - 5) * 3;
+                        //AP Low
+                        mwAPlow = mwDefAPlow + 14 + (mwEnchLvl - 5) * 3;
+                    }
+
+                    else if (mwEnchLvl >= 8 & mwEnchLvl <= 15)
+                    {
+                        //AP High
+                        mwAPhigh = mwDefAPhigh + 20 + (mwEnchLvl - 7) * 4;
+                        //AP Low
+                        mwAPlow = mwDefAPlow + 20 + (mwEnchLvl - 7) * 4;
+                    }
+
+                    else if (mwEnchLvl >= 16 & mwEnchLvl <= 17)
+                    {
+                        //AP High
+                        mwAPhigh = mwDefAPhigh + 52 + (mwEnchLvl - 15) * 8;
+                        //AP Low
+                        mwAPlow = mwDefAPlow + 52 + (mwEnchLvl - 15) * 8;
+                    }
+
+                    else if (mwEnchLvl == 18)
+                    {
+                        //AP High
+                        mwAPhigh = mwDefAPhigh + 80;
+                        //AP Low
+                        mwAPlow = mwDefAPlow + 80;
+                    }
+
+                    else if (mwEnchLvl >= 19 & mwEnchLvl <= 20)
+                    {
+                        //AP High
+                        mwAPhigh = mwDefAPhigh + 80 + (mwEnchLvl - 18) * 8;
+                        //AP Low
+                        mwAPlow = mwDefAPlow + 80 + (mwEnchLvl - 18) * 8;
+                    }
+                }
+                //Main AP
+                mwAP = (mwAPhigh + mwAPlow) / 2;
+                //Accuracy
+                if(mwId == 6 |mwId ==8 | mwId == 30)
+                {
+                    if (mwEnchLvl >= 1 & mwEnchLvl <= 15) mwAccuracy = mwDefAccuracy + mwEnchLvl * 10;
+                    else if (mwEnchLvl >= 16 & mwEnchLvl <= 20) mwAccuracy = mwDefAccuracy + 150 + (mwEnchLvl - 15) * 8;
+
+                }
+                else if(mwId == 0)
+                {
+                    if (mwEnchLvl >= 1 & mwEnchLvl <= 14) mwAccuracy = mwDefAccuracy + mwEnchLvl * 10;
+                    else if (mwEnchLvl >= 15 & mwEnchLvl <= 19) mwAccuracy = mwDefAccuracy + 140 + (mwEnchLvl - 14) * 8;
+                    else if (mwEnchLvl == 20) mwAccuracy = mwDefAccuracy + 192;
+                }
+                else if( mwId == 3)
+                {
+                    if (mwEnchLvl == 1) mwAccuracy = mwDefAccuracy + 6;
+                    else if (mwEnchLvl == 2) mwAccuracy = mwDefAccuracy + 12;
+                    else if (mwEnchLvl == 3) mwAccuracy = mwDefAccuracy + 18;
+                    else if (mwEnchLvl >= 4 & mwEnchLvl <= 5) mwAccuracy = mwDefAccuracy + 18 + (mwEnchLvl - 3) * 4;
+                    else if (mwEnchLvl >= 6 & mwEnchLvl <= 7) mwAccuracy = mwDefAccuracy + 26 + (mwEnchLvl - 5) * 6;
+                    else if (mwEnchLvl >= 8 & mwEnchLvl <= 10) mwAccuracy = mwDefAccuracy + 38 + (mwEnchLvl - 7) * 8;
+                    else if (mwEnchLvl == 11 ) mwAccuracy = mwDefAccuracy + 74;
+                    else if (mwEnchLvl >= 12 & mwEnchLvl <= 15) mwAccuracy = mwDefAccuracy + 74 + (mwEnchLvl - 11) * 14;
+                    else if (mwEnchLvl >= 16 & mwEnchLvl <= 19) mwAccuracy = mwDefAccuracy + 130 + (mwEnchLvl - 15) * 10;
+                }
+                else if(mwId == 7)
+                {
+                    if (mwEnchLvl >= 1 & mwEnchLvl <= 3) mwAccuracy = mwDefAccuracy + mwEnchLvl * 5;                    
+                    else if (mwEnchLvl >= 4 & mwEnchLvl <= 15) mwAccuracy = mwDefAccuracy + 15 + (mwEnchLvl-3) * 10;
+                    else if (mwEnchLvl >= 16 & mwEnchLvl <= 20) mwAccuracy = mwDefAccuracy + 135 + (mwEnchLvl-15) * 8;
+
+                }
+                else if(mwId == 21)
+                {
+                    if (mwEnchLvl == 1) mwAccuracy = mwDefAccuracy + 8;
+                    else if (mwEnchLvl >= 2 & mwEnchLvl <= 3) mwAccuracy = mwDefAccuracy + 8 + (mwEnchLvl - 1) * 6;
+                    else if (mwEnchLvl >= 4 & mwEnchLvl <= 5) mwAccuracy = mwDefAccuracy + 20 + (mwEnchLvl - 3) * 4;
+                    else if (mwEnchLvl >= 6 & mwEnchLvl <= 7) mwAccuracy = mwDefAccuracy + 28 + (mwEnchLvl - 5) * 6;
+                    else if (mwEnchLvl >= 8 & mwEnchLvl <= 10) mwAccuracy = mwDefAccuracy + 40 + (mwEnchLvl - 7) * 8;
+                    else if (mwEnchLvl == 11) mwAccuracy = mwDefAccuracy + 76;
+                    else if (mwEnchLvl >= 12 & mwEnchLvl <= 15) mwAccuracy = mwDefAccuracy + 76 + (mwEnchLvl - 11) * 14;
+                    else if (mwEnchLvl >= 16 & mwEnchLvl <= 20) mwAccuracy = mwDefAccuracy + 132 + (mwEnchLvl - 15) * 10;
+
+                }
+                else if(mwId == 25)
+                {
+                    if (mwEnchLvl == 1) mwAccuracy = mwDefAccuracy + 8;
+                    else if (mwEnchLvl >= 2 & mwEnchLvl <= 3) mwAccuracy = mwDefAccuracy + 8 + (mwEnchLvl - 1) * 6;
+                    else if (mwEnchLvl >= 4 & mwEnchLvl <= 5) mwAccuracy = mwDefAccuracy + 20 + (mwEnchLvl - 3) * 4;
+                    else if (mwEnchLvl >= 6 & mwEnchLvl <= 7) mwAccuracy = mwDefAccuracy + 28 + (mwEnchLvl - 5) * 6;
+                    else if (mwEnchLvl == 8) mwAccuracy = mwDefAccuracy + 44;
+                    else if (mwEnchLvl >= 9 & mwEnchLvl <= 10) mwAccuracy = mwDefAccuracy + 44 + (mwEnchLvl - 8) * 8;
+                    else if (mwEnchLvl >= 11 & mwEnchLvl <= 20) mwAccuracy = mwDefAccuracy + 60 + (mwEnchLvl - 10) * 12;
+
+                }
+
+                else
+                {
+                    if (mwEnchLvl == 1) mwAccuracy = mwDefAccuracy + 8;
+                    else if (mwEnchLvl >= 2 & mwEnchLvl <= 3) mwAccuracy = mwDefAccuracy + 8 + (mwEnchLvl - 1) * 6;
+                    else if (mwEnchLvl >= 4 & mwEnchLvl <= 5) mwAccuracy = mwDefAccuracy + 20 + (mwEnchLvl - 3) * 4;
+                    else if (mwEnchLvl >= 6 & mwEnchLvl <= 7) mwAccuracy = mwDefAccuracy + 28 + (mwEnchLvl - 5) * 6;
+                    else if (mwEnchLvl >= 8 & mwEnchLvl <= 10) mwAccuracy = mwDefAccuracy + 40 + (mwEnchLvl - 7) * 4;
+                    else if(mwId ==31| mwId == 32 | mwId == 33 | mwId == 34 | mwId == 36 | mwId ==22|mwId == 27)
+                    {
+                        if(mwEnchLvl == 11) mwAccuracy = mwDefAccuracy + 40 + (mwEnchLvl - 7) * 4;
+                        else mwAccuracy = mwDefAccuracy + 56 + (mwEnchLvl - 11) * 6;
+                    }
+                    else if (mwEnchLvl == 11) mwAccuracy = mwDefAccuracy + 64;
+                    else if (mwEnchLvl >= 12 & mwEnchLvl <= 15) mwAccuracy = mwDefAccuracy + 64 + (mwEnchLvl - 11) * 14;
+                    else if (mwEnchLvl >= 16 & mwEnchLvl <= 20) mwAccuracy = mwDefAccuracy + 120 + (mwEnchLvl - 15) * 10;
+                }
+                //AP against monsters
+                if(mwId == 0)
+                {
+                    if(mwEnchLvl== 16) mwAPagainst = mwDefAPagainst +5;
+                    else if (mwEnchLvl == 17) mwAPagainst = mwDefAPagainst + 12;
+                    else if (mwEnchLvl == 18) mwAPagainst = mwDefAPagainst + 21;
+                    else if (mwEnchLvl == 19) mwAPagainst = mwDefAPagainst + 32;
+                    else if (mwEnchLvl == 20) mwAPagainst = mwDefAPagainst + 48;
+                }
+                else
+                {
+                    if (mwEnchLvl == 16) mwAPagainst = mwDefAPagainst + 1;
+                    else if (mwEnchLvl == 17) mwAPagainst = mwDefAPagainst + 3;
+                    else if (mwEnchLvl == 18) mwAPagainst = mwDefAPagainst + 6;
+                    else if (mwEnchLvl == 19) mwAPagainst = mwDefAPagainst + 10;
+                    else if (mwEnchLvl == 20) mwAPagainst = mwDefAPagainst + 15;
+                }
+                //Extra damage tp Humans
+                if(mwId == 36| mwId == 13)
+                {
+                    mwDamageHumans = mwDefDamageHumans + mwEnchLvl;
+                }
+                else if(mwId == 34 | mwId == 12)
+                {
+                    if(mwEnchLvl >=1 & mwEnchLvl <= 15) mwDamageHumans = mwDefDamageHumans + mwEnchLvl;
+                    else mwDamageHumans = mwDefDamageHumans + 15 +(mwEnchLvl-15)*2;
+
+                }
+                else mwDamageHumans = mwDefDamageHumans;
+
+                //Extra Damage to All Species
+                if ( mwId == 0)
+                {
+                    if(mwEnchLvl >= 1 & mwEnchLvl <=12) mwDamageAll = mwDefDamageAll;
+                    else if (mwEnchLvl >= 13 & mwEnchLvl <= 20) mwDamageAll = mwDefDamageAll + (mwEnchLvl-12) * 1;
+                }
+
+                else if(mwId == 6|mwId == 7)
+                {
+                    if (mwEnchLvl >= 1 & mwEnchLvl <= 10) mwDamageAll = mwDefDamageAll;
+                    else if (mwEnchLvl >= 11 & mwEnchLvl <= 20) mwDamageAll = mwDefDamageAll + (mwEnchLvl - 10) * 1;
+                }
+                else if (mwId == 8 | mwId == 30)
+                {
+                    if (mwEnchLvl >= 1 & mwEnchLvl <= 7) mwDamageAll = mwDefDamageAll;
+                    else if (mwEnchLvl >= 8 & mwEnchLvl <= 20) mwDamageAll = mwDefDamageAll + (mwEnchLvl - 7) * 1;
+                }
+                else if (mwId == 26 | mwId == 28)
+                {
+                     mwDamageAll = mwDefDamageAll + mwEnchLvl * 1;
+                }
+                else mwDamageAll = mwDefDamageAll;
+                
+                //Extra damage tp DemiHumans
+                if (mwId == 24 | mwId == 22)
+                {
+                    if (mwEnchLvl >= 1 & mwEnchLvl <= 15) mwDamDemi = mwDefDamDemi + mwEnchLvl;
+                    else if(mwEnchLvl>= 16 & mwEnchLvl<=20) mwDamDemi = mwDefDamDemi +15+ (mwEnchLvl-15) * 2;
+                }
+                else mwDamDemi = mwDefDamDemi;
+                
+                mwAtkSpeed = mwDefAtkSpeed;
+                mwCastSpeed = mwDefCastSpeed;
+                mwIgnore = mwDefIgnore;
+                mwCrit = mwDefCrit;
+                mwHidenAP = mwDefHidenAP;
+                mwRecoveryChance = mwDefRecoveryChance;
+
+
+                caap += mwAP;
+                cacc += mwAccuracy;
+                ceapa += mwAPagainst;
+                cedh += mwDamageHumans;
+                ceda += mwDamageAll;
+                cADtDemiH += mwDamDemi;
+                cAtkSpeed += mwAtkSpeed;
+                cCastSpeed += mwCastSpeed;
+                ccr += mwCrit;
+                chap += mwHidenAP;
+                cResistIgnore += mwIgnore;
+                cHPrecoveryChance += mwRecoveryChance;
+            }
+            else
+            {
+                caap -= mwAP;
+                cacc -= mwAccuracy;
+                ceapa -= mwAPagainst;
+                cedh -= mwDamageHumans;
+                ceda -= mwDamageAll;
+                cADtDemiH -= mwDamDemi;
+                cAtkSpeed -= mwAtkSpeed;
+                cCastSpeed -= mwCastSpeed;
+                ccr -= mwCrit;
+                chap -= mwHidenAP;
+                cResistIgnore -= mwIgnore;
+                cHPrecoveryChance -= mwRecoveryChance;
+
+                
+                
+                //AP High
+                mwAPhigh = mwDefAPhigh;
+                //AP Low
+                mwAPlow = mwDefAPlow;
+                //Main AP
+                mwAP = (mwAPhigh + mwAPlow) / 2;
+                //Accuracy
+                mwAccuracy = mwDefAccuracy;
+                //AP against monsters
+                mwAPagainst = mwDefAPagainst;
+                //Extra damage tp Humans
+                 mwDamageHumans = mwDefDamageHumans;
+
+                //Extra Damage to All Species
+               mwDamageAll = mwDefDamageAll;
+
+                //Extra damage tp DemiHumans
+                 mwDamDemi = mwDefDamDemi;
+
+                mwAtkSpeed = mwDefAtkSpeed;
+                mwCastSpeed = mwDefCastSpeed;
+                mwIgnore = mwDefIgnore;
+                mwCrit = mwDefCrit;
+                mwHidenAP = mwDefHidenAP;
+                mwRecoveryChance = mwDefRecoveryChance;
+
+
+                caap += mwAP;
+                cacc += mwAccuracy;
+                ceapa += mwAPagainst;
+                cedh += mwDamageHumans;
+                ceda += mwDamageAll;
+                cADtDemiH += mwDamDemi;
+                cAtkSpeed += mwAtkSpeed;
+                cCastSpeed += mwCastSpeed;
+                ccr += mwCrit;
+                chap += mwHidenAP;
+                cResistIgnore += mwIgnore;
+                cHPrecoveryChance += mwRecoveryChance;
+            }
+        }
         
     }
 }

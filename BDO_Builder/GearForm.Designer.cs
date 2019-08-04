@@ -57,6 +57,8 @@
             this.Armour_btn = new System.Windows.Forms.Button();
             this.Helmet_btn = new System.Windows.Forms.Button();
             this.MStats_gb = new System.Windows.Forms.GroupBox();
+            this.cIgnoreResistance_lbl = new System.Windows.Forms.Label();
+            this.cIgnoreResistance_n = new System.Windows.Forms.Label();
             this.cSunMoon_lbl = new System.Windows.Forms.Label();
             this.cSunMoon_n = new System.Windows.Forms.Label();
             this.cDelusLmvs_lbl = new System.Windows.Forms.Label();
@@ -133,6 +135,8 @@
             this.cFish_n = new System.Windows.Forms.Label();
             this.cGath_n = new System.Windows.Forms.Label();
             this.OStats_gb = new System.Windows.Forms.GroupBox();
+            this.cHPRecoveryChance_lbl = new System.Windows.Forms.Label();
+            this.cHPRecoveryChance_n = new System.Windows.Forms.Label();
             this.cCS_lbl = new System.Windows.Forms.Label();
             this.cCastSpeed_n = new System.Windows.Forms.Label();
             this.cKFR_n = new System.Windows.Forms.Label();
@@ -219,6 +223,10 @@
             this.iBidding_n = new System.Windows.Forms.Label();
             this.iEDtoBack_n = new System.Windows.Forms.Label();
             this.iEDtoBack_lbl = new System.Windows.Forms.Label();
+            this.iIgnoreResistance_lbl = new System.Windows.Forms.Label();
+            this.iIgnoreResistance_n = new System.Windows.Forms.Label();
+            this.iHPRecoveryChance_lbl = new System.Windows.Forms.Label();
+            this.iHPRecoveryChance_n = new System.Windows.Forms.Label();
             this.ShopGear_gb.SuspendLayout();
             this.CharacterGear_gb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Class_pic)).BeginInit();
@@ -455,6 +463,7 @@
             this.MW_btn.Size = new System.Drawing.Size(40, 40);
             this.MW_btn.TabIndex = 7;
             this.MW_btn.UseVisualStyleBackColor = false;
+            this.MW_btn.Click += new System.EventHandler(this.MW_btn_Click);
             // 
             // Necklace_btn
             // 
@@ -618,6 +627,8 @@
             // 
             // MStats_gb
             // 
+            this.MStats_gb.Controls.Add(this.cIgnoreResistance_lbl);
+            this.MStats_gb.Controls.Add(this.cIgnoreResistance_n);
             this.MStats_gb.Controls.Add(this.cDFM_n);
             this.MStats_gb.Controls.Add(this.cSunMoon_lbl);
             this.MStats_gb.Controls.Add(this.cSunMoon_n);
@@ -671,6 +682,24 @@
             this.MStats_gb.TabIndex = 4;
             this.MStats_gb.TabStop = false;
             this.MStats_gb.Text = "MainStats";
+            // 
+            // cIgnoreResistance_lbl
+            // 
+            this.cIgnoreResistance_lbl.AutoSize = true;
+            this.cIgnoreResistance_lbl.Location = new System.Drawing.Point(700, 167);
+            this.cIgnoreResistance_lbl.Name = "cIgnoreResistance_lbl";
+            this.cIgnoreResistance_lbl.Size = new System.Drawing.Size(107, 13);
+            this.cIgnoreResistance_lbl.TabIndex = 80;
+            this.cIgnoreResistance_lbl.Text = "Ignore All Resistance";
+            // 
+            // cIgnoreResistance_n
+            // 
+            this.cIgnoreResistance_n.AutoSize = true;
+            this.cIgnoreResistance_n.Location = new System.Drawing.Point(919, 167);
+            this.cIgnoreResistance_n.Name = "cIgnoreResistance_n";
+            this.cIgnoreResistance_n.Size = new System.Drawing.Size(21, 13);
+            this.cIgnoreResistance_n.TabIndex = 81;
+            this.cIgnoreResistance_n.Text = "0%";
             // 
             // cSunMoon_lbl
             // 
@@ -1372,6 +1401,8 @@
             // 
             // OStats_gb
             // 
+            this.OStats_gb.Controls.Add(this.cHPRecoveryChance_lbl);
+            this.OStats_gb.Controls.Add(this.cHPRecoveryChance_n);
             this.OStats_gb.Controls.Add(this.cCS_lbl);
             this.OStats_gb.Controls.Add(this.cCastSpeed_n);
             this.OStats_gb.Controls.Add(this.cKFR_n);
@@ -1399,6 +1430,24 @@
             this.OStats_gb.TabIndex = 18;
             this.OStats_gb.TabStop = false;
             this.OStats_gb.Text = "OtherStats";
+            // 
+            // cHPRecoveryChance_lbl
+            // 
+            this.cHPRecoveryChance_lbl.AutoSize = true;
+            this.cHPRecoveryChance_lbl.Location = new System.Drawing.Point(12, 167);
+            this.cHPRecoveryChance_lbl.Name = "cHPRecoveryChance_lbl";
+            this.cHPRecoveryChance_lbl.Size = new System.Drawing.Size(188, 13);
+            this.cHPRecoveryChance_lbl.TabIndex = 84;
+            this.cHPRecoveryChance_lbl.Text = "HP Recovery by 5% of chance per hit ";
+            // 
+            // cHPRecoveryChance_n
+            // 
+            this.cHPRecoveryChance_n.AutoSize = true;
+            this.cHPRecoveryChance_n.Location = new System.Drawing.Point(231, 167);
+            this.cHPRecoveryChance_n.Name = "cHPRecoveryChance_n";
+            this.cHPRecoveryChance_n.Size = new System.Drawing.Size(13, 13);
+            this.cHPRecoveryChance_n.TabIndex = 85;
+            this.cHPRecoveryChance_n.Text = "0";
             // 
             // cCS_lbl
             // 
@@ -1860,6 +1909,8 @@
             // 
             // InfTest_cb
             // 
+            this.InfTest_cb.Controls.Add(this.iHPRecoveryChance_lbl);
+            this.InfTest_cb.Controls.Add(this.iHPRecoveryChance_n);
             this.InfTest_cb.Controls.Add(this.asb_lbl);
             this.InfTest_cb.Controls.Add(this.lsb_lbl);
             this.InfTest_cb.Controls.Add(this.textBox1);
@@ -2179,12 +2230,50 @@
             this.iEDtoBack_lbl.TabIndex = 60;
             this.iEDtoBack_lbl.Text = "Extra damage Back";
             // 
+            // iIgnoreResistance_lbl
+            // 
+            this.iIgnoreResistance_lbl.AutoSize = true;
+            this.iIgnoreResistance_lbl.Location = new System.Drawing.Point(480, 276);
+            this.iIgnoreResistance_lbl.Name = "iIgnoreResistance_lbl";
+            this.iIgnoreResistance_lbl.Size = new System.Drawing.Size(107, 13);
+            this.iIgnoreResistance_lbl.TabIndex = 82;
+            this.iIgnoreResistance_lbl.Text = "Ignore All Resistance";
+            // 
+            // iIgnoreResistance_n
+            // 
+            this.iIgnoreResistance_n.AutoSize = true;
+            this.iIgnoreResistance_n.Location = new System.Drawing.Point(699, 276);
+            this.iIgnoreResistance_n.Name = "iIgnoreResistance_n";
+            this.iIgnoreResistance_n.Size = new System.Drawing.Size(21, 13);
+            this.iIgnoreResistance_n.TabIndex = 83;
+            this.iIgnoreResistance_n.Text = "0%";
+            // 
+            // iHPRecoveryChance_lbl
+            // 
+            this.iHPRecoveryChance_lbl.AutoSize = true;
+            this.iHPRecoveryChance_lbl.Location = new System.Drawing.Point(18, 146);
+            this.iHPRecoveryChance_lbl.Name = "iHPRecoveryChance_lbl";
+            this.iHPRecoveryChance_lbl.Size = new System.Drawing.Size(188, 13);
+            this.iHPRecoveryChance_lbl.TabIndex = 86;
+            this.iHPRecoveryChance_lbl.Text = "HP Recovery by 5% of chance per hit ";
+            // 
+            // iHPRecoveryChance_n
+            // 
+            this.iHPRecoveryChance_n.AutoSize = true;
+            this.iHPRecoveryChance_n.Location = new System.Drawing.Point(237, 146);
+            this.iHPRecoveryChance_n.Name = "iHPRecoveryChance_n";
+            this.iHPRecoveryChance_n.Size = new System.Drawing.Size(13, 13);
+            this.iHPRecoveryChance_n.TabIndex = 87;
+            this.iHPRecoveryChance_n.Text = "0";
+            // 
             // GearForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1429, 624);
+            this.Controls.Add(this.iIgnoreResistance_lbl);
+            this.Controls.Add(this.iIgnoreResistance_n);
             this.Controls.Add(this.iEDtoBack_n);
             this.Controls.Add(this.iSpiritRage_lbl);
             this.Controls.Add(this.iEDtoBack_lbl);
@@ -2477,5 +2566,13 @@
         private System.Windows.Forms.Label cMistyHdp_n;
         private System.Windows.Forms.Label cMistyHev_lbl;
         private System.Windows.Forms.Label cMistyHev_n;
+        private System.Windows.Forms.Label cIgnoreResistance_lbl;
+        private System.Windows.Forms.Label cIgnoreResistance_n;
+        private System.Windows.Forms.Label cHPRecoveryChance_lbl;
+        private System.Windows.Forms.Label cHPRecoveryChance_n;
+        private System.Windows.Forms.Label iIgnoreResistance_lbl;
+        private System.Windows.Forms.Label iIgnoreResistance_n;
+        private System.Windows.Forms.Label iHPRecoveryChance_lbl;
+        private System.Windows.Forms.Label iHPRecoveryChance_n;
     }
 }

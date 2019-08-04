@@ -19,13 +19,14 @@ namespace BDO_Builder
 
 
         string sclass = "None";
+        string chWeapon = "None";
         Image cimg;
 
         private void GearForm_btn_Click(object sender, EventArgs e)
         {
             GearForm gf = new GearForm
             {
-                sclass = sclass
+                sclass = sclass, chWeapon = chWeapon
             };
             Image cimg = Cimg_pb.BackgroundImage;
             gf.cimg = cimg;
@@ -43,6 +44,7 @@ namespace BDO_Builder
             Cimg_pb.BackgroundImage = cimg;
             sclass = "Warrior";
             Sclass_lbl.Text = sclass;
+            chWeapon = "Longsword";
         }
 
         private void Sorceress_btn_Click(object sender, EventArgs e)
@@ -51,6 +53,8 @@ namespace BDO_Builder
             Cimg_pb.BackgroundImage = cimg;
             sclass = "Sorceress";
             Sclass_lbl.Text = sclass;
+            chWeapon = "Amulet";
+
         }
 
         private void Berserker_btn_Click(object sender, EventArgs e)
@@ -59,6 +63,8 @@ namespace BDO_Builder
             Cimg_pb.BackgroundImage = cimg;
             sclass = "Berserker";
             Sclass_lbl.Text = sclass;
+            chWeapon = "Axe";
+
         }
 
         private void Ranger_btn_Click(object sender, EventArgs e)
@@ -67,6 +73,8 @@ namespace BDO_Builder
             Cimg_pb.BackgroundImage = cimg;
             sclass = "Ranger";
             Sclass_lbl.Text = sclass;
+            chWeapon = "Longbow";
+
         }
 
         private void Tamer_btn_Click(object sender, EventArgs e)
@@ -75,6 +83,8 @@ namespace BDO_Builder
             Cimg_pb.BackgroundImage = cimg;
             sclass = "Tamer";
             Sclass_lbl.Text = sclass;
+            chWeapon = "Shortsword";
+
         }
 
         private void Valkyrie_btn_Click(object sender, EventArgs e)
@@ -83,6 +93,8 @@ namespace BDO_Builder
             Cimg_pb.BackgroundImage = cimg;
             sclass = "Valkyrie";
             Sclass_lbl.Text = sclass;
+            chWeapon = "Longsword";
+
         }
 
         private void Musa_btn_Click(object sender, EventArgs e)
@@ -91,6 +103,7 @@ namespace BDO_Builder
             Cimg_pb.BackgroundImage = cimg;
             sclass = "Musa";
             Sclass_lbl.Text = sclass;
+            chWeapon = "Blade";
         }
 
         private void Maehwa_btn_Click(object sender, EventArgs e)
@@ -99,6 +112,7 @@ namespace BDO_Builder
             Cimg_pb.BackgroundImage = cimg;
             sclass = "Maehwa";
             Sclass_lbl.Text = sclass;
+            chWeapon = "Blade";
         }
 
         private void Witch_btn_Click(object sender, EventArgs e)
@@ -107,6 +121,8 @@ namespace BDO_Builder
             Cimg_pb.BackgroundImage = cimg;
             sclass = "Witch";
             Sclass_lbl.Text = sclass;
+            chWeapon = "Staff";
+
         }
 
         private void Wizard_btn_Click(object sender, EventArgs e)
@@ -115,6 +131,7 @@ namespace BDO_Builder
             Cimg_pb.BackgroundImage = cimg;
             sclass = "Wizard";
             Sclass_lbl.Text = sclass;
+            chWeapon = "Staff";
         }
 
         private void Kunoichi_btn_Click(object sender, EventArgs e)
@@ -123,6 +140,8 @@ namespace BDO_Builder
             Cimg_pb.BackgroundImage = cimg;
             sclass = "Kunoichi";
             Sclass_lbl.Text = sclass;
+            chWeapon = "Shortsword";
+
         }
 
         private void Class_Ninja_btn_Click(object sender, EventArgs e)
@@ -131,6 +150,8 @@ namespace BDO_Builder
             Cimg_pb.BackgroundImage = cimg;
             sclass = "Ninja";
             Sclass_lbl.Text = sclass;
+            chWeapon = "Shortsword";
+
         }
 
         private void DK_btn_Click(object sender, EventArgs e)
@@ -139,6 +160,7 @@ namespace BDO_Builder
             Cimg_pb.BackgroundImage = cimg;
             sclass = "Dark Knight";
             Sclass_lbl.Text = sclass;
+            chWeapon = "Kriegmesser";
         }
 
         private void Striker_btn_Click(object sender, EventArgs e)
@@ -147,6 +169,7 @@ namespace BDO_Builder
             Cimg_pb.BackgroundImage = cimg;
             sclass = "Striker";
             Sclass_lbl.Text = sclass;
+            chWeapon = "Gauntlet";
         }
 
         private void Mystic_btn_Click(object sender, EventArgs e)
@@ -155,6 +178,7 @@ namespace BDO_Builder
             Cimg_pb.BackgroundImage = cimg;
             sclass = "Mystic";
             Sclass_lbl.Text = sclass;
+            chWeapon = "Gauntlet";
         }
 
         private void Lahn_btn_Click(object sender, EventArgs e)
@@ -163,6 +187,8 @@ namespace BDO_Builder
             Cimg_pb.BackgroundImage = cimg;
             sclass = "Lahn";
             Sclass_lbl.Text = sclass;
+            chWeapon = "Crescent Pendulum";
+
         }
 
         private void Archer_btn_Click(object sender, EventArgs e)
@@ -171,6 +197,7 @@ namespace BDO_Builder
             Cimg_pb.BackgroundImage = cimg;
             sclass = "Archer";
             Sclass_lbl.Text = sclass;
+            chWeapon = "Crossbow";
         }
 
         private void Shai_btn_Click(object sender, EventArgs e)
@@ -179,6 +206,7 @@ namespace BDO_Builder
             Cimg_pb.BackgroundImage = cimg;
             sclass = "Shai";
             Sclass_lbl.Text = sclass;
+            chWeapon = "Florang";
         }
 
         private void SkillTreeForm_btn_Click(object sender, EventArgs e)
