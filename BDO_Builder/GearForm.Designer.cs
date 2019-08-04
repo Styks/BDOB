@@ -199,10 +199,10 @@
             this.Test_index_lbl = new System.Windows.Forms.Label();
             this.Test_BossSet = new System.Windows.Forms.Label();
             this.InfTest_cb = new System.Windows.Forms.GroupBox();
-            this.iHPRecoveryChance_lbl = new System.Windows.Forms.Label();
-            this.iHPRecoveryChance_n = new System.Windows.Forms.Label();
             this.asb_lbl = new System.Windows.Forms.Label();
             this.lsb_lbl = new System.Windows.Forms.Label();
+            this.iHPRecoveryChance_lbl = new System.Windows.Forms.Label();
+            this.iHPRecoveryChance_n = new System.Windows.Forms.Label();
             this.iAS_lbl = new System.Windows.Forms.Label();
             this.iAtkSpeed_n = new System.Windows.Forms.Label();
             this.iCS_lbl = new System.Windows.Forms.Label();
@@ -241,11 +241,11 @@
             this.BooksS_btn = new System.Windows.Forms.Button();
             this.ShopS_btn = new System.Windows.Forms.Button();
             this.ShopS_gb = new System.Windows.Forms.GroupBox();
+            this.Underwear_cb = new System.Windows.Forms.CheckBox();
             this.Crystal_lbl = new System.Windows.Forms.Label();
             this.Books_gb = new System.Windows.Forms.GroupBox();
             this.Item_gb = new System.Windows.Forms.GroupBox();
             this.Shai_gb = new System.Windows.Forms.GroupBox();
-            this.Underwear_cb = new System.Windows.Forms.CheckBox();
             this.CharacterGear_gb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Class_pic)).BeginInit();
             this.MStats_gb.SuspendLayout();
@@ -1718,7 +1718,7 @@
             // iAP_n
             // 
             this.iAP_n.AutoSize = true;
-            this.iAP_n.Location = new System.Drawing.Point(78, 121);
+            this.iAP_n.Location = new System.Drawing.Point(66, 121);
             this.iAP_n.Name = "iAP_n";
             this.iAP_n.Size = new System.Drawing.Size(13, 13);
             this.iAP_n.TabIndex = 25;
@@ -1727,7 +1727,7 @@
             // iDP_n
             // 
             this.iDP_n.AutoSize = true;
-            this.iDP_n.Location = new System.Drawing.Point(78, 146);
+            this.iDP_n.Location = new System.Drawing.Point(66, 146);
             this.iDP_n.Name = "iDP_n";
             this.iDP_n.Size = new System.Drawing.Size(13, 13);
             this.iDP_n.TabIndex = 26;
@@ -1898,7 +1898,7 @@
             // iHP_n
             // 
             this.iHP_n.AutoSize = true;
-            this.iHP_n.Location = new System.Drawing.Point(78, 168);
+            this.iHP_n.Location = new System.Drawing.Point(66, 168);
             this.iHP_n.Name = "iHP_n";
             this.iHP_n.Size = new System.Drawing.Size(13, 13);
             this.iHP_n.TabIndex = 44;
@@ -1941,7 +1941,7 @@
             // iST_n
             // 
             this.iST_n.AutoSize = true;
-            this.iST_n.Location = new System.Drawing.Point(78, 216);
+            this.iST_n.Location = new System.Drawing.Point(66, 216);
             this.iST_n.Name = "iST_n";
             this.iST_n.Size = new System.Drawing.Size(13, 13);
             this.iST_n.TabIndex = 51;
@@ -1959,7 +1959,7 @@
             // iMP_n
             // 
             this.iMP_n.AutoSize = true;
-            this.iMP_n.Location = new System.Drawing.Point(78, 192);
+            this.iMP_n.Location = new System.Drawing.Point(66, 192);
             this.iMP_n.Name = "iMP_n";
             this.iMP_n.Size = new System.Drawing.Size(13, 13);
             this.iMP_n.TabIndex = 53;
@@ -2052,24 +2052,6 @@
             this.InfTest_cb.TabStop = false;
             this.InfTest_cb.Text = "Info for test";
             // 
-            // iHPRecoveryChance_lbl
-            // 
-            this.iHPRecoveryChance_lbl.AutoSize = true;
-            this.iHPRecoveryChance_lbl.Location = new System.Drawing.Point(21, 682);
-            this.iHPRecoveryChance_lbl.Name = "iHPRecoveryChance_lbl";
-            this.iHPRecoveryChance_lbl.Size = new System.Drawing.Size(188, 13);
-            this.iHPRecoveryChance_lbl.TabIndex = 86;
-            this.iHPRecoveryChance_lbl.Text = "HP Recovery by 5% of chance per hit ";
-            // 
-            // iHPRecoveryChance_n
-            // 
-            this.iHPRecoveryChance_n.AutoSize = true;
-            this.iHPRecoveryChance_n.Location = new System.Drawing.Point(240, 682);
-            this.iHPRecoveryChance_n.Name = "iHPRecoveryChance_n";
-            this.iHPRecoveryChance_n.Size = new System.Drawing.Size(13, 13);
-            this.iHPRecoveryChance_n.TabIndex = 87;
-            this.iHPRecoveryChance_n.Text = "0";
-            // 
             // asb_lbl
             // 
             this.asb_lbl.AutoSize = true;
@@ -2087,6 +2069,24 @@
             this.lsb_lbl.Size = new System.Drawing.Size(13, 13);
             this.lsb_lbl.TabIndex = 63;
             this.lsb_lbl.Text = "0";
+            // 
+            // iHPRecoveryChance_lbl
+            // 
+            this.iHPRecoveryChance_lbl.AutoSize = true;
+            this.iHPRecoveryChance_lbl.Location = new System.Drawing.Point(21, 682);
+            this.iHPRecoveryChance_lbl.Name = "iHPRecoveryChance_lbl";
+            this.iHPRecoveryChance_lbl.Size = new System.Drawing.Size(188, 13);
+            this.iHPRecoveryChance_lbl.TabIndex = 86;
+            this.iHPRecoveryChance_lbl.Text = "HP Recovery by 5% of chance per hit ";
+            // 
+            // iHPRecoveryChance_n
+            // 
+            this.iHPRecoveryChance_n.AutoSize = true;
+            this.iHPRecoveryChance_n.Location = new System.Drawing.Point(240, 682);
+            this.iHPRecoveryChance_n.Name = "iHPRecoveryChance_n";
+            this.iHPRecoveryChance_n.Size = new System.Drawing.Size(13, 13);
+            this.iHPRecoveryChance_n.TabIndex = 87;
+            this.iHPRecoveryChance_n.Text = "0";
             // 
             // iAS_lbl
             // 
@@ -2437,6 +2437,17 @@
             this.ShopS_gb.Text = "Shop";
             this.ShopS_gb.Visible = false;
             // 
+            // Underwear_cb
+            // 
+            this.Underwear_cb.AutoSize = true;
+            this.Underwear_cb.Location = new System.Drawing.Point(19, 31);
+            this.Underwear_cb.Name = "Underwear_cb";
+            this.Underwear_cb.Size = new System.Drawing.Size(78, 17);
+            this.Underwear_cb.TabIndex = 8;
+            this.Underwear_cb.Text = "Underwear";
+            this.Underwear_cb.UseVisualStyleBackColor = true;
+            this.Underwear_cb.CheckedChanged += new System.EventHandler(this.Underwear_cb_CheckedChanged);
+            // 
             // Crystal_lbl
             // 
             this.Crystal_lbl.AutoSize = true;
@@ -2555,17 +2566,6 @@
             this.Shai_gb.TabStop = false;
             this.Shai_gb.Text = "Shai_gb";
             this.Shai_gb.Visible = false;
-            // 
-            // Underwear_cb
-            // 
-            this.Underwear_cb.AutoSize = true;
-            this.Underwear_cb.Location = new System.Drawing.Point(19, 31);
-            this.Underwear_cb.Name = "Underwear_cb";
-            this.Underwear_cb.Size = new System.Drawing.Size(78, 17);
-            this.Underwear_cb.TabIndex = 8;
-            this.Underwear_cb.Text = "Underwear";
-            this.Underwear_cb.UseVisualStyleBackColor = true;
-            this.Underwear_cb.CheckedChanged += new System.EventHandler(this.Underwear_cb_CheckedChanged);
             // 
             // GearForm
             // 

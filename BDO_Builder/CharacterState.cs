@@ -56,8 +56,7 @@ namespace BDO_Builder
         public int cResistIgnore; // Ignore all Resistance
         public int cHPrecoveryChance; //HP recovery by hit chance 
         public int cdfm; //Damage from Monsters
-        public int cResistIgnore; // Ignore all Resistance
-        public int cHPrecoveryChance; //HP recovery by hit chance 
+
         //Training
         public int tcsb; //Breath
         public double tcss; //Strength
