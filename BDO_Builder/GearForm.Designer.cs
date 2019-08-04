@@ -618,8 +618,10 @@
             // 
             // MStats_gb
             // 
+            this.MStats_gb.Controls.Add(this.cDFM_n);
             this.MStats_gb.Controls.Add(this.cSunMoon_lbl);
             this.MStats_gb.Controls.Add(this.cSunMoon_n);
+            this.MStats_gb.Controls.Add(this.cDFM_lbl);
             this.MStats_gb.Controls.Add(this.cDelusLmvs_lbl);
             this.MStats_gb.Controls.Add(this.cDelusLmvs_n);
             this.MStats_gb.Controls.Add(this.cMistyHdp_lbl);
@@ -1218,7 +1220,7 @@
             // cDFM_n
             // 
             this.cDFM_n.AutoSize = true;
-            this.cDFM_n.Location = new System.Drawing.Point(699, 375);
+            this.cDFM_n.Location = new System.Drawing.Point(918, 19);
             this.cDFM_n.Name = "cDFM_n";
             this.cDFM_n.Size = new System.Drawing.Size(21, 13);
             this.cDFM_n.TabIndex = 73;
@@ -1227,7 +1229,7 @@
             // cDFM_lbl
             // 
             this.cDFM_lbl.AutoSize = true;
-            this.cDFM_lbl.Location = new System.Drawing.Point(480, 375);
+            this.cDFM_lbl.Location = new System.Drawing.Point(699, 16);
             this.cDFM_lbl.Name = "cDFM_lbl";
             this.cDFM_lbl.Size = new System.Drawing.Size(116, 13);
             this.cDFM_lbl.TabIndex = 72;
@@ -2183,9 +2185,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1429, 624);
-            this.Controls.Add(this.cDFM_n);
             this.Controls.Add(this.iEDtoBack_n);
-            this.Controls.Add(this.cDFM_lbl);
             this.Controls.Add(this.iSpiritRage_lbl);
             this.Controls.Add(this.iEDtoBack_lbl);
             this.Controls.Add(this.iEDtAExcHumanAndDemi_n);
