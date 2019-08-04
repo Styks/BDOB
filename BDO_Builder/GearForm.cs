@@ -340,7 +340,6 @@ namespace BDO_Builder
             LoadItemEnch_cb();
         }
 
-
         //Books
         private void DpLvl_cb_CheckedChanged(object sender, EventArgs e)
         {
@@ -1521,6 +1520,10 @@ namespace BDO_Builder
                 iHPRecoveryChance_n.Text = cs.mwRecoveryChance.ToString();
                 iIgnoreResistance_n.Text = cs.mwIgnore.ToString();
 
+                if (ItemEnch_cb.SelectedIndex == 0) { MW_btn.Text = ""; }
+                else if (ItemEnch_cb.SelectedIndex >= 1 & ItemEnch_cb.SelectedIndex <= 15) { MW_btn.Text = "+" + ItemEnch_cb.Text; }
+                else MW_btn.Text = ItemEnch_cb.Text;
+
                 FillCharacterState();
             } //Main Weapons
         }
@@ -1627,6 +1630,14 @@ namespace BDO_Builder
                     e.Handled = true;
                 }
             }
+        }
+
+        private void Underwear_cb_CheckedChanged(object sender, EventArgs e)
+        {
+            int uwluck = 1;
+            if (Underwear_cb.Checked == true) { cLuck_n.Text = Convert.ToString(cs.cluck + uwluck); }
+            else { cLuck_n.Text = Convert.ToString(cs.cluck - uwluck); }
+            cs.cluck = Convert.ToInt32(cLuck_n.Text);
         }
     }
 }
