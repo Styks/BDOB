@@ -20,7 +20,6 @@ namespace BDO_Builder
         public int TempEnchLvl;
         public string chWeapon;
 
-      
         readonly CharacterState cs = new CharacterState();
 
         public GearForm()
@@ -56,7 +55,7 @@ namespace BDO_Builder
             cs.caap = Convert.ToInt32(cAAP_n.Text);
             Sclass_lbl.Text = sclass;
             Class_pic.BackgroundImage = cimg;
-            if (sclass == "Shai") { cMistyHev_lbl.Visible = true; cMistyHev_n.Visible = true; cMistyHdp_lbl.Visible = true; cMistyHdp_n.Visible = true; cDelusLmvs_lbl.Visible = true; cDelusLmvs_n.Visible = true; cSunMoon_lbl.Visible = true; cSunMoon_n.Visible = true; }
+            if (sclass == "Shai") { cMistyHev_lbl.Visible = true; cMistyHev_n.Visible = true; cMistyHdp_lbl.Visible = true; cMistyHdp_n.Visible = true; cDelusLmvs_lbl.Visible = true; cDelusLmvs_n.Visible = true; cSunMoon_lbl.Visible = true; cSunMoon_n.Visible = true; Shai_gb.Visible = true; }
             else { cMistyHev_lbl.Visible = false; cMistyHev_n.Visible = false; cMistyHdp_lbl.Visible = false; cMistyHdp_n.Visible = false; cDelusLmvs_lbl.Visible = false; cDelusLmvs_n.Visible = false; cSunMoon_lbl.Visible = false; cSunMoon_n.Visible = false; }
             ////////// Edit ComboBox
             this.SelectGear_cb.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
@@ -1549,6 +1548,85 @@ namespace BDO_Builder
             Books_gb.Size = CharacterS_gb.Size;
             CharacterS_gb.Visible = false;
             ShopS_gb.Visible = false;
+        }
+
+        private void Breath_tb_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(Breath_tb.Text))
+            {
+                Breath_tb.Text = "1";
+            }
+            if (Convert.ToInt32(Breath_tb.Text) > 50) { Breath_tb.Text = Convert.ToString(50); }
+            if (Convert.ToInt32(Breath_tb.Text) <= 0) { Breath_tb.Text = Convert.ToString(1); }
+            if (Convert.ToInt32(Breath_tb.Text) <= 11) { cs.cMaxST -= cs.tcsb; cs.tcsb = 25 * Convert.ToInt32(Breath_tb.Text) - 25; cs.cMaxST += cs.tcsb; }
+            if (Convert.ToInt32(Breath_tb.Text) > 11 & Convert.ToInt32(Breath_tb.Text) <= 19) { cs.cMaxST -= cs.tcsb; cs.tcsb = 10 * Convert.ToInt32(Breath_tb.Text) + 140; cs.cMaxST += cs.tcsb; }
+            if (Convert.ToInt32(Breath_tb.Text) == 20) { cs.cMaxST -= cs.tcsb; cs.tcsb = 10 * Convert.ToInt32(Breath_tb.Text) + 170; cs.cMaxST += cs.tcsb; }
+            if (Convert.ToInt32(Breath_tb.Text) > 20 & Convert.ToInt32(Breath_tb.Text) <= 28) { cs.cMaxST -= cs.tcsb; cs.tcsb = 10 * Convert.ToInt32(Breath_tb.Text) + 170; cs.cMaxST += cs.tcsb; }
+            if (Convert.ToInt32(Breath_tb.Text) > 28 & Convert.ToInt32(Breath_tb.Text) <= 30) { cs.cMaxST -= cs.tcsb; cs.tcsb = 25 * Convert.ToInt32(Breath_tb.Text) - 250; cs.cMaxST += cs.tcsb; }
+            if (Convert.ToInt32(Breath_tb.Text) > 30 & Convert.ToInt32(Breath_tb.Text) <= 40) { cs.cMaxST -= cs.tcsb; cs.tcsb = 10 * Convert.ToInt32(Breath_tb.Text) + 200; cs.cMaxST += cs.tcsb; }
+            if (Convert.ToInt32(Breath_tb.Text) > 40 & Convert.ToInt32(Breath_tb.Text) <= 50) { cs.cMaxST -= cs.tcsb; cs.tcsb = 20 * Convert.ToInt32(Breath_tb.Text) - 200; cs.cMaxST += cs.tcsb; }
+            FillCharacterState();
+        }
+        private void Breath_tb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsDigit(e.KeyChar)))
+            {
+                if (e.KeyChar != (char)Keys.Back)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+        private void Strength_tb_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(Strength_tb.Text))
+            {
+                Strength_tb.Text = "1";
+            }
+            if (Convert.ToInt32(Strength_tb.Text) > 50) { Strength_tb.Text = Convert.ToString(50); }
+            if (Convert.ToInt32(Strength_tb.Text) <= 0) { Strength_tb.Text = Convert.ToString(1); }
+
+            if (Convert.ToInt32(Strength_tb.Text) <= 10) { cs.cWeight -= cs.tcss; cs.tcss = 2 * Convert.ToInt32(Strength_tb.Text) - 2; cs.cWeight += cs.tcss; }
+            if (Convert.ToInt32(Strength_tb.Text) > 10 & Convert.ToInt32(Strength_tb.Text) < 20) { cs.cWeight -= cs.tcss; cs.tcss = 1 * Convert.ToInt32(Strength_tb.Text) + 8; cs.cWeight += cs.tcss; }
+            if (Convert.ToInt32(Strength_tb.Text) == 20) { cs.cWeight -= cs.tcss; cs.tcss = 2 * Convert.ToInt32(Strength_tb.Text) - 11; cs.cWeight += cs.tcss; }
+            if (Convert.ToInt32(Strength_tb.Text) > 20 & Convert.ToInt32(Strength_tb.Text) <= 28) { cs.cWeight -= cs.tcss; cs.tcss = 1 * Convert.ToInt32(Strength_tb.Text) + 9; cs.cWeight += cs.tcss; }
+            if (Convert.ToInt32(Strength_tb.Text) > 28 & Convert.ToInt32(Strength_tb.Text) <= 30) { cs.cWeight -= cs.tcss; cs.tcss = 1.5 * Convert.ToInt32(Strength_tb.Text) - 5; cs.cWeight += cs.tcss; }
+            if (Convert.ToInt32(Strength_tb.Text) > 30) { cs.cWeight -= cs.tcss; cs.tcss = 2 * Convert.ToInt32(Strength_tb.Text) - 20; cs.cWeight += cs.tcss; }
+            FillCharacterState();
+        }
+        private void Strength_tb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsDigit(e.KeyChar)))
+            {
+                if (e.KeyChar != (char)Keys.Back)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+        private void Health_tb_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(Health_tb.Text))
+            {
+                Health_tb.Text = "1";
+            }
+            if (Convert.ToInt32(Health_tb.Text) > 50) { Health_tb.Text = Convert.ToString(50); }
+            if (Convert.ToInt32(Health_tb.Text) <= 0) { Health_tb.Text = Convert.ToString(1); }
+            if (Convert.ToInt32(Health_tb.Text) <= 10) { cs.cMaxHP -= cs.tcsh1; cs.cMaxMP -= cs.tcsh2; cs.tcsh1 = 10 * Convert.ToInt32(Health_tb.Text) - 10; cs.tcsh2 = 10 * Convert.ToInt32(Health_tb.Text) - 10; cs.cMaxHP += cs.tcsh1; cs.cMaxMP += cs.tcsh2; }
+            if (Convert.ToInt32(Health_tb.Text) > 10) { cs.cMaxHP -= cs.tcsh1; cs.cMaxMP -= cs.tcsh2; ; cs.tcsh1 = 10 * Convert.ToInt32(Health_tb.Text) - 10; cs.tcsh2 = 5 * Convert.ToInt32(Health_tb.Text) + 40; cs.cMaxHP += cs.tcsh1; cs.cMaxMP += cs.tcsh2; }
+            if (Convert.ToInt32(Health_tb.Text) > 28 & Convert.ToInt32(Health_tb.Text) <= 30) { cs.cMaxHP -= cs.tcsh1; cs.cMaxMP -= cs.tcsh2; cs.tcsh1 = 10 * Convert.ToInt32(Health_tb.Text) - 10; cs.tcsh2 = 10 * Convert.ToInt32(Health_tb.Text) - 100; cs.cMaxHP += cs.tcsh1; cs.cMaxMP += cs.tcsh2; }
+            if (Convert.ToInt32(Health_tb.Text) > 30) { cs.cMaxHP -= cs.tcsh1; cs.cMaxMP -= cs.tcsh2; cs.tcsh1 = 10 * Convert.ToInt32(Health_tb.Text) - 10; cs.tcsh2 = 5 * Convert.ToInt32(Health_tb.Text) + 50; cs.cMaxHP += cs.tcsh1; cs.cMaxMP += cs.tcsh2; }
+            FillCharacterState();
+        }
+        private void Health_tb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsDigit(e.KeyChar)))
+            {
+                if (e.KeyChar != (char)Keys.Back)
+                {
+                    e.Handled = true;
+                }
+            }
         }
     }
 }

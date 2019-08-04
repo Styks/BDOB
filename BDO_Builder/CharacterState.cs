@@ -31,7 +31,7 @@ namespace BDO_Builder
         public int cRes4 = 20;// Resists: Knockback/Floating
         public int cDR; // Damage Reduction
         public int cMaxHP; // Max HP
-        public int cWeight; // Weight
+        public double cWeight; // Weight
         public int cMaxMP;// Max MP
         public int cMaxST;// Max stamina
         public int chev; // Hiden evasion
@@ -56,6 +56,11 @@ namespace BDO_Builder
         public int cdfm; //Damage from Monsters
         public int cResistIgnore; // Ignore all Resistance
         public int cHPrecoveryChance; //HP recovery by hit chance 
+        //Training
+        public int tcsb; //Breath
+        public double tcss; //Strength
+        public int tcsh1; //Health (HP)
+        public int tcsh2; //Health (MP)
 
         //Shai's talent bonus
         public int shaiEv;

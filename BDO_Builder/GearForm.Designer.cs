@@ -31,9 +31,20 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GearForm));
             this.Back_btn = new System.Windows.Forms.Button();
             this.Sclass_lbl = new System.Windows.Forms.Label();
-            this.SLC_btn = new System.Windows.Forms.Button();
             this.ShopCrystal_btn = new System.Windows.Forms.Button();
             this.CharacterGear_gb = new System.Windows.Forms.GroupBox();
+            this.CrysMW2_btn = new System.Windows.Forms.Button();
+            this.CrysMW1_btn = new System.Windows.Forms.Button();
+            this.CrysSW2_btn = new System.Windows.Forms.Button();
+            this.CrysB2_btn = new System.Windows.Forms.Button();
+            this.CrysSW1_btn = new System.Windows.Forms.Button();
+            this.CrysB1_btn = new System.Windows.Forms.Button();
+            this.CrysH2_btn = new System.Windows.Forms.Button();
+            this.CrysH1_btn = new System.Windows.Forms.Button();
+            this.CrysA2_btn = new System.Windows.Forms.Button();
+            this.CrysA1_btn = new System.Windows.Forms.Button();
+            this.CrysG2_btn = new System.Windows.Forms.Button();
+            this.CrysG1_btn = new System.Windows.Forms.Button();
             this.AS_btn = new System.Windows.Forms.Button();
             this.Class_pic = new System.Windows.Forms.PictureBox();
             this.SW_btn = new System.Windows.Forms.Button();
@@ -50,20 +61,12 @@
             this.Armour_btn = new System.Windows.Forms.Button();
             this.Helmet_btn = new System.Windows.Forms.Button();
             this.MStats_gb = new System.Windows.Forms.GroupBox();
-            this.cHPRecoveryChance_n = new System.Windows.Forms.Label();
-            this.cHPRecoveryChance_lbl = new System.Windows.Forms.Label();
             this.cIgnoreResistance_lbl = new System.Windows.Forms.Label();
+            this.cHPRecoveryChance_n = new System.Windows.Forms.Label();
             this.cIgnoreResistance_n = new System.Windows.Forms.Label();
             this.cDFM_n = new System.Windows.Forms.Label();
-            this.cSunMoon_lbl = new System.Windows.Forms.Label();
-            this.cSunMoon_n = new System.Windows.Forms.Label();
             this.cDFM_lbl = new System.Windows.Forms.Label();
-            this.cDelusLmvs_lbl = new System.Windows.Forms.Label();
-            this.cDelusLmvs_n = new System.Windows.Forms.Label();
-            this.cMistyHdp_lbl = new System.Windows.Forms.Label();
-            this.cMistyHdp_n = new System.Windows.Forms.Label();
-            this.cMistyHev_lbl = new System.Windows.Forms.Label();
-            this.cMistyHev_n = new System.Windows.Forms.Label();
+            this.cHPRecoveryChance_lbl = new System.Windows.Forms.Label();
             this.cSpiritRage_lbl = new System.Windows.Forms.Label();
             this.cSpiritRage_n = new System.Windows.Forms.Label();
             this.cBidding_lbl = new System.Windows.Forms.Label();
@@ -98,6 +101,14 @@
             this.cAP_n = new System.Windows.Forms.Label();
             this.cDP_lbl = new System.Windows.Forms.Label();
             this.cAP_lbl = new System.Windows.Forms.Label();
+            this.cSunMoon_lbl = new System.Windows.Forms.Label();
+            this.cSunMoon_n = new System.Windows.Forms.Label();
+            this.cDelusLmvs_lbl = new System.Windows.Forms.Label();
+            this.cDelusLmvs_n = new System.Windows.Forms.Label();
+            this.cMistyHdp_lbl = new System.Windows.Forms.Label();
+            this.cMistyHdp_n = new System.Windows.Forms.Label();
+            this.cMistyHev_lbl = new System.Windows.Forms.Label();
+            this.cMistyHev_n = new System.Windows.Forms.Label();
             this.ED_gb = new System.Windows.Forms.GroupBox();
             this.cEDtoBack_n = new System.Windows.Forms.Label();
             this.cEDtoBack_lbl = new System.Windows.Forms.Label();
@@ -231,22 +242,10 @@
             this.ShopS_btn = new System.Windows.Forms.Button();
             this.ShopS_gb = new System.Windows.Forms.GroupBox();
             this.Crystal_lbl = new System.Windows.Forms.Label();
-            this.Underwear_lbl = new System.Windows.Forms.Label();
             this.Books_gb = new System.Windows.Forms.GroupBox();
             this.Item_gb = new System.Windows.Forms.GroupBox();
             this.Shai_gb = new System.Windows.Forms.GroupBox();
-            this.CrysG1_btn = new System.Windows.Forms.Button();
-            this.CrysG2_btn = new System.Windows.Forms.Button();
-            this.CrysA2_btn = new System.Windows.Forms.Button();
-            this.CrysA1_btn = new System.Windows.Forms.Button();
-            this.CrysH2_btn = new System.Windows.Forms.Button();
-            this.CrysH1_btn = new System.Windows.Forms.Button();
-            this.CrysB2_btn = new System.Windows.Forms.Button();
-            this.CrysB1_btn = new System.Windows.Forms.Button();
-            this.CrysSW2_btn = new System.Windows.Forms.Button();
-            this.CrysSW1_btn = new System.Windows.Forms.Button();
-            this.CrysMW2_btn = new System.Windows.Forms.Button();
-            this.CrysMW1_btn = new System.Windows.Forms.Button();
+            this.Underwear_cb = new System.Windows.Forms.CheckBox();
             this.CharacterGear_gb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Class_pic)).BeginInit();
             this.MStats_gb.SuspendLayout();
@@ -282,24 +281,12 @@
             this.Sclass_lbl.Text = "None";
             this.Sclass_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // SLC_btn
-            // 
-            this.SLC_btn.BackColor = System.Drawing.Color.Transparent;
-            this.SLC_btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SLC_btn.BackgroundImage")));
-            this.SLC_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.SLC_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SLC_btn.Location = new System.Drawing.Point(14, 38);
-            this.SLC_btn.Name = "SLC_btn";
-            this.SLC_btn.Size = new System.Drawing.Size(40, 40);
-            this.SLC_btn.TabIndex = 7;
-            this.SLC_btn.UseVisualStyleBackColor = false;
-            // 
             // ShopCrystal_btn
             // 
             this.ShopCrystal_btn.BackColor = System.Drawing.Color.Transparent;
             this.ShopCrystal_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ShopCrystal_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ShopCrystal_btn.Location = new System.Drawing.Point(14, 106);
+            this.ShopCrystal_btn.Location = new System.Drawing.Point(19, 80);
             this.ShopCrystal_btn.Name = "ShopCrystal_btn";
             this.ShopCrystal_btn.Size = new System.Drawing.Size(25, 25);
             this.ShopCrystal_btn.TabIndex = 3;
@@ -341,6 +328,138 @@
             this.CharacterGear_gb.TabIndex = 3;
             this.CharacterGear_gb.TabStop = false;
             this.CharacterGear_gb.Text = "CharacterGear";
+            // 
+            // CrysMW2_btn
+            // 
+            this.CrysMW2_btn.BackColor = System.Drawing.Color.Transparent;
+            this.CrysMW2_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.CrysMW2_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CrysMW2_btn.Location = new System.Drawing.Point(125, 318);
+            this.CrysMW2_btn.Name = "CrysMW2_btn";
+            this.CrysMW2_btn.Size = new System.Drawing.Size(18, 18);
+            this.CrysMW2_btn.TabIndex = 95;
+            this.CrysMW2_btn.UseVisualStyleBackColor = false;
+            // 
+            // CrysMW1_btn
+            // 
+            this.CrysMW1_btn.BackColor = System.Drawing.Color.Transparent;
+            this.CrysMW1_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.CrysMW1_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CrysMW1_btn.Location = new System.Drawing.Point(103, 318);
+            this.CrysMW1_btn.Name = "CrysMW1_btn";
+            this.CrysMW1_btn.Size = new System.Drawing.Size(18, 18);
+            this.CrysMW1_btn.TabIndex = 94;
+            this.CrysMW1_btn.UseVisualStyleBackColor = false;
+            // 
+            // CrysSW2_btn
+            // 
+            this.CrysSW2_btn.BackColor = System.Drawing.Color.Transparent;
+            this.CrysSW2_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.CrysSW2_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CrysSW2_btn.Location = new System.Drawing.Point(251, 318);
+            this.CrysSW2_btn.Name = "CrysSW2_btn";
+            this.CrysSW2_btn.Size = new System.Drawing.Size(18, 18);
+            this.CrysSW2_btn.TabIndex = 93;
+            this.CrysSW2_btn.UseVisualStyleBackColor = false;
+            // 
+            // CrysB2_btn
+            // 
+            this.CrysB2_btn.BackColor = System.Drawing.Color.Transparent;
+            this.CrysB2_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.CrysB2_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CrysB2_btn.Location = new System.Drawing.Point(85, 200);
+            this.CrysB2_btn.Name = "CrysB2_btn";
+            this.CrysB2_btn.Size = new System.Drawing.Size(18, 18);
+            this.CrysB2_btn.TabIndex = 93;
+            this.CrysB2_btn.UseVisualStyleBackColor = false;
+            // 
+            // CrysSW1_btn
+            // 
+            this.CrysSW1_btn.BackColor = System.Drawing.Color.Transparent;
+            this.CrysSW1_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.CrysSW1_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CrysSW1_btn.Location = new System.Drawing.Point(229, 318);
+            this.CrysSW1_btn.Name = "CrysSW1_btn";
+            this.CrysSW1_btn.Size = new System.Drawing.Size(18, 18);
+            this.CrysSW1_btn.TabIndex = 92;
+            this.CrysSW1_btn.UseVisualStyleBackColor = false;
+            // 
+            // CrysB1_btn
+            // 
+            this.CrysB1_btn.BackColor = System.Drawing.Color.Transparent;
+            this.CrysB1_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.CrysB1_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CrysB1_btn.Location = new System.Drawing.Point(85, 178);
+            this.CrysB1_btn.Name = "CrysB1_btn";
+            this.CrysB1_btn.Size = new System.Drawing.Size(18, 18);
+            this.CrysB1_btn.TabIndex = 92;
+            this.CrysB1_btn.UseVisualStyleBackColor = false;
+            // 
+            // CrysH2_btn
+            // 
+            this.CrysH2_btn.BackColor = System.Drawing.Color.Transparent;
+            this.CrysH2_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.CrysH2_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CrysH2_btn.Location = new System.Drawing.Point(149, 47);
+            this.CrysH2_btn.Name = "CrysH2_btn";
+            this.CrysH2_btn.Size = new System.Drawing.Size(18, 18);
+            this.CrysH2_btn.TabIndex = 95;
+            this.CrysH2_btn.UseVisualStyleBackColor = false;
+            // 
+            // CrysH1_btn
+            // 
+            this.CrysH1_btn.BackColor = System.Drawing.Color.Transparent;
+            this.CrysH1_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.CrysH1_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CrysH1_btn.Location = new System.Drawing.Point(149, 25);
+            this.CrysH1_btn.Name = "CrysH1_btn";
+            this.CrysH1_btn.Size = new System.Drawing.Size(18, 18);
+            this.CrysH1_btn.TabIndex = 94;
+            this.CrysH1_btn.UseVisualStyleBackColor = false;
+            // 
+            // CrysA2_btn
+            // 
+            this.CrysA2_btn.BackColor = System.Drawing.Color.Transparent;
+            this.CrysA2_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.CrysA2_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CrysA2_btn.Location = new System.Drawing.Point(205, 47);
+            this.CrysA2_btn.Name = "CrysA2_btn";
+            this.CrysA2_btn.Size = new System.Drawing.Size(18, 18);
+            this.CrysA2_btn.TabIndex = 93;
+            this.CrysA2_btn.UseVisualStyleBackColor = false;
+            // 
+            // CrysA1_btn
+            // 
+            this.CrysA1_btn.BackColor = System.Drawing.Color.Transparent;
+            this.CrysA1_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.CrysA1_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CrysA1_btn.Location = new System.Drawing.Point(205, 25);
+            this.CrysA1_btn.Name = "CrysA1_btn";
+            this.CrysA1_btn.Size = new System.Drawing.Size(18, 18);
+            this.CrysA1_btn.TabIndex = 92;
+            this.CrysA1_btn.UseVisualStyleBackColor = false;
+            // 
+            // CrysG2_btn
+            // 
+            this.CrysG2_btn.BackColor = System.Drawing.Color.Transparent;
+            this.CrysG2_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.CrysG2_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CrysG2_btn.Location = new System.Drawing.Point(271, 200);
+            this.CrysG2_btn.Name = "CrysG2_btn";
+            this.CrysG2_btn.Size = new System.Drawing.Size(18, 18);
+            this.CrysG2_btn.TabIndex = 91;
+            this.CrysG2_btn.UseVisualStyleBackColor = false;
+            // 
+            // CrysG1_btn
+            // 
+            this.CrysG1_btn.BackColor = System.Drawing.Color.Transparent;
+            this.CrysG1_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.CrysG1_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CrysG1_btn.Location = new System.Drawing.Point(271, 178);
+            this.CrysG1_btn.Name = "CrysG1_btn";
+            this.CrysG1_btn.Size = new System.Drawing.Size(18, 18);
+            this.CrysG1_btn.TabIndex = 90;
+            this.CrysG1_btn.UseVisualStyleBackColor = false;
             // 
             // AS_btn
             // 
@@ -619,24 +738,6 @@
             this.MStats_gb.TabStop = false;
             this.MStats_gb.Text = "MainStats";
             // 
-            // cHPRecoveryChance_n
-            // 
-            this.cHPRecoveryChance_n.AutoSize = true;
-            this.cHPRecoveryChance_n.Location = new System.Drawing.Point(602, 150);
-            this.cHPRecoveryChance_n.Name = "cHPRecoveryChance_n";
-            this.cHPRecoveryChance_n.Size = new System.Drawing.Size(13, 13);
-            this.cHPRecoveryChance_n.TabIndex = 85;
-            this.cHPRecoveryChance_n.Text = "0";
-            // 
-            // cHPRecoveryChance_lbl
-            // 
-            this.cHPRecoveryChance_lbl.AutoSize = true;
-            this.cHPRecoveryChance_lbl.Location = new System.Drawing.Point(383, 150);
-            this.cHPRecoveryChance_lbl.Name = "cHPRecoveryChance_lbl";
-            this.cHPRecoveryChance_lbl.Size = new System.Drawing.Size(188, 13);
-            this.cHPRecoveryChance_lbl.TabIndex = 84;
-            this.cHPRecoveryChance_lbl.Text = "HP Recovery by 5% of chance per hit ";
-            // 
             // cIgnoreResistance_lbl
             // 
             this.cIgnoreResistance_lbl.AutoSize = true;
@@ -645,6 +746,15 @@
             this.cIgnoreResistance_lbl.Size = new System.Drawing.Size(107, 13);
             this.cIgnoreResistance_lbl.TabIndex = 80;
             this.cIgnoreResistance_lbl.Text = "Ignore All Resistance";
+            // 
+            // cHPRecoveryChance_n
+            // 
+            this.cHPRecoveryChance_n.AutoSize = true;
+            this.cHPRecoveryChance_n.Location = new System.Drawing.Point(602, 150);
+            this.cHPRecoveryChance_n.Name = "cHPRecoveryChance_n";
+            this.cHPRecoveryChance_n.Size = new System.Drawing.Size(13, 13);
+            this.cHPRecoveryChance_n.TabIndex = 85;
+            this.cHPRecoveryChance_n.Text = "0";
             // 
             // cIgnoreResistance_n
             // 
@@ -664,24 +774,6 @@
             this.cDFM_n.TabIndex = 73;
             this.cDFM_n.Text = "0%";
             // 
-            // cSunMoon_lbl
-            // 
-            this.cSunMoon_lbl.AutoSize = true;
-            this.cSunMoon_lbl.Location = new System.Drawing.Point(252, 46);
-            this.cSunMoon_lbl.Name = "cSunMoon_lbl";
-            this.cSunMoon_lbl.Size = new System.Drawing.Size(186, 13);
-            this.cSunMoon_lbl.TabIndex = 78;
-            this.cSunMoon_lbl.Text = "[Sun, Moon, Stars] All Speed increase";
-            // 
-            // cSunMoon_n
-            // 
-            this.cSunMoon_n.AutoSize = true;
-            this.cSunMoon_n.Location = new System.Drawing.Point(471, 46);
-            this.cSunMoon_n.Name = "cSunMoon_n";
-            this.cSunMoon_n.Size = new System.Drawing.Size(21, 13);
-            this.cSunMoon_n.TabIndex = 79;
-            this.cSunMoon_n.Text = "0%";
-            // 
             // cDFM_lbl
             // 
             this.cDFM_lbl.AutoSize = true;
@@ -691,59 +783,14 @@
             this.cDFM_lbl.TabIndex = 72;
             this.cDFM_lbl.Text = "Damage from Monsters";
             // 
-            // cDelusLmvs_lbl
+            // cHPRecoveryChance_lbl
             // 
-            this.cDelusLmvs_lbl.AutoSize = true;
-            this.cDelusLmvs_lbl.Location = new System.Drawing.Point(252, 24);
-            this.cDelusLmvs_lbl.Name = "cDelusLmvs_lbl";
-            this.cDelusLmvs_lbl.Size = new System.Drawing.Size(214, 13);
-            this.cDelusLmvs_lbl.TabIndex = 76;
-            this.cDelusLmvs_lbl.Text = "[Delusive Light] Movement Speed reduction";
-            // 
-            // cDelusLmvs_n
-            // 
-            this.cDelusLmvs_n.AutoSize = true;
-            this.cDelusLmvs_n.Location = new System.Drawing.Point(471, 24);
-            this.cDelusLmvs_n.Name = "cDelusLmvs_n";
-            this.cDelusLmvs_n.Size = new System.Drawing.Size(21, 13);
-            this.cDelusLmvs_n.TabIndex = 77;
-            this.cDelusLmvs_n.Text = "0%";
-            // 
-            // cMistyHdp_lbl
-            // 
-            this.cMistyHdp_lbl.AutoSize = true;
-            this.cMistyHdp_lbl.Location = new System.Drawing.Point(6, 46);
-            this.cMistyHdp_lbl.Name = "cMistyHdp_lbl";
-            this.cMistyHdp_lbl.Size = new System.Drawing.Size(130, 13);
-            this.cMistyHdp_lbl.TabIndex = 74;
-            this.cMistyHdp_lbl.Text = "[Misty Haze] DP reduction\r\n";
-            // 
-            // cMistyHdp_n
-            // 
-            this.cMistyHdp_n.AutoSize = true;
-            this.cMistyHdp_n.Location = new System.Drawing.Point(225, 46);
-            this.cMistyHdp_n.Name = "cMistyHdp_n";
-            this.cMistyHdp_n.Size = new System.Drawing.Size(21, 13);
-            this.cMistyHdp_n.TabIndex = 75;
-            this.cMistyHdp_n.Text = "0%";
-            // 
-            // cMistyHev_lbl
-            // 
-            this.cMistyHev_lbl.AutoSize = true;
-            this.cMistyHev_lbl.Location = new System.Drawing.Point(6, 24);
-            this.cMistyHev_lbl.Name = "cMistyHev_lbl";
-            this.cMistyHev_lbl.Size = new System.Drawing.Size(146, 13);
-            this.cMistyHev_lbl.TabIndex = 72;
-            this.cMistyHev_lbl.Text = "[Misty Haze] All Evasion Rate";
-            // 
-            // cMistyHev_n
-            // 
-            this.cMistyHev_n.AutoSize = true;
-            this.cMistyHev_n.Location = new System.Drawing.Point(225, 24);
-            this.cMistyHev_n.Name = "cMistyHev_n";
-            this.cMistyHev_n.Size = new System.Drawing.Size(21, 13);
-            this.cMistyHev_n.TabIndex = 73;
-            this.cMistyHev_n.Text = "0%";
+            this.cHPRecoveryChance_lbl.AutoSize = true;
+            this.cHPRecoveryChance_lbl.Location = new System.Drawing.Point(383, 150);
+            this.cHPRecoveryChance_lbl.Name = "cHPRecoveryChance_lbl";
+            this.cHPRecoveryChance_lbl.Size = new System.Drawing.Size(188, 13);
+            this.cHPRecoveryChance_lbl.TabIndex = 84;
+            this.cHPRecoveryChance_lbl.Text = "HP Recovery by 5% of chance per hit ";
             // 
             // cSpiritRage_lbl
             // 
@@ -1051,6 +1098,78 @@
             this.cAP_lbl.TabIndex = 5;
             this.cAP_lbl.Text = "AP";
             // 
+            // cSunMoon_lbl
+            // 
+            this.cSunMoon_lbl.AutoSize = true;
+            this.cSunMoon_lbl.Location = new System.Drawing.Point(252, 46);
+            this.cSunMoon_lbl.Name = "cSunMoon_lbl";
+            this.cSunMoon_lbl.Size = new System.Drawing.Size(186, 13);
+            this.cSunMoon_lbl.TabIndex = 78;
+            this.cSunMoon_lbl.Text = "[Sun, Moon, Stars] All Speed increase";
+            // 
+            // cSunMoon_n
+            // 
+            this.cSunMoon_n.AutoSize = true;
+            this.cSunMoon_n.Location = new System.Drawing.Point(471, 46);
+            this.cSunMoon_n.Name = "cSunMoon_n";
+            this.cSunMoon_n.Size = new System.Drawing.Size(21, 13);
+            this.cSunMoon_n.TabIndex = 79;
+            this.cSunMoon_n.Text = "0%";
+            // 
+            // cDelusLmvs_lbl
+            // 
+            this.cDelusLmvs_lbl.AutoSize = true;
+            this.cDelusLmvs_lbl.Location = new System.Drawing.Point(252, 24);
+            this.cDelusLmvs_lbl.Name = "cDelusLmvs_lbl";
+            this.cDelusLmvs_lbl.Size = new System.Drawing.Size(214, 13);
+            this.cDelusLmvs_lbl.TabIndex = 76;
+            this.cDelusLmvs_lbl.Text = "[Delusive Light] Movement Speed reduction";
+            // 
+            // cDelusLmvs_n
+            // 
+            this.cDelusLmvs_n.AutoSize = true;
+            this.cDelusLmvs_n.Location = new System.Drawing.Point(471, 24);
+            this.cDelusLmvs_n.Name = "cDelusLmvs_n";
+            this.cDelusLmvs_n.Size = new System.Drawing.Size(21, 13);
+            this.cDelusLmvs_n.TabIndex = 77;
+            this.cDelusLmvs_n.Text = "0%";
+            // 
+            // cMistyHdp_lbl
+            // 
+            this.cMistyHdp_lbl.AutoSize = true;
+            this.cMistyHdp_lbl.Location = new System.Drawing.Point(6, 46);
+            this.cMistyHdp_lbl.Name = "cMistyHdp_lbl";
+            this.cMistyHdp_lbl.Size = new System.Drawing.Size(130, 13);
+            this.cMistyHdp_lbl.TabIndex = 74;
+            this.cMistyHdp_lbl.Text = "[Misty Haze] DP reduction\r\n";
+            // 
+            // cMistyHdp_n
+            // 
+            this.cMistyHdp_n.AutoSize = true;
+            this.cMistyHdp_n.Location = new System.Drawing.Point(225, 46);
+            this.cMistyHdp_n.Name = "cMistyHdp_n";
+            this.cMistyHdp_n.Size = new System.Drawing.Size(21, 13);
+            this.cMistyHdp_n.TabIndex = 75;
+            this.cMistyHdp_n.Text = "0%";
+            // 
+            // cMistyHev_lbl
+            // 
+            this.cMistyHev_lbl.AutoSize = true;
+            this.cMistyHev_lbl.Location = new System.Drawing.Point(6, 24);
+            this.cMistyHev_lbl.Name = "cMistyHev_lbl";
+            this.cMistyHev_lbl.Size = new System.Drawing.Size(146, 13);
+            this.cMistyHev_lbl.TabIndex = 72;
+            this.cMistyHev_lbl.Text = "[Misty Haze] All Evasion Rate";
+            // 
+            // cMistyHev_n
+            // 
+            this.cMistyHev_n.AutoSize = true;
+            this.cMistyHev_n.Location = new System.Drawing.Point(225, 24);
+            this.cMistyHev_n.Name = "cMistyHev_n";
+            this.cMistyHev_n.Size = new System.Drawing.Size(21, 13);
+            this.cMistyHev_n.TabIndex = 73;
+            this.cMistyHev_n.Text = "0%";
+            // 
             // ED_gb
             // 
             this.ED_gb.Controls.Add(this.cEDtoBack_n);
@@ -1273,6 +1392,8 @@
             this.Health_tb.Name = "Health_tb";
             this.Health_tb.Size = new System.Drawing.Size(32, 20);
             this.Health_tb.TabIndex = 13;
+            this.Health_tb.TextChanged += new System.EventHandler(this.Health_tb_TextChanged);
+            this.Health_tb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Health_tb_KeyPress);
             // 
             // Strength_lbl
             // 
@@ -1290,6 +1411,8 @@
             this.Strength_tb.Name = "Strength_tb";
             this.Strength_tb.Size = new System.Drawing.Size(32, 20);
             this.Strength_tb.TabIndex = 11;
+            this.Strength_tb.TextChanged += new System.EventHandler(this.Strength_tb_TextChanged);
+            this.Strength_tb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Strength_tb_KeyPress);
             // 
             // Breath_lbl
             // 
@@ -1307,6 +1430,8 @@
             this.Breath_tb.Name = "Breath_tb";
             this.Breath_tb.Size = new System.Drawing.Size(32, 20);
             this.Breath_tb.TabIndex = 9;
+            this.Breath_tb.TextChanged += new System.EventHandler(this.Breath_tb_TextChanged);
+            this.Breath_tb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Breath_tb_KeyPress);
             // 
             // dpLvl_cb
             // 
@@ -2280,6 +2405,7 @@
             // 
             // ShopS_btn
             // 
+            this.ShopS_btn.Enabled = false;
             this.ShopS_btn.Location = new System.Drawing.Point(501, 30);
             this.ShopS_btn.Name = "ShopS_btn";
             this.ShopS_btn.Size = new System.Drawing.Size(75, 23);
@@ -2290,13 +2416,12 @@
             // 
             // ShopS_gb
             // 
+            this.ShopS_gb.Controls.Add(this.Underwear_cb);
             this.ShopS_gb.Controls.Add(this.Crystal_lbl);
-            this.ShopS_gb.Controls.Add(this.Underwear_lbl);
-            this.ShopS_gb.Controls.Add(this.SLC_btn);
             this.ShopS_gb.Controls.Add(this.ShopCrystal_btn);
-            this.ShopS_gb.Location = new System.Drawing.Point(1124, 841);
+            this.ShopS_gb.Location = new System.Drawing.Point(1502, 210);
             this.ShopS_gb.Name = "ShopS_gb";
-            this.ShopS_gb.Size = new System.Drawing.Size(75, 33);
+            this.ShopS_gb.Size = new System.Drawing.Size(123, 127);
             this.ShopS_gb.TabIndex = 87;
             this.ShopS_gb.TabStop = false;
             this.ShopS_gb.Text = "Shop";
@@ -2305,27 +2430,18 @@
             // Crystal_lbl
             // 
             this.Crystal_lbl.AutoSize = true;
-            this.Crystal_lbl.Location = new System.Drawing.Point(11, 92);
+            this.Crystal_lbl.Location = new System.Drawing.Point(16, 66);
             this.Crystal_lbl.Name = "Crystal_lbl";
             this.Crystal_lbl.Size = new System.Drawing.Size(38, 13);
             this.Crystal_lbl.TabIndex = 1;
             this.Crystal_lbl.Text = "Crystal";
             // 
-            // Underwear_lbl
-            // 
-            this.Underwear_lbl.AutoSize = true;
-            this.Underwear_lbl.Location = new System.Drawing.Point(11, 22);
-            this.Underwear_lbl.Name = "Underwear_lbl";
-            this.Underwear_lbl.Size = new System.Drawing.Size(59, 13);
-            this.Underwear_lbl.TabIndex = 0;
-            this.Underwear_lbl.Text = "Underwear";
-            // 
             // Books_gb
             // 
             this.Books_gb.Controls.Add(this.Book_cb);
-            this.Books_gb.Location = new System.Drawing.Point(1205, 843);
+            this.Books_gb.Location = new System.Drawing.Point(1413, 369);
             this.Books_gb.Name = "Books_gb";
-            this.Books_gb.Size = new System.Drawing.Size(63, 31);
+            this.Books_gb.Size = new System.Drawing.Size(173, 100);
             this.Books_gb.TabIndex = 88;
             this.Books_gb.TabStop = false;
             this.Books_gb.Text = "Books";
@@ -2426,138 +2542,17 @@
             this.Shai_gb.TabIndex = 84;
             this.Shai_gb.TabStop = false;
             this.Shai_gb.Text = "Shai_gb";
+            this.Shai_gb.Visible = false;
             // 
-            // CrysG1_btn
+            // Underwear_cb
             // 
-            this.CrysG1_btn.BackColor = System.Drawing.Color.Transparent;
-            this.CrysG1_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.CrysG1_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CrysG1_btn.Location = new System.Drawing.Point(271, 178);
-            this.CrysG1_btn.Name = "CrysG1_btn";
-            this.CrysG1_btn.Size = new System.Drawing.Size(18, 18);
-            this.CrysG1_btn.TabIndex = 90;
-            this.CrysG1_btn.UseVisualStyleBackColor = false;
-            // 
-            // CrysG2_btn
-            // 
-            this.CrysG2_btn.BackColor = System.Drawing.Color.Transparent;
-            this.CrysG2_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.CrysG2_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CrysG2_btn.Location = new System.Drawing.Point(271, 200);
-            this.CrysG2_btn.Name = "CrysG2_btn";
-            this.CrysG2_btn.Size = new System.Drawing.Size(18, 18);
-            this.CrysG2_btn.TabIndex = 91;
-            this.CrysG2_btn.UseVisualStyleBackColor = false;
-            // 
-            // CrysA2_btn
-            // 
-            this.CrysA2_btn.BackColor = System.Drawing.Color.Transparent;
-            this.CrysA2_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.CrysA2_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CrysA2_btn.Location = new System.Drawing.Point(205, 47);
-            this.CrysA2_btn.Name = "CrysA2_btn";
-            this.CrysA2_btn.Size = new System.Drawing.Size(18, 18);
-            this.CrysA2_btn.TabIndex = 93;
-            this.CrysA2_btn.UseVisualStyleBackColor = false;
-            // 
-            // CrysA1_btn
-            // 
-            this.CrysA1_btn.BackColor = System.Drawing.Color.Transparent;
-            this.CrysA1_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.CrysA1_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CrysA1_btn.Location = new System.Drawing.Point(205, 25);
-            this.CrysA1_btn.Name = "CrysA1_btn";
-            this.CrysA1_btn.Size = new System.Drawing.Size(18, 18);
-            this.CrysA1_btn.TabIndex = 92;
-            this.CrysA1_btn.UseVisualStyleBackColor = false;
-            // 
-            // CrysH2_btn
-            // 
-            this.CrysH2_btn.BackColor = System.Drawing.Color.Transparent;
-            this.CrysH2_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.CrysH2_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CrysH2_btn.Location = new System.Drawing.Point(149, 47);
-            this.CrysH2_btn.Name = "CrysH2_btn";
-            this.CrysH2_btn.Size = new System.Drawing.Size(18, 18);
-            this.CrysH2_btn.TabIndex = 95;
-            this.CrysH2_btn.UseVisualStyleBackColor = false;
-            // 
-            // CrysH1_btn
-            // 
-            this.CrysH1_btn.BackColor = System.Drawing.Color.Transparent;
-            this.CrysH1_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.CrysH1_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CrysH1_btn.Location = new System.Drawing.Point(149, 25);
-            this.CrysH1_btn.Name = "CrysH1_btn";
-            this.CrysH1_btn.Size = new System.Drawing.Size(18, 18);
-            this.CrysH1_btn.TabIndex = 94;
-            this.CrysH1_btn.UseVisualStyleBackColor = false;
-            // 
-            // CrysB2_btn
-            // 
-            this.CrysB2_btn.BackColor = System.Drawing.Color.Transparent;
-            this.CrysB2_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.CrysB2_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CrysB2_btn.Location = new System.Drawing.Point(85, 200);
-            this.CrysB2_btn.Name = "CrysB2_btn";
-            this.CrysB2_btn.Size = new System.Drawing.Size(18, 18);
-            this.CrysB2_btn.TabIndex = 93;
-            this.CrysB2_btn.UseVisualStyleBackColor = false;
-            // 
-            // CrysB1_btn
-            // 
-            this.CrysB1_btn.BackColor = System.Drawing.Color.Transparent;
-            this.CrysB1_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.CrysB1_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CrysB1_btn.Location = new System.Drawing.Point(85, 178);
-            this.CrysB1_btn.Name = "CrysB1_btn";
-            this.CrysB1_btn.Size = new System.Drawing.Size(18, 18);
-            this.CrysB1_btn.TabIndex = 92;
-            this.CrysB1_btn.UseVisualStyleBackColor = false;
-            // 
-            // CrysSW2_btn
-            // 
-            this.CrysSW2_btn.BackColor = System.Drawing.Color.Transparent;
-            this.CrysSW2_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.CrysSW2_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CrysSW2_btn.Location = new System.Drawing.Point(251, 318);
-            this.CrysSW2_btn.Name = "CrysSW2_btn";
-            this.CrysSW2_btn.Size = new System.Drawing.Size(18, 18);
-            this.CrysSW2_btn.TabIndex = 93;
-            this.CrysSW2_btn.UseVisualStyleBackColor = false;
-            // 
-            // CrysSW1_btn
-            // 
-            this.CrysSW1_btn.BackColor = System.Drawing.Color.Transparent;
-            this.CrysSW1_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.CrysSW1_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CrysSW1_btn.Location = new System.Drawing.Point(229, 318);
-            this.CrysSW1_btn.Name = "CrysSW1_btn";
-            this.CrysSW1_btn.Size = new System.Drawing.Size(18, 18);
-            this.CrysSW1_btn.TabIndex = 92;
-            this.CrysSW1_btn.UseVisualStyleBackColor = false;
-            // 
-            // CrysMW2_btn
-            // 
-            this.CrysMW2_btn.BackColor = System.Drawing.Color.Transparent;
-            this.CrysMW2_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.CrysMW2_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CrysMW2_btn.Location = new System.Drawing.Point(125, 318);
-            this.CrysMW2_btn.Name = "CrysMW2_btn";
-            this.CrysMW2_btn.Size = new System.Drawing.Size(18, 18);
-            this.CrysMW2_btn.TabIndex = 95;
-            this.CrysMW2_btn.UseVisualStyleBackColor = false;
-            // 
-            // CrysMW1_btn
-            // 
-            this.CrysMW1_btn.BackColor = System.Drawing.Color.Transparent;
-            this.CrysMW1_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.CrysMW1_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CrysMW1_btn.Location = new System.Drawing.Point(103, 318);
-            this.CrysMW1_btn.Name = "CrysMW1_btn";
-            this.CrysMW1_btn.Size = new System.Drawing.Size(18, 18);
-            this.CrysMW1_btn.TabIndex = 94;
-            this.CrysMW1_btn.UseVisualStyleBackColor = false;
+            this.Underwear_cb.AutoSize = true;
+            this.Underwear_cb.Location = new System.Drawing.Point(19, 31);
+            this.Underwear_cb.Name = "Underwear_cb";
+            this.Underwear_cb.Size = new System.Drawing.Size(78, 17);
+            this.Underwear_cb.TabIndex = 8;
+            this.Underwear_cb.Text = "Underwear";
+            this.Underwear_cb.UseVisualStyleBackColor = true;
             // 
             // GearForm
             // 
@@ -2614,7 +2609,6 @@
 
         private System.Windows.Forms.Button Back_btn;
         private System.Windows.Forms.Label Sclass_lbl;
-        private System.Windows.Forms.Button SLC_btn;
         private System.Windows.Forms.Button ShopCrystal_btn;
         private System.Windows.Forms.GroupBox CharacterGear_gb;
         private System.Windows.Forms.Button SW_btn;
@@ -2814,7 +2808,6 @@
         private System.Windows.Forms.TextBox Strength_tb;
         private System.Windows.Forms.GroupBox ShopS_gb;
         private System.Windows.Forms.Label Crystal_lbl;
-        private System.Windows.Forms.Label Underwear_lbl;
         private System.Windows.Forms.GroupBox Books_gb;
         private System.Windows.Forms.GroupBox Item_gb;
         private System.Windows.Forms.GroupBox Shai_gb;
@@ -2830,5 +2823,6 @@
         private System.Windows.Forms.Button CrysA1_btn;
         private System.Windows.Forms.Button CrysG2_btn;
         private System.Windows.Forms.Button CrysG1_btn;
+        private System.Windows.Forms.CheckBox Underwear_cb;
     }
 }
