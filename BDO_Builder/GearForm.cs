@@ -1532,7 +1532,7 @@ namespace BDO_Builder
         {
             CharacterS_gb.Visible = true;
             ShopS_gb.Visible = false;
-            Books_gb.Visible = false;
+            JournalsS_gb.Visible = false;
         }
 
         private void ShopS_btn_Click(object sender, EventArgs e)
@@ -1541,14 +1541,14 @@ namespace BDO_Builder
             ShopS_gb.Location = CharacterS_gb.Location;
             ShopS_gb.Size = CharacterS_gb.Size;
             CharacterS_gb.Visible = false;
-            Books_gb.Visible = false;
+            JournalsS_gb.Visible = false;
         }
 
         private void BooksS_btn_Click(object sender, EventArgs e)
         {
-            Books_gb.Visible = true;
-            Books_gb.Location = CharacterS_gb.Location;
-            Books_gb.Size = CharacterS_gb.Size;
+            JournalsS_gb.Visible = true;
+            JournalsS_gb.Location = CharacterS_gb.Location;
+            JournalsS_gb.Size = new Size (243,322);
             CharacterS_gb.Visible = false;
             ShopS_gb.Visible = false;
         }
@@ -1638,6 +1638,104 @@ namespace BDO_Builder
             if (Underwear_cb.Checked == true) { cLuck_n.Text = Convert.ToString(cs.cluck + uwluck); }
             else { cLuck_n.Text = Convert.ToString(cs.cluck - uwluck); }
             cs.cluck = Convert.ToInt32(cLuck_n.Text);
+        }
+
+        //IB journal
+        private void IbCheckAll_cb_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ibCheckAll_cb.Checked == true)
+            {
+                ibChapter1_cb.Checked = true;
+                ibChapter2_cb.Checked = true;
+                ibChapter3_cb.Checked = true;
+                ibChapter4_cb.Checked = true;
+                ibChapter5_cb.Checked = true;
+                ibChapter6_cb.Checked = true;
+                ibChapter7_cb.Checked = true;
+                ibChapter8_cb.Checked = true;
+                ibChapter9_cb.Checked = true;
+                ibChapter10_cb.Checked = true;
+            }
+            else
+            {
+                ibChapter1_cb.Checked = false;
+                ibChapter2_cb.Checked = false;
+                ibChapter3_cb.Checked = false;
+                ibChapter4_cb.Checked = false;
+                ibChapter5_cb.Checked = false;
+                ibChapter6_cb.Checked = false;
+                ibChapter7_cb.Checked = false;
+                ibChapter8_cb.Checked = false;
+                ibChapter9_cb.Checked = false;
+                ibChapter10_cb.Checked = false;
+            }
+        }
+        private void IbChapter1_cb_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ibChapter1_cb.Checked == true){ cs.cMaxHP += 6; cs.cMaxST += 5; }
+            else { cs.cMaxHP -= 6; cs.cMaxST -= 5; }
+            FillCharacterState();
+        }
+        private void IbChapter2_cb_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ibChapter2_cb.Checked == true) { cs.cWeight += 4; cs.cacc += 1; cs.cMaxHP += 6; cs.cMaxST += 5; }
+            else { cs.cWeight -= 4; cs.cacc -= 1; cs.cMaxHP -= 6; cs.cMaxST -= 5; }
+            FillCharacterState();
+        }
+        private void IbChapter3_cb_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ibChapter3_cb.Checked == true) { cs.cWeight += 2; cs.cdp += 1; cs.cMaxHP += 6; cs.cMaxST += 5; }
+            else { cs.cWeight -= 2; cs.cdp -= 1; cs.cMaxHP -= 6; cs.cMaxST -= 5; }
+            FillCharacterState();
+        }
+        private void IbChapter4_cb_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ibChapter4_cb.Checked == true) { cs.cMaxHP += 6; cs.cMaxST += 5; cs.cev += 2; }
+            else { cs.cMaxHP -= 6; cs.cMaxST -= 5; cs.cev -= 2; }
+            FillCharacterState();
+        }
+        private void IbChapter5_cb_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ibChapter5_cb.Checked == true) { cs.cWeight += 3; cs.cacc += 2; cs.cMaxHP += 3; cs.cMaxST += 5; }
+            else { cs.cWeight -= 3; cs.cacc -= 2; cs.cMaxHP -= 3; cs.cMaxST -= 5; }
+            FillCharacterState();
+        }
+        private void IbChapter6_cb_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ibChapter6_cb.Checked == true) { cs.cap += 1; cs.cacc += 1; cs.cMaxHP += 8; cs.cMaxST += 5; }
+            else { cs.cap -= 1; cs.cacc -= 1; cs.cMaxHP -= 8; cs.cMaxST -= 5; }
+            FillCharacterState();
+        }
+        private void IbChapter7_cb_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ibChapter7_cb.Checked == true) { cs.cWeight += 5; cs.cMaxHP += 6; cs.cMaxST += 10; }
+            else { cs.cWeight -= 5; cs.cMaxHP -= 6; cs.cMaxST -= 10; }
+            FillCharacterState();
+        }
+        private void IbChapter8_cb_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ibChapter8_cb.Checked == true) { cs.cWeight += 2; cs.cacc += 2; cs.cMaxHP += 14; cs.cev += 1; }
+            else { cs.cWeight -= 2; cs.cacc -= 2; cs.cMaxHP -= 14; cs.cev -= 1; }
+            FillCharacterState();
+        }
+        private void IbChapter9_cb_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ibChapter9_cb.Checked == true) { cs.cWeight += 3; cs.cacc += 2; cs.cMaxHP += 3; cs.cMaxST += 5; }
+            else { cs.cWeight -= 3; cs.cacc -= 2; cs.cMaxHP -= 3; cs.cMaxST -= 5; }
+            FillCharacterState();
+        }
+        private void IbChapter10_cb_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ibChapter10_cb.Checked == true) { cs.cev += 2; cs.cMaxHP += 6; cs.cMaxST += 5; }
+            else { cs.cev -= 2; cs.cMaxHP -= 6; cs.cMaxST -= 5; }
+            FillCharacterState();
+        }
+        //RT journal
+        private void RtChapter1_cb_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rtChapter1_cb.Checked == true) { cs.cWeight += 6; cs.cMaxHP += 18; }
+            else { cs.cWeight -= 6; cs.cMaxHP -= 18; }
+            FillCharacterState();
         }
     }
 }

@@ -238,14 +238,28 @@
             this.iIgnoreResistance_lbl = new System.Windows.Forms.Label();
             this.iIgnoreResistance_n = new System.Windows.Forms.Label();
             this.CharacterS_btn = new System.Windows.Forms.Button();
-            this.BooksS_btn = new System.Windows.Forms.Button();
+            this.JournalsS_btn = new System.Windows.Forms.Button();
             this.ShopS_btn = new System.Windows.Forms.Button();
             this.ShopS_gb = new System.Windows.Forms.GroupBox();
             this.Underwear_cb = new System.Windows.Forms.CheckBox();
             this.Crystal_lbl = new System.Windows.Forms.Label();
-            this.Books_gb = new System.Windows.Forms.GroupBox();
+            this.JournalsS_gb = new System.Windows.Forms.GroupBox();
             this.Item_gb = new System.Windows.Forms.GroupBox();
             this.Shai_gb = new System.Windows.Forms.GroupBox();
+            this.JournalsS1_gb = new System.Windows.Forms.GroupBox();
+            this.JournalsS2_gb = new System.Windows.Forms.GroupBox();
+            this.ibChapter1_cb = new System.Windows.Forms.CheckBox();
+            this.ibChapter2_cb = new System.Windows.Forms.CheckBox();
+            this.ibChapter3_cb = new System.Windows.Forms.CheckBox();
+            this.ibChapter4_cb = new System.Windows.Forms.CheckBox();
+            this.ibChapter5_cb = new System.Windows.Forms.CheckBox();
+            this.ibChapter6_cb = new System.Windows.Forms.CheckBox();
+            this.ibChapter7_cb = new System.Windows.Forms.CheckBox();
+            this.ibChapter8_cb = new System.Windows.Forms.CheckBox();
+            this.ibChapter9_cb = new System.Windows.Forms.CheckBox();
+            this.ibChapter10_cb = new System.Windows.Forms.CheckBox();
+            this.rtChapter1_cb = new System.Windows.Forms.CheckBox();
+            this.ibCheckAll_cb = new System.Windows.Forms.CheckBox();
             this.CharacterGear_gb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Class_pic)).BeginInit();
             this.MStats_gb.SuspendLayout();
@@ -255,9 +269,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.Item_image)).BeginInit();
             this.InfTest_cb.SuspendLayout();
             this.ShopS_gb.SuspendLayout();
-            this.Books_gb.SuspendLayout();
+            this.JournalsS_gb.SuspendLayout();
             this.Item_gb.SuspendLayout();
             this.Shai_gb.SuspendLayout();
+            this.JournalsS1_gb.SuspendLayout();
+            this.JournalsS2_gb.SuspendLayout();
             this.SuspendLayout();
             // 
             // Back_btn
@@ -1353,7 +1369,8 @@
             // Book_cb
             // 
             this.Book_cb.AutoSize = true;
-            this.Book_cb.Location = new System.Drawing.Point(13, 25);
+            this.Book_cb.Enabled = false;
+            this.Book_cb.Location = new System.Drawing.Point(1119, 101);
             this.Book_cb.Name = "Book_cb";
             this.Book_cb.Size = new System.Drawing.Size(130, 17);
             this.Book_cb.TabIndex = 5;
@@ -1384,7 +1401,7 @@
             this.CharacterS_gb.Controls.Add(this.apLvl_cb);
             this.CharacterS_gb.Location = new System.Drawing.Point(420, 66);
             this.CharacterS_gb.Name = "CharacterS_gb";
-            this.CharacterS_gb.Size = new System.Drawing.Size(237, 157);
+            this.CharacterS_gb.Size = new System.Drawing.Size(243, 157);
             this.CharacterS_gb.TabIndex = 7;
             this.CharacterS_gb.TabStop = false;
             this.CharacterS_gb.Text = "Character";
@@ -2404,15 +2421,15 @@
             this.CharacterS_btn.UseVisualStyleBackColor = true;
             this.CharacterS_btn.Click += new System.EventHandler(this.CharacterS_btn_Click);
             // 
-            // BooksS_btn
+            // JournalsS_btn
             // 
-            this.BooksS_btn.Location = new System.Drawing.Point(582, 30);
-            this.BooksS_btn.Name = "BooksS_btn";
-            this.BooksS_btn.Size = new System.Drawing.Size(75, 23);
-            this.BooksS_btn.TabIndex = 85;
-            this.BooksS_btn.Text = "Books";
-            this.BooksS_btn.UseVisualStyleBackColor = true;
-            this.BooksS_btn.Click += new System.EventHandler(this.BooksS_btn_Click);
+            this.JournalsS_btn.Location = new System.Drawing.Point(582, 30);
+            this.JournalsS_btn.Name = "JournalsS_btn";
+            this.JournalsS_btn.Size = new System.Drawing.Size(75, 23);
+            this.JournalsS_btn.TabIndex = 85;
+            this.JournalsS_btn.Text = "Journals";
+            this.JournalsS_btn.UseVisualStyleBackColor = true;
+            this.JournalsS_btn.Click += new System.EventHandler(this.BooksS_btn_Click);
             // 
             // ShopS_btn
             // 
@@ -2429,7 +2446,7 @@
             this.ShopS_gb.Controls.Add(this.Underwear_cb);
             this.ShopS_gb.Controls.Add(this.Crystal_lbl);
             this.ShopS_gb.Controls.Add(this.ShopCrystal_btn);
-            this.ShopS_gb.Location = new System.Drawing.Point(1502, 210);
+            this.ShopS_gb.Location = new System.Drawing.Point(1656, 473);
             this.ShopS_gb.Name = "ShopS_gb";
             this.ShopS_gb.Size = new System.Drawing.Size(123, 127);
             this.ShopS_gb.TabIndex = 87;
@@ -2457,16 +2474,17 @@
             this.Crystal_lbl.TabIndex = 1;
             this.Crystal_lbl.Text = "Crystal";
             // 
-            // Books_gb
+            // JournalsS_gb
             // 
-            this.Books_gb.Controls.Add(this.Book_cb);
-            this.Books_gb.Location = new System.Drawing.Point(1413, 369);
-            this.Books_gb.Name = "Books_gb";
-            this.Books_gb.Size = new System.Drawing.Size(173, 100);
-            this.Books_gb.TabIndex = 88;
-            this.Books_gb.TabStop = false;
-            this.Books_gb.Text = "Books";
-            this.Books_gb.Visible = false;
+            this.JournalsS_gb.Controls.Add(this.JournalsS2_gb);
+            this.JournalsS_gb.Controls.Add(this.JournalsS1_gb);
+            this.JournalsS_gb.Location = new System.Drawing.Point(420, 66);
+            this.JournalsS_gb.Name = "JournalsS_gb";
+            this.JournalsS_gb.Size = new System.Drawing.Size(243, 322);
+            this.JournalsS_gb.TabIndex = 88;
+            this.JournalsS_gb.TabStop = false;
+            this.JournalsS_gb.Text = "Journals";
+            this.JournalsS_gb.Visible = false;
             // 
             // Item_gb
             // 
@@ -2567,6 +2585,168 @@
             this.Shai_gb.Text = "Shai_gb";
             this.Shai_gb.Visible = false;
             // 
+            // JournalsS1_gb
+            // 
+            this.JournalsS1_gb.Controls.Add(this.ibCheckAll_cb);
+            this.JournalsS1_gb.Controls.Add(this.ibChapter10_cb);
+            this.JournalsS1_gb.Controls.Add(this.ibChapter9_cb);
+            this.JournalsS1_gb.Controls.Add(this.ibChapter8_cb);
+            this.JournalsS1_gb.Controls.Add(this.ibChapter7_cb);
+            this.JournalsS1_gb.Controls.Add(this.ibChapter6_cb);
+            this.JournalsS1_gb.Controls.Add(this.ibChapter5_cb);
+            this.JournalsS1_gb.Controls.Add(this.ibChapter4_cb);
+            this.JournalsS1_gb.Controls.Add(this.ibChapter3_cb);
+            this.JournalsS1_gb.Controls.Add(this.ibChapter2_cb);
+            this.JournalsS1_gb.Controls.Add(this.ibChapter1_cb);
+            this.JournalsS1_gb.Location = new System.Drawing.Point(6, 19);
+            this.JournalsS1_gb.Name = "JournalsS1_gb";
+            this.JournalsS1_gb.Size = new System.Drawing.Size(231, 226);
+            this.JournalsS1_gb.TabIndex = 6;
+            this.JournalsS1_gb.TabStop = false;
+            this.JournalsS1_gb.Text = "Igor Bartali\'s Adventure Log";
+            // 
+            // JournalsS2_gb
+            // 
+            this.JournalsS2_gb.Controls.Add(this.rtChapter1_cb);
+            this.JournalsS2_gb.Location = new System.Drawing.Point(6, 251);
+            this.JournalsS2_gb.Name = "JournalsS2_gb";
+            this.JournalsS2_gb.Size = new System.Drawing.Size(231, 65);
+            this.JournalsS2_gb.TabIndex = 7;
+            this.JournalsS2_gb.TabStop = false;
+            this.JournalsS2_gb.Text = "Rulupee\'s Travel Log";
+            // 
+            // ibChapter1_cb
+            // 
+            this.ibChapter1_cb.AutoSize = true;
+            this.ibChapter1_cb.Location = new System.Drawing.Point(9, 19);
+            this.ibChapter1_cb.Name = "ibChapter1_cb";
+            this.ibChapter1_cb.Size = new System.Drawing.Size(72, 17);
+            this.ibChapter1_cb.TabIndex = 90;
+            this.ibChapter1_cb.Text = "Chapter 1";
+            this.ibChapter1_cb.UseVisualStyleBackColor = true;
+            this.ibChapter1_cb.CheckedChanged += new System.EventHandler(this.IbChapter1_cb_CheckedChanged);
+            // 
+            // ibChapter2_cb
+            // 
+            this.ibChapter2_cb.AutoSize = true;
+            this.ibChapter2_cb.Location = new System.Drawing.Point(9, 42);
+            this.ibChapter2_cb.Name = "ibChapter2_cb";
+            this.ibChapter2_cb.Size = new System.Drawing.Size(72, 17);
+            this.ibChapter2_cb.TabIndex = 91;
+            this.ibChapter2_cb.Text = "Chapter 2";
+            this.ibChapter2_cb.UseVisualStyleBackColor = true;
+            this.ibChapter2_cb.CheckedChanged += new System.EventHandler(this.IbChapter2_cb_CheckedChanged);
+            // 
+            // ibChapter3_cb
+            // 
+            this.ibChapter3_cb.AutoSize = true;
+            this.ibChapter3_cb.Location = new System.Drawing.Point(9, 65);
+            this.ibChapter3_cb.Name = "ibChapter3_cb";
+            this.ibChapter3_cb.Size = new System.Drawing.Size(72, 17);
+            this.ibChapter3_cb.TabIndex = 92;
+            this.ibChapter3_cb.Text = "Chapter 3";
+            this.ibChapter3_cb.UseVisualStyleBackColor = true;
+            this.ibChapter3_cb.CheckedChanged += new System.EventHandler(this.IbChapter3_cb_CheckedChanged);
+            // 
+            // ibChapter4_cb
+            // 
+            this.ibChapter4_cb.AutoSize = true;
+            this.ibChapter4_cb.Location = new System.Drawing.Point(9, 87);
+            this.ibChapter4_cb.Name = "ibChapter4_cb";
+            this.ibChapter4_cb.Size = new System.Drawing.Size(72, 17);
+            this.ibChapter4_cb.TabIndex = 93;
+            this.ibChapter4_cb.Text = "Chapter 4";
+            this.ibChapter4_cb.UseVisualStyleBackColor = true;
+            this.ibChapter4_cb.CheckedChanged += new System.EventHandler(this.IbChapter4_cb_CheckedChanged);
+            // 
+            // ibChapter5_cb
+            // 
+            this.ibChapter5_cb.AutoSize = true;
+            this.ibChapter5_cb.Location = new System.Drawing.Point(9, 110);
+            this.ibChapter5_cb.Name = "ibChapter5_cb";
+            this.ibChapter5_cb.Size = new System.Drawing.Size(72, 17);
+            this.ibChapter5_cb.TabIndex = 94;
+            this.ibChapter5_cb.Text = "Chapter 5";
+            this.ibChapter5_cb.UseVisualStyleBackColor = true;
+            this.ibChapter5_cb.CheckedChanged += new System.EventHandler(this.IbChapter5_cb_CheckedChanged);
+            // 
+            // ibChapter6_cb
+            // 
+            this.ibChapter6_cb.AutoSize = true;
+            this.ibChapter6_cb.Location = new System.Drawing.Point(81, 20);
+            this.ibChapter6_cb.Name = "ibChapter6_cb";
+            this.ibChapter6_cb.Size = new System.Drawing.Size(72, 17);
+            this.ibChapter6_cb.TabIndex = 95;
+            this.ibChapter6_cb.Text = "Chapter 6";
+            this.ibChapter6_cb.UseVisualStyleBackColor = true;
+            this.ibChapter6_cb.CheckedChanged += new System.EventHandler(this.IbChapter6_cb_CheckedChanged);
+            // 
+            // ibChapter7_cb
+            // 
+            this.ibChapter7_cb.AutoSize = true;
+            this.ibChapter7_cb.Location = new System.Drawing.Point(81, 42);
+            this.ibChapter7_cb.Name = "ibChapter7_cb";
+            this.ibChapter7_cb.Size = new System.Drawing.Size(72, 17);
+            this.ibChapter7_cb.TabIndex = 96;
+            this.ibChapter7_cb.Text = "Chapter 7";
+            this.ibChapter7_cb.UseVisualStyleBackColor = true;
+            this.ibChapter7_cb.CheckedChanged += new System.EventHandler(this.IbChapter7_cb_CheckedChanged);
+            // 
+            // ibChapter8_cb
+            // 
+            this.ibChapter8_cb.AutoSize = true;
+            this.ibChapter8_cb.Location = new System.Drawing.Point(81, 65);
+            this.ibChapter8_cb.Name = "ibChapter8_cb";
+            this.ibChapter8_cb.Size = new System.Drawing.Size(72, 17);
+            this.ibChapter8_cb.TabIndex = 97;
+            this.ibChapter8_cb.Text = "Chapter 8";
+            this.ibChapter8_cb.UseVisualStyleBackColor = true;
+            this.ibChapter8_cb.CheckedChanged += new System.EventHandler(this.IbChapter8_cb_CheckedChanged);
+            // 
+            // ibChapter9_cb
+            // 
+            this.ibChapter9_cb.AutoSize = true;
+            this.ibChapter9_cb.Location = new System.Drawing.Point(81, 87);
+            this.ibChapter9_cb.Name = "ibChapter9_cb";
+            this.ibChapter9_cb.Size = new System.Drawing.Size(72, 17);
+            this.ibChapter9_cb.TabIndex = 98;
+            this.ibChapter9_cb.Text = "Chapter 9";
+            this.ibChapter9_cb.UseVisualStyleBackColor = true;
+            this.ibChapter9_cb.CheckedChanged += new System.EventHandler(this.IbChapter9_cb_CheckedChanged);
+            // 
+            // ibChapter10_cb
+            // 
+            this.ibChapter10_cb.AutoSize = true;
+            this.ibChapter10_cb.Location = new System.Drawing.Point(81, 110);
+            this.ibChapter10_cb.Name = "ibChapter10_cb";
+            this.ibChapter10_cb.Size = new System.Drawing.Size(78, 17);
+            this.ibChapter10_cb.TabIndex = 99;
+            this.ibChapter10_cb.Text = "Chapter 10";
+            this.ibChapter10_cb.UseVisualStyleBackColor = true;
+            this.ibChapter10_cb.CheckedChanged += new System.EventHandler(this.IbChapter10_cb_CheckedChanged);
+            // 
+            // rtChapter1_cb
+            // 
+            this.rtChapter1_cb.AutoSize = true;
+            this.rtChapter1_cb.Location = new System.Drawing.Point(9, 27);
+            this.rtChapter1_cb.Name = "rtChapter1_cb";
+            this.rtChapter1_cb.Size = new System.Drawing.Size(72, 17);
+            this.rtChapter1_cb.TabIndex = 91;
+            this.rtChapter1_cb.Text = "Chapter 1";
+            this.rtChapter1_cb.UseVisualStyleBackColor = true;
+            this.rtChapter1_cb.CheckedChanged += new System.EventHandler(this.RtChapter1_cb_CheckedChanged);
+            // 
+            // ibCheckAll_cb
+            // 
+            this.ibCheckAll_cb.AutoSize = true;
+            this.ibCheckAll_cb.Location = new System.Drawing.Point(9, 203);
+            this.ibCheckAll_cb.Name = "ibCheckAll_cb";
+            this.ibCheckAll_cb.Size = new System.Drawing.Size(70, 17);
+            this.ibCheckAll_cb.TabIndex = 100;
+            this.ibCheckAll_cb.Text = "Check all";
+            this.ibCheckAll_cb.UseVisualStyleBackColor = true;
+            this.ibCheckAll_cb.CheckedChanged += new System.EventHandler(this.IbCheckAll_cb_CheckedChanged);
+            // 
             // GearForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2574,11 +2754,12 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1813, 886);
             this.Controls.Add(this.Shai_gb);
+            this.Controls.Add(this.Book_cb);
             this.Controls.Add(this.Item_gb);
-            this.Controls.Add(this.Books_gb);
+            this.Controls.Add(this.JournalsS_gb);
             this.Controls.Add(this.ShopS_gb);
             this.Controls.Add(this.ShopS_btn);
-            this.Controls.Add(this.BooksS_btn);
+            this.Controls.Add(this.JournalsS_btn);
             this.Controls.Add(this.CharacterS_btn);
             this.Controls.Add(this.ED_gb);
             this.Controls.Add(this.InfTest_cb);
@@ -2608,13 +2789,17 @@
             this.InfTest_cb.PerformLayout();
             this.ShopS_gb.ResumeLayout(false);
             this.ShopS_gb.PerformLayout();
-            this.Books_gb.ResumeLayout(false);
-            this.Books_gb.PerformLayout();
+            this.JournalsS_gb.ResumeLayout(false);
             this.Item_gb.ResumeLayout(false);
             this.Item_gb.PerformLayout();
             this.Shai_gb.ResumeLayout(false);
             this.Shai_gb.PerformLayout();
+            this.JournalsS1_gb.ResumeLayout(false);
+            this.JournalsS1_gb.PerformLayout();
+            this.JournalsS2_gb.ResumeLayout(false);
+            this.JournalsS2_gb.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -2811,7 +2996,7 @@
         private System.Windows.Forms.Label iHPRecoveryChance_lbl;
         private System.Windows.Forms.Label iHPRecoveryChance_n;
         private System.Windows.Forms.Button CharacterS_btn;
-        private System.Windows.Forms.Button BooksS_btn;
+        private System.Windows.Forms.Button JournalsS_btn;
         private System.Windows.Forms.Button ShopS_btn;
         private System.Windows.Forms.TextBox Breath_tb;
         private System.Windows.Forms.Label Breath_lbl;
@@ -2821,7 +3006,7 @@
         private System.Windows.Forms.TextBox Strength_tb;
         private System.Windows.Forms.GroupBox ShopS_gb;
         private System.Windows.Forms.Label Crystal_lbl;
-        private System.Windows.Forms.GroupBox Books_gb;
+        private System.Windows.Forms.GroupBox JournalsS_gb;
         private System.Windows.Forms.GroupBox Item_gb;
         private System.Windows.Forms.GroupBox Shai_gb;
         private System.Windows.Forms.Button CrysMW2_btn;
@@ -2837,5 +3022,19 @@
         private System.Windows.Forms.Button CrysG2_btn;
         private System.Windows.Forms.Button CrysG1_btn;
         private System.Windows.Forms.CheckBox Underwear_cb;
+        private System.Windows.Forms.GroupBox JournalsS1_gb;
+        private System.Windows.Forms.GroupBox JournalsS2_gb;
+        private System.Windows.Forms.CheckBox rtChapter1_cb;
+        private System.Windows.Forms.CheckBox ibChapter10_cb;
+        private System.Windows.Forms.CheckBox ibChapter9_cb;
+        private System.Windows.Forms.CheckBox ibChapter8_cb;
+        private System.Windows.Forms.CheckBox ibChapter7_cb;
+        private System.Windows.Forms.CheckBox ibChapter6_cb;
+        private System.Windows.Forms.CheckBox ibChapter5_cb;
+        private System.Windows.Forms.CheckBox ibChapter4_cb;
+        private System.Windows.Forms.CheckBox ibChapter3_cb;
+        private System.Windows.Forms.CheckBox ibChapter2_cb;
+        private System.Windows.Forms.CheckBox ibChapter1_cb;
+        private System.Windows.Forms.CheckBox ibCheckAll_cb;
     }
 }
