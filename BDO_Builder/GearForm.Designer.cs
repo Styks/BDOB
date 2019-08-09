@@ -63,7 +63,9 @@
             this.MStats_gb = new System.Windows.Forms.GroupBox();
             this.cIgnoreResistance_lbl = new System.Windows.Forms.Label();
             this.cHPRecoveryChance_n = new System.Windows.Forms.Label();
+            this.cSpecialAttackEvRate_n = new System.Windows.Forms.Label();
             this.cIgnoreResistance_n = new System.Windows.Forms.Label();
+            this.cSpecialAttackEvRate_lbl = new System.Windows.Forms.Label();
             this.cDFM_n = new System.Windows.Forms.Label();
             this.cDFM_lbl = new System.Windows.Forms.Label();
             this.cHPRecoveryChance_lbl = new System.Windows.Forms.Label();
@@ -110,6 +112,8 @@
             this.cMistyHev_lbl = new System.Windows.Forms.Label();
             this.cMistyHev_n = new System.Windows.Forms.Label();
             this.ED_gb = new System.Windows.Forms.GroupBox();
+            this.cSpecialAttackED_n = new System.Windows.Forms.Label();
+            this.cSpecialAttackED_lbl = new System.Windows.Forms.Label();
             this.cEDtoBack_n = new System.Windows.Forms.Label();
             this.cEDtoBack_lbl = new System.Windows.Forms.Label();
             this.cEDtAExcHumanAndDemi_n = new System.Windows.Forms.Label();
@@ -245,7 +249,13 @@
             this.Crystal_lbl = new System.Windows.Forms.Label();
             this.Books_gb = new System.Windows.Forms.GroupBox();
             this.Item_gb = new System.Windows.Forms.GroupBox();
+            this.iSpecialAttackED_n = new System.Windows.Forms.Label();
+            this.iSpecialAttackED_lbl = new System.Windows.Forms.Label();
+            this.iSpecialAttackEvRate_n = new System.Windows.Forms.Label();
+            this.iSpecialAttackEvRate_lbl = new System.Windows.Forms.Label();
             this.Shai_gb = new System.Windows.Forms.GroupBox();
+            this.iHAP_n = new System.Windows.Forms.Label();
+            this.iHAP_lbl = new System.Windows.Forms.Label();
             this.CharacterGear_gb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Class_pic)).BeginInit();
             this.MStats_gb.SuspendLayout();
@@ -264,7 +274,7 @@
             // 
             this.Back_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Back_btn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Back_btn.Location = new System.Drawing.Point(1726, 12);
+            this.Back_btn.Location = new System.Drawing.Point(1349, 12);
             this.Back_btn.Name = "Back_btn";
             this.Back_btn.Size = new System.Drawing.Size(75, 23);
             this.Back_btn.TabIndex = 0;
@@ -509,6 +519,7 @@
             this.SW_btn.Size = new System.Drawing.Size(40, 40);
             this.SW_btn.TabIndex = 9;
             this.SW_btn.UseVisualStyleBackColor = false;
+            this.SW_btn.Click += new System.EventHandler(this.SW_btn_Click);
             // 
             // AW_btn
             // 
@@ -706,7 +717,9 @@
             // 
             this.MStats_gb.Controls.Add(this.cIgnoreResistance_lbl);
             this.MStats_gb.Controls.Add(this.cHPRecoveryChance_n);
+            this.MStats_gb.Controls.Add(this.cSpecialAttackEvRate_n);
             this.MStats_gb.Controls.Add(this.cIgnoreResistance_n);
+            this.MStats_gb.Controls.Add(this.cSpecialAttackEvRate_lbl);
             this.MStats_gb.Controls.Add(this.cDFM_n);
             this.MStats_gb.Controls.Add(this.cDFM_lbl);
             this.MStats_gb.Controls.Add(this.cHPRecoveryChance_lbl);
@@ -769,6 +782,15 @@
             this.cHPRecoveryChance_n.TabIndex = 85;
             this.cHPRecoveryChance_n.Text = "0";
             // 
+            // cSpecialAttackEvRate_n
+            // 
+            this.cSpecialAttackEvRate_n.AutoSize = true;
+            this.cSpecialAttackEvRate_n.Location = new System.Drawing.Point(602, 125);
+            this.cSpecialAttackEvRate_n.Name = "cSpecialAttackEvRate_n";
+            this.cSpecialAttackEvRate_n.Size = new System.Drawing.Size(21, 13);
+            this.cSpecialAttackEvRate_n.TabIndex = 61;
+            this.cSpecialAttackEvRate_n.Text = "0%";
+            // 
             // cIgnoreResistance_n
             // 
             this.cIgnoreResistance_n.AutoSize = true;
@@ -777,6 +799,15 @@
             this.cIgnoreResistance_n.Size = new System.Drawing.Size(21, 13);
             this.cIgnoreResistance_n.TabIndex = 81;
             this.cIgnoreResistance_n.Text = "0%";
+            // 
+            // cSpecialAttackEvRate_lbl
+            // 
+            this.cSpecialAttackEvRate_lbl.AutoSize = true;
+            this.cSpecialAttackEvRate_lbl.Location = new System.Drawing.Point(383, 125);
+            this.cSpecialAttackEvRate_lbl.Name = "cSpecialAttackEvRate_lbl";
+            this.cSpecialAttackEvRate_lbl.Size = new System.Drawing.Size(143, 13);
+            this.cSpecialAttackEvRate_lbl.TabIndex = 60;
+            this.cSpecialAttackEvRate_lbl.Text = "Special Attack Evasion Rate";
             // 
             // cDFM_n
             // 
@@ -1185,6 +1216,8 @@
             // 
             // ED_gb
             // 
+            this.ED_gb.Controls.Add(this.cSpecialAttackED_n);
+            this.ED_gb.Controls.Add(this.cSpecialAttackED_lbl);
             this.ED_gb.Controls.Add(this.cEDtoBack_n);
             this.ED_gb.Controls.Add(this.cEDtoBack_lbl);
             this.ED_gb.Controls.Add(this.cEDtAExcHumanAndDemi_n);
@@ -1201,15 +1234,33 @@
             this.ED_gb.Controls.Add(this.cEAPa_n);
             this.ED_gb.Location = new System.Drawing.Point(399, 606);
             this.ED_gb.Name = "ED_gb";
-            this.ED_gb.Size = new System.Drawing.Size(264, 195);
+            this.ED_gb.Size = new System.Drawing.Size(264, 238);
             this.ED_gb.TabIndex = 69;
             this.ED_gb.TabStop = false;
             this.ED_gb.Text = "Extra damage to";
             // 
+            // cSpecialAttackED_n
+            // 
+            this.cSpecialAttackED_n.AutoSize = true;
+            this.cSpecialAttackED_n.Location = new System.Drawing.Point(228, 161);
+            this.cSpecialAttackED_n.Name = "cSpecialAttackED_n";
+            this.cSpecialAttackED_n.Size = new System.Drawing.Size(21, 13);
+            this.cSpecialAttackED_n.TabIndex = 63;
+            this.cSpecialAttackED_n.Text = "0%";
+            // 
+            // cSpecialAttackED_lbl
+            // 
+            this.cSpecialAttackED_lbl.AutoSize = true;
+            this.cSpecialAttackED_lbl.Location = new System.Drawing.Point(9, 161);
+            this.cSpecialAttackED_lbl.Name = "cSpecialAttackED_lbl";
+            this.cSpecialAttackED_lbl.Size = new System.Drawing.Size(76, 13);
+            this.cSpecialAttackED_lbl.TabIndex = 62;
+            this.cSpecialAttackED_lbl.Text = "Special Attack";
+            // 
             // cEDtoBack_n
             // 
             this.cEDtoBack_n.AutoSize = true;
-            this.cEDtoBack_n.Location = new System.Drawing.Point(228, 147);
+            this.cEDtoBack_n.Location = new System.Drawing.Point(228, 141);
             this.cEDtoBack_n.Name = "cEDtoBack_n";
             this.cEDtoBack_n.Size = new System.Drawing.Size(21, 13);
             this.cEDtoBack_n.TabIndex = 59;
@@ -1218,7 +1269,7 @@
             // cEDtoBack_lbl
             // 
             this.cEDtoBack_lbl.AutoSize = true;
-            this.cEDtoBack_lbl.Location = new System.Drawing.Point(9, 147);
+            this.cEDtoBack_lbl.Location = new System.Drawing.Point(9, 141);
             this.cEDtoBack_lbl.Name = "cEDtoBack_lbl";
             this.cEDtoBack_lbl.Size = new System.Drawing.Size(32, 13);
             this.cEDtoBack_lbl.TabIndex = 58;
@@ -1227,7 +1278,7 @@
             // cEDtAExcHumanAndDemi_n
             // 
             this.cEDtAExcHumanAndDemi_n.AutoSize = true;
-            this.cEDtAExcHumanAndDemi_n.Location = new System.Drawing.Point(228, 126);
+            this.cEDtAExcHumanAndDemi_n.Location = new System.Drawing.Point(228, 121);
             this.cEDtAExcHumanAndDemi_n.Name = "cEDtAExcHumanAndDemi_n";
             this.cEDtAExcHumanAndDemi_n.Size = new System.Drawing.Size(13, 13);
             this.cEDtAExcHumanAndDemi_n.TabIndex = 57;
@@ -1245,7 +1296,7 @@
             // cEDtAExcHumanAndDemi_lbl
             // 
             this.cEDtAExcHumanAndDemi_lbl.AutoSize = true;
-            this.cEDtAExcHumanAndDemi_lbl.Location = new System.Drawing.Point(9, 126);
+            this.cEDtAExcHumanAndDemi_lbl.Location = new System.Drawing.Point(9, 121);
             this.cEDtAExcHumanAndDemi_lbl.Name = "cEDtAExcHumanAndDemi_lbl";
             this.cEDtAExcHumanAndDemi_lbl.Size = new System.Drawing.Size(204, 13);
             this.cEDtAExcHumanAndDemi_lbl.TabIndex = 56;
@@ -1263,7 +1314,7 @@
             // cADtDemiH_n
             // 
             this.cADtDemiH_n.AutoSize = true;
-            this.cADtDemiH_n.Location = new System.Drawing.Point(228, 105);
+            this.cADtDemiH_n.Location = new System.Drawing.Point(228, 101);
             this.cADtDemiH_n.Name = "cADtDemiH_n";
             this.cADtDemiH_n.Size = new System.Drawing.Size(13, 13);
             this.cADtDemiH_n.TabIndex = 55;
@@ -1272,7 +1323,7 @@
             // cEDH_lbl
             // 
             this.cEDH_lbl.AutoSize = true;
-            this.cEDH_lbl.Location = new System.Drawing.Point(9, 42);
+            this.cEDH_lbl.Location = new System.Drawing.Point(9, 41);
             this.cEDH_lbl.Name = "cEDH_lbl";
             this.cEDH_lbl.Size = new System.Drawing.Size(46, 13);
             this.cEDH_lbl.TabIndex = 46;
@@ -1281,7 +1332,7 @@
             // cADtDemiH_lbl
             // 
             this.cADtDemiH_lbl.AutoSize = true;
-            this.cADtDemiH_lbl.Location = new System.Drawing.Point(9, 105);
+            this.cADtDemiH_lbl.Location = new System.Drawing.Point(9, 101);
             this.cADtDemiH_lbl.Name = "cADtDemiH_lbl";
             this.cADtDemiH_lbl.Size = new System.Drawing.Size(68, 13);
             this.cADtDemiH_lbl.TabIndex = 54;
@@ -1290,7 +1341,7 @@
             // cEDH_n
             // 
             this.cEDH_n.AutoSize = true;
-            this.cEDH_n.Location = new System.Drawing.Point(228, 42);
+            this.cEDH_n.Location = new System.Drawing.Point(228, 41);
             this.cEDH_n.Name = "cEDH_n";
             this.cEDH_n.Size = new System.Drawing.Size(13, 13);
             this.cEDH_n.TabIndex = 47;
@@ -1299,7 +1350,7 @@
             // cExtraDamKama_n
             // 
             this.cExtraDamKama_n.AutoSize = true;
-            this.cExtraDamKama_n.Location = new System.Drawing.Point(228, 84);
+            this.cExtraDamKama_n.Location = new System.Drawing.Point(228, 81);
             this.cExtraDamKama_n.Name = "cExtraDamKama_n";
             this.cExtraDamKama_n.Size = new System.Drawing.Size(13, 13);
             this.cExtraDamKama_n.TabIndex = 53;
@@ -1308,7 +1359,7 @@
             // cEAPa_lbl
             // 
             this.cEAPa_lbl.AutoSize = true;
-            this.cEAPa_lbl.Location = new System.Drawing.Point(9, 63);
+            this.cEAPa_lbl.Location = new System.Drawing.Point(9, 61);
             this.cEAPa_lbl.Name = "cEAPa_lbl";
             this.cEAPa_lbl.Size = new System.Drawing.Size(50, 13);
             this.cEAPa_lbl.TabIndex = 50;
@@ -1317,7 +1368,7 @@
             // cExtraDamKama_lbl
             // 
             this.cExtraDamKama_lbl.AutoSize = true;
-            this.cExtraDamKama_lbl.Location = new System.Drawing.Point(9, 84);
+            this.cExtraDamKama_lbl.Location = new System.Drawing.Point(9, 81);
             this.cExtraDamKama_lbl.Name = "cExtraDamKama_lbl";
             this.cExtraDamKama_lbl.Size = new System.Drawing.Size(71, 13);
             this.cExtraDamKama_lbl.TabIndex = 52;
@@ -1326,7 +1377,7 @@
             // cEAPa_n
             // 
             this.cEAPa_n.AutoSize = true;
-            this.cEAPa_n.Location = new System.Drawing.Point(228, 63);
+            this.cEAPa_n.Location = new System.Drawing.Point(228, 61);
             this.cEAPa_n.Name = "cEAPa_n";
             this.cEAPa_n.Size = new System.Drawing.Size(13, 13);
             this.cEAPa_n.TabIndex = 51;
@@ -1718,7 +1769,7 @@
             // iAP_n
             // 
             this.iAP_n.AutoSize = true;
-            this.iAP_n.Location = new System.Drawing.Point(66, 121);
+            this.iAP_n.Location = new System.Drawing.Point(77, 121);
             this.iAP_n.Name = "iAP_n";
             this.iAP_n.Size = new System.Drawing.Size(13, 13);
             this.iAP_n.TabIndex = 25;
@@ -1727,7 +1778,7 @@
             // iDP_n
             // 
             this.iDP_n.AutoSize = true;
-            this.iDP_n.Location = new System.Drawing.Point(66, 146);
+            this.iDP_n.Location = new System.Drawing.Point(77, 144);
             this.iDP_n.Name = "iDP_n";
             this.iDP_n.Size = new System.Drawing.Size(13, 13);
             this.iDP_n.TabIndex = 26;
@@ -1898,7 +1949,7 @@
             // iHP_n
             // 
             this.iHP_n.AutoSize = true;
-            this.iHP_n.Location = new System.Drawing.Point(66, 168);
+            this.iHP_n.Location = new System.Drawing.Point(77, 167);
             this.iHP_n.Name = "iHP_n";
             this.iHP_n.Size = new System.Drawing.Size(13, 13);
             this.iHP_n.TabIndex = 44;
@@ -1941,7 +1992,7 @@
             // iST_n
             // 
             this.iST_n.AutoSize = true;
-            this.iST_n.Location = new System.Drawing.Point(66, 216);
+            this.iST_n.Location = new System.Drawing.Point(77, 213);
             this.iST_n.Name = "iST_n";
             this.iST_n.Size = new System.Drawing.Size(13, 13);
             this.iST_n.TabIndex = 51;
@@ -1959,7 +2010,7 @@
             // iMP_n
             // 
             this.iMP_n.AutoSize = true;
-            this.iMP_n.Location = new System.Drawing.Point(66, 192);
+            this.iMP_n.Location = new System.Drawing.Point(77, 190);
             this.iMP_n.Name = "iMP_n";
             this.iMP_n.Size = new System.Drawing.Size(13, 13);
             this.iMP_n.TabIndex = 53;
@@ -2217,7 +2268,7 @@
             // iEDtA_n
             // 
             this.iEDtA_n.AutoSize = true;
-            this.iEDtA_n.Location = new System.Drawing.Point(193, 411);
+            this.iEDtA_n.Location = new System.Drawing.Point(193, 417);
             this.iEDtA_n.Name = "iEDtA_n";
             this.iEDtA_n.Size = new System.Drawing.Size(13, 13);
             this.iEDtA_n.TabIndex = 51;
@@ -2226,7 +2277,7 @@
             // iEDtA_lbl
             // 
             this.iEDtA_lbl.AutoSize = true;
-            this.iEDtA_lbl.Location = new System.Drawing.Point(19, 411);
+            this.iEDtA_lbl.Location = new System.Drawing.Point(19, 417);
             this.iEDtA_lbl.Name = "iEDtA_lbl";
             this.iEDtA_lbl.Size = new System.Drawing.Size(141, 13);
             this.iEDtA_lbl.TabIndex = 50;
@@ -2235,7 +2286,7 @@
             // iEAPa_n
             // 
             this.iEAPa_n.AutoSize = true;
-            this.iEAPa_n.Location = new System.Drawing.Point(193, 451);
+            this.iEAPa_n.Location = new System.Drawing.Point(193, 457);
             this.iEAPa_n.Name = "iEAPa_n";
             this.iEAPa_n.Size = new System.Drawing.Size(13, 13);
             this.iEAPa_n.TabIndex = 66;
@@ -2244,7 +2295,7 @@
             // iEAPa_lbl
             // 
             this.iEAPa_lbl.AutoSize = true;
-            this.iEAPa_lbl.Location = new System.Drawing.Point(19, 451);
+            this.iEAPa_lbl.Location = new System.Drawing.Point(19, 457);
             this.iEAPa_lbl.Name = "iEAPa_lbl";
             this.iEAPa_lbl.Size = new System.Drawing.Size(85, 13);
             this.iEAPa_lbl.TabIndex = 65;
@@ -2253,7 +2304,7 @@
             // iExtraDamKama_n
             // 
             this.iExtraDamKama_n.AutoSize = true;
-            this.iExtraDamKama_n.Location = new System.Drawing.Point(193, 471);
+            this.iExtraDamKama_n.Location = new System.Drawing.Point(193, 477);
             this.iExtraDamKama_n.Name = "iExtraDamKama_n";
             this.iExtraDamKama_n.Size = new System.Drawing.Size(13, 13);
             this.iExtraDamKama_n.TabIndex = 55;
@@ -2262,7 +2313,7 @@
             // iExtraDamKama_lbl
             // 
             this.iExtraDamKama_lbl.AutoSize = true;
-            this.iExtraDamKama_lbl.Location = new System.Drawing.Point(19, 471);
+            this.iExtraDamKama_lbl.Location = new System.Drawing.Point(19, 477);
             this.iExtraDamKama_lbl.Name = "iExtraDamKama_lbl";
             this.iExtraDamKama_lbl.Size = new System.Drawing.Size(153, 13);
             this.iExtraDamKama_lbl.TabIndex = 54;
@@ -2271,7 +2322,7 @@
             // iEDH_n
             // 
             this.iEDH_n.AutoSize = true;
-            this.iEDH_n.Location = new System.Drawing.Point(193, 431);
+            this.iEDH_n.Location = new System.Drawing.Point(193, 437);
             this.iEDH_n.Name = "iEDH_n";
             this.iEDH_n.Size = new System.Drawing.Size(13, 13);
             this.iEDH_n.TabIndex = 55;
@@ -2280,7 +2331,7 @@
             // iEDH_lbl
             // 
             this.iEDH_lbl.AutoSize = true;
-            this.iEDH_lbl.Location = new System.Drawing.Point(19, 431);
+            this.iEDH_lbl.Location = new System.Drawing.Point(19, 437);
             this.iEDH_lbl.Name = "iEDH_lbl";
             this.iEDH_lbl.Size = new System.Drawing.Size(128, 13);
             this.iEDH_lbl.TabIndex = 54;
@@ -2289,7 +2340,7 @@
             // iADtDemiH_n
             // 
             this.iADtDemiH_n.AutoSize = true;
-            this.iADtDemiH_n.Location = new System.Drawing.Point(193, 492);
+            this.iADtDemiH_n.Location = new System.Drawing.Point(193, 497);
             this.iADtDemiH_n.Name = "iADtDemiH_n";
             this.iADtDemiH_n.Size = new System.Drawing.Size(13, 13);
             this.iADtDemiH_n.TabIndex = 68;
@@ -2298,7 +2349,7 @@
             // iADtDemiH_lbl
             // 
             this.iADtDemiH_lbl.AutoSize = true;
-            this.iADtDemiH_lbl.Location = new System.Drawing.Point(19, 492);
+            this.iADtDemiH_lbl.Location = new System.Drawing.Point(19, 497);
             this.iADtDemiH_lbl.Name = "iADtDemiH_lbl";
             this.iADtDemiH_lbl.Size = new System.Drawing.Size(172, 13);
             this.iADtDemiH_lbl.TabIndex = 67;
@@ -2307,7 +2358,7 @@
             // iEDtAExcHumanAndDemi_n
             // 
             this.iEDtAExcHumanAndDemi_n.AutoSize = true;
-            this.iEDtAExcHumanAndDemi_n.Location = new System.Drawing.Point(329, 515);
+            this.iEDtAExcHumanAndDemi_n.Location = new System.Drawing.Point(329, 519);
             this.iEDtAExcHumanAndDemi_n.Name = "iEDtAExcHumanAndDemi_n";
             this.iEDtAExcHumanAndDemi_n.Size = new System.Drawing.Size(13, 13);
             this.iEDtAExcHumanAndDemi_n.TabIndex = 59;
@@ -2316,7 +2367,7 @@
             // iEDtAExcHumanAndDemi_lbl
             // 
             this.iEDtAExcHumanAndDemi_lbl.AutoSize = true;
-            this.iEDtAExcHumanAndDemi_lbl.Location = new System.Drawing.Point(19, 515);
+            this.iEDtAExcHumanAndDemi_lbl.Location = new System.Drawing.Point(19, 517);
             this.iEDtAExcHumanAndDemi_lbl.Name = "iEDtAExcHumanAndDemi_lbl";
             this.iEDtAExcHumanAndDemi_lbl.Size = new System.Drawing.Size(304, 13);
             this.iEDtAExcHumanAndDemi_lbl.TabIndex = 58;
@@ -2470,6 +2521,12 @@
             // 
             // Item_gb
             // 
+            this.Item_gb.Controls.Add(this.iHAP_n);
+            this.Item_gb.Controls.Add(this.iHAP_lbl);
+            this.Item_gb.Controls.Add(this.iSpecialAttackED_n);
+            this.Item_gb.Controls.Add(this.iSpecialAttackED_lbl);
+            this.Item_gb.Controls.Add(this.iSpecialAttackEvRate_n);
+            this.Item_gb.Controls.Add(this.iSpecialAttackEvRate_lbl);
             this.Item_gb.Controls.Add(this.iHPRecoveryChance_lbl);
             this.Item_gb.Controls.Add(this.iHPRecoveryChance_n);
             this.Item_gb.Controls.Add(this.Item_image);
@@ -2549,6 +2606,42 @@
             this.Item_gb.TabStop = false;
             this.Item_gb.Text = "Item";
             // 
+            // iSpecialAttackED_n
+            // 
+            this.iSpecialAttackED_n.AutoSize = true;
+            this.iSpecialAttackED_n.Location = new System.Drawing.Point(193, 397);
+            this.iSpecialAttackED_n.Name = "iSpecialAttackED_n";
+            this.iSpecialAttackED_n.Size = new System.Drawing.Size(21, 13);
+            this.iSpecialAttackED_n.TabIndex = 91;
+            this.iSpecialAttackED_n.Text = "0%";
+            // 
+            // iSpecialAttackED_lbl
+            // 
+            this.iSpecialAttackED_lbl.AutoSize = true;
+            this.iSpecialAttackED_lbl.Location = new System.Drawing.Point(18, 397);
+            this.iSpecialAttackED_lbl.Name = "iSpecialAttackED_lbl";
+            this.iSpecialAttackED_lbl.Size = new System.Drawing.Size(145, 13);
+            this.iSpecialAttackED_lbl.TabIndex = 90;
+            this.iSpecialAttackED_lbl.Text = "Special attack Extra Damage";
+            // 
+            // iSpecialAttackEvRate_n
+            // 
+            this.iSpecialAttackEvRate_n.AutoSize = true;
+            this.iSpecialAttackEvRate_n.Location = new System.Drawing.Point(238, 658);
+            this.iSpecialAttackEvRate_n.Name = "iSpecialAttackEvRate_n";
+            this.iSpecialAttackEvRate_n.Size = new System.Drawing.Size(21, 13);
+            this.iSpecialAttackEvRate_n.TabIndex = 89;
+            this.iSpecialAttackEvRate_n.Text = "0%";
+            // 
+            // iSpecialAttackEvRate_lbl
+            // 
+            this.iSpecialAttackEvRate_lbl.AutoSize = true;
+            this.iSpecialAttackEvRate_lbl.Location = new System.Drawing.Point(19, 658);
+            this.iSpecialAttackEvRate_lbl.Name = "iSpecialAttackEvRate_lbl";
+            this.iSpecialAttackEvRate_lbl.Size = new System.Drawing.Size(143, 13);
+            this.iSpecialAttackEvRate_lbl.TabIndex = 88;
+            this.iSpecialAttackEvRate_lbl.Text = "Special Attack Evasion Rate";
+            // 
             // Shai_gb
             // 
             this.Shai_gb.Controls.Add(this.cMistyHdp_lbl);
@@ -2567,12 +2660,30 @@
             this.Shai_gb.Text = "Shai_gb";
             this.Shai_gb.Visible = false;
             // 
+            // iHAP_n
+            // 
+            this.iHAP_n.AutoSize = true;
+            this.iHAP_n.Location = new System.Drawing.Point(77, 236);
+            this.iHAP_n.Name = "iHAP_n";
+            this.iHAP_n.Size = new System.Drawing.Size(13, 13);
+            this.iHAP_n.TabIndex = 93;
+            this.iHAP_n.Text = "0";
+            // 
+            // iHAP_lbl
+            // 
+            this.iHAP_lbl.AutoSize = true;
+            this.iHAP_lbl.Location = new System.Drawing.Point(21, 236);
+            this.iHAP_lbl.Name = "iHAP_lbl";
+            this.iHAP_lbl.Size = new System.Drawing.Size(58, 13);
+            this.iHAP_lbl.TabIndex = 92;
+            this.iHAP_lbl.Text = "Hidden AP";
+            // 
             // GearForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1813, 886);
+            this.ClientSize = new System.Drawing.Size(1436, 874);
             this.Controls.Add(this.Shai_gb);
             this.Controls.Add(this.Item_gb);
             this.Controls.Add(this.Books_gb);
@@ -2837,5 +2948,15 @@
         private System.Windows.Forms.Button CrysG2_btn;
         private System.Windows.Forms.Button CrysG1_btn;
         private System.Windows.Forms.CheckBox Underwear_cb;
+        private System.Windows.Forms.Label cSpecialAttackEvRate_n;
+        private System.Windows.Forms.Label cSpecialAttackEvRate_lbl;
+        private System.Windows.Forms.Label cSpecialAttackED_n;
+        private System.Windows.Forms.Label cSpecialAttackED_lbl;
+        private System.Windows.Forms.Label iSpecialAttackED_n;
+        private System.Windows.Forms.Label iSpecialAttackED_lbl;
+        private System.Windows.Forms.Label iSpecialAttackEvRate_n;
+        private System.Windows.Forms.Label iSpecialAttackEvRate_lbl;
+        private System.Windows.Forms.Label iHAP_n;
+        private System.Windows.Forms.Label iHAP_lbl;
     }
 }
