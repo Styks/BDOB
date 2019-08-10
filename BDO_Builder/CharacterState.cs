@@ -38,6 +38,8 @@ namespace BDO_Builder
         public int chdr; // hiden damage reduction
         public int cAtkSpeed;
         public int cCastSpeed;
+        public int cAtkSpeedRate;
+        public int cCastSpeedRate;
         public int cmvs; // Movement speed 
         public int ccr; // Critical Rate
         public int chap; // Hidden AP
@@ -56,6 +58,13 @@ namespace BDO_Builder
         public int cResistIgnore; // Ignore all Resistance
         public int cHPrecoveryChance; //HP recovery by hit chance 
         public int cdfm; //Damage from Monsters
+        public int cSpecialAttackEv; //Special attack Evasion Rate 
+        public int cSpecialAttackDam; //Special attack extra damage
+        public double cAlchCookTime; // Alchemy and Cooking Time
+        public int cProccesingRate; // Processing Success Rate
+        public int cGathDropRate; // Gathering Drop Rate
+        public int cGathering; //Gathering level
+        public int cFishing; //Fishing level
 
         //Training
         public int tcsb; //Breath
@@ -683,7 +692,81 @@ namespace BDO_Builder
         public int mwDefHidenAP;
 
 
-        
+        //Sub-Weapons State
+        public int swId = 0;
+        public bool swEnch;
+        public int swEnchLvl = 0;
+        public int swAPlow;
+        public int swAPhigh;
+        public int swAP;
+        public int swDefAPlow;
+        public int swDefAPhigh;
+        public int swAPagainst;
+        public int swDefAPagainst;
+        public int swAccuracy;
+        public int swDefAccuracy;
+        public int swIgnore;
+        public int swDefIgnore;
+        public int swHidenAP;
+        public int swDefHidenAP;
+        public int swEvasion;
+        public int swDefEvasion;
+        public int swHEvasion;
+        public int swDefHEvasion;
+        public int swMaxHP;
+        public int swDefMaxHP;
+        public int swDR;
+        public int swDefDR;
+        public int swMaxST;
+        public int swDefMaxST;
+        public int swSpecialAttackEv;
+        public int swDefSpecialAttackEv;
+        public int swSpecialAttackDam;
+        public int swDefSpecialAttackDam;
+        public int swAllRes;
+        public int swDefAllRes;
+        public int swMaxMP;
+        public int swDefMaxMP;
+        public int swDP;
+        public int swDefDP;
+
+        //Alchemy Stones State
+        public int asId = 0;
+        public bool asEnch;
+        public int asAPhigh;
+        public int asAPlow;
+        public int asAP;
+        public int asDefAPhigh;
+        public int asDefAPlow;
+        public int asHidenAP;
+        public int asDefHidenAP;
+        public int asAccuracy;
+        public int asDefAccuracy;
+        public int asIgnore;
+        public int asDefIgnore;
+        public int asAtkSpeed;
+        public int asDefAtkSpeed;
+        public int asCastSpeed;
+        public int asDefCastSpeed;
+        public double asAlchCookTime;
+        public double asDefAlchCookTime;
+        public int asProcRate;
+        public int asDefProcRate;
+        public int asWeightLimit;
+        public int asDefWeightLimit;
+        public int asGathFish;
+        public int asDefGathFish;
+        public int asGathDropRate;
+        public int asDefGathDropRate;
+        public int asDR;
+        public int asDefDR;
+        public int asEvasion;
+        public int asDefEvasion;
+        public int asMaxHP;
+        public int asDefMaxHP;
+        public int asAllRes;
+        public int asDefAllRes;
+
 
 
 
@@ -4947,8 +5030,6 @@ namespace BDO_Builder
             }
 
         }
-
-
         public void MainWeaponState(string weapon)
         {
             cmd.CommandType = CommandType.Text;
@@ -5388,6 +5469,465 @@ namespace BDO_Builder
                 cHPrecoveryChance += mwRecoveryChance;
             }
         }
-        
+        public void SubWeaponState(string SubWeapon)
+        {
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from [" + SubWeapon + " Sub-Weapons] where Id='" + swId.ToString() + "'";
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            if (swEnch == true & swEnchLvl >= 1)
+            {
+                cap -= swAP;
+                caap -= swAP;
+                cacc -= swAccuracy;
+                ceapa -= swAPagainst;
+                chap -= swHidenAP;
+                cResistIgnore -= swIgnore;
+                cev -= swEvasion;
+                chev -= swHEvasion;
+                cDR -= swDR;
+                cMaxHP -= swMaxHP;
+                cMaxST -= swMaxST;
+                cMaxMP -= swMaxMP;
+                cRes1 -= swAllRes;
+                cRes2 -= swAllRes;
+                cRes3 -= swAllRes;
+                cRes4 -= swAllRes;
+                cdp -= swDP;
+                cSpecialAttackEv -= swSpecialAttackEv;
+                cSpecialAttackDam -= swSpecialAttackDam;
+
+
+                //High and low AP
+                if (swId == 0 | swId == 1 | swId == 31 | swId == 32)
+                {
+                    if (swEnchLvl <= 15)
+                    {
+                        swAPhigh = swDefAPhigh + swEnchLvl * 1;
+                        swAPlow = swDefAPlow + swEnchLvl * 1;
+                    }
+                    else if (swEnchLvl >= 16 & swEnchLvl <= 17)
+                    {
+                        swAPhigh = swDefAPhigh + 15 + (swEnchLvl - 15) * 2;
+                        swAPlow = swDefAPlow + 15 + (swEnchLvl - 15) * 2;
+                    }
+                    else if (swEnchLvl == 18)
+                    {
+                        swAPhigh = swDefAPhigh + 23;
+                        swAPlow = swDefAPlow + 23;
+                    }
+                    else if (swEnchLvl >= 19 & swEnchLvl <= 20)
+                    {
+                        swAPhigh = swDefAPhigh + 23 + (swEnchLvl - 18) * 2;
+                        swAPlow = swDefAPlow + 23 + (swEnchLvl - 18) * 2;
+                    }
+
+                }
+                else if (swId == 2 | swId == 3 | swId == 33 | swId == 34)
+                {
+                    if (swEnchLvl <= 10)
+                    {
+                        swAPhigh = swDefAPhigh + swEnchLvl * 1;
+                        swAPlow = swDefAPlow + swEnchLvl * 1;
+                    }
+                    else if (swEnchLvl >= 11 & swEnchLvl <= 15)
+                    {
+                        swAPhigh = swDefAPhigh + 10 + (swEnchLvl - 10) * 2;
+                        swAPlow = swDefAPlow + 10 + (swEnchLvl - 10) * 2;
+                    }
+                    else if (swEnchLvl >= 16 & swEnchLvl <= 17)
+                    {
+                        swAPhigh = swDefAPhigh + 20 + (swEnchLvl - 15) * 3;
+                        swAPlow = swDefAPlow + 20 + (swEnchLvl - 15) * 3;
+                    }
+                    else if (swEnchLvl == 18)
+                    {
+                        swAPhigh = swDefAPhigh + 32;
+                        swAPlow = swDefAPlow + 32;
+                    }
+                    else if (swEnchLvl >= 19 & swEnchLvl <= 20)
+                    {
+                        swAPhigh = swDefAPhigh + 32 + (swEnchLvl - 18) * 3;
+                        swAPlow = swDefAPlow + 32 + (swEnchLvl - 18) * 3;
+                    }
+
+                }
+                else if (swId == 7 | swId == 11 | swId == 12 | swId == 38 | swId == 42 | swId == 43)
+                {
+                    if (swEnchLvl <= 15)
+                    {
+                        swAPhigh = swDefAPhigh + swEnchLvl * 1;
+                        swAPlow = swDefAPlow + swEnchLvl * 1;
+                    }
+                    else if (swEnchLvl >= 16 & swEnchLvl <= 17)
+                    {
+                        swAPhigh = swDefAPhigh + 15 + (swEnchLvl - 15) * 3;
+                        swAPlow = swDefAPlow + 15 + (swEnchLvl - 15) * 3;
+                    }
+                    else if (swEnchLvl == 18)
+                    {
+                        swAPhigh = swDefAPhigh + 27;
+                        swAPlow = swDefAPlow + 27;
+                    }
+                    else if (swEnchLvl >= 19 & swEnchLvl <= 20)
+                    {
+                        swAPhigh = swDefAPhigh + 27 + (swEnchLvl - 18) * 3;
+                        swAPlow = swDefAPlow + 27 + (swEnchLvl - 18) * 3;
+                    }
+
+                }
+                else
+                {
+                    if (swEnchLvl <= 7)
+                    {
+                        swAPhigh = swDefAPhigh;
+                        swAPlow = swDefAPlow;
+                    }
+                    else
+                    {
+                        swAPhigh = swDefAPhigh + (swEnchLvl - 7) * 1;
+                        swAPlow = swDefAPlow + (swEnchLvl - 7) * 1;
+                    }
+                }
+                //Main AP
+                swAP = (swAPhigh + swAPlow) / 2;
+                //Accuracy
+                if (swId == 0 | swId == 1 | swId == 31 | swId == 32)
+                {
+                    if (swEnchLvl == 1) swAccuracy = swDefAccuracy;
+                    else if (swEnchLvl >= 2 & swEnchLvl <= 3) swAccuracy = swDefAccuracy + 1;
+                    else if (swEnchLvl >= 4 & swEnchLvl <= 5) swAccuracy = swDefAccuracy + 2;
+                    else if (swEnchLvl >= 6 & swEnchLvl <= 7) swAccuracy = swDefAccuracy + 3;
+                    else if (swEnchLvl >= 8 & swEnchLvl <= 9) swAccuracy = swDefAccuracy + 4;
+                    else if (swEnchLvl >= 10 & swEnchLvl <= 11) swAccuracy = swDefAccuracy + 5;
+                    else if (swEnchLvl >= 12 & swEnchLvl <= 13) swAccuracy = swDefAccuracy + 6;
+                    else if (swEnchLvl >= 14 & swEnchLvl <= 15) swAccuracy = swDefAccuracy + 7;
+                    else swAccuracy = swDefAccuracy + 7 + (swEnchLvl - 15);
+                }
+                else if (swId == 19 | swId == 20 | swId == 50 | swId == 51)
+                {
+                    if (swEnchLvl == 1) swAccuracy = swDefAccuracy + 4;
+                    else if (swEnchLvl >= 2 & swEnchLvl <= 3) swAccuracy = swDefAccuracy + 4 + (swEnchLvl - 1) * 3;
+                    else if (swEnchLvl >= 4 & swEnchLvl <= 7) swAccuracy = swDefAccuracy + 10 + (swEnchLvl - 3) * 2;
+                    else if (swEnchLvl >= 8 & swEnchLvl <= 9) swAccuracy = swDefAccuracy + 18 + (swEnchLvl - 7) * 3;
+                    else swAccuracy = swDefAccuracy + 24 + (swEnchLvl - 9) * 4;
+                }
+                else swAccuracy = swDefAccuracy;
+                //DP
+                if (swId == 0 | swId == 1 | swId == 31 | swId == 32)
+                {
+                    if (swEnchLvl <= 7) swDP = swDefDP;
+                    else if (swEnchLvl >= 8 & swEnchLvl <= 9) swDP = swDefDP + 1;
+                    else if (swEnchLvl >= 10 & swEnchLvl <= 12) swDP = swDefDP + 1 + (swEnchLvl - 9);
+                    else if (swEnchLvl == 13) swDP = swDefDP + 4;
+                    else if (swEnchLvl >= 14 & swEnchLvl <= 15) swDP = swDefDP + 5;
+                    else if (swEnchLvl == 16) swDP = swDefDP + 6;
+                    else if (swEnchLvl == 17) swDP = swDefDP + 8;
+                    else if (swEnchLvl == 18) swDP = swDefDP + 11;
+                    else if (swEnchLvl >= 19 & swEnchLvl <= 20) swDP = swDefDP + 11 + (swEnchLvl - 18) * 2;
+                }
+                else if (swId == 2 | swId == 3 | swId == 33 | swId == 34)
+                {
+                    if (swEnchLvl <= 15) swDP = swDefDP;
+                    else if (swEnchLvl == 16) swDP = swDefDP + 3;
+                    else swDP = swDefDP + 3 + (swEnchLvl - 16);
+                }
+                else if (swId == 7 | swId == 11 | swId == 12 | swId == 38 | swId == 42 | swId == 43)
+                {
+                    if (swEnchLvl <= 15) swDP = swDefDP;
+                    else swDP = swDefDP + (swEnchLvl - 15);
+                }
+                else
+                {
+                    if (swEnchLvl <= 15) swDP = swDefDP + swEnchLvl;
+                    else if (swEnchLvl >= 16 & swEnchLvl <= 17) swDP = swDefDP + 15 + (swEnchLvl - 15) * 2;
+                    else if (swEnchLvl == 18) swDP = swDefDP + 24;
+                    else swDP = swDefDP + 24 + (swEnchLvl - 18) * 2;
+                }
+
+                //Damage Reduction
+                if (swId == 0 | swId == 1 | swId == 31 | swId == 32)
+                {
+                    if (swEnchLvl <= 10) swDR = swDefDR;
+                    else if (swEnchLvl >= 11 & swEnchLvl <= 16) swDR = swDefDR + 1;
+                    else if (swEnchLvl == 17) swDR = swDefDR + 2;
+                    else if (swEnchLvl == 18) swDR = swDefDR + 4;
+                    else if (swEnchLvl >= 19 & swEnchLvl <= 20) swDR = swDefDR + 4 + (swEnchLvl - 18);
+                }
+                else if (swId == 2 | swId == 3 | swId == 33 | swId == 34)
+                {
+                    if (swEnchLvl <= 15) swDR = swDefDR;
+                    else if (swEnchLvl == 16) swDR = swDefDR + 3;
+                    else swDR = swDefDR + 3 + (swEnchLvl - 16);
+                }
+                else if (swId == 7 | swId == 11 | swId == 12 | swId == 19 | swId == 20 | swId == 38 | swId == 42 | swId == 43 | swId == 50 | swId == 51)
+                {
+                    if (swEnchLvl <= 15) swDR = swDefDR;
+                    else swDR = swDefDR + (swEnchLvl - 15);
+                }
+                else if (swId == 13 & SubWeapon == "Shield" | swId == 14 & SubWeapon == "Shield" | swId == 13 & SubWeapon == "Ornamental Knot" | swId == 14 & SubWeapon == "Ornamental Knot" | swId == 13 & SubWeapon == "Vambrace" | swId == 14 & SubWeapon == "Vambrace" | swId == 13 & SubWeapon == "Noble Sword" | swId == 14 & SubWeapon == "Noble Sword" | swId == 13 & SubWeapon == "Vitclari" | swId == 14 & SubWeapon == "Vitclari")
+                {
+                    if (swEnchLvl <= 15) swDR = swDefDR + swEnchLvl;
+                    else if (swEnchLvl >= 16 & swEnchLvl <= 17) swDR = swDefDR + 15 + (swEnchLvl - 15) * 2;
+                    else if (swEnchLvl == 18) swDR = swDefDR + 24;
+                    else swDR = swDefDR + 24 + (swEnchLvl - 18) * 2;
+                }
+                else swDR = swDefDR;
+                //Evasion
+                if (swId == 0 | swId == 1 | swId == 31 | swId == 32)
+                {
+                    if (swEnchLvl <= 7) swEvasion = swDefEvasion;
+                    else if (swEnchLvl >= 8 & swEnchLvl <= 9) swEvasion = swDefEvasion + 1;
+                    else if (swEnchLvl >= 10 & swEnchLvl <= 11) swEvasion = swDefEvasion + 2;
+                    else if (swEnchLvl >= 12 & swEnchLvl <= 13) swEvasion = swDefEvasion + 3;
+                    else if (swEnchLvl >= 14 & swEnchLvl <= 15) swEvasion = swDefEvasion + 4;
+                    else swEvasion = swDefEvasion + 4 + (swEnchLvl - 15);
+                }
+                else if (swId >= 15 & swId <= 18 | swId == 13 & SubWeapon != "Shield" & SubWeapon != "Ornamental Knot" & SubWeapon != "Vambrace" & SubWeapon != "Noble Sword" & SubWeapon != "Vitclari" | swId == 14 & SubWeapon != "Shield" & SubWeapon != "Ornamental Knot" & SubWeapon != "Vambrace" & SubWeapon != "Noble Sword" & SubWeapon != "Vitclari" | swId >= 46 & swId <= 49 | swId == 44 & SubWeapon != "Shield" & SubWeapon != "Ornamental Knot" & SubWeapon != "Vambrace" & SubWeapon != "Noble Sword" & SubWeapon != "Vitclari" | swId == 45 & SubWeapon != "Shield" & SubWeapon != "Ornamental Knot" & SubWeapon != "Vambrace" & SubWeapon != "Noble Sword" & SubWeapon != "Vitclari")
+                {
+                    if (swEnchLvl <= 15) swEvasion = swDefEvasion + swEnchLvl;
+                    else if (swEnchLvl >= 16 & swEnchLvl <= 17) swEvasion = swDefEvasion + 15 + (swEnchLvl - 15) * 2;
+                    else if (swEnchLvl == 18) swEvasion = swDefEvasion + 24;
+                    else if (swEnchLvl >= 19 & swEnchLvl <= 20) swEvasion = swDefEvasion + 24 + (swEnchLvl - 18) * 2;
+                }
+                else if (swId == 19 | swId == 20 | swId == 50 | swId == 51)
+                {
+                    if (swEnchLvl <= 17) swEvasion = swDefEvasion + swEnchLvl;
+                    else if (swEnchLvl == 18) swEvasion = swDefEvasion + 21;
+                    else swEvasion = swDefEvasion + 21 + (swEnchLvl - 18);
+
+                }
+                else swEvasion = swDefEvasion;
+                //Hiden Evasion
+                if (swId == 0 | swId == 1 | swId == 31 | swId == 32)
+                {
+                    if (swEnchLvl <= 7) swHEvasion = swDefHEvasion;
+                    else if (swEnchLvl >= 8 & swEnchLvl <= 9) swHEvasion = swDefHEvasion + 3;
+                    else if (swEnchLvl >= 10 & swEnchLvl <= 11) swHEvasion = swDefHEvasion + 6;
+                    else if (swEnchLvl >= 12 & swEnchLvl <= 13) swHEvasion = swDefHEvasion + 9;
+                    else if (swEnchLvl >= 14 & swEnchLvl <= 15) swHEvasion = swDefHEvasion + 12;
+                    else swHEvasion = swDefHEvasion + 12 + (swEnchLvl - 15) * 3;
+                }
+                else if (swId == 13 & SubWeapon != "Shield" & SubWeapon != "Ornamental Knot" & SubWeapon != "Vambrace" & SubWeapon != "Noble Sword" & SubWeapon != "Vitclari" | swId == 14 & SubWeapon != "Shield" & SubWeapon != "Ornamental Knot" & SubWeapon != "Vambrace" & SubWeapon != "Noble Sword" & SubWeapon != "Vitclari" | swId == 44 & SubWeapon != "Shield" & SubWeapon != "Ornamental Knot" & SubWeapon != "Vambrace" & SubWeapon != "Noble Sword" & SubWeapon != "Vitclari" | swId == 45 & SubWeapon != "Shield" & SubWeapon != "Ornamental Knot" & SubWeapon != "Vambrace" & SubWeapon != "Noble Sword" & SubWeapon != "Vitclari")
+                {
+                    if (swEnchLvl <= 15) swHEvasion = swDefHEvasion + swEnchLvl * 3;
+                    else if (swEnchLvl >= 16 & swEnchLvl <= 17) swHEvasion = swDefHEvasion + 45 + (swEnchLvl - 15) * 6;
+                    else if (swEnchLvl == 18) swHEvasion = swDefHEvasion + 72;
+                    else if (swEnchLvl >= 19 & swEnchLvl <= 20) swHEvasion = swDefHEvasion + 72 + (swEnchLvl - 18) * 6;
+                }
+                else if (swId >= 15 & swId <= 18 | swId >= 46 & swId <= 49)
+                {
+                    if (swEnchLvl <= 15) swHEvasion = swDefHEvasion + swEnchLvl *2;
+                    else if (swEnchLvl >= 16 & swEnchLvl <= 17) swHEvasion = swDefHEvasion + 30 + (swEnchLvl - 15) * 4;
+                    else if (swEnchLvl == 18) swHEvasion = swDefHEvasion + 48;
+                    else if (swEnchLvl >= 19 & swEnchLvl <= 20) swHEvasion = swDefHEvasion + 48 + (swEnchLvl - 18) * 4;
+                }
+                else if (swId == 19 | swId == 20 | swId == 50 | swId == 51)
+                {
+                    if (swEnchLvl <= 17) swHEvasion = swDefHEvasion + swEnchLvl;
+                    else if (swEnchLvl == 18) swHEvasion = swDefHEvasion + 21;
+                    else swHEvasion = swDefHEvasion + 21 + (swEnchLvl - 18);
+
+                }
+                else swHEvasion = swDefHEvasion;
+
+                //AP against monsters
+                if (swId == 0|swId == 1 | swId == 31 | swId == 32)
+                {
+                    if (swEnchLvl <= 15) swAPagainst = swDefAPagainst + swEnchLvl;
+                    else if (swEnchLvl == 16) swAPagainst = swDefAPagainst + 23;
+                    else if (swEnchLvl == 17) swAPagainst = swDefAPagainst + 28;
+                    else if (swEnchLvl == 18) swAPagainst = swDefAPagainst + 38;
+                    else if (swEnchLvl == 19) swAPagainst = swDefAPagainst + 53;
+                    else if (swEnchLvl == 20) swAPagainst = swDefAPagainst + 57;
+                }
+                else
+                {
+                    if (swEnchLvl <= 15) swAPagainst = swDefAPagainst;
+                    else swAPagainst = swDefAPagainst + (swEnchLvl-15);
+                }
+                //Max HP
+                swMaxHP = swDefMaxHP;
+                //Max Stamina
+                swMaxST = swDefMaxST;
+                //Max MP
+                swMaxMP = swDefMaxMP;
+                //All Resistance
+                swAllRes = swDefAllRes;
+                //Special attack Evasion Rate
+                swSpecialAttackEv = swDefSpecialAttackEv;
+                //Special attack extra damage
+                swSpecialAttackDam = swDefSpecialAttackDam;
+                //Ignore all resistance
+                swIgnore = swDefIgnore;
+                //Hiden AP
+                swHidenAP = swDefHidenAP;
+
+                cap += swAP;
+                caap += swAP;
+                cacc += swAccuracy;
+                ceapa += swAPagainst;
+                chap += swHidenAP;
+                cResistIgnore += swIgnore;
+                cev += swEvasion;
+                chev += swHEvasion;
+                cDR += swDR;
+                cMaxHP += swMaxHP;
+                cMaxST += swMaxST;
+                cMaxMP += swMaxMP;
+                cRes1 += swAllRes;
+                cRes2 += swAllRes;
+                cRes3 += swAllRes;
+                cRes4 += swAllRes;
+                cdp += swDP;
+                cSpecialAttackEv += swSpecialAttackEv;
+                cSpecialAttackDam += swSpecialAttackDam;
+            }
+            else
+            {
+                cap -= swAP;
+                caap -= swAP;
+                cacc -= swAccuracy;
+                ceapa -= swAPagainst;
+                chap -= swHidenAP;
+                cResistIgnore -= swIgnore;
+                cev -= swEvasion;
+                chev -= swHEvasion;
+                cDR -= swDR;
+                cMaxHP -= swMaxHP;
+                cMaxST -= swMaxST;
+                cMaxMP -= swMaxMP;
+                cRes1 -= swAllRes;
+                cRes2 -= swAllRes;
+                cRes3 -= swAllRes;
+                cRes4 -= swAllRes;
+                cdp -= swDP;
+                cSpecialAttackEv -= swSpecialAttackEv;
+                cSpecialAttackDam -= swSpecialAttackDam;
+
+
+
+                //AP High
+                swAPhigh = swDefAPhigh;
+                //AP Low
+                swAPlow = swDefAPlow;
+                //Main AP
+                swAP = (swAPhigh + swAPlow) / 2;
+                //Accuracy
+                swAccuracy = swDefAccuracy;
+                //AP against monsters
+                swAPagainst = swDefAPagainst;
+                //Ignore all resistance
+                swIgnore = swDefIgnore;
+                //Hiden AP
+                swHidenAP = swDefHidenAP;
+                //Evasion
+                swEvasion = swDefEvasion;
+                //Hiden Evasion
+                swHEvasion = swDefHEvasion;
+                //Damage Reduction
+                swDR = swDefDR;
+                //Max HP
+                swMaxHP = swDefMaxHP;
+                //Max Stamina
+                swMaxST = swDefMaxST;
+                //Max MP
+                swMaxMP = swDefMaxMP;
+                //All Resistance
+                swAllRes = swDefAllRes;
+                //Special attack Evasion Rate
+                swSpecialAttackEv = swDefSpecialAttackEv;
+                //Special attack extra damage
+                swSpecialAttackDam = swDefSpecialAttackDam;
+                //DP
+                swDP = swDefDP;
+
+                cap += swAP;
+                caap += swAP;
+                cacc += swAccuracy;
+                ceapa += swAPagainst;
+                chap += swHidenAP;
+                cResistIgnore += swIgnore;
+                cev += swEvasion;
+                chev += swHEvasion;
+                cDR += swDR;
+                cMaxHP += swMaxHP;
+                cMaxST += swMaxST;
+                cMaxMP += swMaxMP;
+                cRes1 += swAllRes;
+                cRes2 += swAllRes;
+                cRes3 += swAllRes;
+                cRes4 += swAllRes;
+                cdp += swDP;
+                cSpecialAttackEv += swSpecialAttackEv;
+                cSpecialAttackDam += swSpecialAttackDam;
+            }
+        }
+
+        public void AlchemyStoneState()
+        {
+            cap -= asAP;
+            caap -= asAP;
+            chap -= asHidenAP;
+            cacc -= asAccuracy;
+            cResistIgnore -= asIgnore;
+            cAtkSpeedRate -= asAtkSpeed;
+            cCastSpeedRate -= asCastSpeed;
+            cAlchCookTime -= asAlchCookTime;
+            cProccesingRate -= asProcRate;
+            cWeight -= asWeightLimit;
+            cGathering -= asGathFish;
+            cFishing -= asGathFish;
+            cGathDropRate -= asGathDropRate;
+            cDR -= asDR;
+            cev -= asEvasion;
+            cMaxHP -= asMaxHP;
+            cRes1 -= asAllRes;
+            cRes2 -= asAllRes;
+            cRes3 -= asAllRes;
+            cRes4 -= asAllRes;
+
+            asAPhigh = asDefAPhigh;
+            asAPlow = asDefAPlow;
+            asAP = (asAPhigh + asAPlow) / 2;
+            asHidenAP = asDefHidenAP;
+            asAccuracy = asDefAccuracy;
+            asIgnore = asDefIgnore;
+            asAtkSpeed = asDefAtkSpeed;
+            asCastSpeed = asDefCastSpeed;
+            asAlchCookTime = asDefAlchCookTime;
+            asProcRate = asDefProcRate;
+            asWeightLimit = asDefWeightLimit;
+            asGathFish = asDefGathFish;
+            asGathDropRate = asDefGathDropRate;
+            asDR = asDefDR;
+            asEvasion = asDefEvasion;
+            asMaxHP = asDefMaxHP;
+            asAllRes = asDefAllRes;
+
+            caap += asAP;
+            cap += asAP;
+            chap += asHidenAP;
+            cacc += asAccuracy;
+            cResistIgnore += asIgnore;
+            cAtkSpeedRate += asAtkSpeed;
+            cCastSpeedRate += asCastSpeed;
+            cAlchCookTime += asAlchCookTime;
+            cProccesingRate += asProcRate;
+            cWeight += asWeightLimit;
+            cGathering += asGathFish;
+            cFishing += asGathFish;
+            cGathDropRate += asGathDropRate;
+            cDR += asDR;
+            cev += asEvasion;
+            cMaxHP += asMaxHP;
+            cRes1 += asAllRes;
+            cRes2 += asAllRes;
+            cRes3 += asAllRes;
+            cRes4 += asAllRes;
+
+        }
     }
 }
