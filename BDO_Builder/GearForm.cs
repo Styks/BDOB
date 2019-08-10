@@ -373,28 +373,6 @@ namespace BDO_Builder
             cs.caap = Convert.ToInt32(cAAP_n.Text);
         }
 
-        private void Book_cb_CheckedChanged(object sender, EventArgs e)
-        {
-            int BookAP = 1;
-            int BookAAP = 1;
-            int BookDP = 1;
-            if (Book_cb.Checked == true)
-            {
-                cDP_n.Text = Convert.ToString(cs.cdp + BookDP);
-                cAAP_n.Text = Convert.ToString(cs.caap + BookAAP);
-                cAP_n.Text = Convert.ToString(cs.cap + BookAP);
-            }
-            else
-            {
-                cDP_n.Text = Convert.ToString(cs.cdp - BookDP);
-                cAAP_n.Text = Convert.ToString(cs.caap - BookAAP);
-                cAP_n.Text = Convert.ToString(cs.cap - BookAP);
-            }
-            cs.cap = Convert.ToInt32(cAP_n.Text);
-            cs.caap = Convert.ToInt32(cAAP_n.Text);
-            cs.cdp = Convert.ToInt32(cDP_n.Text);
-        }
-
         //Item buttons
         private void Belt_btn_Click(object sender, EventArgs e)
         {
