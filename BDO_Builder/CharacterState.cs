@@ -38,6 +38,8 @@ namespace BDO_Builder
         public int chdr; // hiden damage reduction
         public int cAtkSpeed;
         public int cCastSpeed;
+        public int cAtkSpeedRate;
+        public int cCastSpeedRate;
         public int cmvs; // Movement speed 
         public int ccr; // Critical Rate
         public int chap; // Hidden AP
@@ -58,7 +60,11 @@ namespace BDO_Builder
         public int cdfm; //Damage from Monsters
         public int cSpecialAttackEv; //Special attack Evasion Rate 
         public int cSpecialAttackDam; //Special attack extra damage
-
+        public double cAlchCookTime; // Alchemy and Cooking Time
+        public int cProccesingRate; // Processing Success Rate
+        public int cGathDropRate; // Gathering Drop Rate
+        public int cGathering; //Gathering level
+        public int cFishing; //Fishing level
 
         //Training
         public int tcsb; //Breath
@@ -723,6 +729,45 @@ namespace BDO_Builder
         public int swDefMaxMP;
         public int swDP;
         public int swDefDP;
+
+        //Alchemy Stones State
+        public int asId = 0;
+        public bool asEnch;
+        public int asAPhigh;
+        public int asAPlow;
+        public int asAP;
+        public int asDefAPhigh;
+        public int asDefAPlow;
+        public int asHidenAP;
+        public int asDefHidenAP;
+        public int asAccuracy;
+        public int asDefAccuracy;
+        public int asIgnore;
+        public int asDefIgnore;
+        public int asAtkSpeed;
+        public int asDefAtkSpeed;
+        public int asCastSpeed;
+        public int asDefCastSpeed;
+        public double asAlchCookTime;
+        public double asDefAlchCookTime;
+        public int asProcRate;
+        public int asDefProcRate;
+        public int asWeightLimit;
+        public int asDefWeightLimit;
+        public int asGathFish;
+        public int asDefGathFish;
+        public int asGathDropRate;
+        public int asDefGathDropRate;
+        public int asDR;
+        public int asDefDR;
+        public int asEvasion;
+        public int asDefEvasion;
+        public int asMaxHP;
+        public int asDefMaxHP;
+        public int asAllRes;
+        public int asDefAllRes;
+
+
 
 
         readonly SqlCommand cmd = Base_Connect.Connection.CreateCommand();
@@ -5819,6 +5864,70 @@ namespace BDO_Builder
                 cSpecialAttackEv += swSpecialAttackEv;
                 cSpecialAttackDam += swSpecialAttackDam;
             }
+        }
+
+        public void AlchemyStoneState()
+        {
+            cap -= asAP;
+            caap -= asAP;
+            chap -= asHidenAP;
+            cacc -= asAccuracy;
+            cResistIgnore -= asIgnore;
+            cAtkSpeedRate -= asAtkSpeed;
+            cCastSpeedRate -= asCastSpeed;
+            cAlchCookTime -= asAlchCookTime;
+            cProccesingRate -= asProcRate;
+            cWeight -= asWeightLimit;
+            cGathering -= asGathFish;
+            cFishing -= asGathFish;
+            cGathDropRate -= asGathDropRate;
+            cDR -= asDR;
+            cev -= asEvasion;
+            cMaxHP -= asMaxHP;
+            cRes1 -= asAllRes;
+            cRes2 -= asAllRes;
+            cRes3 -= asAllRes;
+            cRes4 -= asAllRes;
+
+            asAPhigh = asDefAPhigh;
+            asAPlow = asDefAPlow;
+            asAP = (asAPhigh + asAPlow) / 2;
+            asHidenAP = asDefHidenAP;
+            asAccuracy = asDefAccuracy;
+            asIgnore = asDefIgnore;
+            asAtkSpeed = asDefAtkSpeed;
+            asCastSpeed = asDefCastSpeed;
+            asAlchCookTime = asDefAlchCookTime;
+            asProcRate = asDefProcRate;
+            asWeightLimit = asDefWeightLimit;
+            asGathFish = asDefGathFish;
+            asGathDropRate = asDefGathDropRate;
+            asDR = asDefDR;
+            asEvasion = asDefEvasion;
+            asMaxHP = asDefMaxHP;
+            asAllRes = asDefAllRes;
+
+            caap += asAP;
+            cap += asAP;
+            chap += asHidenAP;
+            cacc += asAccuracy;
+            cResistIgnore += asIgnore;
+            cAtkSpeedRate += asAtkSpeed;
+            cCastSpeedRate += asCastSpeed;
+            cAlchCookTime += asAlchCookTime;
+            cProccesingRate += asProcRate;
+            cWeight += asWeightLimit;
+            cGathering += asGathFish;
+            cFishing += asGathFish;
+            cGathDropRate += asGathDropRate;
+            cDR += asDR;
+            cev += asEvasion;
+            cMaxHP += asMaxHP;
+            cRes1 += asAllRes;
+            cRes2 += asAllRes;
+            cRes3 += asAllRes;
+            cRes4 += asAllRes;
+
         }
     }
 }

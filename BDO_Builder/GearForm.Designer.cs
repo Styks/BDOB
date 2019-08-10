@@ -249,13 +249,41 @@
             this.Crystal_lbl = new System.Windows.Forms.Label();
             this.Books_gb = new System.Windows.Forms.GroupBox();
             this.Item_gb = new System.Windows.Forms.GroupBox();
+            this.iHAP_n = new System.Windows.Forms.Label();
+            this.iHAP_lbl = new System.Windows.Forms.Label();
             this.iSpecialAttackED_n = new System.Windows.Forms.Label();
             this.iSpecialAttackED_lbl = new System.Windows.Forms.Label();
             this.iSpecialAttackEvRate_n = new System.Windows.Forms.Label();
             this.iSpecialAttackEvRate_lbl = new System.Windows.Forms.Label();
             this.Shai_gb = new System.Windows.Forms.GroupBox();
-            this.iHAP_n = new System.Windows.Forms.Label();
-            this.iHAP_lbl = new System.Windows.Forms.Label();
+            this.cCastSpeedRate_lbl = new System.Windows.Forms.Label();
+            this.cCastSpeedRate_n = new System.Windows.Forms.Label();
+            this.cAtkSpeedRate_lbl = new System.Windows.Forms.Label();
+            this.cAtkSpeedRate_n = new System.Windows.Forms.Label();
+            this.iCastSpeedRate_lbl = new System.Windows.Forms.Label();
+            this.iCastSpeedRate_n = new System.Windows.Forms.Label();
+            this.iAtkSpeedRate_lbl = new System.Windows.Forms.Label();
+            this.iAtkSpeedRate_n = new System.Windows.Forms.Label();
+            this.cAlchCookTime_lbl = new System.Windows.Forms.Label();
+            this.cAlchCookTime_n = new System.Windows.Forms.Label();
+            this.cFishing_lbl = new System.Windows.Forms.Label();
+            this.cFishing_n = new System.Windows.Forms.Label();
+            this.iAlchCookTime_lbl = new System.Windows.Forms.Label();
+            this.iAlchCookTime_n = new System.Windows.Forms.Label();
+            this.cGathering_lbl = new System.Windows.Forms.Label();
+            this.cGathering_n = new System.Windows.Forms.Label();
+            this.cGathDropRate_lbl = new System.Windows.Forms.Label();
+            this.cGathDropRate_n = new System.Windows.Forms.Label();
+            this.cProcessingRate_lbl = new System.Windows.Forms.Label();
+            this.cProcessingRate_n = new System.Windows.Forms.Label();
+            this.iProcessingRate_lbl = new System.Windows.Forms.Label();
+            this.iProcessingRate_n = new System.Windows.Forms.Label();
+            this.iGathDropRate_lbl = new System.Windows.Forms.Label();
+            this.iGathDropRate_n = new System.Windows.Forms.Label();
+            this.iGathering_lbl = new System.Windows.Forms.Label();
+            this.iGathering_n = new System.Windows.Forms.Label();
+            this.iFishing_lbl = new System.Windows.Forms.Label();
+            this.iFishing_n = new System.Windows.Forms.Label();
             this.CharacterGear_gb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Class_pic)).BeginInit();
             this.MStats_gb.SuspendLayout();
@@ -494,6 +522,7 @@
             this.AS_btn.Size = new System.Drawing.Size(40, 40);
             this.AS_btn.TabIndex = 10;
             this.AS_btn.UseVisualStyleBackColor = false;
+            this.AS_btn.Click += new System.EventHandler(this.AS_btn_Click);
             // 
             // Class_pic
             // 
@@ -715,6 +744,16 @@
             // 
             // MStats_gb
             // 
+            this.MStats_gb.Controls.Add(this.cProcessingRate_lbl);
+            this.MStats_gb.Controls.Add(this.cProcessingRate_n);
+            this.MStats_gb.Controls.Add(this.cGathDropRate_lbl);
+            this.MStats_gb.Controls.Add(this.cGathDropRate_n);
+            this.MStats_gb.Controls.Add(this.cGathering_lbl);
+            this.MStats_gb.Controls.Add(this.cGathering_n);
+            this.MStats_gb.Controls.Add(this.cFishing_lbl);
+            this.MStats_gb.Controls.Add(this.cFishing_n);
+            this.MStats_gb.Controls.Add(this.cAlchCookTime_lbl);
+            this.MStats_gb.Controls.Add(this.cAlchCookTime_n);
             this.MStats_gb.Controls.Add(this.cIgnoreResistance_lbl);
             this.MStats_gb.Controls.Add(this.cHPRecoveryChance_n);
             this.MStats_gb.Controls.Add(this.cSpecialAttackEvRate_n);
@@ -1600,6 +1639,10 @@
             // 
             // OStats_gb
             // 
+            this.OStats_gb.Controls.Add(this.cCastSpeedRate_lbl);
+            this.OStats_gb.Controls.Add(this.cCastSpeedRate_n);
+            this.OStats_gb.Controls.Add(this.cAtkSpeedRate_lbl);
+            this.OStats_gb.Controls.Add(this.cAtkSpeedRate_n);
             this.OStats_gb.Controls.Add(this.cCS_lbl);
             this.OStats_gb.Controls.Add(this.cCastSpeed_n);
             this.OStats_gb.Controls.Add(this.cKFR_n);
@@ -2521,6 +2564,20 @@
             // 
             // Item_gb
             // 
+            this.Item_gb.Controls.Add(this.iProcessingRate_lbl);
+            this.Item_gb.Controls.Add(this.iProcessingRate_n);
+            this.Item_gb.Controls.Add(this.iGathDropRate_lbl);
+            this.Item_gb.Controls.Add(this.iGathDropRate_n);
+            this.Item_gb.Controls.Add(this.iGathering_lbl);
+            this.Item_gb.Controls.Add(this.iGathering_n);
+            this.Item_gb.Controls.Add(this.iFishing_lbl);
+            this.Item_gb.Controls.Add(this.iFishing_n);
+            this.Item_gb.Controls.Add(this.iAlchCookTime_lbl);
+            this.Item_gb.Controls.Add(this.iAlchCookTime_n);
+            this.Item_gb.Controls.Add(this.iCastSpeedRate_lbl);
+            this.Item_gb.Controls.Add(this.iCastSpeedRate_n);
+            this.Item_gb.Controls.Add(this.iAtkSpeedRate_lbl);
+            this.Item_gb.Controls.Add(this.iAtkSpeedRate_n);
             this.Item_gb.Controls.Add(this.iHAP_n);
             this.Item_gb.Controls.Add(this.iHAP_lbl);
             this.Item_gb.Controls.Add(this.iSpecialAttackED_n);
@@ -2601,10 +2658,28 @@
             this.Item_gb.Controls.Add(this.iCR_lbl);
             this.Item_gb.Location = new System.Drawing.Point(679, 25);
             this.Item_gb.Name = "Item_gb";
-            this.Item_gb.Size = new System.Drawing.Size(385, 776);
+            this.Item_gb.Size = new System.Drawing.Size(548, 837);
             this.Item_gb.TabIndex = 89;
             this.Item_gb.TabStop = false;
             this.Item_gb.Text = "Item";
+            // 
+            // iHAP_n
+            // 
+            this.iHAP_n.AutoSize = true;
+            this.iHAP_n.Location = new System.Drawing.Point(77, 236);
+            this.iHAP_n.Name = "iHAP_n";
+            this.iHAP_n.Size = new System.Drawing.Size(13, 13);
+            this.iHAP_n.TabIndex = 93;
+            this.iHAP_n.Text = "0";
+            // 
+            // iHAP_lbl
+            // 
+            this.iHAP_lbl.AutoSize = true;
+            this.iHAP_lbl.Location = new System.Drawing.Point(21, 236);
+            this.iHAP_lbl.Name = "iHAP_lbl";
+            this.iHAP_lbl.Size = new System.Drawing.Size(58, 13);
+            this.iHAP_lbl.TabIndex = 92;
+            this.iHAP_lbl.Text = "Hidden AP";
             // 
             // iSpecialAttackED_n
             // 
@@ -2660,23 +2735,257 @@
             this.Shai_gb.Text = "Shai_gb";
             this.Shai_gb.Visible = false;
             // 
-            // iHAP_n
+            // cCastSpeedRate_lbl
             // 
-            this.iHAP_n.AutoSize = true;
-            this.iHAP_n.Location = new System.Drawing.Point(77, 236);
-            this.iHAP_n.Name = "iHAP_n";
-            this.iHAP_n.Size = new System.Drawing.Size(13, 13);
-            this.iHAP_n.TabIndex = 93;
-            this.iHAP_n.Text = "0";
+            this.cCastSpeedRate_lbl.AutoSize = true;
+            this.cCastSpeedRate_lbl.Location = new System.Drawing.Point(172, 174);
+            this.cCastSpeedRate_lbl.Name = "cCastSpeedRate_lbl";
+            this.cCastSpeedRate_lbl.Size = new System.Drawing.Size(62, 13);
+            this.cCastSpeedRate_lbl.TabIndex = 44;
+            this.cCastSpeedRate_lbl.Text = "Cast Speed";
             // 
-            // iHAP_lbl
+            // cCastSpeedRate_n
             // 
-            this.iHAP_lbl.AutoSize = true;
-            this.iHAP_lbl.Location = new System.Drawing.Point(21, 236);
-            this.iHAP_lbl.Name = "iHAP_lbl";
-            this.iHAP_lbl.Size = new System.Drawing.Size(58, 13);
-            this.iHAP_lbl.TabIndex = 92;
-            this.iHAP_lbl.Text = "Hidden AP";
+            this.cCastSpeedRate_n.AutoSize = true;
+            this.cCastSpeedRate_n.Location = new System.Drawing.Point(302, 174);
+            this.cCastSpeedRate_n.Name = "cCastSpeedRate_n";
+            this.cCastSpeedRate_n.Size = new System.Drawing.Size(21, 13);
+            this.cCastSpeedRate_n.TabIndex = 45;
+            this.cCastSpeedRate_n.Text = "0%";
+            // 
+            // cAtkSpeedRate_lbl
+            // 
+            this.cAtkSpeedRate_lbl.AutoSize = true;
+            this.cAtkSpeedRate_lbl.Location = new System.Drawing.Point(170, 150);
+            this.cAtkSpeedRate_lbl.Name = "cAtkSpeedRate_lbl";
+            this.cAtkSpeedRate_lbl.Size = new System.Drawing.Size(72, 13);
+            this.cAtkSpeedRate_lbl.TabIndex = 42;
+            this.cAtkSpeedRate_lbl.Text = "Attack Speed";
+            // 
+            // cAtkSpeedRate_n
+            // 
+            this.cAtkSpeedRate_n.AutoSize = true;
+            this.cAtkSpeedRate_n.Location = new System.Drawing.Point(302, 150);
+            this.cAtkSpeedRate_n.Name = "cAtkSpeedRate_n";
+            this.cAtkSpeedRate_n.Size = new System.Drawing.Size(21, 13);
+            this.cAtkSpeedRate_n.TabIndex = 43;
+            this.cAtkSpeedRate_n.Text = "0%";
+            // 
+            // iCastSpeedRate_lbl
+            // 
+            this.iCastSpeedRate_lbl.AutoSize = true;
+            this.iCastSpeedRate_lbl.Location = new System.Drawing.Point(23, 731);
+            this.iCastSpeedRate_lbl.Name = "iCastSpeedRate_lbl";
+            this.iCastSpeedRate_lbl.Size = new System.Drawing.Size(62, 13);
+            this.iCastSpeedRate_lbl.TabIndex = 96;
+            this.iCastSpeedRate_lbl.Text = "Cast Speed";
+            // 
+            // iCastSpeedRate_n
+            // 
+            this.iCastSpeedRate_n.AutoSize = true;
+            this.iCastSpeedRate_n.Location = new System.Drawing.Point(238, 730);
+            this.iCastSpeedRate_n.Name = "iCastSpeedRate_n";
+            this.iCastSpeedRate_n.Size = new System.Drawing.Size(21, 13);
+            this.iCastSpeedRate_n.TabIndex = 97;
+            this.iCastSpeedRate_n.Text = "0%";
+            // 
+            // iAtkSpeedRate_lbl
+            // 
+            this.iAtkSpeedRate_lbl.AutoSize = true;
+            this.iAtkSpeedRate_lbl.Location = new System.Drawing.Point(21, 707);
+            this.iAtkSpeedRate_lbl.Name = "iAtkSpeedRate_lbl";
+            this.iAtkSpeedRate_lbl.Size = new System.Drawing.Size(72, 13);
+            this.iAtkSpeedRate_lbl.TabIndex = 94;
+            this.iAtkSpeedRate_lbl.Text = "Attack Speed";
+            // 
+            // iAtkSpeedRate_n
+            // 
+            this.iAtkSpeedRate_n.AutoSize = true;
+            this.iAtkSpeedRate_n.Location = new System.Drawing.Point(238, 706);
+            this.iAtkSpeedRate_n.Name = "iAtkSpeedRate_n";
+            this.iAtkSpeedRate_n.Size = new System.Drawing.Size(21, 13);
+            this.iAtkSpeedRate_n.TabIndex = 95;
+            this.iAtkSpeedRate_n.Text = "0%";
+            // 
+            // cAlchCookTime_lbl
+            // 
+            this.cAlchCookTime_lbl.AutoSize = true;
+            this.cAlchCookTime_lbl.Location = new System.Drawing.Point(19, 168);
+            this.cAlchCookTime_lbl.Name = "cAlchCookTime_lbl";
+            this.cAlchCookTime_lbl.Size = new System.Drawing.Size(136, 13);
+            this.cAlchCookTime_lbl.TabIndex = 86;
+            this.cAlchCookTime_lbl.Text = "Alchemy and Cooking Time\r\n";
+            // 
+            // cAlchCookTime_n
+            // 
+            this.cAlchCookTime_n.AutoSize = true;
+            this.cAlchCookTime_n.Location = new System.Drawing.Point(185, 168);
+            this.cAlchCookTime_n.Name = "cAlchCookTime_n";
+            this.cAlchCookTime_n.Size = new System.Drawing.Size(13, 13);
+            this.cAlchCookTime_n.TabIndex = 87;
+            this.cAlchCookTime_n.Text = "0";
+            // 
+            // cFishing_lbl
+            // 
+            this.cFishing_lbl.AutoSize = true;
+            this.cFishing_lbl.Location = new System.Drawing.Point(226, 168);
+            this.cFishing_lbl.Name = "cFishing_lbl";
+            this.cFishing_lbl.Size = new System.Drawing.Size(40, 13);
+            this.cFishing_lbl.TabIndex = 88;
+            this.cFishing_lbl.Text = "Fishing\r\n";
+            // 
+            // cFishing_n
+            // 
+            this.cFishing_n.AutoSize = true;
+            this.cFishing_n.Location = new System.Drawing.Point(351, 168);
+            this.cFishing_n.Name = "cFishing_n";
+            this.cFishing_n.Size = new System.Drawing.Size(13, 13);
+            this.cFishing_n.TabIndex = 89;
+            this.cFishing_n.Text = "0";
+            // 
+            // iAlchCookTime_lbl
+            // 
+            this.iAlchCookTime_lbl.AutoSize = true;
+            this.iAlchCookTime_lbl.Location = new System.Drawing.Point(23, 753);
+            this.iAlchCookTime_lbl.Name = "iAlchCookTime_lbl";
+            this.iAlchCookTime_lbl.Size = new System.Drawing.Size(136, 13);
+            this.iAlchCookTime_lbl.TabIndex = 98;
+            this.iAlchCookTime_lbl.Text = "Alchemy and Cooking Time\r\n";
+            // 
+            // iAlchCookTime_n
+            // 
+            this.iAlchCookTime_n.AutoSize = true;
+            this.iAlchCookTime_n.Location = new System.Drawing.Point(238, 753);
+            this.iAlchCookTime_n.Name = "iAlchCookTime_n";
+            this.iAlchCookTime_n.Size = new System.Drawing.Size(13, 13);
+            this.iAlchCookTime_n.TabIndex = 99;
+            this.iAlchCookTime_n.Text = "0";
+            // 
+            // cGathering_lbl
+            // 
+            this.cGathering_lbl.AutoSize = true;
+            this.cGathering_lbl.Location = new System.Drawing.Point(383, 168);
+            this.cGathering_lbl.Name = "cGathering_lbl";
+            this.cGathering_lbl.Size = new System.Drawing.Size(53, 13);
+            this.cGathering_lbl.TabIndex = 90;
+            this.cGathering_lbl.Text = "Gathering";
+            // 
+            // cGathering_n
+            // 
+            this.cGathering_n.AutoSize = true;
+            this.cGathering_n.Location = new System.Drawing.Point(508, 168);
+            this.cGathering_n.Name = "cGathering_n";
+            this.cGathering_n.Size = new System.Drawing.Size(13, 13);
+            this.cGathering_n.TabIndex = 91;
+            this.cGathering_n.Text = "0";
+            // 
+            // cGathDropRate_lbl
+            // 
+            this.cGathDropRate_lbl.AutoSize = true;
+            this.cGathDropRate_lbl.Location = new System.Drawing.Point(22, 187);
+            this.cGathDropRate_lbl.Name = "cGathDropRate_lbl";
+            this.cGathDropRate_lbl.Size = new System.Drawing.Size(105, 13);
+            this.cGathDropRate_lbl.TabIndex = 92;
+            this.cGathDropRate_lbl.Text = "Gathering Drop Rate\r\n";
+            // 
+            // cGathDropRate_n
+            // 
+            this.cGathDropRate_n.AutoSize = true;
+            this.cGathDropRate_n.Location = new System.Drawing.Point(147, 187);
+            this.cGathDropRate_n.Name = "cGathDropRate_n";
+            this.cGathDropRate_n.Size = new System.Drawing.Size(13, 13);
+            this.cGathDropRate_n.TabIndex = 93;
+            this.cGathDropRate_n.Text = "0";
+            // 
+            // cProcessingRate_lbl
+            // 
+            this.cProcessingRate_lbl.AutoSize = true;
+            this.cProcessingRate_lbl.Location = new System.Drawing.Point(185, 187);
+            this.cProcessingRate_lbl.Name = "cProcessingRate_lbl";
+            this.cProcessingRate_lbl.Size = new System.Drawing.Size(123, 13);
+            this.cProcessingRate_lbl.TabIndex = 94;
+            this.cProcessingRate_lbl.Text = "Processig Success Rate\r\n";
+            // 
+            // cProcessingRate_n
+            // 
+            this.cProcessingRate_n.AutoSize = true;
+            this.cProcessingRate_n.Location = new System.Drawing.Point(310, 187);
+            this.cProcessingRate_n.Name = "cProcessingRate_n";
+            this.cProcessingRate_n.Size = new System.Drawing.Size(21, 13);
+            this.cProcessingRate_n.TabIndex = 95;
+            this.cProcessingRate_n.Text = "0%";
+            // 
+            // iProcessingRate_lbl
+            // 
+            this.iProcessingRate_lbl.AutoSize = true;
+            this.iProcessingRate_lbl.Location = new System.Drawing.Point(190, 801);
+            this.iProcessingRate_lbl.Name = "iProcessingRate_lbl";
+            this.iProcessingRate_lbl.Size = new System.Drawing.Size(123, 13);
+            this.iProcessingRate_lbl.TabIndex = 108;
+            this.iProcessingRate_lbl.Text = "Processig Success Rate\r\n";
+            // 
+            // iProcessingRate_n
+            // 
+            this.iProcessingRate_n.AutoSize = true;
+            this.iProcessingRate_n.Location = new System.Drawing.Point(315, 801);
+            this.iProcessingRate_n.Name = "iProcessingRate_n";
+            this.iProcessingRate_n.Size = new System.Drawing.Size(21, 13);
+            this.iProcessingRate_n.TabIndex = 109;
+            this.iProcessingRate_n.Text = "0%";
+            // 
+            // iGathDropRate_lbl
+            // 
+            this.iGathDropRate_lbl.AutoSize = true;
+            this.iGathDropRate_lbl.Location = new System.Drawing.Point(27, 801);
+            this.iGathDropRate_lbl.Name = "iGathDropRate_lbl";
+            this.iGathDropRate_lbl.Size = new System.Drawing.Size(105, 13);
+            this.iGathDropRate_lbl.TabIndex = 106;
+            this.iGathDropRate_lbl.Text = "Gathering Drop Rate\r\n";
+            // 
+            // iGathDropRate_n
+            // 
+            this.iGathDropRate_n.AutoSize = true;
+            this.iGathDropRate_n.Location = new System.Drawing.Point(152, 801);
+            this.iGathDropRate_n.Name = "iGathDropRate_n";
+            this.iGathDropRate_n.Size = new System.Drawing.Size(13, 13);
+            this.iGathDropRate_n.TabIndex = 107;
+            this.iGathDropRate_n.Text = "0";
+            // 
+            // iGathering_lbl
+            // 
+            this.iGathering_lbl.AutoSize = true;
+            this.iGathering_lbl.Location = new System.Drawing.Point(190, 782);
+            this.iGathering_lbl.Name = "iGathering_lbl";
+            this.iGathering_lbl.Size = new System.Drawing.Size(53, 13);
+            this.iGathering_lbl.TabIndex = 104;
+            this.iGathering_lbl.Text = "Gathering";
+            // 
+            // iGathering_n
+            // 
+            this.iGathering_n.AutoSize = true;
+            this.iGathering_n.Location = new System.Drawing.Point(315, 782);
+            this.iGathering_n.Name = "iGathering_n";
+            this.iGathering_n.Size = new System.Drawing.Size(13, 13);
+            this.iGathering_n.TabIndex = 105;
+            this.iGathering_n.Text = "0";
+            // 
+            // iFishing_lbl
+            // 
+            this.iFishing_lbl.AutoSize = true;
+            this.iFishing_lbl.Location = new System.Drawing.Point(23, 782);
+            this.iFishing_lbl.Name = "iFishing_lbl";
+            this.iFishing_lbl.Size = new System.Drawing.Size(40, 13);
+            this.iFishing_lbl.TabIndex = 102;
+            this.iFishing_lbl.Text = "Fishing\r\n";
+            // 
+            // iFishing_n
+            // 
+            this.iFishing_n.AutoSize = true;
+            this.iFishing_n.Location = new System.Drawing.Point(148, 782);
+            this.iFishing_n.Name = "iFishing_n";
+            this.iFishing_n.Size = new System.Drawing.Size(13, 13);
+            this.iFishing_n.TabIndex = 103;
+            this.iFishing_n.Text = "0";
             // 
             // GearForm
             // 
@@ -2958,5 +3267,33 @@
         private System.Windows.Forms.Label iSpecialAttackEvRate_lbl;
         private System.Windows.Forms.Label iHAP_n;
         private System.Windows.Forms.Label iHAP_lbl;
+        private System.Windows.Forms.Label cCastSpeedRate_lbl;
+        private System.Windows.Forms.Label cCastSpeedRate_n;
+        private System.Windows.Forms.Label cAtkSpeedRate_lbl;
+        private System.Windows.Forms.Label cAtkSpeedRate_n;
+        private System.Windows.Forms.Label iCastSpeedRate_lbl;
+        private System.Windows.Forms.Label iCastSpeedRate_n;
+        private System.Windows.Forms.Label iAtkSpeedRate_lbl;
+        private System.Windows.Forms.Label iAtkSpeedRate_n;
+        private System.Windows.Forms.Label cProcessingRate_lbl;
+        private System.Windows.Forms.Label cProcessingRate_n;
+        private System.Windows.Forms.Label cGathDropRate_lbl;
+        private System.Windows.Forms.Label cGathDropRate_n;
+        private System.Windows.Forms.Label cGathering_lbl;
+        private System.Windows.Forms.Label cGathering_n;
+        private System.Windows.Forms.Label cFishing_lbl;
+        private System.Windows.Forms.Label cFishing_n;
+        private System.Windows.Forms.Label cAlchCookTime_lbl;
+        private System.Windows.Forms.Label cAlchCookTime_n;
+        private System.Windows.Forms.Label iProcessingRate_lbl;
+        private System.Windows.Forms.Label iProcessingRate_n;
+        private System.Windows.Forms.Label iGathDropRate_lbl;
+        private System.Windows.Forms.Label iGathDropRate_n;
+        private System.Windows.Forms.Label iGathering_lbl;
+        private System.Windows.Forms.Label iGathering_n;
+        private System.Windows.Forms.Label iFishing_lbl;
+        private System.Windows.Forms.Label iFishing_n;
+        private System.Windows.Forms.Label iAlchCookTime_lbl;
+        private System.Windows.Forms.Label iAlchCookTime_n;
     }
 }
