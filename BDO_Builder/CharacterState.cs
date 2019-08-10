@@ -272,6 +272,39 @@ namespace BDO_Builder
         //Val DP
         public int a_vd_b2;
 
+        //Caphras  Arm
+        public int c_armHP;
+        public int c_armdp;
+        public int c_armev;
+        public int c_armhev;
+        public int c_armdr;
+        public int c_armMP;
+        public int c_armhdr;
+        //Caphras  Helm
+        public int c_helHP;
+        public int c_heldp;
+        public int c_helev;
+        public int c_helhev;
+        public int c_heldr;
+        public int c_helMP;
+        public int c_helhdr;
+        //Caphras  Gloves
+        public int c_glovHP;
+        public int c_glovdp;
+        public int c_glovev;
+        public int c_glovhev;
+        public int c_glovdr;
+        public int c_glovMP;
+        public int c_glovhdr;
+        //Caphras  Shoes
+        public int c_shHP;
+        public int c_shdp;
+        public int c_shev;
+        public int c_shhev;
+        public int c_shdr;
+        public int c_shMP;
+        public int c_shhdr;
+
         // Belt stats
         public int beltap; //Betl AP
         public int beltev; // Belt Evasion
@@ -505,6 +538,7 @@ namespace BDO_Builder
         public bool armEnch;
         public int armId = 0; // Current armor Id
         public int armEnchLvl = 0; // Armor's enchant level
+        public int armCaphLvl = 0;
         public bool armIsBoss;// Armor is boss item or not
         public int armDefdp; // Armor default DP 
         public int armDefev;// Armor default evasion 
@@ -542,6 +576,7 @@ namespace BDO_Builder
         public bool helEnch;
         public int helId = 0; // Current Helmet Id
         public int helEnchLvl = 0; // Helmet's enchant level
+        public int helCaphLvl = 0;
         public bool helIsBoss;// Helmet is boss item or not
         public int helDefdp; // Helmet default DP 
         public int helDefev;// Helmet default evasion 
@@ -573,6 +608,7 @@ namespace BDO_Builder
         public bool glovEnch;
         public int glovId = 0; // Current Gloves Id
         public int glovEnchLvl = 0; // Gloves's enchant level
+        public int glovCaphLvl = 0;
         public bool glovIsBoss;// Gloves is boss item or not
         public int glovDefdp; // Gloves default DP
         public int glovDefacc;// Gloves acc
@@ -604,6 +640,7 @@ namespace BDO_Builder
         public bool shEnch;
         public int shId = 0; // Current Shoes Id
         public int shEnchLvl = 0; // Shoes's enchant level
+        public int shCaphLvl = 0;
         public bool shIsBoss;// Shoes is boss item or not
         public int shDefdp; // Shoes default DP
         public int shDefev;// Shoes default evasion 
@@ -629,6 +666,7 @@ namespace BDO_Builder
         public int awkId = 0;
         public bool awkEnch;
         public int awkEnchLvl = 0;
+        public int awkCaphLvl = 0;
         public int awkAPlow;
         public int awkAPhigh;
         public int awkAP;
@@ -663,6 +701,7 @@ namespace BDO_Builder
         public int mwId = 0;
         public bool mwEnch;
         public int mwEnchLvl = 0;
+        public int mwCaphLvl = 0;
         public int mwAPlow;
         public int mwAPhigh;
         public int mwAP;
@@ -696,6 +735,7 @@ namespace BDO_Builder
         public int swId = 0;
         public bool swEnch;
         public int swEnchLvl = 0;
+        public int swCaphLvl = 0;
         public int swAPlow;
         public int swAPhigh;
         public int swAP;
@@ -5041,7 +5081,7 @@ namespace BDO_Builder
 
             if(mwEnch == true & mwEnchLvl >= 1)
             {
-                caap -= mwAP;
+                cap -= mwAP;
                 cacc -= mwAccuracy;
                 ceapa -= mwAPagainst;
                 cedh -= mwDamageHumans;
@@ -5398,7 +5438,7 @@ namespace BDO_Builder
                 mwRecoveryChance = mwDefRecoveryChance;
 
 
-                caap += mwAP;
+                cap += mwAP;
                 cacc += mwAccuracy;
                 ceapa += mwAPagainst;
                 cedh += mwDamageHumans;
@@ -5413,7 +5453,7 @@ namespace BDO_Builder
             }
             else
             {
-                caap -= mwAP;
+                cap -= mwAP;
                 cacc -= mwAccuracy;
                 ceapa -= mwAPagainst;
                 cedh -= mwDamageHumans;
@@ -5455,7 +5495,7 @@ namespace BDO_Builder
                 mwRecoveryChance = mwDefRecoveryChance;
 
 
-                caap += mwAP;
+                cap += mwAP;
                 cacc += mwAccuracy;
                 ceapa += mwAPagainst;
                 cedh += mwDamageHumans;
@@ -5929,5 +5969,347 @@ namespace BDO_Builder
             cRes4 += asAllRes;
 
         }
-    }
+
+        public void AllArmorCaphState() //allArmCaphLvl
+        {
+            if (sgn == 7)
+            {
+                if (armEnchLvl == 18 | armEnchLvl == 19)
+                {
+                    cMaxHP -= c_armHP;
+                    cdp -= c_armdp;
+                    cev -= c_armev;
+                    chev -= c_armhev;
+                    cDR -= c_armdr;
+                    cMaxMP -= c_armMP;
+                    chdr -= c_armhdr;
+
+                    if (armCaphLvl == 0) { c_armHP = 0; c_armdp = 0; c_armev = 0; c_armhev = 0; c_armdr = 0; c_armMP = 0; c_armhdr = 0; }
+                    if (armCaphLvl == 1) { c_armHP = 10; }
+                    if (armCaphLvl == 2) { c_armHP = 20; c_armdp = 1; c_armev = 1; c_armhev = 2; }
+                    if (armCaphLvl == 3) { c_armHP = 30; c_armdp = 3; c_armev = 2; c_armhev = 3; c_armdr = 1; }
+                    if (armCaphLvl == 4) { c_armHP = 50; c_armdp = 4; c_armev = 3; c_armhev = 4; c_armdr = 1; }
+                    if (armCaphLvl == 5) { c_armHP = 50; c_armdp = 4; c_armev = 3; c_armhev = 4; c_armdr = 1; c_armMP = 5; }
+                    if (armCaphLvl == 6) { c_armHP = 50; c_armdp = 4; c_armev = 3; c_armhev = 4; c_armdr = 1; c_armMP = 10; }
+                    if (armCaphLvl == 7) { c_armHP = 50; c_armdp = 4; c_armev = 3; c_armhev = 5; c_armdr = 1; c_armMP = 10; }
+                    if (armCaphLvl == 8) { c_armHP = 50; c_armdp = 4; c_armev = 3; c_armhev = 5; c_armdr = 1; c_armMP = 10; c_armhdr = 1; }
+                    if (armCaphLvl == 9) { c_armHP = 60; c_armdp = 4; c_armev = 3; c_armhev = 5; c_armdr = 1; c_armMP = 10; c_armhdr = 1; }
+                    if (armCaphLvl == 10) { c_armHP = 60; c_armdp = 4; c_armev = 3; c_armhev = 5; c_armdr = 1; c_armMP = 15; c_armhdr = 1; }
+                    if (armCaphLvl == 11) { c_armHP = 60; c_armdp = 4; c_armev = 3; c_armhev = 5; c_armdr = 1; c_armMP = 20; c_armhdr = 1; }
+                    if (armCaphLvl == 12) { c_armHP = 60; c_armdp = 4; c_armev = 3; c_armhev = 6; c_armdr = 1; c_armMP = 20; c_armhdr = 1; }
+                    if (armCaphLvl == 13) { c_armHP = 70; c_armdp = 4; c_armev = 3; c_armhev = 6; c_armdr = 1; c_armMP = 20; c_armhdr = 1; }
+                    if (armCaphLvl == 14) { c_armHP = 70; c_armdp = 4; c_armev = 3; c_armhev = 6; c_armdr = 1; c_armMP = 25; c_armhdr = 1; }
+                    if (armCaphLvl == 15) { c_armHP = 70; c_armdp = 4; c_armev = 3; c_armhev = 6; c_armdr = 1; c_armMP = 30; c_armhdr = 1; }
+                    if (armCaphLvl == 16) { c_armHP = 70; c_armdp = 4; c_armev = 3; c_armhev = 6; c_armdr = 1; c_armMP = 30; c_armhdr = 2; }
+                    if (armCaphLvl == 17) { c_armHP = 70; c_armdp = 4; c_armev = 3; c_armhev = 7; c_armdr = 1; c_armMP = 30; c_armhdr = 2; }
+                    if (armCaphLvl == 18) { c_armHP = 80; c_armdp = 4; c_armev = 3; c_armhev = 7; c_armdr = 1; c_armMP = 30; c_armhdr = 2; }
+                    if (armCaphLvl == 19) { c_armHP = 80; c_armdp = 4; c_armev = 3; c_armhev = 8; c_armdr = 1; c_armMP = 30; c_armhdr = 2; }
+                    if (armCaphLvl == 20) { c_armHP = 80; c_armdp = 4; c_armev = 3; c_armhev = 8; c_armdr = 1; c_armMP = 30; c_armhdr = 3; }
+
+                    cMaxHP += c_armHP;
+                    cdp += c_armdp;
+                    cev += c_armev;
+                    chev += c_armhev;
+                    cDR += c_armdr;
+                    cMaxMP += c_armMP;
+                    chdr += c_armhdr;
+                }
+                if (armEnchLvl == 20)
+                {
+                    cMaxHP -= c_armHP;
+                    cdp -= c_armdp;
+                    cev -= c_armev;
+                    chev -= c_armhev;
+                    cDR -= c_armdr;
+                    cMaxMP -= c_armMP;
+                    chdr -= c_armhdr;
+
+                    if (armCaphLvl == 0) { c_armHP = 0; c_armdp = 0; c_armev = 0; c_armhev = 0; c_armdr = 0; c_armMP = 0; c_armhdr = 0; }
+                    if (armCaphLvl == 1) { c_armHP = 20; c_armdp = 1; c_armev = 1; c_armhev = 1; c_armMP = 0; }
+                    if (armCaphLvl == 2) { c_armHP = 30; c_armdp = 2; c_armev = 1; c_armhev = 1; c_armdr = 1; c_armhdr = 1; c_armMP = 0; }
+                    if (armCaphLvl == 3) { c_armHP = 40; c_armdp = 3; c_armev = 2; c_armhev = 2; c_armdr = 1; c_armhdr = 1; c_armMP = 0; }
+                    if (armCaphLvl == 4) { c_armHP = 50; c_armdp = 4; c_armev = 2; c_armhev = 2; c_armdr = 2; c_armhdr = 2; c_armMP = 0; }
+                    if (armCaphLvl == 5) { c_armHP = 60; c_armdp = 5; c_armev = 3; c_armhev = 3; c_armdr = 2; c_armhdr = 2; c_armMP = 0; }
+                    if (armCaphLvl == 6) { c_armHP = 70; c_armdp = 6; c_armev = 3; c_armhev = 3; c_armdr = 3; c_armhdr = 3; c_armMP = 0; }
+                    if (armCaphLvl == 7) { c_armHP = 80; c_armdp = 7; c_armev = 4; c_armhev = 4; c_armdr = 3; c_armhdr = 3; c_armMP = 0; }
+                    if (armCaphLvl == 8) { c_armHP = 90; c_armdp = 8; c_armev = 4; c_armhev = 4; c_armdr = 4; c_armhdr = 4; c_armMP = 0; }
+                    if (armCaphLvl == 9) { c_armHP = 100; c_armdp = 10; c_armev = 5; c_armhev = 5; c_armdr = 5; c_armhdr = 5; c_armMP = 0; }
+                    if (armCaphLvl == 10) { c_armHP = 110; c_armdp = 10; c_armev = 5; c_armhev = 6; c_armdr = 5; c_armhdr = 5; c_armMP = 0; }
+                    if (armCaphLvl == 11) { c_armHP = 120; c_armdp = 10; c_armev = 5; c_armhev = 6; c_armdr = 5; c_armhdr = 6; c_armMP = 0; }
+                    if (armCaphLvl == 12) { c_armHP = 120; c_armdp = 11; c_armev = 6; c_armhev = 6; c_armdr = 5; c_armhdr = 6; c_armMP = 0; }
+                    if (armCaphLvl == 13) { c_armHP = 120; c_armdp = 12; c_armev = 6; c_armhev = 6; c_armdr = 6; c_armhdr = 6; c_armMP = 0; }
+                    if (armCaphLvl == 14) { c_armHP = 130; c_armdp = 12; c_armev = 6; c_armhev = 7; c_armdr = 6; c_armhdr = 6; c_armMP = 0; }
+                    if (armCaphLvl == 15) { c_armHP = 140; c_armdp = 12; c_armev = 6; c_armhev = 7; c_armdr = 6; c_armhdr = 7; c_armMP = 0; }
+                    if (armCaphLvl == 16) { c_armHP = 140; c_armdp = 13; c_armev = 7; c_armhev = 7; c_armdr = 6; c_armhdr = 7; c_armMP = 0; }
+                    if (armCaphLvl == 17) { c_armHP = 140; c_armdp = 14; c_armev = 7; c_armhev = 7; c_armdr = 7; c_armhdr = 7; c_armMP = 0; }
+                    if (armCaphLvl == 18) { c_armHP = 150; c_armdp = 14; c_armev = 7; c_armhev = 8; c_armdr = 7; c_armhdr = 7; c_armMP = 0; }
+                    if (armCaphLvl == 19) { c_armHP = 160; c_armdp = 14; c_armev = 7; c_armhev = 8; c_armdr = 7; c_armhdr = 8; c_armMP = 0; }
+                    if (armCaphLvl == 20) { c_armHP = 160; c_armdp = 16; c_armev = 8; c_armhev = 8; c_armdr = 8; c_armhdr = 8; c_armMP = 0; }
+
+                    cMaxHP += c_armHP;
+                    cdp += c_armdp;
+                    cev += c_armev;
+                    chev += c_armhev;
+                    cDR += c_armdr;
+                    cMaxMP += c_armMP;
+                    chdr += c_armhdr;
+                }
+            }
+            if (sgn == 8)
+            {
+                if (helEnchLvl == 18 | helEnchLvl == 19)
+                {
+                    cMaxHP -= c_helHP;
+                    cdp -= c_heldp;
+                    cev -= c_helev;
+                    chev -= c_helhev;
+                    cDR -= c_heldr;
+                    cMaxMP -= c_helMP;
+                    chdr -= c_helhdr;
+
+                    if (helCaphLvl == 0) { c_helHP = 0; c_heldp = 0; c_helev = 0; c_helhev = 0; c_heldr = 0; c_helMP = 0; c_helhdr = 0; }
+                    if (helCaphLvl == 1) { c_helHP = 10; }
+                    if (helCaphLvl == 2) { c_helHP = 20; c_heldp = 1; c_helev = 1; c_helhev = 2; }
+                    if (helCaphLvl == 3) { c_helHP = 30; c_heldp = 3; c_helev = 2; c_helhev = 3; c_heldr = 1; }
+                    if (helCaphLvl == 4) { c_helHP = 50; c_heldp = 4; c_helev = 3; c_helhev = 4; c_heldr = 1; }
+                    if (helCaphLvl == 5) { c_helHP = 50; c_heldp = 4; c_helev = 3; c_helhev = 4; c_heldr = 1; c_helMP = 5; }
+                    if (helCaphLvl == 6) { c_helHP = 50; c_heldp = 4; c_helev = 3; c_helhev = 4; c_heldr = 1; c_helMP = 10; }
+                    if (helCaphLvl == 7) { c_helHP = 50; c_heldp = 4; c_helev = 3; c_helhev = 5; c_heldr = 1; c_helMP = 10; }
+                    if (helCaphLvl == 8) { c_helHP = 50; c_heldp = 4; c_helev = 3; c_helhev = 5; c_heldr = 1; c_helMP = 10; c_helhdr = 1; }
+                    if (helCaphLvl == 9) { c_helHP = 60; c_heldp = 4; c_helev = 3; c_helhev = 5; c_heldr = 1; c_helMP = 10; c_helhdr = 1; }
+                    if (helCaphLvl == 10) { c_helHP = 60; c_heldp = 4; c_helev = 3; c_helhev = 5; c_heldr = 1; c_helMP = 15; c_helhdr = 1; }
+                    if (helCaphLvl == 11) { c_helHP = 60; c_heldp = 4; c_helev = 3; c_helhev = 5; c_heldr = 1; c_helMP = 20; c_helhdr = 1; }
+                    if (helCaphLvl == 12) { c_helHP = 60; c_heldp = 4; c_helev = 3; c_helhev = 6; c_heldr = 1; c_helMP = 20; c_helhdr = 1; }
+                    if (helCaphLvl == 13) { c_helHP = 70; c_heldp = 4; c_helev = 3; c_helhev = 6; c_heldr = 1; c_helMP = 20; c_helhdr = 1; }
+                    if (helCaphLvl == 14) { c_helHP = 70; c_heldp = 4; c_helev = 3; c_helhev = 6; c_heldr = 1; c_helMP = 25; c_helhdr = 1; }
+                    if (helCaphLvl == 15) { c_helHP = 70; c_heldp = 4; c_helev = 3; c_helhev = 6; c_heldr = 1; c_helMP = 30; c_helhdr = 1; }
+                    if (helCaphLvl == 16) { c_helHP = 70; c_heldp = 4; c_helev = 3; c_helhev = 6; c_heldr = 1; c_helMP = 30; c_helhdr = 2; }
+                    if (helCaphLvl == 17) { c_helHP = 70; c_heldp = 4; c_helev = 3; c_helhev = 7; c_heldr = 1; c_helMP = 30; c_helhdr = 2; }
+                    if (helCaphLvl == 18) { c_helHP = 80; c_heldp = 4; c_helev = 3; c_helhev = 7; c_heldr = 1; c_helMP = 30; c_helhdr = 2; }
+                    if (helCaphLvl == 19) { c_helHP = 80; c_heldp = 4; c_helev = 3; c_helhev = 8; c_heldr = 1; c_helMP = 30; c_helhdr = 2; }
+                    if (helCaphLvl == 20) { c_helHP = 80; c_heldp = 4; c_helev = 3; c_helhev = 8; c_heldr = 1; c_helMP = 30; c_helhdr = 3; }
+
+                    cMaxHP += c_helHP;
+                    cdp += c_heldp;
+                    cev += c_helev;
+                    chev += c_helhev;
+                    cDR += c_heldr;
+                    cMaxMP += c_helMP;
+                    chdr += c_helhdr;
+
+                }
+                if (helEnchLvl == 20)
+                {
+                    cMaxHP -= c_helHP;
+                    cdp -= c_heldp;
+                    cev -= c_helev;
+                    chev -= c_helhev;
+                    cDR -= c_heldr;
+                    cMaxMP -= c_helMP;
+                    chdr -= c_helhdr;
+
+                    if (helCaphLvl == 0) { c_helHP = 0; c_heldp = 0; c_helev = 0; c_helhev = 0; c_heldr = 0; c_helMP = 0; c_helhdr = 0; }
+                    if (helCaphLvl == 1) { c_helHP = 20; c_heldp = 1; c_helev = 1; c_helhev = 1; c_helMP = 0; }
+                    if (helCaphLvl == 2) { c_helHP = 30; c_heldp = 2; c_helev = 1; c_helhev = 1; c_heldr = 1; c_helhdr = 1; }
+                    if (helCaphLvl == 3) { c_helHP = 40; c_heldp = 3; c_helev = 2; c_helhev = 2; c_heldr = 1; c_helhdr = 1; }
+                    if (helCaphLvl == 4) { c_helHP = 50; c_heldp = 4; c_helev = 2; c_helhev = 2; c_heldr = 2; c_helhdr = 2; }
+                    if (helCaphLvl == 5) { c_helHP = 60; c_heldp = 5; c_helev = 3; c_helhev = 3; c_heldr = 2; c_helhdr = 2; }
+                    if (helCaphLvl == 6) { c_helHP = 70; c_heldp = 6; c_helev = 3; c_helhev = 3; c_heldr = 3; c_helhdr = 3; }
+                    if (helCaphLvl == 7) { c_helHP = 80; c_heldp = 7; c_helev = 4; c_helhev = 4; c_heldr = 3; c_helhdr = 3; }
+                    if (helCaphLvl == 8) { c_helHP = 90; c_heldp = 8; c_helev = 4; c_helhev = 4; c_heldr = 4; c_helhdr = 4; }
+                    if (helCaphLvl == 9) { c_helHP = 100; c_heldp = 10; c_helev = 5; c_helhev = 5; c_heldr = 5; c_helhdr = 5; }
+                    if (helCaphLvl == 10) { c_helHP = 110; c_heldp = 10; c_helev = 5; c_helhev = 6; c_heldr = 5; c_helhdr = 5; }
+                    if (helCaphLvl == 11) { c_helHP = 120; c_heldp = 10; c_helev = 5; c_helhev = 6; c_heldr = 5; c_helhdr = 6; }
+                    if (helCaphLvl == 12) { c_helHP = 120; c_heldp = 11; c_helev = 6; c_helhev = 6; c_heldr = 5; c_helhdr = 6; }
+                    if (helCaphLvl == 13) { c_helHP = 120; c_heldp = 12; c_helev = 6; c_helhev = 6; c_heldr = 6; c_helhdr = 6; }
+                    if (helCaphLvl == 14) { c_helHP = 130; c_heldp = 12; c_helev = 6; c_helhev = 7; c_heldr = 6; c_helhdr = 6; }
+                    if (helCaphLvl == 15) { c_helHP = 140; c_heldp = 12; c_helev = 6; c_helhev = 7; c_heldr = 6; c_helhdr = 7; }
+                    if (helCaphLvl == 16) { c_helHP = 140; c_heldp = 13; c_helev = 7; c_helhev = 7; c_heldr = 6; c_helhdr = 7; }
+                    if (helCaphLvl == 17) { c_helHP = 140; c_heldp = 14; c_helev = 7; c_helhev = 7; c_heldr = 7; c_helhdr = 7; }
+                    if (helCaphLvl == 18) { c_helHP = 150; c_heldp = 14; c_helev = 7; c_helhev = 8; c_heldr = 7; c_helhdr = 7; }
+                    if (helCaphLvl == 19) { c_helHP = 160; c_heldp = 14; c_helev = 7; c_helhev = 8; c_heldr = 7; c_helhdr = 8; }
+                    if (helCaphLvl == 20) { c_helHP = 160; c_heldp = 16; c_helev = 8; c_helhev = 8; c_heldr = 8; c_helhdr = 8; }
+
+                    cMaxHP += c_helHP;
+                    cdp += c_heldp;
+                    cev += c_helev;
+                    chev += c_helhev;
+                    cDR += c_heldr;
+                    cMaxMP += c_helMP;
+                    chdr += c_helhdr;
+                }
+            }
+            if (sgn == 9)
+            {
+                if (glovEnchLvl == 18 | glovEnchLvl == 19)
+                {
+                    cMaxHP -= c_glovHP;
+                    cdp -= c_glovdp;
+                    cev -= c_glovev;
+                    chev -= c_glovhev;
+                    cDR -= c_glovdr;
+                    cMaxMP -= c_glovMP;
+                    chdr -= c_glovhdr;
+
+                    if (glovCaphLvl == 0) { c_glovHP = 0; c_glovdp = 0; c_glovev = 0; c_glovhev = 0; c_glovdr = 0; c_glovMP = 0; c_glovhdr = 0; }
+                    if (glovCaphLvl == 1) { c_glovHP = 10; }
+                    if (glovCaphLvl == 2) { c_glovHP = 20; c_glovdp = 1; c_glovev = 1; c_glovhev = 2; }
+                    if (glovCaphLvl == 3) { c_glovHP = 30; c_glovdp = 3; c_glovev = 2; c_glovhev = 3; c_glovdr = 1; }
+                    if (glovCaphLvl == 4) { c_glovHP = 50; c_glovdp = 4; c_glovev = 3; c_glovhev = 4; c_glovdr = 1; }
+                    if (glovCaphLvl == 5) { c_glovHP = 50; c_glovdp = 4; c_glovev = 3; c_glovhev = 4; c_glovdr = 1; c_glovMP = 5; }
+                    if (glovCaphLvl == 6) { c_glovHP = 50; c_glovdp = 4; c_glovev = 3; c_glovhev = 4; c_glovdr = 1; c_glovMP = 10; }
+                    if (glovCaphLvl == 7) { c_glovHP = 50; c_glovdp = 4; c_glovev = 3; c_glovhev = 5; c_glovdr = 1; c_glovMP = 10; }
+                    if (glovCaphLvl == 8) { c_glovHP = 50; c_glovdp = 4; c_glovev = 3; c_glovhev = 5; c_glovdr = 1; c_glovMP = 10; c_glovhdr = 1; }
+                    if (glovCaphLvl == 9) { c_glovHP = 60; c_glovdp = 4; c_glovev = 3; c_glovhev = 5; c_glovdr = 1; c_glovMP = 10; c_glovhdr = 1; }
+                    if (glovCaphLvl == 10) { c_glovHP = 60; c_glovdp = 4; c_glovev = 3; c_glovhev = 5; c_glovdr = 1; c_glovMP = 15; c_glovhdr = 1; }
+                    if (glovCaphLvl == 11) { c_glovHP = 60; c_glovdp = 4; c_glovev = 3; c_glovhev = 5; c_glovdr = 1; c_glovMP = 20; c_glovhdr = 1; }
+                    if (glovCaphLvl == 12) { c_glovHP = 60; c_glovdp = 4; c_glovev = 3; c_glovhev = 6; c_glovdr = 1; c_glovMP = 20; c_glovhdr = 1; }
+                    if (glovCaphLvl == 13) { c_glovHP = 70; c_glovdp = 4; c_glovev = 3; c_glovhev = 6; c_glovdr = 1; c_glovMP = 20; c_glovhdr = 1; }
+                    if (glovCaphLvl == 14) { c_glovHP = 70; c_glovdp = 4; c_glovev = 3; c_glovhev = 6; c_glovdr = 1; c_glovMP = 25; c_glovhdr = 1; }
+                    if (glovCaphLvl == 15) { c_glovHP = 70; c_glovdp = 4; c_glovev = 3; c_glovhev = 6; c_glovdr = 1; c_glovMP = 30; c_glovhdr = 1; }
+                    if (glovCaphLvl == 16) { c_glovHP = 70; c_glovdp = 4; c_glovev = 3; c_glovhev = 6; c_glovdr = 1; c_glovMP = 30; c_glovhdr = 2; }
+                    if (glovCaphLvl == 17) { c_glovHP = 70; c_glovdp = 4; c_glovev = 3; c_glovhev = 7; c_glovdr = 1; c_glovMP = 30; c_glovhdr = 2; }
+                    if (glovCaphLvl == 18) { c_glovHP = 80; c_glovdp = 4; c_glovev = 3; c_glovhev = 7; c_glovdr = 1; c_glovMP = 30; c_glovhdr = 2; }
+                    if (glovCaphLvl == 19) { c_glovHP = 80; c_glovdp = 4; c_glovev = 3; c_glovhev = 8; c_glovdr = 1; c_glovMP = 30; c_glovhdr = 2; }
+                    if (glovCaphLvl == 20) { c_glovHP = 80; c_glovdp = 4; c_glovev = 3; c_glovhev = 8; c_glovdr = 1; c_glovMP = 30; c_glovhdr = 3; }
+
+                    cMaxHP += c_glovHP;
+                    cdp += c_glovdp;
+                    cev += c_glovev;
+                    chev += c_glovhev;
+                    cDR += c_glovdr;
+                    cMaxMP += c_glovMP;
+                    chdr += c_glovhdr;
+
+                }
+                if (glovEnchLvl == 20)
+                {
+                    cMaxHP -= c_glovHP;
+                    cdp -= c_glovdp;
+                    cev -= c_glovev;
+                    chev -= c_glovhev;
+                    cDR -= c_glovdr;
+                    cMaxMP -= c_glovMP;
+                    chdr -= c_glovhdr;
+
+                    if (glovCaphLvl == 0) { c_glovHP = 0; c_glovdp = 0; c_glovev = 0; c_glovhev = 0; c_glovdr = 0; c_glovMP = 0; c_glovhdr = 0; }
+                    if (glovCaphLvl == 1) { c_glovHP = 20; c_glovdp = 1; c_glovev = 1; c_glovhev = 1; }
+                    if (glovCaphLvl == 2) { c_glovHP = 30; c_glovdp = 2; c_glovev = 1; c_glovhev = 1; c_glovdr = 1; c_glovhdr = 1; }
+                    if (glovCaphLvl == 3) { c_glovHP = 40; c_glovdp = 3; c_glovev = 2; c_glovhev = 2; c_glovdr = 1; c_glovhdr = 1; }
+                    if (glovCaphLvl == 4) { c_glovHP = 50; c_glovdp = 4; c_glovev = 2; c_glovhev = 2; c_glovdr = 2; c_glovhdr = 2; }
+                    if (glovCaphLvl == 5) { c_glovHP = 60; c_glovdp = 5; c_glovev = 3; c_glovhev = 3; c_glovdr = 2; c_glovhdr = 2; }
+                    if (glovCaphLvl == 6) { c_glovHP = 70; c_glovdp = 6; c_glovev = 3; c_glovhev = 3; c_glovdr = 3; c_glovhdr = 3; }
+                    if (glovCaphLvl == 7) { c_glovHP = 80; c_glovdp = 7; c_glovev = 4; c_glovhev = 4; c_glovdr = 3; c_glovhdr = 3; }
+                    if (glovCaphLvl == 8) { c_glovHP = 90; c_glovdp = 8; c_glovev = 4; c_glovhev = 4; c_glovdr = 4; c_glovhdr = 4; }
+                    if (glovCaphLvl == 9) { c_glovHP = 100; c_glovdp = 10; c_glovev = 5; c_glovhev = 5; c_glovdr = 5; c_glovhdr = 5; }
+                    if (glovCaphLvl == 10) { c_glovHP = 110; c_glovdp = 10; c_glovev = 5; c_glovhev = 6; c_glovdr = 5; c_glovhdr = 5; }
+                    if (glovCaphLvl == 11) { c_glovHP = 120; c_glovdp = 10; c_glovev = 5; c_glovhev = 6; c_glovdr = 5; c_glovhdr = 6; }
+                    if (glovCaphLvl == 12) { c_glovHP = 120; c_glovdp = 11; c_glovev = 6; c_glovhev = 6; c_glovdr = 5; c_glovhdr = 6; }
+                    if (glovCaphLvl == 13) { c_glovHP = 120; c_glovdp = 12; c_glovev = 6; c_glovhev = 6; c_glovdr = 6; c_glovhdr = 6; }
+                    if (glovCaphLvl == 14) { c_glovHP = 130; c_glovdp = 12; c_glovev = 6; c_glovhev = 7; c_glovdr = 6; c_glovhdr = 6; }
+                    if (glovCaphLvl == 15) { c_glovHP = 140; c_glovdp = 12; c_glovev = 6; c_glovhev = 7; c_glovdr = 6; c_glovhdr = 7; }
+                    if (glovCaphLvl == 16) { c_glovHP = 140; c_glovdp = 13; c_glovev = 7; c_glovhev = 7; c_glovdr = 6; c_glovhdr = 7; }
+                    if (glovCaphLvl == 17) { c_glovHP = 140; c_glovdp = 14; c_glovev = 7; c_glovhev = 7; c_glovdr = 7; c_glovhdr = 7; }
+                    if (glovCaphLvl == 18) { c_glovHP = 150; c_glovdp = 14; c_glovev = 7; c_glovhev = 8; c_glovdr = 7; c_glovhdr = 7; }
+                    if (glovCaphLvl == 19) { c_glovHP = 160; c_glovdp = 14; c_glovev = 7; c_glovhev = 8; c_glovdr = 7; c_glovhdr = 8; }
+                    if (glovCaphLvl == 20) { c_glovHP = 160; c_glovdp = 16; c_glovev = 8; c_glovhev = 8; c_glovdr = 8; c_glovhdr = 8; }
+
+                    cMaxHP += c_glovHP;
+                    cdp += c_glovdp;
+                    cev += c_glovev;
+                    chev += c_glovhev;
+                    cDR += c_glovdr;
+                    cMaxMP += c_glovMP;
+                    chdr += c_glovhdr;
+                }
+            }
+            if (sgn == 10)
+            {
+                if (shEnchLvl == 18 | shEnchLvl == 19)
+                {
+                    cMaxHP -= c_shHP;
+                    cdp -= c_shdp;
+                    cev -= c_shev;
+                    chev -= c_shhev;
+                    cDR -= c_shdr;
+                    cMaxMP -= c_shMP;
+                    chdr -= c_shhdr;
+
+                    if (shCaphLvl == 0) { c_shHP = 0; c_shdp = 0; c_shev = 0; c_shhev = 0; c_shdr = 0; c_shMP = 0; c_shhdr = 0; }
+                    if (shCaphLvl == 1) { c_shHP = 10; }
+                    if (shCaphLvl == 2) { c_shHP = 20; c_shdp = 1; c_shev = 1; c_shhev = 2; }
+                    if (shCaphLvl == 3) { c_shHP = 30; c_shdp = 3; c_shev = 2; c_shhev = 3; c_shdr = 1; }
+                    if (shCaphLvl == 4) { c_shHP = 50; c_shdp = 4; c_shev = 3; c_shhev = 4; c_shdr = 1; }
+                    if (shCaphLvl == 5) { c_shHP = 50; c_shdp = 4; c_shev = 3; c_shhev = 4; c_shdr = 1; c_shMP = 5; }
+                    if (shCaphLvl == 6) { c_shHP = 50; c_shdp = 4; c_shev = 3; c_shhev = 4; c_shdr = 1; c_shMP = 10; }
+                    if (shCaphLvl == 7) { c_shHP = 50; c_shdp = 4; c_shev = 3; c_shhev = 5; c_shdr = 1; c_shMP = 10; }
+                    if (shCaphLvl == 8) { c_shHP = 50; c_shdp = 4; c_shev = 3; c_shhev = 5; c_shdr = 1; c_shMP = 10; c_shhdr = 1; }
+                    if (shCaphLvl == 9) { c_shHP = 60; c_shdp = 4; c_shev = 3; c_shhev = 5; c_shdr = 1; c_shMP = 10; c_shhdr = 1; }
+                    if (shCaphLvl == 10) { c_shHP = 60; c_shdp = 4; c_shev = 3; c_shhev = 5; c_shdr = 1; c_shMP = 15; c_shhdr = 1; }
+                    if (shCaphLvl == 11) { c_shHP = 60; c_shdp = 4; c_shev = 3; c_shhev = 5; c_shdr = 1; c_shMP = 20; c_shhdr = 1; }
+                    if (shCaphLvl == 12) { c_shHP = 60; c_shdp = 4; c_shev = 3; c_shhev = 6; c_shdr = 1; c_shMP = 20; c_shhdr = 1; }
+                    if (shCaphLvl == 13) { c_shHP = 70; c_shdp = 4; c_shev = 3; c_shhev = 6; c_shdr = 1; c_shMP = 20; c_shhdr = 1; }
+                    if (shCaphLvl == 14) { c_shHP = 70; c_shdp = 4; c_shev = 3; c_shhev = 6; c_shdr = 1; c_shMP = 25; c_shhdr = 1; }
+                    if (shCaphLvl == 15) { c_shHP = 70; c_shdp = 4; c_shev = 3; c_shhev = 6; c_shdr = 1; c_shMP = 30; c_shhdr = 1; }
+                    if (shCaphLvl == 16) { c_shHP = 70; c_shdp = 4; c_shev = 3; c_shhev = 6; c_shdr = 1; c_shMP = 30; c_shhdr = 2; }
+                    if (shCaphLvl == 17) { c_shHP = 70; c_shdp = 4; c_shev = 3; c_shhev = 7; c_shdr = 1; c_shMP = 30; c_shhdr = 2; }
+                    if (shCaphLvl == 18) { c_shHP = 80; c_shdp = 4; c_shev = 3; c_shhev = 7; c_shdr = 1; c_shMP = 30; c_shhdr = 2; }
+                    if (shCaphLvl == 19) { c_shHP = 80; c_shdp = 4; c_shev = 3; c_shhev = 8; c_shdr = 1; c_shMP = 30; c_shhdr = 2; }
+                    if (shCaphLvl == 20) { c_shHP = 80; c_shdp = 4; c_shev = 3; c_shhev = 8; c_shdr = 1; c_shMP = 30; c_shhdr = 3; }
+
+                    cMaxHP += c_shHP;
+                    cdp += c_shdp;
+                    cev += c_shev;
+                    chev += c_shhev;
+                    cDR += c_shdr;
+                    cMaxMP += c_shMP;
+                    chdr += c_shhdr;
+
+                }
+                if (shEnchLvl == 20)
+                {
+                    cMaxHP -= c_shHP;
+                    cdp -= c_shdp;
+                    cev -= c_shev;
+                    chev -= c_shhev;
+                    cDR -= c_shdr;
+                    cMaxMP -= c_shMP;
+                    chdr -= c_shhdr;
+
+                    if (shCaphLvl == 0) { c_shHP = 0; c_shdp = 0; c_shev = 0; c_shhev = 0; c_shdr = 0; c_shMP = 0; c_shhdr = 0; }
+                    if (shCaphLvl == 1) { c_shHP = 20; c_shdp = 1; c_shev = 1; c_shhev = 1; }
+                    if (shCaphLvl == 2) { c_shHP = 30; c_shdp = 2; c_shev = 1; c_shhev = 1; c_shdr = 1; c_shhdr = 1; }
+                    if (shCaphLvl == 3) { c_shHP = 40; c_shdp = 3; c_shev = 2; c_shhev = 2; c_shdr = 1; c_shhdr = 1; }
+                    if (shCaphLvl == 4) { c_shHP = 50; c_shdp = 4; c_shev = 2; c_shhev = 2; c_shdr = 2; c_shhdr = 2; }
+                    if (shCaphLvl == 5) { c_shHP = 60; c_shdp = 5; c_shev = 3; c_shhev = 3; c_shdr = 2; c_shhdr = 2; }
+                    if (shCaphLvl == 6) { c_shHP = 70; c_shdp = 6; c_shev = 3; c_shhev = 3; c_shdr = 3; c_shhdr = 3; }
+                    if (shCaphLvl == 7) { c_shHP = 80; c_shdp = 7; c_shev = 4; c_shhev = 4; c_shdr = 3; c_shhdr = 3; }
+                    if (shCaphLvl == 8) { c_shHP = 90; c_shdp = 8; c_shev = 4; c_shhev = 4; c_shdr = 4; c_shhdr = 4; }
+                    if (shCaphLvl == 9) { c_shHP = 100; c_shdp = 10; c_shev = 5; c_shhev = 5; c_shdr = 5; c_shhdr = 5; }
+                    if (shCaphLvl == 10) { c_shHP = 110; c_shdp = 10; c_shev = 5; c_shhev = 6; c_shdr = 5; c_shhdr = 5; }
+                    if (shCaphLvl == 11) { c_shHP = 120; c_shdp = 10; c_shev = 5; c_shhev = 6; c_shdr = 5; c_shhdr = 6; }
+                    if (shCaphLvl == 12) { c_shHP = 120; c_shdp = 11; c_shev = 6; c_shhev = 6; c_shdr = 5; c_shhdr = 6; }
+                    if (shCaphLvl == 13) { c_shHP = 120; c_shdp = 12; c_shev = 6; c_shhev = 6; c_shdr = 6; c_shhdr = 6; }
+                    if (shCaphLvl == 14) { c_shHP = 130; c_shdp = 12; c_shev = 6; c_shhev = 7; c_shdr = 6; c_shhdr = 6; }
+                    if (shCaphLvl == 15) { c_shHP = 140; c_shdp = 12; c_shev = 6; c_shhev = 7; c_shdr = 6; c_shhdr = 7; }
+                    if (shCaphLvl == 16) { c_shHP = 140; c_shdp = 13; c_shev = 7; c_shhev = 7; c_shdr = 6; c_shhdr = 7; }
+                    if (shCaphLvl == 17) { c_shHP = 140; c_shdp = 14; c_shev = 7; c_shhev = 7; c_shdr = 7; c_shhdr = 7; }
+                    if (shCaphLvl == 18) { c_shHP = 150; c_shdp = 14; c_shev = 7; c_shhev = 8; c_shdr = 7; c_shhdr = 7; }
+                    if (shCaphLvl == 19) { c_shHP = 160; c_shdp = 14; c_shev = 7; c_shhev = 8; c_shdr = 7; c_shhdr = 8; }
+                    if (shCaphLvl == 20) { c_shHP = 160; c_shdp = 16; c_shev = 8; c_shhev = 8; c_shdr = 8; c_shhdr = 8; }
+
+                    cMaxHP += c_shHP;
+                    cdp += c_shdp;
+                    cev += c_shev;
+                    chev += c_shhev;
+                    cDR += c_shdr;
+                    cMaxMP += c_shMP;
+                    chdr += c_shhdr;
+                }
+            }
+        }
+
+
+
+   }
 }

@@ -18,6 +18,7 @@ namespace BDO_Builder
         public string sclass;
         public Image cimg;
         public int TempEnchLvl;
+        public int TempCaphLvl;
         public string chWeapon;
         public string chSubWeapon;
 
@@ -62,6 +63,10 @@ namespace BDO_Builder
             this.SelectGear_cb.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             this.SelectGear_cb.AutoCompleteSource = AutoCompleteSource.ListItems;
             //////////
+            ItemCaph_cb.Visible = false;
+            Caph_lbl.Visible = false;
+            ItemEnch_cb.Visible = false;
+            Ench_lbl.Visible = false;
         }
 
         private void FillCharacterState()
@@ -182,7 +187,7 @@ namespace BDO_Builder
             SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
             SelectGear_cb.SelectedIndex = cs.beltId;
             LoadItemEnch_cb();
-
+            LoadItemCaph_cb();
         }
 
         private void LoadNeck() //Neck
@@ -199,6 +204,7 @@ namespace BDO_Builder
             SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
             SelectGear_cb.SelectedIndex = cs.neckId;
             LoadItemEnch_cb();
+            LoadItemCaph_cb();
         }
 
         private void Load1Ring() //First ring
@@ -215,6 +221,7 @@ namespace BDO_Builder
             SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
             SelectGear_cb.SelectedIndex = cs.ring1Id;
             LoadItemEnch_cb();
+            LoadItemCaph_cb();
         }
 
         private void Load2Ring() //Second ring
@@ -231,6 +238,7 @@ namespace BDO_Builder
             SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
             SelectGear_cb.SelectedIndex = cs.ring2Id;
             LoadItemEnch_cb();
+            LoadItemCaph_cb();
         }
 
         private void Load1Earring() //First earring
@@ -247,6 +255,7 @@ namespace BDO_Builder
             SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
             SelectGear_cb.SelectedIndex = cs.ear1Id;
             LoadItemEnch_cb();
+            LoadItemCaph_cb();
         }
 
         private void Load2Earring() //Second earring
@@ -263,6 +272,7 @@ namespace BDO_Builder
             SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
             SelectGear_cb.SelectedIndex = cs.ear2Id;
             LoadItemEnch_cb();
+            LoadItemCaph_cb();
         }
 
         private void LoadArmor() //Armor
@@ -279,6 +289,7 @@ namespace BDO_Builder
             SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
             SelectGear_cb.SelectedIndex = cs.armId;
             LoadItemEnch_cb();
+            LoadItemCaph_cb();
         }
 
         private void LoadHelmet() // Helmet
@@ -295,6 +306,7 @@ namespace BDO_Builder
             SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
             SelectGear_cb.SelectedIndex = cs.helId;
             LoadItemEnch_cb();
+            LoadItemCaph_cb();
         }
 
         private void LoadGloves() // Gloves
@@ -311,6 +323,7 @@ namespace BDO_Builder
             SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
             SelectGear_cb.SelectedIndex = cs.glovId;
             LoadItemEnch_cb();
+            LoadItemCaph_cb();
         }
 
         private void LoadShoes() // Shoes
@@ -327,6 +340,7 @@ namespace BDO_Builder
             SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
             SelectGear_cb.SelectedIndex = cs.shId;
             LoadItemEnch_cb();
+            LoadItemCaph_cb();
         }
 
         private void LoadAW() // AW
@@ -344,6 +358,7 @@ namespace BDO_Builder
             SelectGear_cb.SelectedIndex = cs.awkId;
 
             LoadItemEnch_cb();
+            LoadItemCaph_cb();
         }
         private void LoadMW() // MW
         {
@@ -360,6 +375,7 @@ namespace BDO_Builder
             SelectGear_cb.SelectedIndex = cs.mwId;
 
             LoadItemEnch_cb();
+            LoadItemCaph_cb();
         }
         private void LoadSW() // SW
         {
@@ -375,6 +391,7 @@ namespace BDO_Builder
             SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
             SelectGear_cb.SelectedIndex = cs.swId;
             LoadItemEnch_cb();
+            LoadItemCaph_cb();
         }
 
         private void LoadAS() // Alchemy Stone
@@ -391,6 +408,7 @@ namespace BDO_Builder
             SelectGear_cb.SelectedIndexChanged += SelectedGear_cb_SelectedIndexChanged;
             SelectGear_cb.SelectedIndex = cs.asId;
             LoadItemEnch_cb();
+            LoadItemCaph_cb();
         }
 
         //Books
@@ -527,6 +545,8 @@ namespace BDO_Builder
 
         private void SelectedGear_cb_SelectedIndexChanged(object sender, EventArgs e)
         {
+          //ItemCaph_cb.Visible = false;
+          //Caph_lbl.Visible = false;
           ItemStatClear();
           SqlCommand cmd = Base_Connect.Connection.CreateCommand();
           cmd.CommandType = CommandType.Text;
@@ -552,7 +572,8 @@ namespace BDO_Builder
                     cs.beltDefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
                     //cs.beltSB = Convert.ToInt32(dr["SetBonus"]);
                 }
-                LoadItemEnch_cb();                
+                LoadItemEnch_cb();
+                LoadItemCaph_cb();
                 cs.Type = "Belts";
                 Item_Icon_Load(cs.Type,SelectGear_cb.SelectedIndex);
                 Belt_btn.BackgroundImage = Item_image.Image;
@@ -606,6 +627,7 @@ namespace BDO_Builder
                     //cs.neckSB = Convert.ToInt32(dr["SetBonus"]);
                 }
                 LoadItemEnch_cb();
+                LoadItemCaph_cb();
                 cs.Type = "Neck";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
                 Necklace_btn.BackgroundImage = Item_image.Image;
@@ -665,6 +687,7 @@ namespace BDO_Builder
                 }
 
                 LoadItemEnch_cb();
+                LoadItemCaph_cb();
 
                 cs.Type = "Rings";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
@@ -727,6 +750,7 @@ namespace BDO_Builder
                 }
 
                 LoadItemEnch_cb();
+                LoadItemCaph_cb();
 
                 cs.Type = "Rings";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
@@ -784,6 +808,7 @@ namespace BDO_Builder
                 }
 
                 LoadItemEnch_cb();
+                LoadItemCaph_cb();
 
                 cs.Type = "Earrings";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
@@ -836,6 +861,7 @@ namespace BDO_Builder
                 }
 
                 LoadItemEnch_cb();
+                LoadItemCaph_cb();
 
                 cs.Type = "Earrings";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
@@ -879,7 +905,7 @@ namespace BDO_Builder
                     cs.armDefhdr = Convert.ToInt32(dr["HDR"]);
                     cs.armDefHP = Convert.ToInt32(dr["MaxHP"]);
                     cs.armDefMP = Convert.ToInt32(dr["MaxMP"]);
-                    cs.armEnch = Convert.ToBoolean(dr["Ench"]);
+                    cs.armEnch = Convert.ToBoolean(dr["Ench"]);                  
                     cs.armIsBoss = Convert.ToBoolean(dr["IsBossItem"]);
                     cs.armDefSSFRes = Convert.ToInt32(dr["SSFRes"]);
                     cs.armDefWeight = Convert.ToInt32(dr["WeightLimit"]);
@@ -890,6 +916,7 @@ namespace BDO_Builder
                 }
 
                 LoadItemEnch_cb();
+                LoadItemCaph_cb();
 
                 cs.Type = "Armors";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
@@ -898,8 +925,8 @@ namespace BDO_Builder
                 if (cs.armEnch == false) Armour_btn.Text = "";
 
                 if (cs.armEnch == true && SelectGear_cb.SelectedIndex == cs.armId) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.armEnchLvl = TempEnchLvl; }
-                if (cs.armEnch == true && SelectGear_cb.SelectedIndex != cs.armId) { ItemEnch_cb.SelectedIndex = 0; cs.armEnchLvl = 0; TempEnchLvl = 0; }
-                else if (cs.armEnch == false) { cs.armEnchLvl = 0; }
+                if (cs.armEnch == true && SelectGear_cb.SelectedIndex != cs.armId) { ItemEnch_cb.SelectedIndex = 0; cs.armEnchLvl = 0; TempEnchLvl = 0; ItemCaph_cb.SelectedIndex = 0; cs.armCaphLvl = 0; TempCaphLvl = 0; }
+                else if (cs.armEnch == false) { cs.armEnchLvl = 0; cs.armCaphLvl = 0; }
 
 
                 iDP_n.Text = cs.armdp.ToString();
@@ -947,6 +974,7 @@ namespace BDO_Builder
                 }
 
                 LoadItemEnch_cb();
+                LoadItemCaph_cb();
 
                 cs.Type = "Helmets";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
@@ -955,8 +983,8 @@ namespace BDO_Builder
                 if (cs.helEnch == false) Helmet_btn.Text = "";
 
                 if (cs.helEnch == true && SelectGear_cb.SelectedIndex == cs.helId) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.helEnchLvl = TempEnchLvl; }
-                if (cs.helEnch == true && SelectGear_cb.SelectedIndex != cs.helId) { ItemEnch_cb.SelectedIndex = 0; cs.helEnchLvl = 0; TempEnchLvl = 0; }
-                else if (cs.helEnch == false) { cs.helEnchLvl = 0; }
+                if (cs.helEnch == true && SelectGear_cb.SelectedIndex != cs.helId) { ItemEnch_cb.SelectedIndex = 0; cs.helEnchLvl = 0; TempEnchLvl = 0; ItemCaph_cb.SelectedIndex = 0; cs.helCaphLvl = 0; TempCaphLvl = 0; }
+                else if (cs.helEnch == false) { cs.helEnchLvl = 0; cs.helCaphLvl = 0; }
 
 
                 iDP_n.Text = cs.heldp.ToString();
@@ -1004,6 +1032,7 @@ namespace BDO_Builder
                 }
 
                 LoadItemEnch_cb();
+                LoadItemCaph_cb();
 
                 cs.Type = "Gloves";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
@@ -1011,9 +1040,9 @@ namespace BDO_Builder
                 cs.GlovesState();
                 if (cs.glovEnch == false) Gloves_btn.Text = "";
 
-                if (cs.glovEnch == true && SelectGear_cb.SelectedIndex == cs.glovId) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.glovEnchLvl = TempEnchLvl; }
-                if (cs.glovEnch == true && SelectGear_cb.SelectedIndex != cs.glovId) { ItemEnch_cb.SelectedIndex = 0; cs.glovEnchLvl = 0; TempEnchLvl = 0; }
-                else if (cs.glovEnch == false) { cs.glovEnchLvl = 0; }
+                if (cs.glovEnch == true && SelectGear_cb.SelectedIndex == cs.glovId) { TempEnchLvl = ItemEnch_cb.SelectedIndex;  cs.glovEnchLvl = TempEnchLvl; }
+                if (cs.glovEnch == true && SelectGear_cb.SelectedIndex != cs.glovId) { ItemEnch_cb.SelectedIndex = 0; cs.glovEnchLvl = 0; TempEnchLvl = 0; ItemCaph_cb.SelectedIndex = 0; cs.glovCaphLvl = 0; TempCaphLvl = 0; }
+                else if (cs.glovEnch == false) { cs.glovEnchLvl = 0; cs.glovCaphLvl = 0; }
 
 
                 iDP_n.Text = cs.glovdp.ToString();
@@ -1058,6 +1087,7 @@ namespace BDO_Builder
                 }
 
                 LoadItemEnch_cb();
+                LoadItemCaph_cb();
 
                 cs.Type = "Shoes";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
@@ -1065,8 +1095,8 @@ namespace BDO_Builder
                 cs.ShoesState();
                 if (cs.shEnch == false) Boots_btn.Text = "";
                 if (cs.shEnch == true && SelectGear_cb.SelectedIndex == cs.shId) { TempEnchLvl = ItemEnch_cb.SelectedIndex; cs.shEnchLvl = TempEnchLvl; }
-                if (cs.shEnch == true && SelectGear_cb.SelectedIndex != cs.shId) { ItemEnch_cb.SelectedIndex = 0; cs.shEnchLvl = 0; TempEnchLvl = 0; }
-                else if (cs.shEnch == false) { cs.shEnchLvl = 0; }
+                if (cs.shEnch == true && SelectGear_cb.SelectedIndex != cs.shId) { ItemEnch_cb.SelectedIndex = 0; cs.shEnchLvl = 0; TempEnchLvl = 0; ItemCaph_cb.SelectedIndex = 0; cs.shCaphLvl = 0; TempCaphLvl = 0; }
+                else if (cs.shEnch == false) { cs.shEnchLvl = 0; cs.shCaphLvl = 0; }
 
 
                 iDP_n.Text = cs.shdp.ToString();
@@ -1131,6 +1161,7 @@ namespace BDO_Builder
                     }
                 }
                 LoadItemEnch_cb();
+                LoadItemCaph_cb();
 
                 cs.Type = "" + sclass + " Awakening Weapons";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
@@ -1182,6 +1213,7 @@ namespace BDO_Builder
                     }
                 
                 LoadItemEnch_cb();
+                LoadItemCaph_cb();
 
                 cs.Type = "" + chWeapon + " Main Weapon";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
@@ -1241,6 +1273,7 @@ namespace BDO_Builder
                 }
 
                 LoadItemEnch_cb();
+                LoadItemCaph_cb();
 
                 cs.Type = "" + chSubWeapon + " Sub-Weapons";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
@@ -1306,6 +1339,7 @@ namespace BDO_Builder
                 }
 
                 LoadItemEnch_cb();
+                LoadItemCaph_cb();
 
                 cs.Type = "Alchemy Stones";
                 Item_Icon_Load(cs.Type, SelectGear_cb.SelectedIndex);
@@ -1335,6 +1369,7 @@ namespace BDO_Builder
                 cs.asId = SelectGear_cb.SelectedIndex;
                 textBox1.Text = cs.asId.ToString();
                 LoadItemEnch_cb();
+                
 
             } //Alchemy Stones
             //SetBonus
@@ -1345,7 +1380,6 @@ namespace BDO_Builder
             asb_lbl.Text = cs.a_sb.ToString();
             cs.BossSetBonus();
             cs.AccSetBonus();
-
             FillCharacterState();
 
         }
@@ -1399,14 +1433,39 @@ namespace BDO_Builder
                 if (cs.sgn == 13) ItemEnch_cb.SelectedIndex = cs.swEnchLvl;
 
             }
-
             else { ItemEnch_cb.Visible = false; Ench_lbl.Visible = false; }
+        }
+
+        private void LoadItemCaph_cb()
+        {
+            if (cs.mwEnchLvl >= 18 & cs.mwId != 0 & cs.mwId != 3 & cs.sgn == 12 | cs.awkEnchLvl >= 18 & cs.awkId != 2 & cs.sgn == 11 | cs.swEnchLvl >= 18 & cs.swId != 7 & cs.sgn == 13 | cs.armEnchLvl >= 18 & cs.sgn == 7 | cs.helEnchLvl >= 18 & cs.sgn == 8 | cs.glovEnchLvl >= 18 & cs.sgn == 9 | cs.shEnchLvl >= 18 & cs.sgn == 10)
+            {
+                ItemCaph_cb.SelectedIndexChanged -= ItemCaph_cb_SelectedIndexChanged;
+                ItemCaph_cb.Visible = true;
+                Caph_lbl.Visible = true;
+                string[] CaphArmor = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" };
+                ItemCaph_cb.DataSource = CaphArmor;
+                ItemCaph_cb.SelectedIndexChanged += ItemCaph_cb_SelectedIndexChanged;
+            }
+            else
+            {
+                ItemCaph_cb.Visible = false;
+                Caph_lbl.Visible = false;
+                string[] CaphArmor = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" };
+                ItemCaph_cb.DataSource = CaphArmor;
+            }
+            if (cs.sgn == 7) ItemCaph_cb.SelectedIndex = cs.armCaphLvl;
+            if (cs.sgn == 8) ItemCaph_cb.SelectedIndex = cs.helCaphLvl;
+            if (cs.sgn == 9) ItemCaph_cb.SelectedIndex = cs.glovCaphLvl;
+            if (cs.sgn == 10) ItemCaph_cb.SelectedIndex = cs.shCaphLvl;
+            if (cs.sgn == 11) ItemCaph_cb.SelectedIndex = cs.awkCaphLvl;
+            if (cs.sgn == 12) ItemCaph_cb.SelectedIndex = cs.mwCaphLvl;
+            if (cs.sgn == 13) ItemCaph_cb.SelectedIndex = cs.swCaphLvl;
         }
 
         private void ItemEnch_cb_SelectedIndexChanged(object sender, EventArgs e)
         {
             ItemStatClear();
-
             if (cs.sgn == 1)
             {
                 cs.beltEnchLvl = ItemEnch_cb.SelectedIndex;
@@ -1559,6 +1618,11 @@ namespace BDO_Builder
 
             else if (cs.sgn == 7)
             {
+                LoadItemCaph_cb();
+                if (cs.armEnchLvl >= 18) { TempCaphLvl = ItemCaph_cb.SelectedIndex; cs.armCaphLvl = TempCaphLvl; }
+                if (cs.armEnchLvl >= 18 & ItemEnch_cb.SelectedIndex != cs.armEnchLvl) { ItemCaph_cb.SelectedIndex = 0; cs.armCaphLvl = 0; TempCaphLvl = 0; }
+                else if (cs.armEnchLvl < 18) { cs.armCaphLvl = 0; }
+
                 cs.armEnchLvl = ItemEnch_cb.SelectedIndex;
                 cs.ArmorState();
 
@@ -1584,6 +1648,11 @@ namespace BDO_Builder
 
             else if (cs.sgn == 8)
             {
+                LoadItemCaph_cb();
+                if (cs.helEnchLvl >= 18) { TempCaphLvl = ItemCaph_cb.SelectedIndex; cs.helCaphLvl = TempCaphLvl; }
+                if (cs.helEnchLvl >= 18 & ItemEnch_cb.SelectedIndex != cs.helEnchLvl) { ItemCaph_cb.SelectedIndex = 0; cs.helCaphLvl = 0; TempCaphLvl = 0; }
+                else if (cs.helEnchLvl < 18) { cs.helCaphLvl = 0; }
+
                 cs.helEnchLvl = ItemEnch_cb.SelectedIndex;
                 cs.HelmetState();
 
@@ -1610,6 +1679,11 @@ namespace BDO_Builder
 
             else if (cs.sgn == 9)
             {
+                LoadItemCaph_cb();
+                if (cs.glovEnchLvl >= 18) { TempCaphLvl = ItemCaph_cb.SelectedIndex; cs.glovCaphLvl = TempCaphLvl; }
+                if (cs.glovEnchLvl >= 18 & ItemEnch_cb.SelectedIndex != cs.glovEnchLvl) { ItemCaph_cb.SelectedIndex = 0; cs.glovCaphLvl = 0; TempCaphLvl = 0; }
+                else if (cs.glovEnchLvl < 18) { cs.glovCaphLvl = 0; }
+
                 cs.glovEnchLvl = ItemEnch_cb.SelectedIndex;
                 cs.GlovesState();
 
@@ -1635,6 +1709,11 @@ namespace BDO_Builder
 
             else if (cs.sgn == 10)
             {
+                LoadItemCaph_cb();
+                if (cs.shEnchLvl >= 18) { TempCaphLvl = ItemCaph_cb.SelectedIndex; cs.shCaphLvl = TempCaphLvl; }
+                if (cs.shEnchLvl >= 18 & ItemEnch_cb.SelectedIndex != cs.shEnchLvl) { ItemCaph_cb.SelectedIndex = 0; cs.shCaphLvl = 0; TempCaphLvl = 0; }
+                else if (cs.shEnchLvl < 18) { cs.shCaphLvl = 0; }
+
                 cs.shEnchLvl = ItemEnch_cb.SelectedIndex;
                 cs.ShoesState();
 
@@ -1730,6 +1809,23 @@ namespace BDO_Builder
 
                 FillCharacterState();
             } //Sub-Weapons
+            LoadItemCaph_cb();
+        }
+        private void ItemCaph_cb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cs.sgn == 7 | cs.sgn == 8 | cs.sgn == 9 | cs.sgn == 10)
+            {
+                if (cs.sgn == 7) cs.armCaphLvl = ItemCaph_cb.SelectedIndex;
+                if (cs.sgn == 8) cs.helCaphLvl = ItemCaph_cb.SelectedIndex;
+                if (cs.sgn == 9) cs.glovCaphLvl = ItemCaph_cb.SelectedIndex;
+                if (cs.sgn == 10) cs.shCaphLvl = ItemCaph_cb.SelectedIndex;
+                cs.AllArmorCaphState();
+                FillCharacterState();
+            } // All armor
+
+            if (cs.sgn == 11 | cs.sgn == 12 | cs.sgn == 13)
+            {
+            } // Weapons
         }
 
         private void CharacterS_btn_Click(object sender, EventArgs e)
@@ -1941,5 +2037,7 @@ namespace BDO_Builder
             else { cs.cWeight -= 6; cs.cMaxHP -= 18; }
             FillCharacterState();
         }
+
+
     }
 }
