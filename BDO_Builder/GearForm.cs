@@ -568,7 +568,7 @@ namespace BDO_Builder
                     cs.beltEnch = Convert.ToBoolean(dr["Ench"]);
                     cs.beltDefSpiritRage = Convert.ToInt32(dr["BlackSpirit"]);
                     cs.beltDefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
-                    //cs.beltSB = Convert.ToInt32(dr["SetBonus"]);
+                    cs.beltSB = Convert.ToInt32(dr["SetBonus"]);
                 }
                 LoadItemEnch_cb();
                 LoadItemCaph_cb();
@@ -622,7 +622,7 @@ namespace BDO_Builder
                     cs.neckDefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
                     cs.neckDefKamaDamage = Convert.ToInt32(dr["KamaDamage"]);
                     cs.neckDefBackDamage = Convert.ToInt32(dr["BackDamage"]);
-                    //cs.neckSB = Convert.ToInt32(dr["SetBonus"]);
+                    cs.neckSB = Convert.ToInt32(dr["SetBonus"]);
                 }
                 LoadItemEnch_cb();
                 LoadItemCaph_cb();
@@ -681,7 +681,7 @@ namespace BDO_Builder
                     cs.ring1DefDamageAllExcept = Convert.ToInt32(dr["DamAllExHuman"]);
                     cs.ring1DefBidding = Convert.ToInt32(dr["MarketBidding"]);
                     cs.ring1DefSpiritRage = Convert.ToInt32(dr["BlackSpirit"]);
-                    //cs.ring1SB = Convert.ToInt32(dr["SetBonus"]);
+                    cs.ring1SB = Convert.ToInt32(dr["SetBonus"]);
                 }
 
                 LoadItemEnch_cb();
@@ -744,7 +744,7 @@ namespace BDO_Builder
                     cs.ring2DefDamageAllExcept = Convert.ToInt32(dr["DamAllExHuman"]);
                     cs.ring2DefBidding = Convert.ToInt32(dr["MarketBidding"]);
                     cs.ring2DefSpiritRage = Convert.ToInt32(dr["BlackSpirit"]);
-                    //cs.ring2SB = Convert.ToInt32(dr["SetBonus"]);
+                    cs.ring2SB = Convert.ToInt32(dr["SetBonus"]);
                 }
 
                 LoadItemEnch_cb();
@@ -802,7 +802,7 @@ namespace BDO_Builder
                     cs.ear1DefSpiritRage = Convert.ToInt32(dr["BlackSpirit"]);
                     cs.ear1DefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
                     cs.ear1DefKamaDamage = Convert.ToInt32(dr["KamaDamage"]);
-                    //cs.ear1SB = Convert.ToInt32(dr["SetBonus"]);
+                    cs.ear1SB = Convert.ToInt32(dr["SetBonus"]);
                 }
 
                 LoadItemEnch_cb();
@@ -855,7 +855,7 @@ namespace BDO_Builder
                     cs.ear2DefSpiritRage = Convert.ToInt32(dr["BlackSpirit"]);
                     cs.ear2DefAPagainst = Convert.ToInt32(dr["ApAgainst"]);
                     cs.ear2DefKamaDamage = Convert.ToInt32(dr["KamaDamage"]);
-                    //cs.ear2SB = Convert.ToInt32(dr["SetBonus"]);
+                    cs.ear2SB = Convert.ToInt32(dr["SetBonus"]);
                 }
 
                 LoadItemEnch_cb();
@@ -1208,7 +1208,8 @@ namespace BDO_Builder
                     cs.mwDefIgnore = Convert.ToInt32(dr["IgnoreRes"]);
                     cs.mwDefRecoveryChance = Convert.ToInt32(dr["ChanceRecovery"]);
                     cs.mwEnch = Convert.ToBoolean(dr["Ench"]);
-                    }
+                    cs.mwSB = Convert.ToInt32(dr["SetBonus"]);
+                }
                 
                 LoadItemEnch_cb();
                 LoadItemCaph_cb();
@@ -1268,6 +1269,7 @@ namespace BDO_Builder
                     cs.swDefSpecialAttackDam = Convert.ToInt32(dr["SpecialAttackDam"]);
                     cs.swDefAllRes = Convert.ToInt32(dr["AllRes"]);
                     cs.swEnch = Convert.ToBoolean(dr["Ench"]);
+                    cs.swSB = Convert.ToInt32(dr["SetBonus"]);
                 }
 
                 LoadItemEnch_cb();
@@ -1373,11 +1375,13 @@ namespace BDO_Builder
             //SetBonus
             cs.BossSetBonusCheck();
             cs.AccSetBonusCheck();
+            cs.WeaponSetBonusCheck();
             bsb_lbl.Text = cs.b_sb.ToString();
             lsb_lbl.Text = cs.l_sb.ToString();
             asb_lbl.Text = cs.a_sb.ToString();
             cs.BossSetBonus();
             cs.AccSetBonus();
+            cs.WeaponSetBonus();
             FillCharacterState();
         }
 

@@ -272,6 +272,22 @@ namespace BDO_Builder
         //Val DP
         public int a_vd_b2;
 
+        //Weapon Set
+        //KreaSetBonus Check (WeaponSetBonus = 1)
+        public int k_sb;
+        public int k_mwb;
+        public int k_swb; 
+        //RosarSetBonus Check (WeaponSetBonus = 2)
+        public int r_sb;
+        public int r_mwb;
+        public int r_swb; 
+        
+        //Acc SetBonus (num)
+        //Krea
+        public int k_b2;
+        //Rosar
+        public int r_b2;
+
         //Caphras  Arm
         public int c_armHP;
         public int c_armdp;
@@ -746,6 +762,7 @@ namespace BDO_Builder
         public int mwDefDamDemi;
         public int mwHidenAP;
         public int mwDefHidenAP;
+        public int mwSB;
 
 
         //Sub-Weapons State
@@ -786,6 +803,7 @@ namespace BDO_Builder
         public int swDefMaxMP;
         public int swDP;
         public int swDefDP;
+        public int swSB;
 
         //Alchemy Stones State
         public int asId = 0;
@@ -4590,7 +4608,41 @@ namespace BDO_Builder
             if (a_vd_sb == 2 && a_vd_b2 == 0) { a_vd_b2 = 5; cdfm -= a_vd_b2; }
         }
 
-        public void AwakeningState(string chClass)
+        public void WeaponSetBonusCheck()
+        {
+            k_sb -= k_mwb; // Krea (1)
+            k_sb -= k_swb;
+            r_sb -= r_mwb; // Rosar (2)
+            r_sb -= r_swb;
+
+            //Krea
+            if (mwSB == 1) { k_mwb = 1; }
+            if (mwSB != 1 && k_mwb > 0) { k_mwb -= 1; }
+            if (swSB == 1) { k_swb = 1; }
+            if (swSB != 1 && k_swb > 0) { k_swb -= 1; }
+            //Rosar
+            if (mwSB == 2) { r_mwb = 1; }
+            if (mwSB != 2 && r_mwb > 0) { r_mwb -= 1; }
+            if (swSB == 2) { r_swb = 1; }
+            if (swSB != 2 && r_swb > 0) { r_swb -= 1; }
+
+            k_sb += k_mwb;
+            k_sb += k_swb;
+            r_sb += r_mwb;
+            r_sb += r_swb;
+        }
+
+        public void WeaponSetBonus()
+        {
+            //Krea
+            if (k_sb < 2) { cacc -= k_b2; k_b2 = 0; }
+            if (k_sb == 2 && k_b2 == 0) { k_b2 = 20; cacc += k_b2; }
+            //Rosar
+            if (r_sb < 2) { cResistIgnore -= r_b2; r_b2 = 0; }
+            if (r_sb == 2 && r_b2 == 0) { r_b2 = 10; cResistIgnore += r_b2; }
+        }
+
+            public void AwakeningState(string chClass)
         {
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "select * from [" + chClass + " Awakening Weapons] where Id='" + awkId.ToString() + "'";
