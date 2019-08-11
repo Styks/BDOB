@@ -545,8 +545,6 @@ namespace BDO_Builder
 
         private void SelectedGear_cb_SelectedIndexChanged(object sender, EventArgs e)
         {
-          //ItemCaph_cb.Visible = false;
-          //Caph_lbl.Visible = false;
           ItemStatClear();
           SqlCommand cmd = Base_Connect.Connection.CreateCommand();
           cmd.CommandType = CommandType.Text;
@@ -1381,7 +1379,6 @@ namespace BDO_Builder
             cs.BossSetBonus();
             cs.AccSetBonus();
             FillCharacterState();
-
         }
 
         private void LoadItemEnch_cb()
@@ -1438,7 +1435,7 @@ namespace BDO_Builder
 
         private void LoadItemCaph_cb()
         {
-            if (cs.mwEnchLvl >= 18 & cs.mwId != 0 & cs.mwId != 3 & cs.sgn == 12 | cs.awkEnchLvl >= 18 & cs.awkId != 2 & cs.sgn == 11 | cs.swEnchLvl >= 18 & cs.swId != 7 & cs.sgn == 13 | cs.armEnchLvl >= 18 & cs.sgn == 7 | cs.helEnchLvl >= 18 & cs.sgn == 8 | cs.glovEnchLvl >= 18 & cs.sgn == 9 | cs.shEnchLvl >= 18 & cs.sgn == 10)
+            if (cs.mwEnchLvl >= 18 & cs.mwId != 0 & cs.mwId != 3 & cs.sgn == 12 & cs.mwEnch == true | cs.awkEnchLvl >= 18 & cs.awkId != 1 & cs.sgn == 11 & cs.awkEnch == true | cs.swEnchLvl >= 18 & cs.swId != 7 & cs.sgn == 13 & cs.swEnch == true | cs.armEnchLvl >= 18 & cs.sgn == 7 & cs.armEnch == true | cs.helEnchLvl >= 18 & cs.sgn == 8 & cs.helEnch == true | cs.glovEnchLvl >= 18 & cs.sgn == 9 & cs.glovEnch == true | cs.shEnchLvl >= 18 & cs.sgn == 10 & cs.shEnch == true)
             {
                 ItemCaph_cb.SelectedIndexChanged -= ItemCaph_cb_SelectedIndexChanged;
                 ItemCaph_cb.Visible = true;
@@ -1736,6 +1733,10 @@ namespace BDO_Builder
 
             else if (cs.sgn == 11)
             {
+                LoadItemCaph_cb();
+                if (cs.awkEnchLvl >= 18) { TempCaphLvl = ItemCaph_cb.SelectedIndex; cs.awkCaphLvl = TempCaphLvl; }
+                if (cs.awkEnchLvl >= 18 & ItemEnch_cb.SelectedIndex != cs.awkEnchLvl) { ItemCaph_cb.SelectedIndex = 0; cs.awkCaphLvl = 0; TempCaphLvl = 0; }
+                else if (cs.awkEnchLvl < 18) { cs.awkCaphLvl = 0; }
 
                 cs.awkEnchLvl = ItemEnch_cb.SelectedIndex;
                 cs.AwakeningState(sclass);
@@ -1755,6 +1756,10 @@ namespace BDO_Builder
 
             else if (cs.sgn == 12)
             {
+                LoadItemCaph_cb();
+                if (cs.mwEnchLvl >= 18) { TempCaphLvl = ItemCaph_cb.SelectedIndex; cs.mwCaphLvl = TempCaphLvl; }
+                if (cs.mwEnchLvl >= 18 & ItemEnch_cb.SelectedIndex != cs.mwEnchLvl) { ItemCaph_cb.SelectedIndex = 0; cs.mwCaphLvl = 0; TempCaphLvl = 0; }
+                else if (cs.mwEnchLvl < 18) { cs.mwCaphLvl = 0; }
 
                 cs.mwEnchLvl = ItemEnch_cb.SelectedIndex;
                 cs.MainWeaponState(chWeapon);
@@ -1779,6 +1784,10 @@ namespace BDO_Builder
             } //Main Weapons
             else if (cs.sgn == 13)
             {
+                LoadItemCaph_cb();
+                if (cs.swEnchLvl >= 18) { TempCaphLvl = ItemCaph_cb.SelectedIndex; cs.swCaphLvl = TempCaphLvl; }
+                if (cs.swEnchLvl >= 18 & ItemEnch_cb.SelectedIndex != cs.swEnchLvl) { ItemCaph_cb.SelectedIndex = 0; cs.swCaphLvl = 0; TempCaphLvl = 0; }
+                else if (cs.swEnchLvl < 18) { cs.swCaphLvl = 0; }
 
                 cs.swEnchLvl = ItemEnch_cb.SelectedIndex;
                 cs.SubWeaponState(chSubWeapon);
@@ -1825,6 +1834,11 @@ namespace BDO_Builder
 
             if (cs.sgn == 11 | cs.sgn == 12 | cs.sgn == 13)
             {
+                if (cs.sgn == 11) cs.awkCaphLvl = ItemCaph_cb.SelectedIndex;
+                if (cs.sgn == 12) cs.mwCaphLvl = ItemCaph_cb.SelectedIndex;
+                if (cs.sgn == 13) cs.swCaphLvl = ItemCaph_cb.SelectedIndex;
+                cs.AllWeaponCaphState();
+                FillCharacterState();
             } // Weapons
         }
 

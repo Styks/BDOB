@@ -304,6 +304,23 @@ namespace BDO_Builder
         public int c_shdr;
         public int c_shMP;
         public int c_shhdr;
+        //Caphras AW
+        public int c_awAAP;
+        public int c_awAcc;
+        //Caphras MW
+        public int c_mwAP;
+        public int c_mwAcc;
+        //Caphras SW
+        public int c_swAP;
+        public int c_swAAP;
+        public int c_swAcc;
+        public int c_swHP;
+        public int c_swMP;
+        public int c_swDP;
+        public int c_swHDR;
+        public int c_swEva;
+        public int c_swHEva;
+        public int c_swDR;
 
         // Belt stats
         public int beltap; //Betl AP
@@ -6308,7 +6325,226 @@ namespace BDO_Builder
                 }
             }
         }
+        public void AllWeaponCaphState()
+        {
+            if (sgn == 11) //AW
+            {
+                if (awkEnchLvl == 18 | awkEnchLvl == 19)
+                {
+                    caap -= c_awAAP;
+                    cacc -= c_awAcc;
 
+                    if (awkCaphLvl == 0) { c_awAAP = 0; c_awAcc = 0; }
+                    if (awkCaphLvl == 1) { c_awAAP = 1; }
+                    if (awkCaphLvl == 2) { c_awAAP = 2; }
+                    if (awkCaphLvl == 3) { c_awAAP = 3; }
+                    if (awkCaphLvl == 4) { c_awAAP = 4; }
+                    if (awkCaphLvl == 5) { c_awAAP = 4; c_awAcc = 1; }
+                    if (awkCaphLvl == 6) { c_awAAP = 4; c_awAcc = 2; }
+                    if (awkCaphLvl == 7) { c_awAAP = 4; c_awAcc = 3; }
+                    if (awkCaphLvl == 8) { c_awAAP = 5; c_awAcc = 3; }
+                    if (awkCaphLvl == 9) { c_awAAP = 5; c_awAcc = 4; }
+                    if (awkCaphLvl == 10) { c_awAAP = 5; c_awAcc = 5; }
+                    if (awkCaphLvl == 11) { c_awAAP = 5; c_awAcc = 6; }
+                    if (awkCaphLvl == 12) { c_awAAP = 6; c_awAcc = 6; }
+                    if (awkCaphLvl == 13) { c_awAAP = 6; c_awAcc = 7; }
+                    if (awkCaphLvl == 14) { c_awAAP = 6; c_awAcc = 8; }
+                    if (awkCaphLvl == 15) { c_awAAP = 6; c_awAcc = 9; }
+                    if (awkCaphLvl == 16) { c_awAAP = 7; c_awAcc = 9; }
+                    if (awkCaphLvl == 17) { c_awAAP = 7; c_awAcc = 10; }
+                    if (awkCaphLvl == 18) { c_awAAP = 7; c_awAcc = 11; }
+                    if (awkCaphLvl == 19) { c_awAAP = 7; c_awAcc = 12; }
+                    if (awkCaphLvl == 20) { c_awAAP = 8; c_awAcc = 12; }
+
+                    caap += c_awAAP;
+                    cacc += c_awAcc;
+                }
+                if (awkEnchLvl == 20)
+                {
+                    caap -= c_awAAP;
+                    cacc -= c_awAcc;
+
+                    if (awkCaphLvl == 0) { c_awAAP = 0; c_awAcc = 0; }
+                    if (awkCaphLvl == 1) { c_awAAP = 1; }
+                    if (awkCaphLvl == 2) { c_awAAP = 1; c_awAcc = 3; }
+                    if (awkCaphLvl == 3) { c_awAAP = 2; c_awAcc = 3; }
+                    if (awkCaphLvl == 4) { c_awAAP = 2; c_awAcc = 4; }
+                    if (awkCaphLvl == 5) { c_awAAP = 3; c_awAcc = 4; }
+                    if (awkCaphLvl == 6) { c_awAAP = 3; c_awAcc = 5; }
+                    if (awkCaphLvl == 7) { c_awAAP = 4; c_awAcc = 5; }
+                    if (awkCaphLvl == 8) { c_awAAP = 4; c_awAcc = 6; }
+                    if (awkCaphLvl == 9) { c_awAAP = 5; c_awAcc = 6; }
+                    if (awkCaphLvl == 10) { c_awAAP = 5; c_awAcc = 7; }
+                    if (awkCaphLvl == 11) { c_awAAP = 6; c_awAcc = 7; }
+                    if (awkCaphLvl == 12) { c_awAAP = 6; c_awAcc = 8; }
+                    if (awkCaphLvl == 13) { c_awAAP = 7; c_awAcc = 8; }
+                    if (awkCaphLvl == 14) { c_awAAP = 7; c_awAcc = 9; }
+                    if (awkCaphLvl == 15) { c_awAAP = 8; c_awAcc = 9; }
+                    if (awkCaphLvl == 16) { c_awAAP = 8; c_awAcc = 10; }
+                    if (awkCaphLvl == 17) { c_awAAP = 9; c_awAcc = 10; }
+                    if (awkCaphLvl == 18) { c_awAAP = 9; c_awAcc = 11; }
+                    if (awkCaphLvl == 19) { c_awAAP = 10; c_awAcc = 11; }
+                    if (awkCaphLvl == 20) { c_awAAP = 10; c_awAcc = 12; }
+
+                    caap += c_awAAP;
+                    cacc += c_awAcc;
+                }
+            }
+            if (sgn == 12) //MW
+            {
+                if (mwEnchLvl == 18 | mwEnchLvl == 19)
+                {
+                    cap -= c_mwAP;
+                    cacc -= c_mwAcc;
+
+                    if (mwCaphLvl == 0) { c_mwAP = 0; c_mwAcc = 0; }
+                    if (mwCaphLvl == 1) { c_mwAP = 1; }
+                    if (mwCaphLvl == 2) { c_mwAP = 2; }
+                    if (mwCaphLvl == 3) { c_mwAP = 3; }
+                    if (mwCaphLvl == 4) { c_mwAP = 4; }
+                    if (mwCaphLvl == 5) { c_mwAP = 4; c_mwAcc = 1; }
+                    if (mwCaphLvl == 6) { c_mwAP = 4; c_mwAcc = 2; }
+                    if (mwCaphLvl == 7) { c_mwAP = 4; c_mwAcc = 3; }
+                    if (mwCaphLvl == 8) { c_mwAP = 5; c_mwAcc = 3; }
+                    if (mwCaphLvl == 9) { c_mwAP = 5; c_mwAcc = 4; }
+                    if (mwCaphLvl == 10) { c_mwAP = 5; c_mwAcc = 5; }
+                    if (mwCaphLvl == 11) { c_mwAP = 5; c_mwAcc = 6; }
+                    if (mwCaphLvl == 12) { c_mwAP = 6; c_mwAcc = 6; }
+                    if (mwCaphLvl == 13) { c_mwAP = 6; c_mwAcc = 7; }
+                    if (mwCaphLvl == 14) { c_mwAP = 6; c_mwAcc = 8; }
+                    if (mwCaphLvl == 15) { c_mwAP = 6; c_mwAcc = 9; }
+                    if (mwCaphLvl == 16) { c_mwAP = 7; c_mwAcc = 9; }
+                    if (mwCaphLvl == 17) { c_mwAP = 7; c_mwAcc = 10; }
+                    if (mwCaphLvl == 18) { c_mwAP = 7; c_mwAcc = 11; }
+                    if (mwCaphLvl == 19) { c_mwAP = 7; c_mwAcc = 12; }
+                    if (mwCaphLvl == 20) { c_mwAP = 8; c_mwAcc = 12; }
+
+                    cap += c_mwAP;
+                    cacc += c_mwAcc;
+                }
+                if (mwEnchLvl == 20)
+                {
+                    cap -= c_mwAP;
+                    cacc -= c_mwAcc;
+
+                    if (mwCaphLvl == 0) { c_mwAP = 0; c_mwAcc = 0; }
+                    if (mwCaphLvl == 1) { c_mwAP = 1; }
+                    if (mwCaphLvl == 2) { c_mwAP = 1; c_mwAcc = 3; }
+                    if (mwCaphLvl == 3) { c_mwAP = 2; c_mwAcc = 3; }
+                    if (mwCaphLvl == 4) { c_mwAP = 2; c_mwAcc = 4; }
+                    if (mwCaphLvl == 5) { c_mwAP = 3; c_mwAcc = 4; }
+                    if (mwCaphLvl == 6) { c_mwAP = 3; c_mwAcc = 5; }
+                    if (mwCaphLvl == 7) { c_mwAP = 4; c_mwAcc = 5; }
+                    if (mwCaphLvl == 8) { c_mwAP = 4; c_mwAcc = 6; }
+                    if (mwCaphLvl == 9) { c_mwAP = 5; c_mwAcc = 6; }
+                    if (mwCaphLvl == 10) { c_mwAP = 5; c_mwAcc = 7; }
+                    if (mwCaphLvl == 11) { c_mwAP = 6; c_mwAcc = 7; }
+                    if (mwCaphLvl == 12) { c_mwAP = 6; c_mwAcc = 8; }
+                    if (mwCaphLvl == 13) { c_mwAP = 7; c_mwAcc = 8; }
+                    if (mwCaphLvl == 14) { c_mwAP = 7; c_mwAcc = 9; }
+                    if (mwCaphLvl == 15) { c_mwAP = 8; c_mwAcc = 9; }
+                    if (mwCaphLvl == 16) { c_mwAP = 8; c_mwAcc = 10; }
+                    if (mwCaphLvl == 17) { c_mwAP = 9; c_mwAcc = 10; }
+                    if (mwCaphLvl == 18) { c_mwAP = 9; c_mwAcc = 11; }
+                    if (mwCaphLvl == 19) { c_mwAP = 10; c_mwAcc = 11; }
+                    if (mwCaphLvl == 20) { c_mwAP = 10; c_mwAcc = 12; }
+
+                    cap += c_mwAP;
+                    cacc += c_mwAcc;
+                }
+            }
+            if (sgn == 13) //SW
+            {
+                if (swEnchLvl == 18 | swEnchLvl == 19)
+                {
+                    cap -= c_swAP;
+                    caap -= c_swAAP;
+                    cacc -= c_awAcc;
+                    cMaxHP -= c_swHP;
+                    cMaxMP -= c_swMP;
+                    cdp -= c_swDP;
+                    chdr -= c_swHDR;
+                    cev -= c_swEva;
+                    chev -= c_swHEva;
+
+                    if (swCaphLvl == 0) { c_swAcc = 0; c_swHP = 0; c_swMP = 0; c_swDP = 0; c_swEva = 0; c_swHEva = 0; c_swHDR = 0; c_swAP = 0; c_swAAP = 0; }
+                    if (swCaphLvl == 1) { c_swAcc = 4; }
+                    if (swCaphLvl == 2) { c_swAcc = 4; c_swHP = 10; }
+                    if (swCaphLvl == 3) { c_swAcc = 4; c_swHP = 10; c_swMP = 10; }
+                    if (swCaphLvl == 4) { c_swAcc = 4; c_swHP = 10; c_swMP = 10; c_swDP = 1; c_swEva = 1; c_swHEva = 2; }
+                    if (swCaphLvl == 5) { c_swAcc = 4; c_swHP = 10; c_swMP = 10; c_swDP = 1; c_swEva = 1; c_swHEva = 2; c_swHDR = 1; }
+                    if (swCaphLvl == 6) { c_swAcc = 4; c_swHP = 20; c_swMP = 10; c_swDP = 1; c_swEva = 1; c_swHEva = 2; c_swHDR = 1; }
+                    if (swCaphLvl == 7) { c_swAcc = 5; c_swHP = 20; c_swMP = 10; c_swDP = 1; c_swEva = 1; c_swHEva = 2; c_swHDR = 1; }
+                    if (swCaphLvl == 8) { c_swAcc = 5; c_swHP = 20; c_swMP = 10; c_swDP = 1; c_swEva = 1; c_swHEva = 3; c_swHDR = 1; }
+                    if (swCaphLvl == 9) { c_swAcc = 5; c_swHP = 20; c_swMP = 15; c_swDP = 1; c_swEva = 1; c_swHEva = 3; c_swHDR = 1; }
+                    if (swCaphLvl == 10) { c_swAcc = 5; c_swHP = 20; c_swMP = 15; c_swDP = 1; c_swEva = 1; c_swHEva = 3; c_swHDR = 1; c_swAP = 1; c_swAAP = 1; }
+                    if (swCaphLvl == 11) { c_swAcc = 6; c_swHP = 20; c_swMP = 15; c_swDP = 1; c_swEva = 1; c_swHEva = 3; c_swHDR = 1; c_swAP = 1; c_swAAP = 1; }
+                    if (swCaphLvl == 12) { c_swAcc = 6; c_swHP = 30; c_swMP = 15; c_swDP = 1; c_swEva = 1; c_swHEva = 3; c_swHDR = 1; c_swAP = 1; c_swAAP = 1; }
+                    if (swCaphLvl == 13) { c_swAcc = 6; c_swHP = 30; c_swMP = 20; c_swDP = 1; c_swEva = 1; c_swHEva = 3; c_swHDR = 1; c_swAP = 1; c_swAAP = 1; }
+                    if (swCaphLvl == 14) { c_swAcc = 6; c_swHP = 30; c_swMP = 20; c_swDP = 1; c_swEva = 1; c_swHEva = 4; c_swHDR = 1; c_swAP = 1; c_swAAP = 1; }
+                    if (swCaphLvl == 15) { c_swAcc = 7; c_swHP = 30; c_swMP = 20; c_swDP = 1; c_swEva = 1; c_swHEva = 4; c_swHDR = 1; c_swAP = 1; c_swAAP = 1; }
+                    if (swCaphLvl == 16) { c_swAcc = 7; c_swHP = 30; c_swMP = 20; c_swDP = 1; c_swEva = 1; c_swHEva = 4; c_swHDR = 2; c_swAP = 1; c_swAAP = 1; }
+                    if (swCaphLvl == 17) { c_swAcc = 7; c_swHP = 30; c_swMP = 25; c_swDP = 1; c_swEva = 1; c_swHEva = 4; c_swHDR = 2; c_swAP = 1; c_swAAP = 1; }
+                    if (swCaphLvl == 18) { c_swAcc = 7; c_swHP = 30; c_swMP = 25; c_swDP = 1; c_swEva = 1; c_swHEva = 5; c_swHDR = 2; c_swAP = 1; c_swAAP = 1; }
+                    if (swCaphLvl == 19) { c_swAcc = 8; c_swHP = 30; c_swMP = 25; c_swDP = 1; c_swEva = 1; c_swHEva = 5; c_swHDR = 2; c_swAP = 1; c_swAAP = 1; }
+                    if (swCaphLvl == 20) { c_swAcc = 8; c_swHP = 30; c_swMP = 25; c_swDP = 1; c_swEva = 1; c_swHEva = 5; c_swHDR = 2; c_swAP = 2; c_swAAP = 2; }
+
+                    cap += c_swAP;
+                    caap += c_swAAP;
+                    cacc += c_awAcc;
+                    cMaxHP += c_swHP;
+                    cMaxMP += c_swMP;
+                    cdp += c_swDP;
+                    chdr += c_swHDR;
+                    cev += c_swEva;
+                    chev += c_swHEva;
+                }
+                if (swEnchLvl == 20)
+                {
+                    cap -= c_swAP;
+                    caap -= c_swAAP;
+                    cacc -= c_awAcc;
+                    cMaxHP -= c_swHP;
+                    cDR -= c_swDR;
+                    cdp -= c_swDP;
+                    chdr -= c_swHDR;
+                    cev -= c_swEva;
+                    chev -= c_swHEva;
+
+                    if (swCaphLvl == 0) { c_swAcc = 0; c_swHDR = 0; c_swDP = 0; c_swDR = 0; c_swHEva = 0; c_swEva = 0; c_swHP = 0; c_swAP = 0; c_swAAP = 0; }
+                    if (swCaphLvl == 1) { c_swAcc = 4; }
+                    if (swCaphLvl == 2) { c_swAcc = 4; c_swHDR = 1; }
+                    if (swCaphLvl == 3) { c_swAcc = 4; c_swHDR = 1; c_swDP = 1; c_swDR = 1; }
+                    if (swCaphLvl == 4) { c_swAcc = 4; c_swHDR = 1; c_swDP = 1; c_swDR = 1; c_swHEva = 3; }
+                    if (swCaphLvl == 5) { c_swAcc = 4; c_swHDR = 1; c_swDP = 2; c_swDR = 1; c_swHEva = 3; c_swEva = 1; }
+                    if (swCaphLvl == 6) { c_swAcc = 4; c_swHDR = 1; c_swDP = 2; c_swDR = 1; c_swHEva = 3; c_swEva = 1; c_swHP = 20; }
+                    if (swCaphLvl == 7) { c_swAcc = 4; c_swHDR = 1; c_swDP = 2; c_swDR = 1; c_swHEva = 3; c_swEva = 1; c_swHP = 20; c_swAP = 1; c_swAAP = 1; }
+                    if (swCaphLvl == 8) { c_swAcc = 8; c_swHDR = 1; c_swDP = 2; c_swDR = 1; c_swHEva = 3; c_swEva = 1; c_swHP = 20; c_swAP = 1; c_swAAP = 1; }
+                    if (swCaphLvl == 9) { c_swAcc = 8; c_swHDR = 2; c_swDP = 2; c_swDR = 1; c_swHEva = 3; c_swEva = 1; c_swHP = 20; c_swAP = 1; c_swAAP = 1; }
+                    if (swCaphLvl == 10) { c_swAcc = 8; c_swHDR = 2; c_swDP = 3; c_swDR = 2; c_swHEva = 3; c_swEva = 1; c_swHP = 20; c_swAP = 1; c_swAAP = 1; }
+                    if (swCaphLvl == 11) { c_swAcc = 8; c_swHDR = 2; c_swDP = 3; c_swDR = 2; c_swHEva = 6; c_swEva = 1; c_swHP = 20; c_swAP = 1; c_swAAP = 1; }
+                    if (swCaphLvl == 12) { c_swAcc = 8; c_swHDR = 2; c_swDP = 4; c_swDR = 2; c_swHEva = 6; c_swEva = 2; c_swHP = 20; c_swAP = 1; c_swAAP = 1; }
+                    if (swCaphLvl == 13) { c_swAcc = 8; c_swHDR = 2; c_swDP = 4; c_swDR = 2; c_swHEva = 6; c_swEva = 2; c_swHP = 40; c_swAP = 1; c_swAAP = 1; }
+                    if (swCaphLvl == 14) { c_swAcc = 8; c_swHDR = 2; c_swDP = 4; c_swDR = 2; c_swHEva = 6; c_swEva = 2; c_swHP = 40; c_swAP = 2; c_swAAP = 2; }
+                    if (swCaphLvl == 15) { c_swAcc = 12; c_swHDR = 2; c_swDP = 4; c_swDR = 2; c_swHEva = 6; c_swEva = 2; c_swHP = 40; c_swAP = 2; c_swAAP = 2; }
+                    if (swCaphLvl == 16) { c_swAcc = 12; c_swHDR = 3; c_swDP = 4; c_swDR = 2; c_swHEva = 6; c_swEva = 2; c_swHP = 40; c_swAP = 2; c_swAAP = 2; }
+                    if (swCaphLvl == 17) { c_swAcc = 12; c_swHDR = 3; c_swDP = 5; c_swDR = 3; c_swHEva = 6; c_swEva = 2; c_swHP = 40; c_swAP = 2; c_swAAP = 2; }
+                    if (swCaphLvl == 18) { c_swAcc = 12; c_swHDR = 3; c_swDP = 5; c_swDR = 3; c_swHEva = 9; c_swEva = 2; c_swHP = 40; c_swAP = 2; c_swAAP = 2; }
+                    if (swCaphLvl == 19) { c_swAcc = 12; c_swHDR = 3; c_swDP = 6; c_swDR = 3; c_swHEva = 9; c_swEva = 3; c_swHP = 40; c_swAP = 2; c_swAAP = 2; }
+                    if (swCaphLvl == 20) { c_swAcc = 12; c_swHDR = 3; c_swDP = 6; c_swDR = 3; c_swHEva = 9; c_swEva = 3; c_swHP = 60; c_swAP = 2; c_swAAP = 2; }
+
+                    cap += c_swAP;
+                    caap += c_swAAP;
+                    cacc += c_awAcc;
+                    cMaxHP += c_swHP;
+                    cDR += c_swDR;
+                    cdp += c_swDP;
+                    chdr += c_swHDR;
+                    cev += c_swEva;
+                    chev += c_swHEva;
+                }
+            }
+        }
 
 
    }
