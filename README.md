@@ -1,3 +1,3 @@
 # BDOB
 Black Desert Online builder 
-(Windows Forms) C# .NET
+(Windows Forms) C# .NET Fraemwork
